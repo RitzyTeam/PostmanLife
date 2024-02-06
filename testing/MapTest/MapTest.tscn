@@ -1,11 +1,15 @@
-[gd_scene load_steps=9 format=3 uid="uid://d2ah2wxop7i43"]
+[gd_scene load_steps=10 format=3 uid="uid://d2ah2wxop7i43"]
 
 [ext_resource type="PackedScene" uid="uid://cc1m2a1obsyn4" path="res://objects/player/player.tscn" id="1_o0ceo"]
 [ext_resource type="Texture2D" uid="uid://dmb10712h8508" path="res://testing/MapTest/textures/texture_01.png" id="2_i0xnp"]
+[ext_resource type="PackedScene" uid="uid://d01cot26xdenh" path="res://testing/MapTest/models/house1.blend" id="3_n7ky2"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5vq5u"]
-sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
-ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+sky_top_color = Color(0.490196, 0.380392, 0.682353, 1)
+sky_horizon_color = Color(0.729412, 0.596078, 0.788235, 1)
+sky_curve = 0.3
+ground_bottom_color = Color(0.196078, 0.14902, 0.258824, 1)
+ground_horizon_color = Color(0.705882, 0.611765, 0.768627, 1)
 
 [sub_resource type="Sky" id="Sky_88an5"]
 sky_material = SubResource("ProceduralSkyMaterial_5vq5u")
@@ -37,8 +41,9 @@ data = PackedVector3Array(500, 0, 500, -500, 0, 500, 500, 0, -500, -500, 0, 500,
 environment = SubResource("Environment_rrkhf")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environment"]
-transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+transform = Transform3D(-0.853682, -0.510957, 0.100745, -0.356537, 0.714398, 0.602094, -0.379616, 0.478078, -0.792044, 0, 28.0806, -13.2335)
 shadow_enabled = true
+directional_shadow_split_1 = 0.138
 
 [node name="Level" type="Node" parent="."]
 
@@ -49,3 +54,6 @@ mesh = SubResource("PlaneMesh_eqk1k")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Level/ground/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_ove4w")
+
+[node name="house1" parent="Level" instance=ExtResource("3_n7ky2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
