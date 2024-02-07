@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cc1m2a1obsyn4" path="res://objects/player/player.tscn" id="1_o0ceo"]
 [ext_resource type="Texture2D" uid="uid://dmb10712h8508" path="res://testing/MapTest/textures/texture_01.png" id="2_i0xnp"]
-[ext_resource type="PackedScene" uid="uid://d01cot26xdenh" path="res://testing/MapTest/models/house1.blend" id="3_n7ky2"]
+[ext_resource type="PackedScene" uid="uid://bw22fpki8tyt5" path="res://testing/MapTest/objects/house_1.tscn" id="3_jck4k"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5vq5u"]
 sky_top_color = Color(0.490196, 0.380392, 0.682353, 1)
@@ -41,7 +41,7 @@ data = PackedVector3Array(500, 0, 500, -500, 0, 500, 500, 0, -500, -500, 0, 500,
 environment = SubResource("Environment_rrkhf")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environment"]
-transform = Transform3D(-0.853682, -0.510957, 0.100745, -0.356537, 0.714398, 0.602094, -0.379616, 0.478078, -0.792044, 0, 28.0806, -13.2335)
+transform = Transform3D(-0.192127, -0.675553, 0.71184, 0.952108, 0.0474962, 0.302051, -0.237861, 0.73578, 0.634074, 27.4386, 56.4522, -13.2335)
 shadow_enabled = true
 directional_shadow_split_1 = 0.138
 
@@ -55,5 +55,5 @@ mesh = SubResource("PlaneMesh_eqk1k")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Level/ground/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_ove4w")
 
-[node name="house1" parent="Level" instance=ExtResource("3_n7ky2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
+[node name="house1" parent="Level" instance=ExtResource("3_jck4k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -17)
