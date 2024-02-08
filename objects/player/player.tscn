@@ -322,9 +322,6 @@ layout_mode = 1
 reticle_lines = [NodePath("top"), NodePath("left"), NodePath("right"), NodePath("bottom")]
 character = NodePath("../../..")
 
-[node name="top" parent="UI/UserInterface/Reticle_1" index="1"]
-points = PackedVector2Array(0, -5, 0, -15)
-
 [node name="DebugPanel" type="PanelContainer" parent="UI/UserInterface"]
 layout_mode = 0
 offset_left = 10.0
