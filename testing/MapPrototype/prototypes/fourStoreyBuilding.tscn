@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://cbsterbpv2aun"]
+
+[ext_resource type="Texture2D" uid="uid://b80p1abug6uar" path="res://testing/MapPrototype/textures/green.png" id="1_tkfju"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_shiil"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j6dkr"]
+albedo_texture = ExtResource("1_tkfju")
+uv1_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_uewh3"]
+material = SubResource("StandardMaterial3D_j6dkr")
+size = Vector3(72, 16, 10)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_a84le"]
+data = PackedVector3Array(-36, 8, 5, 36, 8, 5, -36, -8, 5, 36, 8, 5, 36, -8, 5, -36, -8, 5, 36, 8, -5, -36, 8, -5, 36, -8, -5, -36, 8, -5, -36, -8, -5, 36, -8, -5, 36, 8, 5, 36, 8, -5, 36, -8, 5, 36, 8, -5, 36, -8, -5, 36, -8, 5, -36, 8, -5, -36, 8, 5, -36, -8, -5, -36, 8, 5, -36, -8, 5, -36, -8, -5, 36, 8, 5, -36, 8, 5, 36, 8, -5, -36, 8, 5, -36, 8, -5, 36, 8, -5, -36, -8, 5, 36, -8, 5, -36, -8, -5, 36, -8, 5, 36, -8, -5, -36, -8, -5)
+
+[node name="FourStoreyBuilding" type="StaticBody3D"]
+physics_material_override = SubResource("PhysicsMaterial_shiil")
+
+[node name="mesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8, 0)
+mesh = SubResource("BoxMesh_uewh3")
+
+[node name="collider" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8, 0)
+shape = SubResource("ConcavePolygonShape3D_a84le")
