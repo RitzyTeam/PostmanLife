@@ -53,6 +53,7 @@ extends CharacterBody3D
 # Member variables
 var speed : float = base_speed
 var current_speed : float = 0.0
+var stamina: float = 100
 # States: normal, crouching, sprinting
 var state : String = "normal"
 var low_ceiling : bool = false # This is for when the cieling is too low and the player needs to crouch.
@@ -75,6 +76,14 @@ func _ready():
 
 
 func _physics_process(delta):
+#region СТАМИНА
+	if stamina < 100 and state == 'normal':
+		stamina += 0.1
+	if Input.is_action_pressed(SPRINT):
+		var a = stamina - 0.1
+		if a > 0:
+			stamina -= 0.2
+#endregion
 	current_speed = Vector3.ZERO.distance_to(get_real_velocity())
 	$UI/UserInterface/DebugPanel.add_property("Speed", snappedf(current_speed, 0.001), 1)
 	$UI/UserInterface/DebugPanel.add_property("Target speed", speed, 2)
@@ -86,6 +95,7 @@ func _physics_process(delta):
 	]
 	var readable_velocity : String = "X: " + str(vd[0]) + " Y: " + str(vd[1]) + " Z: " + str(vd[2])
 	$UI/UserInterface/DebugPanel.add_property("Velocity", readable_velocity, 3)
+	$UI/UserInterface/DebugPanel.add_property("Stamina", stamina, 4)
 	
 	# Gravity
 	#gravity = ProjectSettings.get_setting("physics/3d/default_gravity") # If the gravity changes during your game, uncomment this code
@@ -154,7 +164,7 @@ func handle_movement(delta, input_dir):
 func handle_state(moving):
 	if sprint_enabled:
 		if sprint_mode == 0:
-			if Input.is_action_pressed(SPRINT) and state != "crouching":
+			if Input.is_action_pressed(SPRINT) and state != "crouching" and int(stamina) > 0:
 				if moving:
 					if state != "sprinting":
 						enter_sprint_state()
