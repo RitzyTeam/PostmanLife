@@ -25,6 +25,10 @@ window/stretch/aspect="expand"
 window/per_pixel_transparency/allowed=true
 window/vsync/vsync_mode=0
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/zylann.hterrain/plugin.cfg")
+
 [input]
 
 move_jump={
