@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://c66dar30xo83l"]
+[gd_scene load_steps=10 format=3 uid="uid://c66dar30xo83l"]
 
 [ext_resource type="Script" path="res://scenes/world/World.gd" id="1_xxt06"]
-[ext_resource type="Script" path="res://addons/zylann.hterrain/hterrain.gd" id="2_xp6g3"]
-[ext_resource type="Resource" path="res://scenes/world/t_data/data.hterrain" id="3_3ypi7"]
-[ext_resource type="Script" path="res://addons/zylann.hterrain/hterrain_texture_set.gd" id="4_k5o7h"]
+[ext_resource type="Script" path="res://addons/zylann.hterrain/hterrain.gd" id="2_j3jfb"]
+[ext_resource type="Resource" path="res://t_data/data.hterrain" id="3_i1rqj"]
+[ext_resource type="Script" path="res://addons/zylann.hterrain/hterrain_texture_set.gd" id="4_rbhmn"]
+[ext_resource type="PackedScene" uid="uid://cc1m2a1obsyn4" path="res://objects/player/player.tscn" id="5_6o1kf"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_314s4"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -18,8 +19,8 @@ sky = SubResource("Sky_irsj4")
 tonemap_mode = 2
 glow_enabled = true
 
-[sub_resource type="Resource" id="Resource_eou8r"]
-script = ExtResource("4_k5o7h")
+[sub_resource type="Resource" id="Resource_67kom"]
+script = ExtResource("4_rbhmn")
 mode = 0
 textures = [[], []]
 
@@ -46,9 +47,8 @@ shadow_enabled = true
 [node name="ground" type="Node" parent="Levels"]
 
 [node name="HTerrain" type="Node3D" parent="Levels/ground"]
-script = ExtResource("2_xp6g3")
-centered = true
-_terrain_data = ExtResource("3_3ypi7")
+script = ExtResource("2_j3jfb")
+_terrain_data = ExtResource("3_i1rqj")
 chunk_size = 32
 collision_enabled = true
 collision_layer = 1
@@ -56,12 +56,17 @@ collision_mask = 1
 shader_type = "Classic4Lite"
 custom_shader = null
 custom_globalmap_shader = null
-texture_set = SubResource("Resource_eou8r")
+texture_set = SubResource("Resource_67kom")
 render_layers = 1
 cast_shadow = 1
 shader_params/u_ground_uv_scale = 20
 shader_params/u_depth_blending = true
 shader_params/u_triplanar = null
 shader_params/u_tile_reduction = null
+
+[node name="Player" parent="." instance=ExtResource("5_6o1kf")]
+transform = Transform3D(1, 0, 0, 0, 0.999918, -0.0128104, 0, 0.0128104, 0.999918, 137.513, 33.6154, 9.48757)
+collision_layer = 3
+collision_mask = 3
 
 [connection signal="timeout" from="SERVERS/timer_daycycle" to="." method="_on_timer_daycycle_timeout"]
