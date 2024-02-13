@@ -1,3 +1,14 @@
-[gd_scene format=3 uid="uid://c66dar30xo83l"]
+[gd_scene load_steps=2 format=3 uid="uid://c66dar30xo83l"]
+
+[ext_resource type="Script" path="res://scenes/world/World.gd" id="1_xxt06"]
 
 [node name="World" type="Node"]
+script = ExtResource("1_xxt06")
+
+[node name="SERVERS" type="Node" parent="."]
+
+[node name="timer_daycycle" type="Timer" parent="SERVERS"]
+wait_time = 0.5
+autostart = true
+
+[connection signal="timeout" from="SERVERS/timer_daycycle" to="." method="_on_timer_daycycle_timeout"]
