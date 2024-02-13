@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bgdwgfpih6dj0"
-path="res://.godot/imported/road1.blend-32f166f47618d6623439fa872ed69ab9.scn"
+uid="uid://dxqjicwmati80"
+path="res://.godot/imported/busStop.blend-a5b1c5503d065f57a38b1a10db8eee20.scn"
 
 [deps]
 
-source_file="res://testing/MapPrototype/models/road1.blend"
-dest_files=["res://.godot/imported/road1.blend-32f166f47618d6623439fa872ed69ab9.scn"]
+source_file="res://assets/models/busStop.blend"
+dest_files=["res://.godot/imported/busStop.blend-a5b1c5503d065f57a38b1a10db8eee20.scn"]
 
 [params]
 

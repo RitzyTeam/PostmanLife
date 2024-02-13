@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://5x5q6rqn7qbu"
-path="res://.godot/imported/lamppost.blend-50a5263b2ae1803d32d33becd3b6a5e3.scn"
+path="res://.godot/imported/lamppost.blend-7a32a813d0f0592ef4865bb38318403d.scn"
 
 [deps]
 
-source_file="res://testing/MapPrototype/models/lamppost.blend"
-dest_files=["res://.godot/imported/lamppost.blend-50a5263b2ae1803d32d33becd3b6a5e3.scn"]
+source_file="res://assets/models/lamppost.blend"
+dest_files=["res://.godot/imported/lamppost.blend-7a32a813d0f0592ef4865bb38318403d.scn"]
 
 [params]
 

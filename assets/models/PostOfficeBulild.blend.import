@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://d02ivufl28oof"
-path="res://.godot/imported/stone1.blend-14930f0c612de5f2d971a3c0bf07cf0e.scn"
+uid="uid://ckthoht2tqua4"
+path="res://.godot/imported/PostOfficeBulild.blend-22d3603bf6e9911d27704e1054e9516b.scn"
 
 [deps]
 
-source_file="res://testing/MapPrototype/models/stone1.blend"
-dest_files=["res://.godot/imported/stone1.blend-14930f0c612de5f2d971a3c0bf07cf0e.scn"]
+source_file="res://assets/models/PostOfficeBulild.blend"
+dest_files=["res://.godot/imported/PostOfficeBulild.blend-22d3603bf6e9911d27704e1054e9516b.scn"]
 
 [params]
 

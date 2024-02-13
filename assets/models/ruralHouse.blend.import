@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://drrvp2s6j1u3n"
-path="res://.godot/imported/road3.blend-1522609afb5c4bf871f481bed6efedb3.scn"
+uid="uid://bk4v0uv6pn5kx"
+path="res://.godot/imported/ruralHouse.blend-9c3873898f38bae0aec022cc4ce330e3.scn"
 
 [deps]
 
-source_file="res://testing/MapPrototype/models/road3.blend"
-dest_files=["res://.godot/imported/road3.blend-1522609afb5c4bf871f481bed6efedb3.scn"]
+source_file="res://assets/models/ruralHouse.blend"
+dest_files=["res://.godot/imported/ruralHouse.blend-9c3873898f38bae0aec022cc4ce330e3.scn"]
 
 [params]
 
