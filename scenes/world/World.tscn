@@ -17,23 +17,14 @@
 [ext_resource type="Script" path="res://addons/proton_scatter/src/scatter_shape.gd" id="15_07gcd"]
 [ext_resource type="Script" path="res://addons/proton_scatter/src/shapes/path_shape.gd" id="15_vmmr1"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5yfkv"]
-sky_top_color = Color(0.509804, 0.388235, 0.619608, 1)
-sky_horizon_color = Color(0.772549, 0.588235, 0.72549, 1)
-sky_curve = 0.424264
-ground_bottom_color = Color(0.431373, 0.270588, 0.392157, 1)
-ground_horizon_color = Color(0.772549, 0.588235, 0.72549, 1)
-ground_curve = 0.0828216
-sun_angle_max = 17.14
-sun_curve = 0.106066
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_np151"]
 
-[sub_resource type="Sky" id="Sky_irsj4"]
-sky_material = SubResource("ProceduralSkyMaterial_5yfkv")
-process_mode = 3
+[sub_resource type="Sky" id="Sky_rql5v"]
+sky_material = SubResource("ProceduralSkyMaterial_np151")
 
 [sub_resource type="Environment" id="Environment_kqe7o"]
 background_mode = 2
-sky = SubResource("Sky_irsj4")
+sky = SubResource("Sky_rql5v")
 tonemap_mode = 2
 ssr_enabled = true
 ssao_enabled = true
@@ -105,19 +96,27 @@ material = SubResource("ShaderMaterial_rbf8v")
 size = Vector2(500, 500)
 orientation = 1
 
+<<<<<<< Updated upstream
 [sub_resource type="Resource" id="Resource_euvms"]
+=======
+[sub_resource type="Resource" id="Resource_mf6br"]
+>>>>>>> Stashed changes
 script = ExtResource("10_n2sqe")
-amount = 1000
+amount = 300
 enabled = true
 override_global_seed = false
 custom_seed = 0
 restrict_height = true
 reference_frame = 1
 
+<<<<<<< Updated upstream
 [sub_resource type="Resource" id="Resource_mulc4"]
+=======
+[sub_resource type="Resource" id="Resource_2y7m5"]
+>>>>>>> Stashed changes
 script = ExtResource("11_poecr")
 position = Vector3(0.15, 0.15, 0.15)
-rotation = Vector3(0, 360, 0)
+rotation = Vector3(20, 360, 0)
 scale = Vector3(0.1, 0.1, 0.1)
 enabled = true
 override_global_seed = false
@@ -125,7 +124,11 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 2
 
+<<<<<<< Updated upstream
 [sub_resource type="Resource" id="Resource_xmsau"]
+=======
+[sub_resource type="Resource" id="Resource_kebpa"]
+>>>>>>> Stashed changes
 script = ExtResource("12_2l3wf")
 iterations = 3
 offset_step = 0.2
@@ -137,7 +140,11 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 0
 
+<<<<<<< Updated upstream
 [sub_resource type="Resource" id="Resource_d7fku"]
+=======
+[sub_resource type="Resource" id="Resource_yhcia"]
+>>>>>>> Stashed changes
 script = ExtResource("13_nn5eb")
 ray_direction = Vector3(0, -1, 0)
 ray_length = 5.0
@@ -153,22 +160,28 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 0
 
+<<<<<<< Updated upstream
 [sub_resource type="Resource" id="Resource_sk1dh"]
 script = ExtResource("9_b00b6")
 stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_euvms"), SubResource("Resource_mulc4"), SubResource("Resource_xmsau"), SubResource("Resource_d7fku")])
+=======
+[sub_resource type="Resource" id="Resource_judmu"]
+script = ExtResource("9_b00b6")
+stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_mf6br"), SubResource("Resource_2y7m5"), SubResource("Resource_kebpa"), SubResource("Resource_yhcia")])
+>>>>>>> Stashed changes
 
-[sub_resource type="Curve3D" id="Curve3D_ugl7e"]
+[sub_resource type="Curve3D" id="Curve3D_gh4jj"]
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.160696, 0, -188.405, 0, 0, 0, 0, 0, 0, 32.3806, 0, -166.17, 0, 0, 0, 0, 0, 0, 112.432, 0, -76.455, 0, 0, 0, 0, 0, 0, 210.783, 0, -65.8093, 0, 0, 0, 0, 0, 0, 314.097, 0, -52.6488, 0, 0, 0, 0, 0, 0, 402.657, 0, -24.7224, 0, 0, 0, 0, 0, 0, 395.533, 0, -1.98645, 0, 0, 0, 0, 0, 0, -0.39875, 0, -0.188965),
-"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0)
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -1.21787, -7.62939e-06, 0.511414, 0, 0, 0, 0, 0, 0, 1.15607, 0, -117.507, 0, 0, 0, 0, 0, 0, 7.14078, 0, -162.362, 0, 0, 0, 0, 0, 0, 31.777, 0, -164.122, 0, 0, 0, 0, 0, 0, 104.513, 0, -76.7221, 0, 0, 0, 0, 0, 0, 177.835, 0, -60.2979, 0, 0, 0, 0, 0, 0, 265.235, 0, -59.1248, 0, 0, 0, 0, 0, 0, 353.43, 0, -29.739, 0, 0, 0, 0, 0, 0, 397.423, 0, -19.1806, 0, 0, 0, 0, 0, 0, 392.144, 0, 2.52283, 0, 0, 0, 0, 0, 0, -0.276722, 0, 1.34967),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 }
-point_count = 9
+point_count = 11
 
-[sub_resource type="Resource" id="Resource_74bvi"]
+[sub_resource type="Resource" id="Resource_ne0h3"]
 script = ExtResource("15_vmmr1")
 closed = true
 thickness = 0.0
-curve = SubResource("Curve3D_ugl7e")
+curve = SubResource("Curve3D_gh4jj")
 
 [node name="World" type="Node"]
 script = ExtResource("1_xxt06")
@@ -211,7 +224,6 @@ cast_shadow = 1
 
 [node name="water" type="MeshInstance3D" parent="Levels/lake"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 271.222, -0.76712, 268.675)
-visible = false
 mesh = SubResource("QuadMesh_edxtc")
 
 [node name="roads" type="Node" parent="Levels"]
@@ -220,33 +232,37 @@ mesh = SubResource("QuadMesh_edxtc")
 
 [node name="trees" type="Node" parent="Levels"]
 
-[node name="ProtonScatter" type="Node3D" parent="Levels"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.9986, 0, 480.832)
+[node name="ProtonScatter" type="Node3D" parent="Levels/trees"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.4813, 0, 514.024)
 script = ExtResource("8_6l8j7")
 render_mode = 1
 keep_static_colliders = true
+<<<<<<< Updated upstream
 modifier_stack = SubResource("Resource_sk1dh")
+=======
+modifier_stack = SubResource("Resource_judmu")
+>>>>>>> Stashed changes
 Performance/use_chunks = true
 Performance/chunk_dimensions = Vector3(15, 15, 15)
 
-[node name="ScatterShape" type="Node3D" parent="Levels/ProtonScatter"]
-transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, -45.2447, 0, 51.9874)
-script = ExtResource("15_07gcd")
-shape = SubResource("Resource_74bvi")
-
-[node name="ScatterItem3" type="Node3D" parent="Levels/ProtonScatter"]
+[node name="forest_tree_1" type="Node3D" parent="Levels/trees/ProtonScatter"]
 script = ExtResource("14_w2lxp")
-proportion = 1
-source_scale_multiplier = 3.0
-path = "res://addons/proton_scatter/demos/assets/pine_tree.tscn"
+lod_merge_angle = 103.523
+lod_split_angle = 62.385
+path = "res://objects/PROPS/trees/forest_tree_1.tscn"
+
+[node name="ScatterShape" type="Node3D" parent="Levels/trees/ProtonScatter"]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, -28.1146, 0, 12.7986)
+script = ExtResource("15_07gcd")
+shape = SubResource("Resource_ne0h3")
 
 [node name="Player" parent="." instance=ExtResource("5_6o1kf")]
-transform = Transform3D(1, 0, 0, 0, 0.999918, -0.0128104, 0, 0.0128104, 0.999918, 44.2419, 0, 459.662)
+transform = Transform3D(1, 0, 0, 0, 0.999918, -0.0128104, 0, 0.0128104, 0.999918, 138.697, 0, 540.27)
 collision_layer = 3
 collision_mask = 3
 wall_min_slide_angle = 0.548033
 
 [node name="road1" parent="." instance=ExtResource("7_ly4c8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.82405, 0, 536.611)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 267.344, 0, 549.378)
 
 [connection signal="timeout" from="SERVERS/timer_daycycle" to="." method="_on_timer_daycycle_timeout"]
