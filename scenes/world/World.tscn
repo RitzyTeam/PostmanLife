@@ -96,11 +96,7 @@ material = SubResource("ShaderMaterial_rbf8v")
 size = Vector2(500, 500)
 orientation = 1
 
-<<<<<<< Updated upstream
 [sub_resource type="Resource" id="Resource_euvms"]
-=======
-[sub_resource type="Resource" id="Resource_mf6br"]
->>>>>>> Stashed changes
 script = ExtResource("10_n2sqe")
 amount = 300
 enabled = true
@@ -109,11 +105,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 1
 
-<<<<<<< Updated upstream
 [sub_resource type="Resource" id="Resource_mulc4"]
-=======
-[sub_resource type="Resource" id="Resource_2y7m5"]
->>>>>>> Stashed changes
 script = ExtResource("11_poecr")
 position = Vector3(0.15, 0.15, 0.15)
 rotation = Vector3(20, 360, 0)
@@ -124,11 +116,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 2
 
-<<<<<<< Updated upstream
 [sub_resource type="Resource" id="Resource_xmsau"]
-=======
-[sub_resource type="Resource" id="Resource_kebpa"]
->>>>>>> Stashed changes
 script = ExtResource("12_2l3wf")
 iterations = 3
 offset_step = 0.2
@@ -140,11 +128,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 0
 
-<<<<<<< Updated upstream
 [sub_resource type="Resource" id="Resource_d7fku"]
-=======
-[sub_resource type="Resource" id="Resource_yhcia"]
->>>>>>> Stashed changes
 script = ExtResource("13_nn5eb")
 ray_direction = Vector3(0, -1, 0)
 ray_length = 5.0
@@ -160,15 +144,9 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 0
 
-<<<<<<< Updated upstream
 [sub_resource type="Resource" id="Resource_sk1dh"]
 script = ExtResource("9_b00b6")
 stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_euvms"), SubResource("Resource_mulc4"), SubResource("Resource_xmsau"), SubResource("Resource_d7fku")])
-=======
-[sub_resource type="Resource" id="Resource_judmu"]
-script = ExtResource("9_b00b6")
-stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_mf6br"), SubResource("Resource_2y7m5"), SubResource("Resource_kebpa"), SubResource("Resource_yhcia")])
->>>>>>> Stashed changes
 
 [sub_resource type="Curve3D" id="Curve3D_gh4jj"]
 _data = {
@@ -237,11 +215,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.4813, 0, 514.024)
 script = ExtResource("8_6l8j7")
 render_mode = 1
 keep_static_colliders = true
-<<<<<<< Updated upstream
 modifier_stack = SubResource("Resource_sk1dh")
-=======
-modifier_stack = SubResource("Resource_judmu")
->>>>>>> Stashed changes
 Performance/use_chunks = true
 Performance/chunk_dimensions = Vector3(15, 15, 15)
 
