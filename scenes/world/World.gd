@@ -1,5 +1,7 @@
 extends Node
 
+@onready var sun: DirectionalLight3D = $WorldEnv/Sun
+
 # DAY TIME
 var time_hours: int = 0
 var time_minutes: int = 0
@@ -14,7 +16,6 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
-
 
 #region SERVERS
 func _on_timer_daycycle_timeout():
