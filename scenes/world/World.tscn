@@ -105,7 +105,7 @@ material = SubResource("ShaderMaterial_rbf8v")
 size = Vector2(500, 500)
 orientation = 1
 
-[sub_resource type="Resource" id="Resource_fy3sa"]
+[sub_resource type="Resource" id="Resource_euvms"]
 script = ExtResource("10_n2sqe")
 amount = 1000
 enabled = true
@@ -114,7 +114,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 1
 
-[sub_resource type="Resource" id="Resource_x38fk"]
+[sub_resource type="Resource" id="Resource_mulc4"]
 script = ExtResource("11_poecr")
 position = Vector3(0.15, 0.15, 0.15)
 rotation = Vector3(0, 360, 0)
@@ -125,7 +125,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 2
 
-[sub_resource type="Resource" id="Resource_kqvv8"]
+[sub_resource type="Resource" id="Resource_xmsau"]
 script = ExtResource("12_2l3wf")
 iterations = 3
 offset_step = 0.2
@@ -137,7 +137,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_qj1vf"]
+[sub_resource type="Resource" id="Resource_d7fku"]
 script = ExtResource("13_nn5eb")
 ray_direction = Vector3(0, -1, 0)
 ray_length = 5.0
@@ -153,9 +153,9 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_qktkx"]
+[sub_resource type="Resource" id="Resource_sk1dh"]
 script = ExtResource("9_b00b6")
-stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_fy3sa"), SubResource("Resource_x38fk"), SubResource("Resource_kqvv8"), SubResource("Resource_qj1vf")])
+stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_euvms"), SubResource("Resource_mulc4"), SubResource("Resource_xmsau"), SubResource("Resource_d7fku")])
 
 [sub_resource type="Curve3D" id="Curve3D_ugl7e"]
 _data = {
@@ -225,7 +225,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.9986, 0, 480.832)
 script = ExtResource("8_6l8j7")
 render_mode = 1
 keep_static_colliders = true
-modifier_stack = SubResource("Resource_qktkx")
+modifier_stack = SubResource("Resource_sk1dh")
 Performance/use_chunks = true
 Performance/chunk_dimensions = Vector3(15, 15, 15)
 

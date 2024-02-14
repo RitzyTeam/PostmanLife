@@ -14,6 +14,10 @@ config/name="PostmanLife"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+SIN_WORLD_SIGNALS="*res://singletons/SIN_WORLD_SIGNALS.gd"
+
 [display]
 
 window/size/viewport_width=1920

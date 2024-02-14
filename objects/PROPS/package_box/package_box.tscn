@@ -5,7 +5,7 @@
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fq8pu"]
 resource_name = "box"
 cull_mode = 2
-albedo_color = Color(0.906332, 0.556755, 0.141321, 1)
+albedo_color = Color(0.905882, 0.556863, 0.141176, 1)
 roughness = 0.5
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p4asg"]
@@ -84,3 +84,16 @@ skeleton = NodePath("")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00195313, 0.000976563, 0.00100708)
 shape = SubResource("BoxShape3D_kwxbf")
+
+[node name="delivery_timer" type="Timer" parent="."]
+autostart = true
+
+[node name="timer" type="Label3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.250444, 0, 0)
+pixel_size = 0.0001
+modulate = Color(0.835294, 0.505882, 0.0980392, 1)
+text = "00:00"
+font_size = 1867
+outline_size = 0
+
+[connection signal="timeout" from="delivery_timer" to="." method="_on_delivery_timer_timeout"]
