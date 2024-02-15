@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://ebql6u7l33sb"]
+[gd_scene load_steps=8 format=3 uid="uid://ebql6u7l33sb"]
 
 [ext_resource type="PackedScene" uid="uid://cc1m2a1obsyn4" path="res://objects/player/player.tscn" id="1_vsp3c"]
+[ext_resource type="PackedScene" uid="uid://c6bwnc0jpf1ae" path="res://objects/PROPS/package_letter/package_letter.tscn" id="2_c3wos"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_mtor7"]
 size = Vector3(100, 1, 100)
@@ -37,3 +38,6 @@ transform = Transform3D(1, 0, 0, 0, 0.872564, 0.488499, 0, -0.488499, 0.872564, 
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_vqgot")
+
+[node name="package_letter" parent="." instance=ExtResource("2_c3wos")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 20.3101, 0)
