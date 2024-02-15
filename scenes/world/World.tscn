@@ -42,16 +42,16 @@ script = ExtResource("4_rbhmn")
 mode = 0
 textures = [[], []]
 
-[sub_resource type="Resource" id="Resource_8ghoh"]
+[sub_resource type="Resource" id="Resource_d83r5"]
 script = ExtResource("10_n2sqe")
-amount = 300
+amount = 500
 enabled = true
 override_global_seed = false
 custom_seed = 0
 restrict_height = true
 reference_frame = 1
 
-[sub_resource type="Resource" id="Resource_8t6sp"]
+[sub_resource type="Resource" id="Resource_vxl5h"]
 script = ExtResource("11_poecr")
 position = Vector3(0.15, 0.15, 0.15)
 rotation = Vector3(20, 360, 0)
@@ -62,7 +62,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 2
 
-[sub_resource type="Resource" id="Resource_nmud1"]
+[sub_resource type="Resource" id="Resource_jrsuh"]
 script = ExtResource("12_2l3wf")
 iterations = 3
 offset_step = 0.2
@@ -74,7 +74,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_dn60a"]
+[sub_resource type="Resource" id="Resource_kmqcu"]
 script = ExtResource("13_nn5eb")
 ray_direction = Vector3(0, -1, 0)
 ray_length = 5.0
@@ -90,9 +90,9 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_sxe0d"]
+[sub_resource type="Resource" id="Resource_3875g"]
 script = ExtResource("9_b00b6")
-stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_8ghoh"), SubResource("Resource_8t6sp"), SubResource("Resource_nmud1"), SubResource("Resource_dn60a")])
+stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_d83r5"), SubResource("Resource_vxl5h"), SubResource("Resource_jrsuh"), SubResource("Resource_kmqcu")])
 
 [sub_resource type="Curve3D" id="Curve3D_gh4jj"]
 _data = {
@@ -217,7 +217,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.4813, 0, 514.024)
 script = ExtResource("8_6l8j7")
 render_mode = 1
 keep_static_colliders = true
-modifier_stack = SubResource("Resource_sxe0d")
+modifier_stack = SubResource("Resource_3875g")
 Performance/use_chunks = true
 Performance/chunk_dimensions = Vector3(15, 15, 15)
 
@@ -236,6 +236,7 @@ shape = SubResource("Resource_ne0h3")
 
 [node name="water" type="MeshInstance3D" parent="Levels/lake/lake_water"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 271.222, -0.76712, 268.675)
+visible = false
 mesh = SubResource("QuadMesh_edxtc")
 
 [node name="Player" parent="." instance=ExtResource("5_6o1kf")]
