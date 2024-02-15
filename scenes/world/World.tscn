@@ -42,61 +42,6 @@ script = ExtResource("4_rbhmn")
 mode = 0
 textures = [[], []]
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_erk5x"]
-noise_type = 3
-seed = 10
-fractal_type = 0
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_tyagm"]
-seamless = true
-as_normal_map = true
-noise = SubResource("FastNoiseLite_erk5x")
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_delmy"]
-noise_type = 3
-seed = 20
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_vbfsc"]
-seamless = true
-seamless_blend_skirt = 0.296
-as_normal_map = true
-noise = SubResource("FastNoiseLite_delmy")
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_ujskj"]
-frequency = 0.0006
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ni5jx"]
-noise = SubResource("FastNoiseLite_ujskj")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_rbf8v"]
-render_priority = 0
-shader = ExtResource("8_gtq7j")
-shader_parameter/albedo = Color(0.156863, 0.392157, 1, 1)
-shader_parameter/albedo2 = null
-shader_parameter/metallic = 0.0
-shader_parameter/roughness = 0.02
-shader_parameter/wave_direction = Vector2(2, 0)
-shader_parameter/wave_direction2 = Vector2(0, 1)
-shader_parameter/time_scale = 0.05
-shader_parameter/noise_scale = 10.0
-shader_parameter/height_scale = 0.15
-shader_parameter/color_deep = Color(0.196078, 0.4, 0.352941, 1)
-shader_parameter/color_shallow = Color(0.388235, 0.4, 0.290196, 1)
-shader_parameter/beers_law = 2.0
-shader_parameter/depth_offset = -0.75
-shader_parameter/edge_scale = 1.0
-shader_parameter/near = 1.0
-shader_parameter/far = 100.0
-shader_parameter/edge_color = Color(0.756863, 0.568627, 0.65098, 1)
-shader_parameter/wave = SubResource("NoiseTexture2D_ni5jx")
-shader_parameter/texture_normal = SubResource("NoiseTexture2D_tyagm")
-shader_parameter/texture_normal2 = SubResource("NoiseTexture2D_vbfsc")
-
-[sub_resource type="QuadMesh" id="QuadMesh_edxtc"]
-material = SubResource("ShaderMaterial_rbf8v")
-size = Vector2(500, 500)
-orientation = 1
-
 [sub_resource type="Resource" id="Resource_8ghoh"]
 script = ExtResource("10_n2sqe")
 amount = 300
@@ -162,6 +107,61 @@ closed = true
 thickness = 0.0
 curve = SubResource("Curve3D_gh4jj")
 
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_erk5x"]
+noise_type = 3
+seed = 10
+fractal_type = 0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_tyagm"]
+seamless = true
+as_normal_map = true
+noise = SubResource("FastNoiseLite_erk5x")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_delmy"]
+noise_type = 3
+seed = 20
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_vbfsc"]
+seamless = true
+seamless_blend_skirt = 0.296
+as_normal_map = true
+noise = SubResource("FastNoiseLite_delmy")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_ujskj"]
+frequency = 0.0006
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ni5jx"]
+noise = SubResource("FastNoiseLite_ujskj")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rbf8v"]
+render_priority = 0
+shader = ExtResource("8_gtq7j")
+shader_parameter/albedo = Color(0.156863, 0.392157, 1, 1)
+shader_parameter/albedo2 = null
+shader_parameter/metallic = 0.0
+shader_parameter/roughness = 0.02
+shader_parameter/wave_direction = Vector2(2, 0)
+shader_parameter/wave_direction2 = Vector2(0, 1)
+shader_parameter/time_scale = 0.05
+shader_parameter/noise_scale = 10.0
+shader_parameter/height_scale = 0.15
+shader_parameter/color_deep = Color(0.196078, 0.4, 0.352941, 1)
+shader_parameter/color_shallow = Color(0.388235, 0.4, 0.290196, 1)
+shader_parameter/beers_law = 2.0
+shader_parameter/depth_offset = -0.75
+shader_parameter/edge_scale = 1.0
+shader_parameter/near = 1.0
+shader_parameter/far = 100.0
+shader_parameter/edge_color = Color(0.756863, 0.568627, 0.65098, 1)
+shader_parameter/wave = SubResource("NoiseTexture2D_ni5jx")
+shader_parameter/texture_normal = SubResource("NoiseTexture2D_tyagm")
+shader_parameter/texture_normal2 = SubResource("NoiseTexture2D_vbfsc")
+
+[sub_resource type="QuadMesh" id="QuadMesh_edxtc"]
+material = SubResource("ShaderMaterial_rbf8v")
+size = Vector2(500, 500)
+orientation = 1
+
 [node name="World" type="Node"]
 script = ExtResource("1_xxt06")
 
@@ -199,19 +199,20 @@ texture_set = SubResource("Resource_hxkjo")
 render_layers = 1
 cast_shadow = 1
 
-[node name="lake" type="Node" parent="Levels"]
-
-[node name="water" type="MeshInstance3D" parent="Levels/lake"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 271.222, -0.76712, 268.675)
-mesh = SubResource("QuadMesh_edxtc")
-
 [node name="roads" type="Node" parent="Levels"]
+
+[node name="main_road" type="Node" parent="Levels/roads"]
+
+[node name="road1" parent="Levels/roads/main_road" instance=ExtResource("7_ly4c8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 268.688, 0, 549.378)
 
 [node name="big_forest" type="Node" parent="Levels"]
 
-[node name="trees" type="Node" parent="Levels"]
+[node name="lake" type="Node" parent="Levels"]
 
-[node name="ProtonScatter" type="Node3D" parent="Levels/trees"]
+[node name="lake_forest" type="Node" parent="Levels/lake"]
+
+[node name="ProtonScatter" type="Node3D" parent="Levels/lake/lake_forest"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.4813, 0, 514.024)
 script = ExtResource("8_6l8j7")
 render_mode = 1
@@ -220,24 +221,27 @@ modifier_stack = SubResource("Resource_sxe0d")
 Performance/use_chunks = true
 Performance/chunk_dimensions = Vector3(15, 15, 15)
 
-[node name="forest_tree_1" type="Node3D" parent="Levels/trees/ProtonScatter"]
+[node name="forest_tree_1" type="Node3D" parent="Levels/lake/lake_forest/ProtonScatter"]
 script = ExtResource("14_w2lxp")
 lod_merge_angle = 103.523
 lod_split_angle = 62.385
 path = "res://objects/PROPS/trees/forest_tree_1.tscn"
 
-[node name="ScatterShape" type="Node3D" parent="Levels/trees/ProtonScatter"]
+[node name="ScatterShape" type="Node3D" parent="Levels/lake/lake_forest/ProtonScatter"]
 transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, -28.1146, 0, 12.7986)
 script = ExtResource("15_07gcd")
 shape = SubResource("Resource_ne0h3")
 
+[node name="lake_water" type="Node" parent="Levels/lake"]
+
+[node name="water" type="MeshInstance3D" parent="Levels/lake/lake_water"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 271.222, -0.76712, 268.675)
+mesh = SubResource("QuadMesh_edxtc")
+
 [node name="Player" parent="." instance=ExtResource("5_6o1kf")]
-transform = Transform3D(1, 0, 0, 0, 0.999918, -0.0128104, 0, 0.0128104, 0.999918, 604.192, 0, 567.721)
+transform = Transform3D(1, 0, 0, 0, 0.999918, -0.0128104, 0, 0.0128104, 0.999918, 114.34, 0, 534.572)
 collision_layer = 3
 collision_mask = 3
 wall_min_slide_angle = 0.548033
-
-[node name="road1" parent="." instance=ExtResource("7_ly4c8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 272.052, 0, 549.378)
 
 [connection signal="timeout" from="SERVERS/timer_daycycle" to="." method="_on_timer_daycycle_timeout"]
