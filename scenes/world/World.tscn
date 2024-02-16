@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://c66dar30xo83l"]
+[gd_scene load_steps=39 format=3 uid="uid://c66dar30xo83l"]
 
 [ext_resource type="Script" path="res://scenes/world/World.gd" id="1_xxt06"]
 [ext_resource type="Script" path="res://addons/zylann.hterrain/hterrain.gd" id="2_j3jfb"]
@@ -6,8 +6,17 @@
 [ext_resource type="Script" path="res://addons/zylann.hterrain/hterrain_texture_set.gd" id="4_rbhmn"]
 [ext_resource type="PackedScene" uid="uid://cc1m2a1obsyn4" path="res://objects/player/player.tscn" id="5_6o1kf"]
 [ext_resource type="PackedScene" uid="uid://c82lrnm6bufeh" path="res://assets/models/road1.blend" id="7_ly4c8"]
+[ext_resource type="Script" path="res://addons/proton_scatter/src/scatter.gd" id="8_6l8j7"]
 [ext_resource type="Shader" path="res://shaders/lake_water.gdshader" id="8_gtq7j"]
-[ext_resource type="PackedScene" uid="uid://bskp62bdkhqpp" path="res://objects/PROPS/environment/lampPost.tscn" id="8_vqrrn"]
+[ext_resource type="Script" path="res://addons/proton_scatter/src/stack/modifier_stack.gd" id="9_b00b6"]
+[ext_resource type="Script" path="res://addons/proton_scatter/src/modifiers/create_inside_random.gd" id="10_n2sqe"]
+[ext_resource type="Script" path="res://addons/proton_scatter/src/modifiers/randomize_transforms.gd" id="11_poecr"]
+[ext_resource type="Script" path="res://addons/proton_scatter/src/modifiers/relax.gd" id="12_2l3wf"]
+[ext_resource type="Script" path="res://addons/proton_scatter/src/modifiers/project_on_geometry.gd" id="13_nn5eb"]
+[ext_resource type="Script" path="res://addons/proton_scatter/src/scatter_item.gd" id="14_w2lxp"]
+[ext_resource type="Script" path="res://addons/proton_scatter/src/scatter_shape.gd" id="15_07gcd"]
+[ext_resource type="Script" path="res://addons/proton_scatter/src/shapes/path_shape.gd" id="15_vmmr1"]
+[ext_resource type="PackedScene" uid="uid://ckthoht2tqua4" path="res://assets/models/PostOfficeBulild.blend" id="17_1sev4"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_np151"]
 
@@ -21,11 +30,9 @@ tonemap_mode = 2
 ssr_enabled = true
 ssao_enabled = true
 glow_enabled = true
-fog_light_color = Color(0.701961, 0.470588, 0.556863, 1)
-fog_sun_scatter = 0.04
-fog_aerial_perspective = 0.554
-fog_sky_affect = 0.812
-volumetric_fog_albedo = Color(1, 0.690196, 1, 1)
+fog_density = 0.0
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.0
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_ke1mj"]
 
@@ -33,6 +40,76 @@ volumetric_fog_albedo = Color(1, 0.690196, 1, 1)
 script = ExtResource("4_rbhmn")
 mode = 0
 textures = [[], []]
+
+[sub_resource type="Resource" id="Resource_b4478"]
+script = ExtResource("10_n2sqe")
+amount = 1000
+enabled = true
+override_global_seed = false
+custom_seed = 0
+restrict_height = true
+reference_frame = 1
+
+[sub_resource type="Resource" id="Resource_m7yqe"]
+script = ExtResource("11_poecr")
+position = Vector3(0.15, 0.15, 0.15)
+rotation = Vector3(0, 360, 0)
+scale = Vector3(0.1, 0.1, 0.1)
+enabled = true
+override_global_seed = false
+custom_seed = 0
+restrict_height = false
+reference_frame = 2
+
+[sub_resource type="Resource" id="Resource_kk6s2"]
+script = ExtResource("12_2l3wf")
+iterations = 3
+offset_step = 0.2
+consecutive_step_multiplier = 0.75
+use_computeshader = true
+enabled = true
+override_global_seed = false
+custom_seed = 0
+restrict_height = true
+reference_frame = 0
+
+[sub_resource type="Resource" id="Resource_415q6"]
+script = ExtResource("13_nn5eb")
+ray_direction = Vector3(0, -1, 0)
+ray_length = 5.0
+ray_offset = 5.0
+remove_points_on_miss = false
+align_with_collision_normal = false
+max_slope = 90.0
+collision_mask = 1
+exclude_mask = 0
+enabled = true
+override_global_seed = false
+custom_seed = 0
+restrict_height = false
+reference_frame = 0
+
+[sub_resource type="Resource" id="Resource_tr7n0"]
+script = ExtResource("9_b00b6")
+stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_b4478"), SubResource("Resource_m7yqe"), SubResource("Resource_kk6s2"), SubResource("Resource_415q6")])
+
+[sub_resource type="Curve3D" id="Curve3D_chqi5"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -122.378, 0, -292.819, 0, 0, 0, 0, 0, 0, 204.514, 0, -287.823, 0, 0, 0, 0, 0, 0, 205.227, 0, -211.453, 0, 0, 0, 0, 0, 0, 204.514, 0, -109.389, 0, 0, 0, 0, 0, 0, 210.937, 0, 26.2213, 0, 0, 0, 0, 0, 0, 176.678, 0, 138.278, 0, 0, 0, 0, 0, 0, 116.01, 0, 182.53, 0, 0, 0, 0, 0, 0, -10.3211, 0, 200.373, 0, 0, 0, 0, 0, 0, -124.519, 0, 196.804),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 9
+
+[sub_resource type="Resource" id="Resource_kxcgo"]
+script = ExtResource("15_vmmr1")
+closed = true
+thickness = 0.0
+curve = SubResource("Curve3D_chqi5")
+
+[sub_resource type="FogMaterial" id="FogMaterial_nobdx"]
+albedo = Color(0.101961, 0.392157, 1, 1)
+emission = Color(0.435294, 0.364706, 0.419608, 1)
+edge_fade = 1.5455
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_erk5x"]
 noise_type = 3
@@ -135,6 +212,35 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 268.688, 0, 549.378)
 
 [node name="big_forest" type="Node" parent="Levels"]
 
+[node name="ProtonScatter" type="Node3D" parent="Levels/big_forest"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 648.827, 0, 304.392)
+script = ExtResource("8_6l8j7")
+render_mode = 1
+modifier_stack = SubResource("Resource_tr7n0")
+Performance/use_chunks = true
+Performance/chunk_dimensions = Vector3(15, 15, 15)
+
+[node name="ScatterShape" type="Node3D" parent="Levels/big_forest/ProtonScatter"]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 0, 0, 0)
+script = ExtResource("15_07gcd")
+shape = SubResource("Resource_kxcgo")
+
+[node name="tree1" type="Node3D" parent="Levels/big_forest/ProtonScatter"]
+script = ExtResource("14_w2lxp")
+proportion = 50
+path = "res://objects/PROPS/nature/forest_tree_2.tscn"
+
+[node name="tree2" type="Node3D" parent="Levels/big_forest/ProtonScatter"]
+script = ExtResource("14_w2lxp")
+proportion = 50
+source_scale_multiplier = 3.0
+path = "res://objects/PROPS/nature/forest_tree_3.tscn"
+
+[node name="FogVolume" type="FogVolume" parent="Levels/big_forest"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 686.837, -20.0201, 249.69)
+size = Vector3(351.43, 50, 549.777)
+material = SubResource("FogMaterial_nobdx")
+
 [node name="lake" type="Node" parent="Levels"]
 
 [node name="lake_forest" type="Node" parent="Levels/lake"]
@@ -147,12 +253,12 @@ visible = false
 mesh = SubResource("QuadMesh_edxtc")
 
 [node name="Player" parent="." instance=ExtResource("5_6o1kf")]
-transform = Transform3D(1, 0, 0, 0, 0.999918, -0.0128104, 0, 0.0128104, 0.999918, 114.34, 0, 534.572)
+transform = Transform3D(1, 0, 0, 0, 0.999918, -0.0128104, 0, 0.0128104, 0.999918, 495.496, 0, 544.437)
 collision_layer = 3
 collision_mask = 3
 wall_min_slide_angle = 0.548033
 
-[node name="lamppost" parent="." instance=ExtResource("8_vqrrn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 108.31, 4.76837e-07, 522.177)
+[node name="PostOfficeBulild" parent="." instance=ExtResource("17_1sev4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 492.48, 0.1, 560.773)
 
 [connection signal="timeout" from="SERVERS/timer_daycycle" to="." method="_on_timer_daycycle_timeout"]

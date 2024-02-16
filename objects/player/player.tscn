@@ -258,9 +258,6 @@ MarginContainer/constants/margin_top = 10
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_elq50"]
 shader = ExtResource("4_qn28d")
-shader_parameter/alpha = 0.5
-shader_parameter/inner_radius = 0.0
-shader_parameter/outer_radius = 1.0
 
 [node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("HEAD", "CAMERA", "HEADBOB_ANIMATION", "JUMP_ANIMATION", "CROUCH_ANIMATION", "COLLISION_MESH")]
 wall_min_slide_angle = 1.81514
@@ -301,7 +298,7 @@ far = 1000.0
 libraries = {
 "": SubResource("AnimationLibrary_o0unb")
 }
-blend_times = [&"RESET", &"RESET", 0.5, &"RESET", &"headbob", 0.5, &"headbob", &"RESET", 0.5]
+blend_times = [&"headbob", &"RESET", 0.5, &"RESET", &"headbob", 0.5, &"RESET", &"RESET", 0.5]
 
 [node name="JumpAnimation" type="AnimationPlayer" parent="Head"]
 libraries = {
