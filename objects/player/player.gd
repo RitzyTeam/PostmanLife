@@ -1,13 +1,13 @@
 extends CharacterBody3D
 
 @onready var inventory_loader = $INVENTORY_LOADER
-@export var throw_item_power: float = 5.0
+@export var throw_item_power: float = 10.0
 var current_slot_selected: int = 1
 var inv: Dictionary = {
-	'slot_1': {'name': 'void'},
-	'slot_2': {'name': 'void'},
-	'slot_3': {'name': 'void'},
-	'slot_4': {'name': 'void'},
+	'slot_1': {'id': 'void'},
+	'slot_2': {'id': 'void'},
+	'slot_3': {'id': 'void'},
+	'slot_4': {'id': 'void'},
 }
 
 @export_category("Character")
@@ -283,16 +283,16 @@ func _process(delta):
 func add_item_to_inv(item_data: Dictionary) -> bool:
 	var hasFreeSlot: bool = false
 	var target_slot: int = -1
-	if inv.slot_4.name == 'void':
+	if inv.slot_4.id == 'void':
 		hasFreeSlot = true
 		target_slot = 4
-	if inv.slot_3.name == 'void':
+	if inv.slot_3.id == 'void':
 		hasFreeSlot = true
 		target_slot = 3
-	if inv.slot_2.name == 'void':
+	if inv.slot_2.id == 'void':
 		hasFreeSlot = true
 		target_slot = 2
-	if inv.slot_1.name == 'void':
+	if inv.slot_1.id == 'void':
 		hasFreeSlot = true
 		target_slot = 1
 	if hasFreeSlot:
@@ -303,7 +303,7 @@ func add_item_to_inv(item_data: Dictionary) -> bool:
 
 func drop_item_slot(slot_id: int):
 	var item_full_data = inv['slot_' + str(slot_id)]
-	match item_full_data.name:
+	match item_full_data.id:
 		'void':
 			pass
 		'box':
@@ -313,7 +313,7 @@ func drop_item_slot(slot_id: int):
 			obj.global_position = $Head/Camera/item_display/box.global_position
 			obj.global_rotation = $Head/Camera/item_display/box.global_rotation
 			obj.apply_central_impulse($Head/Camera/item_display/box.global_transform.basis.z * -throw_item_power)
-			inv['slot_' + str(slot_id)] = {'name': 'void'}
+			inv['slot_' + str(slot_id)] = {'id': 'void'}
 		'letter':
 			var obj = load('res://objects/PROPS/package_letter/package_letter.tscn').instantiate()
 			get_tree().get_root().add_child(obj)
@@ -321,7 +321,7 @@ func drop_item_slot(slot_id: int):
 			obj.global_position = $Head/Camera/item_display/letter.global_position
 			obj.global_rotation = $Head/Camera/item_display/letter.global_rotation
 			obj.apply_central_impulse($Head/Camera/item_display/letter.global_transform.basis.z * -throw_item_power)
-			inv['slot_' + str(slot_id)] = {'name': 'void'}
+			inv['slot_' + str(slot_id)] = {'id': 'void'}
 	inventory_loader.load_hand_visual(current_slot_selected)
 	inventory_loader.load_inventory_visual()
 

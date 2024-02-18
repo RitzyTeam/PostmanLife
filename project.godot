@@ -17,6 +17,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 SIN_WORLD_SIGNALS="*res://singletons/SIN_WORLD_SIGNALS.gd"
+SIN_TASK_SYSTEM="*res://singletons/SIN_TASK_SYSTEM.gd"
 
 [display]
 

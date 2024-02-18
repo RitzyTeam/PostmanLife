@@ -6,15 +6,8 @@ var seconds_to_deliver: int = 14
 @onready var delivery_timer = $delivery_timer
 @onready var timer = $timer
 
-var item = {
-	'name': 'letter',
-	'weight': 10,
-	'deliver_id': ''
-}
+var item = {}
 
-func _ready():
-	item.deliver_id = str(generate_word(10)) + str(int(Time.get_unix_time_from_system()))
-	
 func deliver():
 	if canBeGrabbed:
 		SIN_WORLD_SIGNALS.emit_signal('PACKAGE_DELIVERED')
@@ -40,12 +33,7 @@ func anim_deliver():
 	tween.tween_property(self, 'scale', Vector3(0, 0, 0), 1)
 	tween.play()
 
-func generate_word(length):
-	var word: String
-	var n_char = len(characters)
-	for i in range(length):
-		word += characters[randi()% n_char]
-	return word
+
 
 func grab():
 	return item

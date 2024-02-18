@@ -72,6 +72,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_syv0r")
 
 [node name="package_letter" type="RigidBody3D"]
+mass = 0.2
 script = ExtResource("1_8rpvx")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

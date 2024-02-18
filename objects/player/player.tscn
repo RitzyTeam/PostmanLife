@@ -446,11 +446,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.548441, -2.38419e-07, -0.95
 
 [node name="letter" type="MeshInstance3D" parent="Head/Camera/item_display"]
 transform = Transform3D(0.265, 0, 0, 0, 0.20448, -0.168561, 0, 0.168561, 0.20448, 0.275, -0.54, 0)
+visible = false
 mesh = SubResource("ArrayMesh_3x1wc")
 skeleton = NodePath("")
 
 [node name="box" type="MeshInstance3D" parent="Head/Camera/item_display"]
 transform = Transform3D(0.73, 0, 0, 0, 0.555, 0, 0, 0, 0.73, 0, -0.445, 0.135)
+visible = false
 mesh = SubResource("ArrayMesh_5h2q5")
 skeleton = NodePath("")
 

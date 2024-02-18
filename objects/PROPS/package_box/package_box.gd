@@ -1,51 +1,42 @@
 extends RigidBody3D
 
-var characters = 'abcdefghijklmnopqrstuvwxyz'
+
 var canBeGrabbed: bool = true
 var seconds_to_deliver: int = 14
 @onready var delivery_timer = $delivery_timer
 @onready var timer = $timer
 
-var item = {
-	'name': 'box',
-	'weight': 10,
-	'deliver_id': ''
-}
+var item = {}
 
-func _ready():
-	item.deliver_id = str(generate_word(10)) + str(int(Time.get_unix_time_from_system()))
 
 func deliver():
 	if canBeGrabbed:
-		SIN_WORLD_SIGNALS.emit_signal('PACKAGE_DELIVERED')
 		canBeGrabbed = false
-		var tween = create_tween()
-		anim_deliver()
-		tween.tween_property(self, 'global_rotation', Vector3(global_rotation.x, global_rotation.y + deg_to_rad(180), global_rotation.z), 1)
-		tween.play()
-		await tween.finished
-		queue_free()
+	var tween = create_tween()
+	anim_deliver()
+	tween.tween_property(self, 'global_rotation', Vector3(global_rotation.x, global_rotation.y + deg_to_rad(180), global_rotation.z), 1)
+	tween.play()
+	await tween.finished
+	SIN_WORLD_SIGNALS.emit_signal('PACKAGE_DELIVERED', item['task_id'])
+	queue_free()
 
 func destroy_task_failed():
-	SIN_WORLD_SIGNALS.emit_signal('PACKAGE_FAILED')
-	canBeGrabbed = false
+	if canBeGrabbed:
+		canBeGrabbed = false
 	var tween = create_tween()
 	tween.tween_property(self, 'scale', Vector3(0, 0, 0), 1)
 	tween.play()
 	await tween.finished
+	SIN_WORLD_SIGNALS.emit_signal('PACKAGE_FAILED', item['task_id'])
 	queue_free()
 
 func anim_deliver():
 	var tween = create_tween()
 	tween.tween_property(self, 'scale', Vector3(0, 0, 0), 1)
 	tween.play()
+	
 
-func generate_word(length):
-	var word: String
-	var n_char = len(characters)
-	for i in range(length):
-		word += characters[randi()% n_char]
-	return word
+
 
 func grab():
 	return item
