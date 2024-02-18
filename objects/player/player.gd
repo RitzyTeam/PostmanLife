@@ -1,6 +1,14 @@
 extends CharacterBody3D
 
-var inv: Array = []
+@onready var inventory_loader = $INVENTORY_LOADER
+@export var throw_item_power: float = 5.0
+var current_slot_selected: int = 1
+var inv: Dictionary = {
+	'slot_1': {'name': 'void'},
+	'slot_2': {'name': 'void'},
+	'slot_3': {'name': 'void'},
+	'slot_4': {'name': 'void'},
+}
 
 @export_category("Character")
 @export var base_speed : float = 3.0
@@ -65,6 +73,7 @@ var gravity : float = ProjectSettings.get_setting("physics/3d/default_gravity") 
 
 
 func _ready():
+	inventory_loader.load_hand_visual(current_slot_selected)
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	
 	# Set the camera rotation to whatever initial_facing_direction is
@@ -205,7 +214,6 @@ func handle_state(moving):
 							enter_normal_state()
 
 # Any enter state function should only be called once when you want to enter that state, not every frame.
-
 func enter_normal_state():
 	#print("entering normal state")
 	var prev_state = state
@@ -272,14 +280,72 @@ func _process(delta):
 	#HEAD.rotation_degrees.y -= controller_view_rotation.x * 1.5
 	#HEAD.rotation_degrees.x -= controller_view_rotation.y * 1.5
 
+func add_item_to_inv(item_data: Dictionary) -> bool:
+	var hasFreeSlot: bool = false
+	var target_slot: int = -1
+	if inv.slot_4.name == 'void':
+		hasFreeSlot = true
+		target_slot = 4
+	if inv.slot_3.name == 'void':
+		hasFreeSlot = true
+		target_slot = 3
+	if inv.slot_2.name == 'void':
+		hasFreeSlot = true
+		target_slot = 2
+	if inv.slot_1.name == 'void':
+		hasFreeSlot = true
+		target_slot = 1
+	if hasFreeSlot:
+		inv['slot_' + str(target_slot)] = item_data
+		inventory_loader.load_inventory_visual()
+		return true
+	return false
+
+func drop_item_slot(slot_id: int):
+	var item_full_data = inv['slot_' + str(slot_id)]
+	match item_full_data.name:
+		'void':
+			pass
+		'box':
+			var obj = load('res://objects/PROPS/package_box/package_box.tscn').instantiate()
+			get_tree().get_root().add_child(obj)
+			obj.item = inv['slot_' + str(slot_id)]
+			obj.global_position = $Head/Camera/item_display/box.global_position
+			obj.global_rotation = $Head/Camera/item_display/box.global_rotation
+			obj.apply_central_impulse($Head/Camera/item_display/box.global_transform.basis.z * -throw_item_power)
+			inv['slot_' + str(slot_id)] = {'name': 'void'}
+		'letter':
+			var obj = load('res://objects/PROPS/package_letter/package_letter.tscn').instantiate()
+			get_tree().get_root().add_child(obj)
+			obj.item = inv['slot_' + str(slot_id)]
+			obj.global_position = $Head/Camera/item_display/letter.global_position
+			obj.global_rotation = $Head/Camera/item_display/letter.global_rotation
+			obj.apply_central_impulse($Head/Camera/item_display/letter.global_transform.basis.z * -throw_item_power)
+			inv['slot_' + str(slot_id)] = {'name': 'void'}
+	inventory_loader.load_hand_visual(current_slot_selected)
+	inventory_loader.load_inventory_visual()
+
 func _unhandled_input(event):
 	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 		HEAD.rotation_degrees.y -= event.relative.x * mouse_sensitivity
 		HEAD.rotation_degrees.x -= event.relative.y * mouse_sensitivity
 	
+	if event.is_action_pressed("key_1"):
+		current_slot_selected = 1
+	if event.is_action_pressed("key_2"):
+		current_slot_selected = 2
+	if event.is_action_pressed("key_3"):
+		current_slot_selected = 3
+	if event.is_action_pressed("key_4"):
+		current_slot_selected = 4
+	inventory_loader.load_hand_visual(current_slot_selected)
+	
+	if event.is_action_pressed('key_g'):
+		drop_item_slot(current_slot_selected)
+	
 	if event.is_action_pressed("key_e"):
 		if $Head/Camera/raycast_hand.is_colliding():
 			if not $Head/Camera/raycast_hand.get_collider() == null:
 				if $Head/Camera/raycast_hand.get_collider().has_method('grab'):
-					var grabbed_obj: Dictionary = $Head/Camera/raycast_hand.get_collider().grab()
-					$Head/Camera/raycast_hand.get_collider().queue_free()
+					if add_item_to_inv($Head/Camera/raycast_hand.get_collider().grab()):
+						$Head/Camera/raycast_hand.get_collider().queue_free()

@@ -1,6 +1,5 @@
 extends RigidBody3D
 
-var deliver_id: String = ''
 var characters = 'abcdefghijklmnopqrstuvwxyz'
 var canBeGrabbed: bool = true
 var seconds_to_deliver: int = 14
@@ -8,14 +7,13 @@ var seconds_to_deliver: int = 14
 @onready var timer = $timer
 
 var item = {
-	'name': 'Посылка',
+	'name': 'box',
 	'weight': 10,
 	'deliver_id': ''
 }
 
 func _ready():
-	deliver_id = str(generate_word(10)) + str(int(Time.get_unix_time_from_system()))
-	item.deliver_id = deliver_id
+	item.deliver_id = str(generate_word(10)) + str(int(Time.get_unix_time_from_system()))
 
 func deliver():
 	if canBeGrabbed:

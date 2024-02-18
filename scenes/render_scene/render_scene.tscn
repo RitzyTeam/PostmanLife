@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cfl6vt4pjnbo6"]
 
-[ext_resource type="PackedScene" uid="uid://ctq3qg38qna0v" path="res://assets/models/package_box.blend" id="1_dcbb6"]
+[ext_resource type="PackedScene" uid="uid://6r772qyq7ofh" path="res://assets/models/package_letter.blend" id="1_u7a65"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_61ug0"]
 size = Vector2(2000, 2000)
@@ -12,11 +12,12 @@ size = Vector2(2000, 2000)
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D"]
 mesh = SubResource("PlaneMesh_61ug0")
 
-[node name="Camera3D" type="Camera3D" parent="Node3D"]
+[node name="renderer" type="Camera3D" parent="Node3D"]
 transform = Transform3D(0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, -0.5, 0.5, 1, 2, 1)
 fov = 31.5
 
 [node name="origin" type="Marker3D" parent="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.555, 0)
 
-[node name="package_box" parent="Node3D/origin" instance=ExtResource("1_dcbb6")]
+[node name="package_letter" parent="Node3D/origin" instance=ExtResource("1_u7a65")]
+transform = Transform3D(0.255, 0, 0, 0, 0.255, 0, 0, 0, 0.255, 0, 0, 0)
