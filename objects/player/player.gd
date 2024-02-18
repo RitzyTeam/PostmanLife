@@ -1,5 +1,7 @@
 extends CharacterBody3D
 
+var inv: Array = []
+
 @export_category("Character")
 @export var base_speed : float = 3.0
 @export var sprint_speed : float = 6.0
@@ -227,13 +229,11 @@ func enter_sprint_state():
 	state = "sprinting"
 	speed = sprint_speed
 
-
 func update_camera_fov():
 	if state == "sprinting":
 		CAMERA.fov = lerp(CAMERA.fov, 85.0, 0.3)
 	else:
 		CAMERA.fov = lerp(CAMERA.fov, 75.0, 0.3)
-
 
 func headbob_animation(moving):
 	if moving and is_on_floor():
@@ -251,7 +251,6 @@ func headbob_animation(moving):
 	else:
 		HEADBOB_ANIMATION.play("RESET", 0.25)
 		HEADBOB_ANIMATION.speed_scale = 1
-
 
 func _process(delta):
 	$UI/UserInterface/DebugPanel.add_property("FPS", Performance.get_monitor(Performance.TIME_FPS), 0)
@@ -273,8 +272,14 @@ func _process(delta):
 	#HEAD.rotation_degrees.y -= controller_view_rotation.x * 1.5
 	#HEAD.rotation_degrees.x -= controller_view_rotation.y * 1.5
 
-
 func _unhandled_input(event):
 	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 		HEAD.rotation_degrees.y -= event.relative.x * mouse_sensitivity
 		HEAD.rotation_degrees.x -= event.relative.y * mouse_sensitivity
+	
+	if event.is_action_pressed("key_e"):
+		if $Head/Camera/raycast_hand.is_colliding():
+			if not $Head/Camera/raycast_hand.get_collider() == null:
+				if $Head/Camera/raycast_hand.get_collider().has_method('grab'):
+					var grabbed_obj: Dictionary = $Head/Camera/raycast_hand.get_collider().grab()
+					$Head/Camera/raycast_hand.get_collider().queue_free()

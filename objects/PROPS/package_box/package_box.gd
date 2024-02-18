@@ -7,9 +7,16 @@ var seconds_to_deliver: int = 14
 @onready var delivery_timer = $delivery_timer
 @onready var timer = $timer
 
+var item = {
+	'name': 'Посылка',
+	'weight': 10,
+	'deliver_id': ''
+}
+
 func _ready():
 	deliver_id = str(generate_word(10)) + str(int(Time.get_unix_time_from_system()))
-	
+	item.deliver_id = deliver_id
+
 func deliver():
 	if canBeGrabbed:
 		SIN_WORLD_SIGNALS.emit_signal('PACKAGE_DELIVERED')
@@ -42,6 +49,8 @@ func generate_word(length):
 		word += characters[randi()% n_char]
 	return word
 
+func grab():
+	return item
 
 func _on_delivery_timer_timeout():
 	if seconds_to_deliver > 0:
