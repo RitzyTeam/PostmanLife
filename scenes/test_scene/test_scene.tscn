@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://ebql6u7l33sb"]
+[gd_scene load_steps=9 format=3 uid="uid://ebql6u7l33sb"]
 
 [ext_resource type="PackedScene" uid="uid://cc1m2a1obsyn4" path="res://objects/player/player.tscn" id="1_vsp3c"]
 [ext_resource type="PackedScene" uid="uid://din700dmcsdr4" path="res://objects/PROPS/package_spawner/package_spawner.tscn" id="2_jefhr"]
+[ext_resource type="PackedScene" uid="uid://cfw050vcnfw5o" path="res://objects/MOBS/bird/bird.tscn" id="3_c0qjo"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_mtor7"]
 size = Vector3(100, 1, 100)
@@ -23,6 +24,7 @@ sky = SubResource("Sky_trp6e")
 [node name="test_scene" type="Node3D"]
 
 [node name="floor" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.501138, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="floor"]
 mesh = SubResource("BoxMesh_mtor7")
@@ -31,7 +33,7 @@ mesh = SubResource("BoxMesh_mtor7")
 shape = SubResource("BoxShape3D_374bo")
 
 [node name="Player" parent="." instance=ExtResource("1_vsp3c")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.81983, 5.24766, 2.24951)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.81983, 0.0527188, 2.24951)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.872564, 0.488499, 0, -0.488499, 0.872564, 0, 6.73465, 0)
@@ -41,3 +43,6 @@ environment = SubResource("Environment_vqgot")
 
 [node name="package_spawner" parent="." instance=ExtResource("2_jefhr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.33167, -2.89056)
+
+[node name="bird" parent="." instance=ExtResource("3_c0qjo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.0994, 2.24743, -17.2059)

@@ -10,7 +10,7 @@ var item = {}
 
 func deliver():
 	if canBeGrabbed:
-		SIN_WORLD_SIGNALS.emit_signal('PACKAGE_DELIVERED')
+		SIN_WORLD_SIGNALS.emit_signal('PACKAGE_DELIVERED', item.task_id)
 		canBeGrabbed = false
 		var tween = create_tween()
 		anim_deliver()
@@ -20,7 +20,7 @@ func deliver():
 		queue_free()
 
 func destroy_task_failed():
-	SIN_WORLD_SIGNALS.emit_signal('PACKAGE_FAILED')
+	SIN_WORLD_SIGNALS.emit_signal('PACKAGE_FAILED', item.task_id)
 	canBeGrabbed = false
 	var tween = create_tween()
 	tween.tween_property(self, 'scale', Vector3(0, 0, 0), 1)

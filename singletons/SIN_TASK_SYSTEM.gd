@@ -6,6 +6,8 @@ var ACTIVE_TASKS: Array = []
 func _ready():
 	SIN_WORLD_SIGNALS.PACKAGE_DELIVERED.connect(_package_delivered)
 	SIN_WORLD_SIGNALS.PACKAGE_FAILED.connect(_package_failed)
+	await get_tree().create_timer(5).timeout
+	add_random_task()
 	
 # FUNCS
 # Deliver ID должен выбираться из списка доступных Deliver ID.
