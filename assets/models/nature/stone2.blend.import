@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bjxvju2a26iaq"
-path="res://.godot/imported/fontain.blend-5681f84892f3278c99c9fdd1d4a9a20e.scn"
+uid="uid://b1r0vqry08cj5"
+path="res://.godot/imported/stone2.blend-5e35e26e0c08a4374ad9cc27a4415c00.scn"
 
 [deps]
 
-source_file="res://assets/models/fontain.blend"
-dest_files=["res://.godot/imported/fontain.blend-5681f84892f3278c99c9fdd1d4a9a20e.scn"]
+source_file="res://assets/models/nature/stone2.blend"
+dest_files=["res://.godot/imported/stone2.blend-5e35e26e0c08a4374ad9cc27a4415c00.scn"]
 
 [params]
 

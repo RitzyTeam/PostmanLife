@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://b1r0vqry08cj5"
-path="res://.godot/imported/stone2.blend-93ec65949b247342a4a22c83160b4300.scn"
+uid="uid://cv6pe72xsdkc7"
+path="res://.godot/imported/gasStation.blend-36e378ee186ffbc06fe39bba6e708144.scn"
 
 [deps]
 
-source_file="res://assets/models/stone2.blend"
-dest_files=["res://.godot/imported/stone2.blend-93ec65949b247342a4a22c83160b4300.scn"]
+source_file="res://assets/models/builds/gasStation.blend"
+dest_files=["res://.godot/imported/gasStation.blend-36e378ee186ffbc06fe39bba6e708144.scn"]
 
 [params]
 

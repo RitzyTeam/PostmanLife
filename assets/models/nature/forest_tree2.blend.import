@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://d1g57ijc6wp0d"
-path="res://.godot/imported/tree_stump1.blend-406b8aea2f4afc5ca70cf3bfcc7cccf7.scn"
+uid="uid://bp8k5m2cet1oy"
+path="res://.godot/imported/forest_tree2.blend-269b17da705ced072755d4e8b6cb80e5.scn"
 
 [deps]
 
-source_file="res://assets/models/tree_stump1.blend"
-dest_files=["res://.godot/imported/tree_stump1.blend-406b8aea2f4afc5ca70cf3bfcc7cccf7.scn"]
+source_file="res://assets/models/nature/forest_tree2.blend"
+dest_files=["res://.godot/imported/forest_tree2.blend-269b17da705ced072755d4e8b6cb80e5.scn"]
 
 [params]
 

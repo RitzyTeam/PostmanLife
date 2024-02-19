@@ -1,34 +1,16 @@
-[gd_scene load_steps=42 format=3 uid="uid://c66dar30xo83l"]
+[gd_scene load_steps=21 format=3 uid="uid://c66dar30xo83l"]
 
 [ext_resource type="Script" path="res://scenes/world/World.gd" id="1_xxt06"]
 [ext_resource type="Script" path="res://addons/zylann.hterrain/hterrain.gd" id="2_j3jfb"]
 [ext_resource type="Resource" path="res://scenes/world/terrain_data/data.hterrain" id="3_ajii5"]
 [ext_resource type="Script" path="res://addons/zylann.hterrain/hterrain_texture_set.gd" id="4_rbhmn"]
 [ext_resource type="PackedScene" uid="uid://cc1m2a1obsyn4" path="res://objects/player/player.tscn" id="5_6o1kf"]
-[ext_resource type="PackedScene" uid="uid://c82lrnm6bufeh" path="res://assets/models/road1.blend" id="7_ly4c8"]
-[ext_resource type="Script" path="res://addons/proton_scatter/src/scatter.gd" id="8_6l8j7"]
+[ext_resource type="PackedScene" uid="uid://c82lrnm6bufeh" path="res://assets/models/urban_elements/road1.blend" id="7_ly4c8"]
 [ext_resource type="Shader" path="res://shaders/lake_water.gdshader" id="8_gtq7j"]
-[ext_resource type="Script" path="res://addons/proton_scatter/src/stack/modifier_stack.gd" id="9_b00b6"]
-[ext_resource type="Script" path="res://addons/proton_scatter/src/modifiers/create_inside_random.gd" id="10_n2sqe"]
-[ext_resource type="Script" path="res://addons/proton_scatter/src/modifiers/randomize_transforms.gd" id="11_poecr"]
-[ext_resource type="Script" path="res://addons/proton_scatter/src/modifiers/relax.gd" id="12_2l3wf"]
-[ext_resource type="Script" path="res://addons/proton_scatter/src/modifiers/project_on_geometry.gd" id="13_nn5eb"]
-[ext_resource type="Script" path="res://addons/proton_scatter/src/scatter_item.gd" id="14_w2lxp"]
-[ext_resource type="Script" path="res://addons/proton_scatter/src/scatter_shape.gd" id="15_07gcd"]
-[ext_resource type="Script" path="res://addons/proton_scatter/src/shapes/path_shape.gd" id="15_vmmr1"]
-[ext_resource type="PackedScene" uid="uid://ckthoht2tqua4" path="res://assets/models/PostOfficeBulild.blend" id="17_fyu6u"]
-[ext_resource type="PackedScene" uid="uid://bjxvju2a26iaq" path="res://assets/models/fontain.blend" id="18_r5fj7"]
-[ext_resource type="PackedScene" uid="uid://cv6pe72xsdkc7" path="res://assets/models/gasStation.blend" id="19_yehdt"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_1paft"]
-sky_top_color = Color(0.196078, 0.0745098, 0.160784, 1)
-sky_horizon_color = Color(0.580392, 0.34902, 0.482353, 1)
-sky_curve = 0.3
-ground_bottom_color = Color(0.203922, 0.145098, 0.254902, 1)
-ground_horizon_color = Color(0.741176, 0.592157, 0.792157, 1)
-ground_curve = 0.0565685
-sun_angle_max = 70.45
-sun_curve = 0.47075
+sky_curve = 0.559819
+ground_curve = 0.0273208
 
 [sub_resource type="Sky" id="Sky_xgv8q"]
 sky_material = SubResource("ProceduralSkyMaterial_1paft")
@@ -36,7 +18,7 @@ sky_material = SubResource("ProceduralSkyMaterial_1paft")
 [sub_resource type="Environment" id="Environment_kqe7o"]
 background_mode = 2
 sky = SubResource("Sky_xgv8q")
-tonemap_mode = 2
+tonemap_mode = 1
 ssr_enabled = true
 ssao_enabled = true
 glow_enabled = true
@@ -50,84 +32,6 @@ volumetric_fog_density = 0.0
 script = ExtResource("4_rbhmn")
 mode = 0
 textures = [[], []]
-
-[sub_resource type="Resource" id="Resource_flv71"]
-script = ExtResource("10_n2sqe")
-amount = 1000
-enabled = true
-override_global_seed = false
-custom_seed = 0
-restrict_height = true
-reference_frame = 1
-
-[sub_resource type="Resource" id="Resource_yj4ou"]
-script = ExtResource("11_poecr")
-position = Vector3(0.15, 0.15, 0.15)
-rotation = Vector3(0, 360, 0)
-scale = Vector3(0.1, 0.1, 0.1)
-enabled = true
-override_global_seed = false
-custom_seed = 0
-restrict_height = false
-reference_frame = 2
-
-[sub_resource type="Resource" id="Resource_bmq00"]
-script = ExtResource("12_2l3wf")
-iterations = 3
-offset_step = 0.2
-consecutive_step_multiplier = 0.75
-use_computeshader = true
-enabled = true
-override_global_seed = false
-custom_seed = 0
-restrict_height = true
-reference_frame = 0
-
-[sub_resource type="Resource" id="Resource_a3r1f"]
-script = ExtResource("13_nn5eb")
-ray_direction = Vector3(1, 1, 0)
-ray_length = 5.0
-ray_offset = 5.0
-remove_points_on_miss = false
-align_with_collision_normal = false
-max_slope = 90.0
-collision_mask = 1
-exclude_mask = 0
-enabled = true
-override_global_seed = false
-custom_seed = 0
-restrict_height = false
-reference_frame = 0
-
-[sub_resource type="Resource" id="Resource_jmitc"]
-script = ExtResource("9_b00b6")
-stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_flv71"), SubResource("Resource_yj4ou"), SubResource("Resource_bmq00"), SubResource("Resource_a3r1f")])
-
-[sub_resource type="Curve3D" id="Curve3D_7jhsy"]
-_data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -184.604, 0, -287.484, 0, 0, 0, 0, 0, 0, 140.104, 0, -285.7, 0, 0, 0, 0, 0, 0, 142.269, 0, 239.066, 0, 0, 0, 0, 0, 0, -20.9774, 0, 236.39, 0, 0, 0, 0, 0, 0, 15.5969, 0, 115.07, 0, 0, 0, 0, 0, 0, -12.9489, 0, 57.0869, 0, 0, 0, 0, 0, 0, -76.2848, 0, 50.8425, 0, 0, 0, 0, 0, 0, -159.246, 0, 57.979, 0, 0, 0, 0, 0, 0, -154.786, 0, -35.6868, 0, 0, 0, 0, 0, 0, -186.9, 0, -55.312, 0, 0, 0, 0, 0, 0, -186.9, 0, -138.273, 0, 0, 0, 0, 0, 0, -222.582, 0, -213.206, 0, 0, 0, 0, 0, 0, -263.616, 0, -263.161),
-"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
-}
-point_count = 13
-
-[sub_resource type="Resource" id="Resource_k8ofs"]
-script = ExtResource("15_vmmr1")
-closed = true
-thickness = 0.0
-curve = SubResource("Curve3D_7jhsy")
-
-[sub_resource type="Curve3D" id="Curve3D_syljk"]
-_data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -28.147, 0, 85.2313, 0, 0, 0, 0, 0, 0, -64.2488, 0, 77.5099, 0, 0, 0, 0, 0, 0, -63.1304, 0, -82.0774, 0, 0, 0, 0, 0, 0, 91.688, 0, -86.0675, 0, 0, 0, 0, 0, 0, 319.925, 0, -85.2695, 0, 0, 0, 0, 0, 0, 315.137, 0, -43.7718, 0, 0, 0, 0, 0, 0, 194.634, 0, -61.3285, 0, 0, 0, 0, 0, 0, 129.994, 0, -54.1462, 0, 0, 0, 0, 0, 0, 78.1214, 0, -22.2249, 0, 0, 0, 0, 0, 0, 24.6532, 0, 18.4748, 0, 0, 0, 0, 0, 0, -24.0268, 0, 59.1745),
-"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
-}
-point_count = 11
-
-[sub_resource type="Resource" id="Resource_3cp00"]
-script = ExtResource("15_vmmr1")
-closed = true
-thickness = 0.0
-curve = SubResource("Curve3D_syljk")
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_erk5x"]
 noise_type = 3
@@ -200,9 +104,8 @@ environment = SubResource("Environment_kqe7o")
 camera_attributes = SubResource("CameraAttributesPractical_ke1mj")
 
 [node name="Sun" type="DirectionalLight3D" parent="WorldEnv"]
-transform = Transform3D(-0.544336, 0.832802, -0.100691, -0.174882, -0.230054, -0.957336, -0.820436, -0.503503, 0.270869, 0.992416, 0, -4.94073)
+transform = Transform3D(-0.337386, -0.485601, -0.80645, 0.898794, 0.0885445, -0.429336, 0.279893, -0.869685, 0.406582, 0.992416, 0, -4.94073)
 shadow_enabled = true
-sky_mode = 2
 
 [node name="Levels" type="Node" parent="."]
 
@@ -229,35 +132,6 @@ cast_shadow = 1
 
 [node name="big_forest" type="Node" parent="Levels"]
 
-[node name="ProtonScatter" type="Node3D" parent="Levels/big_forest"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 648.827, 0, 304.392)
-script = ExtResource("8_6l8j7")
-render_mode = 1
-modifier_stack = SubResource("Resource_jmitc")
-Performance/use_chunks = true
-Performance/chunk_dimensions = Vector3(15, 15, 15)
-
-[node name="ScatterShape" type="Node3D" parent="Levels/big_forest/ProtonScatter"]
-transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 0, 0, 0)
-script = ExtResource("15_07gcd")
-shape = SubResource("Resource_k8ofs")
-
-[node name="ScatterShape2" type="Node3D" parent="Levels/big_forest/ProtonScatter"]
-transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, -584.179, 0, -216.536)
-script = ExtResource("15_07gcd")
-shape = SubResource("Resource_3cp00")
-
-[node name="tree1" type="Node3D" parent="Levels/big_forest/ProtonScatter"]
-script = ExtResource("14_w2lxp")
-proportion = 50
-path = "res://objects/PROPS/nature/forest_tree_2.tscn"
-
-[node name="tree2" type="Node3D" parent="Levels/big_forest/ProtonScatter"]
-script = ExtResource("14_w2lxp")
-proportion = 50
-source_scale_multiplier = 2.0
-path = "res://objects/PROPS/nature/forest_tree_3.tscn"
-
 [node name="lake" type="Node" parent="Levels"]
 
 [node name="lake_forest" type="Node" parent="Levels/lake"]
@@ -276,14 +150,5 @@ wall_min_slide_angle = 0.548033
 
 [node name="road1" parent="." instance=ExtResource("7_ly4c8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 366.998, 0, 560.142)
-
-[node name="PostOfficeBulild" parent="." instance=ExtResource("17_fyu6u")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 615.062, 0.2, 618.141)
-
-[node name="fontain" parent="." instance=ExtResource("18_r5fj7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 543.123, 0, 448.998)
-
-[node name="gasStation" parent="." instance=ExtResource("19_yehdt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 102.937, 0, 584.994)
 
 [connection signal="timeout" from="SERVERS/timer_daycycle" to="." method="_on_timer_daycycle_timeout"]

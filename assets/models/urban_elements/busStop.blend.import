@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dko18tmhjq66e"
-path="res://.godot/imported/forest_tree3.blend-a96bfafd3f3ffffe7bea15dea148f046.scn"
+uid="uid://dxqjicwmati80"
+path="res://.godot/imported/busStop.blend-18239e18832525bcf4be61ee77feab86.scn"
 
 [deps]
 
-source_file="res://assets/models/forest_tree3.blend"
-dest_files=["res://.godot/imported/forest_tree3.blend-a96bfafd3f3ffffe7bea15dea148f046.scn"]
+source_file="res://assets/models/urban_elements/busStop.blend"
+dest_files=["res://.godot/imported/busStop.blend-18239e18832525bcf4be61ee77feab86.scn"]
 
 [params]
 

@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://itutfnc3nwji"
-path="res://.godot/imported/fishHouse.blend-e3a35cab88f8a9ea2aa18c39783405a1.scn"
+uid="uid://bk4v0uv6pn5kx"
+path="res://.godot/imported/ruralHouse.blend-854ad860ce5689ed767edc1499e4f4f6.scn"
 
 [deps]
 
-source_file="res://assets/models/fishHouse.blend"
-dest_files=["res://.godot/imported/fishHouse.blend-e3a35cab88f8a9ea2aa18c39783405a1.scn"]
+source_file="res://assets/models/builds/ruralHouse.blend"
+dest_files=["res://.godot/imported/ruralHouse.blend-854ad860ce5689ed767edc1499e4f4f6.scn"]
 
 [params]
 

@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://5x5q6rqn7qbu"
-path="res://.godot/imported/lamppost.blend-7a32a813d0f0592ef4865bb38318403d.scn"
+uid="uid://c82lrnm6bufeh"
+path="res://.godot/imported/road1.blend-8fbc2ba60656ba934f81ea1aa3f3edc2.scn"
 
 [deps]
 
-source_file="res://assets/models/lamppost.blend"
-dest_files=["res://.godot/imported/lamppost.blend-7a32a813d0f0592ef4865bb38318403d.scn"]
+source_file="res://assets/models/urban_elements/road1.blend"
+dest_files=["res://.godot/imported/road1.blend-8fbc2ba60656ba934f81ea1aa3f3edc2.scn"]
 
 [params]
 
