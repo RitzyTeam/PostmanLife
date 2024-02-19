@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://c66dar30xo83l"]
+[gd_scene load_steps=41 format=3 uid="uid://c66dar30xo83l"]
 
 [ext_resource type="Script" path="res://scenes/world/World.gd" id="1_xxt06"]
 [ext_resource type="Script" path="res://addons/zylann.hterrain/hterrain.gd" id="2_j3jfb"]
@@ -16,6 +16,8 @@
 [ext_resource type="Script" path="res://addons/proton_scatter/src/scatter_item.gd" id="14_w2lxp"]
 [ext_resource type="Script" path="res://addons/proton_scatter/src/scatter_shape.gd" id="15_07gcd"]
 [ext_resource type="Script" path="res://addons/proton_scatter/src/shapes/path_shape.gd" id="15_vmmr1"]
+[ext_resource type="PackedScene" uid="uid://ckthoht2tqua4" path="res://assets/models/PostOfficeBulild.blend" id="17_fyu6u"]
+[ext_resource type="PackedScene" uid="uid://bjxvju2a26iaq" path="res://assets/models/fontain.blend" id="18_r5fj7"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_1paft"]
 sky_top_color = Color(0.631373, 0.321569, 0.541176, 1)
@@ -48,7 +50,7 @@ script = ExtResource("4_rbhmn")
 mode = 0
 textures = [[], []]
 
-[sub_resource type="Resource" id="Resource_3k3ug"]
+[sub_resource type="Resource" id="Resource_hg60v"]
 script = ExtResource("10_n2sqe")
 amount = 1000
 enabled = true
@@ -57,7 +59,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 1
 
-[sub_resource type="Resource" id="Resource_oc737"]
+[sub_resource type="Resource" id="Resource_2b67m"]
 script = ExtResource("11_poecr")
 position = Vector3(0.15, 0.15, 0.15)
 rotation = Vector3(0, 360, 0)
@@ -68,7 +70,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 2
 
-[sub_resource type="Resource" id="Resource_c3ev5"]
+[sub_resource type="Resource" id="Resource_4yxtg"]
 script = ExtResource("12_2l3wf")
 iterations = 3
 offset_step = 0.2
@@ -80,7 +82,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_ewhit"]
+[sub_resource type="Resource" id="Resource_70tw4"]
 script = ExtResource("13_nn5eb")
 ray_direction = Vector3(1, 1, 0)
 ray_length = 5.0
@@ -96,9 +98,9 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_cq7oh"]
+[sub_resource type="Resource" id="Resource_381ea"]
 script = ExtResource("9_b00b6")
-stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_3k3ug"), SubResource("Resource_oc737"), SubResource("Resource_c3ev5"), SubResource("Resource_ewhit")])
+stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_hg60v"), SubResource("Resource_2b67m"), SubResource("Resource_4yxtg"), SubResource("Resource_70tw4")])
 
 [sub_resource type="Curve3D" id="Curve3D_7jhsy"]
 _data = {
@@ -125,11 +127,6 @@ script = ExtResource("15_vmmr1")
 closed = true
 thickness = 0.0
 curve = SubResource("Curve3D_syljk")
-
-[sub_resource type="FogMaterial" id="FogMaterial_vhyac"]
-density = 0.3043
-emission = Color(0.784314, 0.615686, 0.823529, 1)
-edge_fade = 0.131951
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_erk5x"]
 noise_type = 3
@@ -211,8 +208,9 @@ shadow_enabled = true
 
 [node name="HTerrain" type="Node3D" parent="Levels/terrain"]
 script = ExtResource("2_j3jfb")
+ambient_wind = 1.0
 _terrain_data = ExtResource("3_ajii5")
-chunk_size = 32
+chunk_size = 64
 collision_enabled = true
 collision_layer = 1
 collision_mask = 1
@@ -233,7 +231,7 @@ cast_shadow = 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 648.827, 0, 304.392)
 script = ExtResource("8_6l8j7")
 render_mode = 1
-modifier_stack = SubResource("Resource_cq7oh")
+modifier_stack = SubResource("Resource_381ea")
 Performance/use_chunks = true
 Performance/chunk_dimensions = Vector3(15, 15, 15)
 
@@ -258,12 +256,6 @@ proportion = 50
 source_scale_multiplier = 2.0
 path = "res://objects/PROPS/nature/forest_tree_3.tscn"
 
-[node name="FogVolume" type="FogVolume" parent="Levels/big_forest"]
-transform = Transform3D(0.0243799, 0, -0.999703, 0, 1, 0, 0.999703, 0, 0.0243799, 673.31, -1.04242, 91.7368)
-visible = false
-size = Vector3(141.11, 90.8196, 325.72)
-material = SubResource("FogMaterial_vhyac")
-
 [node name="lake" type="Node" parent="Levels"]
 
 [node name="lake_forest" type="Node" parent="Levels/lake"]
@@ -275,13 +267,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 271.222, -0.76712, 268.675)
 mesh = SubResource("QuadMesh_edxtc")
 
 [node name="Player" parent="." instance=ExtResource("5_6o1kf")]
-transform = Transform3D(1, 0, 0, 0, 0.999918, -0.0128104, 0, 0.0128104, 0.999918, 568.216, 0.0613818, 513.212)
+transform = Transform3D(1, 0, 0, 0, 0.999918, -0.0128104, 0, 0.0128104, 0.999918, 560.976, 0.0613818, 451.281)
 collision_layer = 3
 collision_mask = 3
 wall_min_slide_angle = 0.548033
-sprint_speed = 200.0
 
 [node name="road1" parent="." instance=ExtResource("7_ly4c8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 366.998, 0, 560.142)
+
+[node name="PostOfficeBulild" parent="." instance=ExtResource("17_fyu6u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 615.062, 0, 618.141)
+
+[node name="fontain" parent="." instance=ExtResource("18_r5fj7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 543.123, 0, 448.998)
 
 [connection signal="timeout" from="SERVERS/timer_daycycle" to="." method="_on_timer_daycycle_timeout"]
