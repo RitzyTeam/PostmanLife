@@ -6,6 +6,7 @@ extends Node
 @onready var item_4_icon = $"../UI/UserInterface/inventory/slot_4/item_icon"
 
 
+
 func load_inventory_visual():
 	var inv: Dictionary = $"..".inv
 	# slot 1

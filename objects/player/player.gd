@@ -1,5 +1,8 @@
 extends CharacterBody3D
 
+
+
+
 @onready var inventory_loader = $INVENTORY_LOADER
 @export var throw_item_power: float = 10.0
 var current_slot_selected: int = 1
@@ -9,6 +12,11 @@ var inv: Dictionary = {
 	'slot_3': {'id': 'void'},
 	'slot_4': {'id': 'void'},
 }
+@onready var slot_1 = $UI/UserInterface/inventory/slot_1
+@onready var slot_2 = $UI/UserInterface/inventory/slot_2
+@onready var slot_3 = $UI/UserInterface/inventory/slot_3
+@onready var slot_4 = $UI/UserInterface/inventory/slot_4
+
 
 @export_category("Character")
 @export var base_speed : float = 3.0
@@ -73,6 +81,10 @@ var gravity : float = ProjectSettings.get_setting("physics/3d/default_gravity") 
 
 
 func _ready():
+	slot_1.modulate.a = 0.5
+	slot_2.modulate.a = 0.5
+	slot_3.modulate.a = 0.5
+	slot_4.modulate.a = 0.5
 	inventory_loader.load_hand_visual(current_slot_selected)
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	
@@ -332,12 +344,28 @@ func _unhandled_input(event):
 	
 	if event.is_action_pressed("key_1"):
 		current_slot_selected = 1
+		slot_1.modulate.a = 1
+		slot_2.modulate.a = 0.5
+		slot_3.modulate.a = 0.5
+		slot_4.modulate.a = 0.5
 	if event.is_action_pressed("key_2"):
 		current_slot_selected = 2
+		slot_1.modulate.a = 0.5
+		slot_2.modulate.a = 1
+		slot_3.modulate.a = 0.5
+		slot_4.modulate.a = 0.5
 	if event.is_action_pressed("key_3"):
 		current_slot_selected = 3
+		slot_1.modulate.a = 0.5
+		slot_2.modulate.a = 0.5
+		slot_3.modulate.a = 1
+		slot_4.modulate.a = 0.5
 	if event.is_action_pressed("key_4"):
 		current_slot_selected = 4
+		slot_1.modulate.a = 0.5
+		slot_2.modulate.a = 0.5
+		slot_3.modulate.a = 0.5
+		slot_4.modulate.a = 1
 	inventory_loader.load_hand_visual(current_slot_selected)
 	
 	if event.is_action_pressed('key_g'):
