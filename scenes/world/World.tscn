@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://c66dar30xo83l"]
+[gd_scene load_steps=42 format=3 uid="uid://c66dar30xo83l"]
 
 [ext_resource type="Script" path="res://scenes/world/World.gd" id="1_xxt06"]
 [ext_resource type="Script" path="res://addons/zylann.hterrain/hterrain.gd" id="2_j3jfb"]
@@ -18,10 +18,11 @@
 [ext_resource type="Script" path="res://addons/proton_scatter/src/shapes/path_shape.gd" id="15_vmmr1"]
 [ext_resource type="PackedScene" uid="uid://ckthoht2tqua4" path="res://assets/models/PostOfficeBulild.blend" id="17_fyu6u"]
 [ext_resource type="PackedScene" uid="uid://bjxvju2a26iaq" path="res://assets/models/fontain.blend" id="18_r5fj7"]
+[ext_resource type="PackedScene" uid="uid://cv6pe72xsdkc7" path="res://assets/models/gasStation.blend" id="19_yehdt"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_1paft"]
-sky_top_color = Color(0.631373, 0.321569, 0.541176, 1)
-sky_horizon_color = Color(0.796078, 0.580392, 0.701961, 1)
+sky_top_color = Color(0.196078, 0.0745098, 0.160784, 1)
+sky_horizon_color = Color(0.580392, 0.34902, 0.482353, 1)
 sky_curve = 0.3
 ground_bottom_color = Color(0.203922, 0.145098, 0.254902, 1)
 ground_horizon_color = Color(0.741176, 0.592157, 0.792157, 1)
@@ -50,7 +51,7 @@ script = ExtResource("4_rbhmn")
 mode = 0
 textures = [[], []]
 
-[sub_resource type="Resource" id="Resource_hg60v"]
+[sub_resource type="Resource" id="Resource_flv71"]
 script = ExtResource("10_n2sqe")
 amount = 1000
 enabled = true
@@ -59,7 +60,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 1
 
-[sub_resource type="Resource" id="Resource_2b67m"]
+[sub_resource type="Resource" id="Resource_yj4ou"]
 script = ExtResource("11_poecr")
 position = Vector3(0.15, 0.15, 0.15)
 rotation = Vector3(0, 360, 0)
@@ -70,7 +71,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 2
 
-[sub_resource type="Resource" id="Resource_4yxtg"]
+[sub_resource type="Resource" id="Resource_bmq00"]
 script = ExtResource("12_2l3wf")
 iterations = 3
 offset_step = 0.2
@@ -82,7 +83,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_70tw4"]
+[sub_resource type="Resource" id="Resource_a3r1f"]
 script = ExtResource("13_nn5eb")
 ray_direction = Vector3(1, 1, 0)
 ray_length = 5.0
@@ -98,9 +99,9 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_381ea"]
+[sub_resource type="Resource" id="Resource_jmitc"]
 script = ExtResource("9_b00b6")
-stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_hg60v"), SubResource("Resource_2b67m"), SubResource("Resource_4yxtg"), SubResource("Resource_70tw4")])
+stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_flv71"), SubResource("Resource_yj4ou"), SubResource("Resource_bmq00"), SubResource("Resource_a3r1f")])
 
 [sub_resource type="Curve3D" id="Curve3D_7jhsy"]
 _data = {
@@ -199,8 +200,9 @@ environment = SubResource("Environment_kqe7o")
 camera_attributes = SubResource("CameraAttributesPractical_ke1mj")
 
 [node name="Sun" type="DirectionalLight3D" parent="WorldEnv"]
-transform = Transform3D(-0.544336, 0.832802, -0.10069, 0.738437, 0.532653, 0.413512, 0.398007, 0.150736, -0.904914, 0.992416, 0, -4.94073)
+transform = Transform3D(-0.544336, 0.832802, -0.100691, -0.174882, -0.230054, -0.957336, -0.820436, -0.503503, 0.270869, 0.992416, 0, -4.94073)
 shadow_enabled = true
+sky_mode = 2
 
 [node name="Levels" type="Node" parent="."]
 
@@ -231,7 +233,7 @@ cast_shadow = 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 648.827, 0, 304.392)
 script = ExtResource("8_6l8j7")
 render_mode = 1
-modifier_stack = SubResource("Resource_381ea")
+modifier_stack = SubResource("Resource_jmitc")
 Performance/use_chunks = true
 Performance/chunk_dimensions = Vector3(15, 15, 15)
 
@@ -267,7 +269,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 271.222, -0.76712, 268.675)
 mesh = SubResource("QuadMesh_edxtc")
 
 [node name="Player" parent="." instance=ExtResource("5_6o1kf")]
-transform = Transform3D(1, 0, 0, 0, 0.999918, -0.0128104, 0, 0.0128104, 0.999918, 560.976, 0.0613818, 451.281)
+transform = Transform3D(1, 0, 0, 0, 0.999918, -0.0128104, 0, 0.0128104, 0.999918, 100.468, 0.0613818, 562.283)
 collision_layer = 3
 collision_mask = 3
 wall_min_slide_angle = 0.548033
@@ -276,9 +278,12 @@ wall_min_slide_angle = 0.548033
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 366.998, 0, 560.142)
 
 [node name="PostOfficeBulild" parent="." instance=ExtResource("17_fyu6u")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 615.062, 0, 618.141)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 615.062, 0.2, 618.141)
 
 [node name="fontain" parent="." instance=ExtResource("18_r5fj7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 543.123, 0, 448.998)
+
+[node name="gasStation" parent="." instance=ExtResource("19_yehdt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 102.937, 0, 584.994)
 
 [connection signal="timeout" from="SERVERS/timer_daycycle" to="." method="_on_timer_daycycle_timeout"]
