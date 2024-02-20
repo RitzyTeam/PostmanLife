@@ -1,4 +1,4 @@
-extends AnimatableBody3D
+extends CharacterBody3D
 
 
 var agro_chance: int = 100
@@ -30,6 +30,7 @@ func _on_trigger_body_entered(body):
 						# BIRD TARGETS PACKAGE
 						state = 'agro'
 						current_target = body
+						look_at(current_target.global_transform.origin, Vector3.UP)
 
 func _physics_process(delta):
 	state_machine()
@@ -45,6 +46,7 @@ func _on_grab_zone_body_entered(body):
 					match item.id:
 						'box':
 							state = 'stealed'
+							look_at(home_point, Vector3.UP)
 							current_slot_item = body.item
 							$hand/letter.visible = false
 							$hand/box.visible = true
@@ -90,12 +92,13 @@ func state_machine():
 		'idle':
 			pass
 		'agro':
+			look_at(Vector3(current_target.global_position.x, global_position.y, current_target.global_position.z), Vector3.UP)
 			if not current_target == null:
-				look_at(current_target.global_position, Vector3.UP)
 				global_position = lerp(global_position, current_target.global_position, bird_speed)
 			else:
 				state = 'stealed'
 		'stealed':
+			look_at(Vector3(home_point.x, global_position.y, home_point.z), Vector3.UP)
 			if home_point.distance_to(global_position) < 5:
 				state = 'idle'
 				if not current_slot_item == {'id': 'void'}:
@@ -103,10 +106,12 @@ func state_machine():
 			else:
 				look_at(home_point, Vector3.UP)
 				global_position = lerp(global_position, home_point, bird_speed)
-		'flying':
-			pass
-
 
 func _on_timer_timeout():
 	if trigger_cooldown > 0:
 		trigger_cooldown -= 1
+
+func rotate_towards_target():
+	var tween = create_tween()
+	tween.tween_property(self, 'global_rotation', Vector3(), 1)
+	tween.play()

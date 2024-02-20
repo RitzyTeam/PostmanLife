@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://g7g21084bfmd"]
+
+[ext_resource type="Script" path="res://objects/MOBS/magnet_crab/magnet_crab.gd" id="1_f564u"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_avoj6"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_8veli"]
+points = PackedVector3Array(0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5)
+
+[node name="magnet_crab" type="CharacterBody3D"]
+script = ExtResource("1_f564u")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_avoj6")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("ConvexPolygonShape3D_8veli")
