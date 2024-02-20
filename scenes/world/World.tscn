@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://c66dar30xo83l"]
+[gd_scene load_steps=22 format=3 uid="uid://c66dar30xo83l"]
 
 [ext_resource type="Script" path="res://scenes/world/World.gd" id="1_xxt06"]
 [ext_resource type="Script" path="res://addons/zylann.hterrain/hterrain.gd" id="2_j3jfb"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cc1m2a1obsyn4" path="res://objects/player/player.tscn" id="5_6o1kf"]
 [ext_resource type="PackedScene" uid="uid://c82lrnm6bufeh" path="res://assets/models/urban_elements/road1.blend" id="7_ly4c8"]
 [ext_resource type="Shader" path="res://shaders/lake_water.gdshader" id="8_gtq7j"]
+[ext_resource type="PackedScene" uid="uid://c1ngc2a8jq06d" path="res://assets/models/mobs/bird/bird.glb" id="8_powe6"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_1paft"]
 sky_curve = 0.559819
@@ -142,13 +143,32 @@ cast_shadow = 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 271.222, -0.76712, 268.675)
 mesh = SubResource("QuadMesh_edxtc")
 
+[node name="streets" type="Node" parent="Levels"]
+
+[node name="Веселая" type="Node" parent="Levels/streets"]
+
+[node name="Лазурная" type="Node" parent="Levels/streets"]
+
+[node name="Проспект Заря" type="Node" parent="Levels/streets"]
+
+[node name="Светлая площадь" type="Node" parent="Levels/streets"]
+
+[node name="Чудесная" type="Node" parent="Levels/streets"]
+
+[node name="Сказочная" type="Node" parent="Levels/streets"]
+
+[node name="Вечерняя" type="Node" parent="Levels/streets"]
+
 [node name="Player" parent="." instance=ExtResource("5_6o1kf")]
-transform = Transform3D(1, 0, 0, 0, 0.999918, -0.0128104, 0, 0.0128104, 0.999918, 100.468, 0.0613818, 562.283)
+transform = Transform3D(1, 0, 0, 0, 0.999918, -0.0128104, 0, 0.0128104, 0.999918, 477.256, 0.0613818, 600.17)
 collision_layer = 3
 collision_mask = 3
 wall_min_slide_angle = 0.548033
 
 [node name="road1" parent="." instance=ExtResource("7_ly4c8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 366.998, 0, 560.142)
+
+[node name="bird" parent="." instance=ExtResource("8_powe6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 478.224, 0.327727, 601.634)
 
 [connection signal="timeout" from="SERVERS/timer_daycycle" to="." method="_on_timer_daycycle_timeout"]

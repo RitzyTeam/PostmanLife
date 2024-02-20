@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://d7y7erly8hwt"
-path="res://.godot/imported/house1.blend-4f57c46b0cfadfdef60b786944cd181c.scn"
+uid="uid://dgbwwl75ias2h"
+path="res://.godot/imported/bird.blend-eecc27fe9b04285457ffcc51430631c1.scn"
 
 [deps]
 
-source_file="res://assets/models/builds/house1.blend"
-dest_files=["res://.godot/imported/house1.blend-4f57c46b0cfadfdef60b786944cd181c.scn"]
+source_file="res://assets/models/mobs/bird/bird.blend"
+dest_files=["res://.godot/imported/bird.blend-eecc27fe9b04285457ffcc51430631c1.scn"]
 
 [params]
 
