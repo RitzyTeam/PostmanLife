@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cc1m2a1obsyn4" path="res://objects/player/player.tscn" id="1_vsp3c"]
 [ext_resource type="PackedScene" uid="uid://din700dmcsdr4" path="res://objects/PROPS/package_spawner/package_spawner.tscn" id="2_jefhr"]
-[ext_resource type="PackedScene" uid="uid://bqkmogmsrvqdr" path="res://objects/MOBS/ghost_girl/ghost_girl.tscn" id="3_0jv88"]
+[ext_resource type="PackedScene" uid="uid://cfw050vcnfw5o" path="res://objects/MOBS/bird/bird.tscn" id="3_v0c35"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_mtor7"]
 size = Vector3(100, 1, 100)
@@ -44,5 +44,5 @@ environment = SubResource("Environment_vqgot")
 [node name="package_spawner" parent="." instance=ExtResource("2_jefhr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.33167, -2.89056)
 
-[node name="ghost_girl" parent="." instance=ExtResource("3_0jv88")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.2904, 1.02035, -21.1131)
+[node name="bird" parent="." instance=ExtResource("3_v0c35")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.0916, 5.06942, -7.65853)
