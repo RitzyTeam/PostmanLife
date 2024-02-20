@@ -75,6 +75,8 @@ size = Vector3(0.501953, 0.382813, 0.753967)
 
 [node name="package_box" type="RigidBody3D"]
 mass = 3.0
+can_sleep = false
+continuous_cd = true
 script = ExtResource("1_lly81")
 
 [node name="Cube" type="MeshInstance3D" parent="."]

@@ -73,6 +73,8 @@ shadow_mesh = SubResource("ArrayMesh_syv0r")
 
 [node name="package_letter" type="RigidBody3D"]
 mass = 0.2
+can_sleep = false
+continuous_cd = true
 script = ExtResource("1_8rpvx")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

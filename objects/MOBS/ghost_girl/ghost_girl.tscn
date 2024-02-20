@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://bqkmogmsrvqdr"]
+[gd_scene load_steps=5 format=3 uid="uid://bqkmogmsrvqdr"]
 
 [ext_resource type="Script" path="res://objects/MOBS/ghost_girl/ghost_girl.gd" id="1_cl2vo"]
 
@@ -6,6 +6,9 @@
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_awfmw"]
 points = PackedVector3Array(0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ntana"]
+radius = 10.0
 
 [node name="ghost_girl" type="CharacterBody3D"]
 script = ExtResource("1_cl2vo")
@@ -15,3 +18,11 @@ mesh = SubResource("BoxMesh_x4dr4")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("ConvexPolygonShape3D_awfmw")
+
+[node name="appearance_trigger" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="appearance_trigger"]
+shape = SubResource("SphereShape3D_ntana")
+
+[connection signal="body_entered" from="appearance_trigger" to="." method="_on_appearance_trigger_body_entered"]
+[connection signal="body_exited" from="appearance_trigger" to="." method="_on_appearance_trigger_body_exited"]
