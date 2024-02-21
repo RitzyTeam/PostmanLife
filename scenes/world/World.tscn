@@ -1,13 +1,23 @@
-[gd_scene load_steps=22 format=3 uid="uid://c66dar30xo83l"]
+[gd_scene load_steps=39 format=3 uid="uid://c66dar30xo83l"]
 
 [ext_resource type="Script" path="res://scenes/world/World.gd" id="1_xxt06"]
 [ext_resource type="Script" path="res://addons/zylann.hterrain/hterrain.gd" id="2_j3jfb"]
 [ext_resource type="Resource" path="res://scenes/world/terrain_data/data.hterrain" id="3_ajii5"]
 [ext_resource type="Script" path="res://addons/zylann.hterrain/hterrain_texture_set.gd" id="4_rbhmn"]
 [ext_resource type="PackedScene" uid="uid://cc1m2a1obsyn4" path="res://objects/player/player.tscn" id="5_6o1kf"]
+[ext_resource type="Script" path="res://addons/proton_scatter/src/scatter.gd" id="6_l61ph"]
+[ext_resource type="Script" path="res://addons/proton_scatter/src/stack/modifier_stack.gd" id="7_35ifk"]
 [ext_resource type="PackedScene" uid="uid://c82lrnm6bufeh" path="res://assets/models/urban_elements/road1.blend" id="7_ly4c8"]
+[ext_resource type="Script" path="res://addons/proton_scatter/src/modifiers/create_inside_random.gd" id="8_dfwde"]
 [ext_resource type="Shader" path="res://shaders/lake_water.gdshader" id="8_gtq7j"]
-[ext_resource type="PackedScene" uid="uid://c1ngc2a8jq06d" path="res://assets/models/mobs/bird/bird.glb" id="8_powe6"]
+[ext_resource type="Script" path="res://addons/proton_scatter/src/modifiers/randomize_transforms.gd" id="9_tbmug"]
+[ext_resource type="Script" path="res://addons/proton_scatter/src/modifiers/relax.gd" id="10_vasbw"]
+[ext_resource type="Script" path="res://addons/proton_scatter/src/modifiers/project_on_geometry.gd" id="11_fbnr5"]
+[ext_resource type="Script" path="res://addons/proton_scatter/src/scatter_item.gd" id="12_q88ff"]
+[ext_resource type="Script" path="res://addons/proton_scatter/src/scatter_shape.gd" id="13_e7vl4"]
+[ext_resource type="Script" path="res://addons/proton_scatter/src/shapes/path_shape.gd" id="14_ncutn"]
+[ext_resource type="PackedScene" uid="uid://cv6pe72xsdkc7" path="res://assets/models/builds/gasStation.blend" id="17_su4wl"]
+[ext_resource type="PackedScene" uid="uid://dkfbfrrjn8o18" path="res://objects/builds/four_story_building.tscn" id="18_pqcvf"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_1paft"]
 sky_curve = 0.559819
@@ -89,6 +99,71 @@ material = SubResource("ShaderMaterial_rbf8v")
 size = Vector2(500, 500)
 orientation = 1
 
+[sub_resource type="Resource" id="Resource_0eh5m"]
+script = ExtResource("8_dfwde")
+amount = 50
+enabled = true
+override_global_seed = false
+custom_seed = 0
+restrict_height = true
+reference_frame = 1
+
+[sub_resource type="Resource" id="Resource_fprw6"]
+script = ExtResource("9_tbmug")
+position = Vector3(0.15, 0.15, 0.15)
+rotation = Vector3(0, 360, 0)
+scale = Vector3(0.1, 0.1, 0.1)
+enabled = true
+override_global_seed = false
+custom_seed = 0
+restrict_height = false
+reference_frame = 2
+
+[sub_resource type="Resource" id="Resource_lt6w1"]
+script = ExtResource("10_vasbw")
+iterations = 3
+offset_step = 0.2
+consecutive_step_multiplier = 0.75
+use_computeshader = true
+enabled = true
+override_global_seed = false
+custom_seed = 0
+restrict_height = true
+reference_frame = 0
+
+[sub_resource type="Resource" id="Resource_3iwqp"]
+script = ExtResource("11_fbnr5")
+ray_direction = Vector3(0, -1, 0)
+ray_length = 5.0
+ray_offset = 5.0
+remove_points_on_miss = false
+align_with_collision_normal = false
+max_slope = 90.0
+collision_mask = 1
+exclude_mask = 0
+enabled = true
+override_global_seed = false
+custom_seed = 0
+restrict_height = false
+reference_frame = 0
+
+[sub_resource type="Resource" id="Resource_pyv8n"]
+script = ExtResource("7_35ifk")
+stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_0eh5m"), SubResource("Resource_fprw6"), SubResource("Resource_lt6w1"), SubResource("Resource_3iwqp")])
+
+[sub_resource type="Curve3D" id="Curve3D_72mvx"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 6.35323, 0, -0.104492, 0, 0, 0, 0, 0, 0, 5.9046, 0, 433.705, 0, 0, 0, 0, 0, 0, -6.02698, 0, 434.104, 0, 0, 0, 0, 0, 0, -5.79638, 0, -0.0012207),
+"tilts": PackedFloat32Array(0, 0, 0, 0)
+}
+point_count = 4
+
+[sub_resource type="Resource" id="Resource_p8ya0"]
+script = ExtResource("14_ncutn")
+closed = true
+thickness = 0.0
+curve = SubResource("Curve3D_72mvx")
+
 [node name="World" type="Node"]
 script = ExtResource("1_xxt06")
 
@@ -105,7 +180,7 @@ environment = SubResource("Environment_kqe7o")
 camera_attributes = SubResource("CameraAttributesPractical_ke1mj")
 
 [node name="Sun" type="DirectionalLight3D" parent="WorldEnv"]
-transform = Transform3D(-0.337386, -0.485601, -0.80645, 0.898794, 0.0885445, -0.429336, 0.279893, -0.869685, 0.406582, 0.992416, 0, -4.94073)
+transform = Transform3D(0.9906, -0.000921529, -0.136789, 0.0378177, -0.959158, 0.28033, -0.131461, -0.282868, -0.950107, 0.992416, 0, -4.94073)
 shadow_enabled = true
 
 [node name="Levels" type="Node" parent="."]
@@ -145,22 +220,26 @@ mesh = SubResource("QuadMesh_edxtc")
 
 [node name="streets" type="Node" parent="Levels"]
 
-[node name="Веселая" type="Node" parent="Levels/streets"]
+[node name="ProtonScatter" type="Node3D" parent="Levels"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.8177, 0, 569.563)
+script = ExtResource("6_l61ph")
+render_mode = 1
+modifier_stack = SubResource("Resource_pyv8n")
+Performance/use_chunks = true
+Performance/chunk_dimensions = Vector3(15, 15, 15)
 
-[node name="Лазурная" type="Node" parent="Levels/streets"]
+[node name="ScatterItem" type="Node3D" parent="Levels/ProtonScatter"]
+script = ExtResource("12_q88ff")
+lod_merge_angle = 66.416
+path = "res://assets/models/nature/forest_tree2.blend"
 
-[node name="Проспект Заря" type="Node" parent="Levels/streets"]
-
-[node name="Светлая площадь" type="Node" parent="Levels/streets"]
-
-[node name="Чудесная" type="Node" parent="Levels/streets"]
-
-[node name="Сказочная" type="Node" parent="Levels/streets"]
-
-[node name="Вечерняя" type="Node" parent="Levels/streets"]
+[node name="ScatterShape" type="Node3D" parent="Levels/ProtonScatter"]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 0, 0, 0)
+script = ExtResource("13_e7vl4")
+shape = SubResource("Resource_p8ya0")
 
 [node name="Player" parent="." instance=ExtResource("5_6o1kf")]
-transform = Transform3D(1, 0, 0, 0, 0.999918, -0.0128104, 0, 0.0128104, 0.999918, 477.256, 0.0613818, 600.17)
+transform = Transform3D(1, 0, 0, 0, 0.999918, -0.0128104, 0, 0.0128104, 0.999918, 243.18, 0, 565.17)
 collision_layer = 3
 collision_mask = 3
 wall_min_slide_angle = 0.548033
@@ -168,7 +247,47 @@ wall_min_slide_angle = 0.548033
 [node name="road1" parent="." instance=ExtResource("7_ly4c8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 366.998, 0, 560.142)
 
-[node name="bird" parent="." instance=ExtResource("8_powe6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 478.224, 0.327727, 601.634)
+[node name="gasStation" parent="." instance=ExtResource("17_su4wl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 245.848, 0, 596.578)
+top_level = true
+
+[node name="fourStoryBuilding" parent="." instance=ExtResource("18_pqcvf")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 87.5556, 0, 577.946)
+
+[node name="fourStoryBuilding2" parent="." instance=ExtResource("18_pqcvf")]
+transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, 90.5556, 0, 644.946)
+
+[node name="fourStoryBuilding3" parent="." instance=ExtResource("18_pqcvf")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 136.556, 0, 610.946)
+
+[node name="fourStoryBuilding5" parent="." instance=ExtResource("18_pqcvf")]
+transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, 206.556, 0, 641.946)
+
+[node name="fourStoryBuilding6" parent="." instance=ExtResource("18_pqcvf")]
+transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, 299.556, 0, 641.946)
+
+[node name="fourStoryBuilding7" parent="." instance=ExtResource("18_pqcvf")]
+transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, 397.556, 0, 641.946)
+
+[node name="fourStoryBuilding8" parent="." instance=ExtResource("18_pqcvf")]
+transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, 479.556, 0, 641.946)
+
+[node name="fourStoryBuilding11" parent="." instance=ExtResource("18_pqcvf")]
+transform = Transform3D(-1, 0, 5.96046e-08, 0, 1, 0, -5.96046e-08, 0, -1, 478.556, 0, 577.946)
+
+[node name="fourStoryBuilding12" parent="." instance=ExtResource("18_pqcvf")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 398.556, 0, 577.946)
+
+[node name="fourStoryBuilding4" parent="." instance=ExtResource("18_pqcvf")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 37.5556, 0, 609.946)
+
+[node name="fourStoryBuilding9" parent="." instance=ExtResource("18_pqcvf")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 37.5556, 0, 725.946)
+
+[node name="fourStoryBuilding10" parent="." instance=ExtResource("18_pqcvf")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 37.5556, 0, 831.946)
+
+[node name="fourStoryBuilding13" parent="." instance=ExtResource("18_pqcvf")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 41.5556, 0, 940.946)
 
 [connection signal="timeout" from="SERVERS/timer_daycycle" to="." method="_on_timer_daycycle_timeout"]
