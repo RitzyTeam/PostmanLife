@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://ebql6u7l33sb"]
+[gd_scene load_steps=10 format=3 uid="uid://ebql6u7l33sb"]
 
 [ext_resource type="PackedScene" uid="uid://cc1m2a1obsyn4" path="res://objects/player/player.tscn" id="1_vsp3c"]
 [ext_resource type="PackedScene" uid="uid://din700dmcsdr4" path="res://objects/PROPS/package_spawner/package_spawner.tscn" id="2_jefhr"]
 [ext_resource type="PackedScene" uid="uid://cfw050vcnfw5o" path="res://objects/MOBS/bird/bird.tscn" id="3_v0c35"]
+[ext_resource type="PackedScene" uid="uid://bqkmogmsrvqdr" path="res://objects/MOBS/ghost_girl/ghost_girl.tscn" id="4_6mhlq"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_mtor7"]
 size = Vector3(100, 1, 100)
@@ -46,3 +47,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.33167, -2.89056)
 
 [node name="bird" parent="." instance=ExtResource("3_v0c35")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.0916, 5.06942, -7.65853)
+
+[node name="ghost_girl" parent="." instance=ExtResource("4_6mhlq")]
+transform = Transform3D(-0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, -0.965926, -5.558, 0, -20.1929)
