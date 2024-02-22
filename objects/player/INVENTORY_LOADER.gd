@@ -47,6 +47,8 @@ func load_inventory_visual():
 			item_4_icon.texture = load('res://assets/images/item_letter.png')
 
 func load_hand_visual(slot_id):
+	$"../UI/UserInterface/item_name/item_name_anim".play('popup')
+	$"../UI/UserInterface/item_name".text = ''
 	var inv: Dictionary = $"..".inv
 	var item = inv['slot_' + str(slot_id)]
 	match item.id:
@@ -56,6 +58,8 @@ func load_hand_visual(slot_id):
 		'box':
 			$"../Head/Camera/item_display/letter".visible = false
 			$"../Head/Camera/item_display/box".visible = true
+			$"../UI/UserInterface/item_name".text = item['name']
 		'letter':
 			$"../Head/Camera/item_display/letter".visible = true
 			$"../Head/Camera/item_display/box".visible = false
+			$"../UI/UserInterface/item_name".text = item['name']

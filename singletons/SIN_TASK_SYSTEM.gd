@@ -32,6 +32,7 @@ func add_random_task() -> void:
 	var task_data: Dictionary = {
 		'task_id': generate_word(10) + str(Time.get_unix_time_from_system()) + str(randi_range(10000,99999)),
 		'id': package_type_id,
+		'name': 'Доставка на адрес ' + target_address,
 		'deliver_id': deliver_id,
 		'target_address': target_address,
 		'weight': randi_range(2, 20)

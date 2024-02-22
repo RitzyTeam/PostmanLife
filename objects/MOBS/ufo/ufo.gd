@@ -13,11 +13,12 @@ func _physics_process(delta):
 	if rayIsOn:
 		if object_pool.size() > 0:
 			for i in range(object_pool.size()):
-				# LIFT PACKAGE
-				object_pool[i].global_position.y = object_pool[i].global_position.y + 1
-				# LOCK PACKAGE IN BEAM
-				object_pool[i].global_position.z = lerp(object_pool[i].global_position.z, $mesh.global_transform.origin.z, 0.2)
-				object_pool[i].global_position.x = lerp(object_pool[i].global_position.x, $mesh.global_transform.origin.x, 0.2)
+				if not object_pool[i] == null:
+					# LIFT PACKAGE
+					object_pool[i].global_position.y = object_pool[i].global_position.y + 1
+					# LOCK PACKAGE IN BEAM
+					object_pool[i].global_position.z = lerp(object_pool[i].global_position.z, $mesh.global_transform.origin.z, 0.2)
+					object_pool[i].global_position.x = lerp(object_pool[i].global_position.x, $mesh.global_transform.origin.x, 0.2)
 
 func _on_trigger_body_entered(body):
 	if rayIsOn:

@@ -348,25 +348,28 @@ func _unhandled_input(event):
 		slot_2.modulate.a = 0.5
 		slot_3.modulate.a = 0.5
 		slot_4.modulate.a = 0.5
+		inventory_loader.load_hand_visual(current_slot_selected)
 	if event.is_action_pressed("key_2"):
 		current_slot_selected = 2
 		slot_1.modulate.a = 0.5
 		slot_2.modulate.a = 1
 		slot_3.modulate.a = 0.5
 		slot_4.modulate.a = 0.5
+		inventory_loader.load_hand_visual(current_slot_selected)
 	if event.is_action_pressed("key_3"):
 		current_slot_selected = 3
 		slot_1.modulate.a = 0.5
 		slot_2.modulate.a = 0.5
 		slot_3.modulate.a = 1
 		slot_4.modulate.a = 0.5
+		inventory_loader.load_hand_visual(current_slot_selected)
 	if event.is_action_pressed("key_4"):
 		current_slot_selected = 4
 		slot_1.modulate.a = 0.5
 		slot_2.modulate.a = 0.5
 		slot_3.modulate.a = 0.5
 		slot_4.modulate.a = 1
-	inventory_loader.load_hand_visual(current_slot_selected)
+		inventory_loader.load_hand_visual(current_slot_selected)
 	
 	if event.is_action_pressed('key_g'):
 		drop_item_slot(current_slot_selected)
