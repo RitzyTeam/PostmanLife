@@ -8,6 +8,12 @@ func _ready():
 	SIN_WORLD_SIGNALS.PACKAGE_FAILED.connect(_package_failed)
 	await get_tree().create_timer(5).timeout
 	add_random_task()
+	await get_tree().create_timer(1).timeout
+	add_random_task()
+	await get_tree().create_timer(1).timeout
+	add_random_task()
+	await get_tree().create_timer(1).timeout
+	add_random_task()
 	
 # FUNCS
 # Deliver ID должен выбираться из списка доступных Deliver ID.

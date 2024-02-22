@@ -2,7 +2,7 @@ extends RigidBody3D
 
 
 var canBeGrabbed: bool = true
-var seconds_to_deliver: int = 14
+var seconds_to_deliver: int = 90
 @onready var delivery_timer = $delivery_timer
 @onready var timer = $timer
 
