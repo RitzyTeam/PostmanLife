@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bqkmogmsrvqdr"]
+[gd_scene load_steps=13 format=3 uid="uid://bqkmogmsrvqdr"]
 
 [ext_resource type="Script" path="res://objects/MOBS/ghost_girl/ghost_girl.gd" id="1_cl2vo"]
 
@@ -6,13 +6,14 @@
 resource_name = "body"
 transparency = 1
 cull_mode = 2
-albedo_color = Color(1, 0.952941, 0.980392, 0.309804)
+albedo_color = Color(1, 0.952941, 0.980392, 0)
 roughness = 0.5
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_simlc"]
 resource_name = "eyes"
+transparency = 1
 cull_mode = 2
-albedo_color = Color(0.498039, 0.698039, 0.705882, 0.309804)
+albedo_color = Color(1, 1, 1, 0)
 roughness = 0.5
 emission_enabled = true
 emission = Color(0.579144, 0.97492, 1, 1)
@@ -20,8 +21,9 @@ emission_energy_multiplier = 8.83643
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v5hqu"]
 resource_name = "mouth"
+transparency = 1
 cull_mode = 2
-albedo_color = Color(0.166659, 0.166659, 0.166659, 1)
+albedo_color = Color(0.164706, 0.164706, 0.164706, 0)
 roughness = 0.5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_3xymr"]
@@ -108,6 +110,132 @@ points = PackedVector3Array(0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 
 [sub_resource type="SphereShape3D" id="SphereShape3D_ntana"]
 radius = 10.0
 
+[sub_resource type="Animation" id="Animation_7cvjy"]
+resource_name = "show"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("mesh:mesh:surface_0/material:albedo_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 0.952941, 0.980392, 0), Color(1, 1, 1, 0.313726)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("mesh:mesh:surface_1/material:albedo_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.309804)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("mesh:mesh:surface_2/material:albedo_color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.164706, 0.164706, 0.164706, 0), Color(0.164706, 0.164706, 0.164706, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_dgs8l"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("mesh:mesh:surface_0/material:albedo_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 0.952941, 0.980392, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("mesh:mesh:surface_1/material:albedo_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("mesh:mesh:surface_2/material:albedo_color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.164706, 0.164706, 0.164706, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_u5pl8"]
+resource_name = "hide"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("mesh:mesh:surface_0/material:albedo_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 0.952941, 0.980392, 0.313726), Color(1, 0.952941, 0.980392, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("mesh:mesh:surface_1/material:albedo_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.309804), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("mesh:mesh:surface_2/material:albedo_color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.166659, 0.166659, 0.166659, 1), Color(0.164706, 0.164706, 0.164706, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2j6ur"]
+_data = {
+"RESET": SubResource("Animation_dgs8l"),
+"hide": SubResource("Animation_u5pl8"),
+"show": SubResource("Animation_7cvjy")
+}
+
 [node name="ghost_girl" type="CharacterBody3D"]
 script = ExtResource("1_cl2vo")
 
@@ -123,6 +251,11 @@ disabled = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="appearance_trigger"]
 shape = SubResource("SphereShape3D_ntana")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_2j6ur")
+}
 
 [connection signal="body_entered" from="appearance_trigger" to="." method="_on_appearance_trigger_body_entered"]
 [connection signal="body_exited" from="appearance_trigger" to="." method="_on_appearance_trigger_body_exited"]
