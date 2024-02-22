@@ -1,0 +1,15 @@
+[gd_resource type="Sky" load_steps=2 format=3 uid="uid://bruk0nywbg66g"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_1paft"]
+sky_top_color = Color(0.654902, 0.294118, 0.556863, 1)
+sky_horizon_color = Color(0.85098, 0.537255, 0.729412, 1)
+sky_curve = 1.11964
+sky_cover_modulate = Color(0.47451, 0.560784, 1, 1)
+ground_bottom_color = Color(0.2, 0.141176, 0.266667, 1)
+ground_horizon_color = Color(0.756863, 0.584314, 0.780392, 1)
+ground_curve = 0.0649804
+sun_curve = 0.243676
+
+[resource]
+sky_material = SubResource("ProceduralSkyMaterial_1paft")
+radiance_size = 5

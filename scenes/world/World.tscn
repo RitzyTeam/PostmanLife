@@ -1,7 +1,8 @@
-[gd_scene load_steps=38 format=3 uid="uid://c66dar30xo83l"]
+[gd_scene load_steps=37 format=3 uid="uid://c66dar30xo83l"]
 
 [ext_resource type="Script" path="res://scenes/world/World.gd" id="1_xxt06"]
 [ext_resource type="Script" path="res://addons/zylann.hterrain/hterrain.gd" id="2_j3jfb"]
+[ext_resource type="Sky" uid="uid://bruk0nywbg66g" path="res://resources/sky/evening.tres" id="2_qo1ld"]
 [ext_resource type="Resource" path="res://scenes/world/terrain_data/data.hterrain" id="3_ajii5"]
 [ext_resource type="Script" path="res://addons/zylann.hterrain/hterrain_texture_set.gd" id="4_rbhmn"]
 [ext_resource type="PackedScene" uid="uid://cc1m2a1obsyn4" path="res://objects/player/player.tscn" id="5_6o1kf"]
@@ -18,19 +19,10 @@
 [ext_resource type="Script" path="res://addons/proton_scatter/src/shapes/path_shape.gd" id="14_ncutn"]
 [ext_resource type="PackedScene" uid="uid://cv6pe72xsdkc7" path="res://assets/models/builds/gasStation.blend" id="17_su4wl"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_1paft"]
-sky_curve = 0.559819
-ground_curve = 0.0273208
-
-[sub_resource type="Sky" id="Sky_xgv8q"]
-sky_material = SubResource("ProceduralSkyMaterial_1paft")
-
 [sub_resource type="Environment" id="Environment_kqe7o"]
 background_mode = 2
-sky = SubResource("Sky_xgv8q")
-tonemap_mode = 1
-ssr_enabled = true
-ssao_enabled = true
+sky = ExtResource("2_qo1ld")
+ambient_light_color = Color(0.745098, 0.745098, 0.745098, 1)
 glow_enabled = true
 fog_density = 0.0
 volumetric_fog_enabled = true
@@ -72,7 +64,7 @@ noise = SubResource("FastNoiseLite_ujskj")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rbf8v"]
 render_priority = 0
 shader = ExtResource("8_gtq7j")
-shader_parameter/albedo = Color(0, 0.0980392, 0.635294, 1)
+shader_parameter/albedo = Color(0.364706, 0.560784, 0.992157, 1)
 shader_parameter/albedo2 = Color(0.203922, 0.243137, 0.392157, 1)
 shader_parameter/metallic = 0.0
 shader_parameter/roughness = 0.536
@@ -98,18 +90,18 @@ material = SubResource("ShaderMaterial_rbf8v")
 size = Vector2(500, 500)
 orientation = 1
 
-[sub_resource type="Resource" id="Resource_0tbec"]
+[sub_resource type="Resource" id="Resource_gelbc"]
 script = ExtResource("8_dfwde")
-amount = 50
+amount = 75
 enabled = true
-override_global_seed = false
-custom_seed = 0
+override_global_seed = true
+custom_seed = 16
 restrict_height = true
 reference_frame = 1
 
-[sub_resource type="Resource" id="Resource_fkxr3"]
+[sub_resource type="Resource" id="Resource_sq0us"]
 script = ExtResource("9_tbmug")
-position = Vector3(0.15, 0.15, 0.15)
+position = Vector3(0.2, 0.15, 0.15)
 rotation = Vector3(0, 360, 0)
 scale = Vector3(0.1, 0.1, 0.1)
 enabled = true
@@ -118,7 +110,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 2
 
-[sub_resource type="Resource" id="Resource_kuohp"]
+[sub_resource type="Resource" id="Resource_sq5q3"]
 script = ExtResource("10_vasbw")
 iterations = 3
 offset_step = 0.2
@@ -130,7 +122,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_bhgqt"]
+[sub_resource type="Resource" id="Resource_3ptja"]
 script = ExtResource("11_fbnr5")
 ray_direction = Vector3(0, -1, 0)
 ray_length = 5.0
@@ -146,13 +138,13 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_1edin"]
+[sub_resource type="Resource" id="Resource_oguxg"]
 script = ExtResource("7_35ifk")
-stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_0tbec"), SubResource("Resource_fkxr3"), SubResource("Resource_kuohp"), SubResource("Resource_bhgqt")])
+stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_gelbc"), SubResource("Resource_sq0us"), SubResource("Resource_sq5q3"), SubResource("Resource_3ptja")])
 
-[sub_resource type="Curve3D" id="Curve3D_72mvx"]
+[sub_resource type="Curve3D" id="Curve3D_j6jh2"]
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 6.35323, 0, -0.104492, 0, 0, 0, 0, 0, 0, 5.9046, 0, 433.705, 0, 0, 0, 0, 0, 0, -6.02698, 0, 434.104, 0, 0, 0, 0, 0, 0, -5.79638, 0, -0.0012207),
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 5.22859, 0, -2.79291, 0, 0, 0, 0, 0, 0, 5.55942, 0, 448.312, 0, 0, 0, 0, 0, 0, -5.58519, 0, 448.049, 0, 0, 0, 0, 0, 0, -5.6952, 1.90735e-06, -2.78772),
 "tilts": PackedFloat32Array(0, 0, 0, 0)
 }
 point_count = 4
@@ -161,7 +153,7 @@ point_count = 4
 script = ExtResource("14_ncutn")
 closed = true
 thickness = 0.0
-curve = SubResource("Curve3D_72mvx")
+curve = SubResource("Curve3D_j6jh2")
 
 [node name="World" type="Node"]
 script = ExtResource("1_xxt06")
@@ -179,8 +171,8 @@ environment = SubResource("Environment_kqe7o")
 camera_attributes = SubResource("CameraAttributesPractical_ke1mj")
 
 [node name="Sun" type="DirectionalLight3D" parent="WorldEnv"]
-transform = Transform3D(0.9906, -0.000921529, -0.136789, 0.0378177, -0.959158, 0.28033, -0.131461, -0.282868, -0.950107, 0.992416, 0, -4.94073)
-shadow_enabled = true
+transform = Transform3D(0.9906, -0.000922591, -0.136791, 0.115967, -0.524722, 0.843338, -0.0725551, -0.851273, -0.519682, 0.992416, 0, -4.94073)
+light_bake_mode = 1
 
 [node name="Levels" type="Node" parent="."]
 
@@ -221,10 +213,9 @@ mesh = SubResource("QuadMesh_edxtc")
 
 [node name="ProtonScatter" type="Node3D" parent="Levels"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.8177, 0, 569.563)
-visible = false
 script = ExtResource("6_l61ph")
 render_mode = 1
-modifier_stack = SubResource("Resource_1edin")
+modifier_stack = SubResource("Resource_oguxg")
 Performance/use_chunks = true
 Performance/chunk_dimensions = Vector3(15, 15, 15)
 
@@ -239,7 +230,7 @@ script = ExtResource("13_e7vl4")
 shape = SubResource("Resource_p8ya0")
 
 [node name="Player" parent="." instance=ExtResource("5_6o1kf")]
-transform = Transform3D(1, 0, 0, 0, 0.999918, -0.0128104, 0, 0.0128104, 0.999918, 663.956, 0, 317.034)
+transform = Transform3D(1, 0, 0, 0, 0.999918, -0.0128104, 0, 0.0128104, 0.999918, 18.8272, 0, 681.921)
 collision_layer = 3
 collision_mask = 3
 wall_min_slide_angle = 0.548033
@@ -248,7 +239,7 @@ wall_min_slide_angle = 0.548033
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 366.998, 0, 560.142)
 
 [node name="gasStation" parent="." instance=ExtResource("17_su4wl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 245.848, 0, 596.578)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 245.848, 0, 596.808)
 top_level = true
 
 [connection signal="timeout" from="SERVERS/timer_daycycle" to="." method="_on_timer_daycycle_timeout"]
