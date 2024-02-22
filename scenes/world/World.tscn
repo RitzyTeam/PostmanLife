@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://c66dar30xo83l"]
+[gd_scene load_steps=38 format=3 uid="uid://c66dar30xo83l"]
 
 [ext_resource type="Script" path="res://scenes/world/World.gd" id="1_xxt06"]
 [ext_resource type="Script" path="res://addons/zylann.hterrain/hterrain.gd" id="2_j3jfb"]
@@ -17,7 +17,6 @@
 [ext_resource type="Script" path="res://addons/proton_scatter/src/scatter_shape.gd" id="13_e7vl4"]
 [ext_resource type="Script" path="res://addons/proton_scatter/src/shapes/path_shape.gd" id="14_ncutn"]
 [ext_resource type="PackedScene" uid="uid://cv6pe72xsdkc7" path="res://assets/models/builds/gasStation.blend" id="17_su4wl"]
-[ext_resource type="PackedScene" uid="uid://dkfbfrrjn8o18" path="res://objects/builds/four_story_building.tscn" id="18_pqcvf"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_1paft"]
 sky_curve = 0.559819
@@ -99,7 +98,7 @@ material = SubResource("ShaderMaterial_rbf8v")
 size = Vector2(500, 500)
 orientation = 1
 
-[sub_resource type="Resource" id="Resource_0eh5m"]
+[sub_resource type="Resource" id="Resource_0tbec"]
 script = ExtResource("8_dfwde")
 amount = 50
 enabled = true
@@ -108,7 +107,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 1
 
-[sub_resource type="Resource" id="Resource_fprw6"]
+[sub_resource type="Resource" id="Resource_fkxr3"]
 script = ExtResource("9_tbmug")
 position = Vector3(0.15, 0.15, 0.15)
 rotation = Vector3(0, 360, 0)
@@ -119,7 +118,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 2
 
-[sub_resource type="Resource" id="Resource_lt6w1"]
+[sub_resource type="Resource" id="Resource_kuohp"]
 script = ExtResource("10_vasbw")
 iterations = 3
 offset_step = 0.2
@@ -131,7 +130,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_3iwqp"]
+[sub_resource type="Resource" id="Resource_bhgqt"]
 script = ExtResource("11_fbnr5")
 ray_direction = Vector3(0, -1, 0)
 ray_length = 5.0
@@ -147,9 +146,9 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_pyv8n"]
+[sub_resource type="Resource" id="Resource_1edin"]
 script = ExtResource("7_35ifk")
-stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_0eh5m"), SubResource("Resource_fprw6"), SubResource("Resource_lt6w1"), SubResource("Resource_3iwqp")])
+stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_0tbec"), SubResource("Resource_fkxr3"), SubResource("Resource_kuohp"), SubResource("Resource_bhgqt")])
 
 [sub_resource type="Curve3D" id="Curve3D_72mvx"]
 _data = {
@@ -222,9 +221,10 @@ mesh = SubResource("QuadMesh_edxtc")
 
 [node name="ProtonScatter" type="Node3D" parent="Levels"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.8177, 0, 569.563)
+visible = false
 script = ExtResource("6_l61ph")
 render_mode = 1
-modifier_stack = SubResource("Resource_pyv8n")
+modifier_stack = SubResource("Resource_1edin")
 Performance/use_chunks = true
 Performance/chunk_dimensions = Vector3(15, 15, 15)
 
@@ -239,7 +239,7 @@ script = ExtResource("13_e7vl4")
 shape = SubResource("Resource_p8ya0")
 
 [node name="Player" parent="." instance=ExtResource("5_6o1kf")]
-transform = Transform3D(1, 0, 0, 0, 0.999918, -0.0128104, 0, 0.0128104, 0.999918, 243.18, 0, 565.17)
+transform = Transform3D(1, 0, 0, 0, 0.999918, -0.0128104, 0, 0.0128104, 0.999918, 663.956, 0, 317.034)
 collision_layer = 3
 collision_mask = 3
 wall_min_slide_angle = 0.548033
@@ -250,44 +250,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 366.998, 0, 560.142)
 [node name="gasStation" parent="." instance=ExtResource("17_su4wl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 245.848, 0, 596.578)
 top_level = true
-
-[node name="fourStoryBuilding" parent="." instance=ExtResource("18_pqcvf")]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 87.5556, 0, 577.946)
-
-[node name="fourStoryBuilding2" parent="." instance=ExtResource("18_pqcvf")]
-transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, 90.5556, 0, 644.946)
-
-[node name="fourStoryBuilding3" parent="." instance=ExtResource("18_pqcvf")]
-transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 136.556, 0, 610.946)
-
-[node name="fourStoryBuilding5" parent="." instance=ExtResource("18_pqcvf")]
-transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, 206.556, 0, 641.946)
-
-[node name="fourStoryBuilding6" parent="." instance=ExtResource("18_pqcvf")]
-transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, 299.556, 0, 641.946)
-
-[node name="fourStoryBuilding7" parent="." instance=ExtResource("18_pqcvf")]
-transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, 397.556, 0, 641.946)
-
-[node name="fourStoryBuilding8" parent="." instance=ExtResource("18_pqcvf")]
-transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, 479.556, 0, 641.946)
-
-[node name="fourStoryBuilding11" parent="." instance=ExtResource("18_pqcvf")]
-transform = Transform3D(-1, 0, 5.96046e-08, 0, 1, 0, -5.96046e-08, 0, -1, 478.556, 0, 577.946)
-
-[node name="fourStoryBuilding12" parent="." instance=ExtResource("18_pqcvf")]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 398.556, 0, 577.946)
-
-[node name="fourStoryBuilding4" parent="." instance=ExtResource("18_pqcvf")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 37.5556, 0, 609.946)
-
-[node name="fourStoryBuilding9" parent="." instance=ExtResource("18_pqcvf")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 37.5556, 0, 725.946)
-
-[node name="fourStoryBuilding10" parent="." instance=ExtResource("18_pqcvf")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 37.5556, 0, 831.946)
-
-[node name="fourStoryBuilding13" parent="." instance=ExtResource("18_pqcvf")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 41.5556, 0, 940.946)
 
 [connection signal="timeout" from="SERVERS/timer_daycycle" to="." method="_on_timer_daycycle_timeout"]
