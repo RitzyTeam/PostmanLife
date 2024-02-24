@@ -2,6 +2,7 @@ class_name ClassAddresses
 
 var addresses: Dictionary = {
 # Delivery ID | User-friendly name
+# Уникальный ID должен совпадать с ID ящика
 	'aaaa1': 'улица Смольная дом 1',
 }
 
