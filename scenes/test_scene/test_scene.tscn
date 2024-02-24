@@ -1,7 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://ebql6u7l33sb"]
+[gd_scene load_steps=10 format=3 uid="uid://ebql6u7l33sb"]
 
 [ext_resource type="PackedScene" uid="uid://cc1m2a1obsyn4" path="res://objects/player/player.tscn" id="1_vsp3c"]
 [ext_resource type="PackedScene" uid="uid://din700dmcsdr4" path="res://objects/PROPS/package_spawner/package_spawner.tscn" id="2_jefhr"]
+[ext_resource type="PackedScene" uid="uid://d3k3mjiras3di" path="res://objects/PROPS/package_box_receiver/package_box_receiver.tscn" id="3_gkgb8"]
+[ext_resource type="PackedScene" uid="uid://dkj4ku0wve5y6" path="res://objects/PROPS/package_letter_receiver/package_letter_receiver.tscn" id="4_xh0xn"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_mtor7"]
 size = Vector3(100, 1, 100)
@@ -42,3 +44,11 @@ environment = SubResource("Environment_vqgot")
 
 [node name="package_spawner" parent="." instance=ExtResource("2_jefhr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.6951, 6.33167, -2.89056)
+
+[node name="package_letter_receiver" parent="." instance=ExtResource("4_xh0xn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.700295, 0.982792, -0.0220066)
+deliver_code = "aaaa1"
+
+[node name="package_box_receiver" parent="." instance=ExtResource("3_gkgb8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.982792, 0)
+deliver_code = "aaaa1"

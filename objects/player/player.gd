@@ -81,11 +81,7 @@ var gravity : float = ProjectSettings.get_setting("physics/3d/default_gravity") 
 
 
 func _ready():
-	slot_1.modulate.a = 0.5
-	slot_2.modulate.a = 0.5
-	slot_3.modulate.a = 0.5
-	slot_4.modulate.a = 0.5
-	inventory_loader.load_hand_visual(current_slot_selected)
+	set_slot_selected(1)
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	
 	# Set the camera rotation to whatever initial_facing_direction is
@@ -310,6 +306,8 @@ func add_item_to_inv(item_data: Dictionary) -> bool:
 	if hasFreeSlot:
 		inv['slot_' + str(target_slot)] = item_data
 		inventory_loader.load_inventory_visual()
+		inventory_loader.load_hand_visual(target_slot)
+		set_slot_selected(target_slot)
 		return true
 	return false
 
@@ -337,46 +335,65 @@ func drop_item_slot(slot_id: int):
 	inventory_loader.load_hand_visual(current_slot_selected)
 	inventory_loader.load_inventory_visual()
 
+func set_slot_selected(slot_id: int):
+	match slot_id:
+		1:
+			current_slot_selected = 1
+			slot_1.modulate.a = 1
+			slot_2.modulate.a = 0.5
+			slot_3.modulate.a = 0.5
+			slot_4.modulate.a = 0.5
+			inventory_loader.load_hand_visual(current_slot_selected)
+		2:
+			current_slot_selected = 2
+			slot_1.modulate.a = 0.5
+			slot_2.modulate.a = 1
+			slot_3.modulate.a = 0.5
+			slot_4.modulate.a = 0.5
+			inventory_loader.load_hand_visual(current_slot_selected)
+		3:
+			current_slot_selected = 3
+			slot_1.modulate.a = 0.5
+			slot_2.modulate.a = 0.5
+			slot_3.modulate.a = 1
+			slot_4.modulate.a = 0.5
+			inventory_loader.load_hand_visual(current_slot_selected)
+		4:
+			current_slot_selected = 4
+			slot_1.modulate.a = 0.5
+			slot_2.modulate.a = 0.5
+			slot_3.modulate.a = 0.5
+			slot_4.modulate.a = 1
+			inventory_loader.load_hand_visual(current_slot_selected)
+	
+
 func _unhandled_input(event):
 	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 		HEAD.rotation_degrees.y -= event.relative.x * mouse_sensitivity
 		HEAD.rotation_degrees.x -= event.relative.y * mouse_sensitivity
 	
 	if event.is_action_pressed("key_1"):
-		current_slot_selected = 1
-		slot_1.modulate.a = 1
-		slot_2.modulate.a = 0.5
-		slot_3.modulate.a = 0.5
-		slot_4.modulate.a = 0.5
-		inventory_loader.load_hand_visual(current_slot_selected)
+		set_slot_selected(1)
 	if event.is_action_pressed("key_2"):
-		current_slot_selected = 2
-		slot_1.modulate.a = 0.5
-		slot_2.modulate.a = 1
-		slot_3.modulate.a = 0.5
-		slot_4.modulate.a = 0.5
-		inventory_loader.load_hand_visual(current_slot_selected)
+		set_slot_selected(2)
 	if event.is_action_pressed("key_3"):
-		current_slot_selected = 3
-		slot_1.modulate.a = 0.5
-		slot_2.modulate.a = 0.5
-		slot_3.modulate.a = 1
-		slot_4.modulate.a = 0.5
-		inventory_loader.load_hand_visual(current_slot_selected)
+		set_slot_selected(3)
 	if event.is_action_pressed("key_4"):
-		current_slot_selected = 4
-		slot_1.modulate.a = 0.5
-		slot_2.modulate.a = 0.5
-		slot_3.modulate.a = 0.5
-		slot_4.modulate.a = 1
-		inventory_loader.load_hand_visual(current_slot_selected)
-	
+		set_slot_selected(4)
+		
 	if event.is_action_pressed('key_g'):
 		drop_item_slot(current_slot_selected)
 	
 	if event.is_action_pressed("key_e"):
 		if $Head/Camera/raycast_hand.is_colliding():
 			if not $Head/Camera/raycast_hand.get_collider() == null:
+				# GRAB PACKAGES
 				if $Head/Camera/raycast_hand.get_collider().has_method('grab'):
 					if add_item_to_inv($Head/Camera/raycast_hand.get_collider().grab()):
 						$Head/Camera/raycast_hand.get_collider().queue_free()
+				# PUT PACKAGE IN A BOX
+				if $Head/Camera/raycast_hand.get_collider().has_method('try_put_package'):
+					if $Head/Camera/raycast_hand.get_collider().try_put_package(inv['slot_' + str(current_slot_selected)]):
+						inv['slot_' + str(current_slot_selected)] = {'id': 'void'}
+						inventory_loader.load_inventory_visual()
+						inventory_loader.load_hand_visual(current_slot_selected)

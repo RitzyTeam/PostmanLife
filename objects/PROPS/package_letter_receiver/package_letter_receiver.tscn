@@ -1,6 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://dkj4ku0wve5y6"]
+[gd_scene load_steps=8 format=3 uid="uid://dkj4ku0wve5y6"]
 
-[ext_resource type="Script" path="res://objects/PROPS/package_receiver/package_receiver.gd" id="1_o3at6"]
+[ext_resource type="Script" path="res://objects/PROPS/package_letter_receiver/package_letter_receiver.gd" id="1_o3at6"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8wgig"]
 size = Vector3(0.365112, 0.455322, 0.15155)
@@ -102,10 +102,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_paxao")
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_p63jl"]
-size = Vector3(0.549805, 0.67926, 0.503967)
-
-[node name="package_receiver" type="Area3D"]
+[node name="package_letter_receiver" type="StaticBody3D"]
 script = ExtResource("1_o3at6")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -115,11 +112,3 @@ shape = SubResource("BoxShape3D_8wgig")
 [node name="mailbox" type="MeshInstance3D" parent="."]
 mesh = SubResource("ArrayMesh_srice")
 skeleton = NodePath("")
-
-[node name="Area3D" type="Area3D" parent="."]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00830078, 0.0227966, 0.0215759)
-shape = SubResource("BoxShape3D_p63jl")
-
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
