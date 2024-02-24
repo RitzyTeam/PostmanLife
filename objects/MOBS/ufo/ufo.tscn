@@ -115,8 +115,8 @@ _data = {
 height = 1000.0
 radius = 1.535
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_5fph4"]
-radius = 9.93312
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_v3mld"]
+radius = 10.1035
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cax3a"]
 transparency = 1
@@ -128,21 +128,6 @@ material = SubResource("StandardMaterial3D_cax3a")
 top_radius = 1.7
 bottom_radius = 1.7
 height = 1000.0
-
-[sub_resource type="Animation" id="Animation_w4mdl"]
-resource_name = "ray_on"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:mesh:material:albedo_color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(-3, 1),
-"update": 0,
-"values": [Color(0.443137, 1, 1, 0), Color(0.443137, 1, 1, 0.180392)]
-}
 
 [sub_resource type="Animation" id="Animation_6jwcj"]
 length = 0.001
@@ -172,6 +157,21 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, -3),
 "update": 0,
 "values": [Color(0.443137, 1, 1, 0.180392), Color(0.443137, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_w4mdl"]
+resource_name = "ray_on"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:mesh:material:albedo_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(-3, 1),
+"update": 0,
+"values": [Color(0.443137, 1, 1, 0), Color(0.443137, 1, 1, 0.180392)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_nqaun"]
@@ -208,7 +208,7 @@ shape = SubResource("CylinderShape3D_sfh3r")
 monitorable = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="destructor"]
-shape = SubResource("SphereShape3D_5fph4")
+shape = SubResource("CylinderShape3D_v3mld")
 
 [node name="ray" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -502.006, 0)
