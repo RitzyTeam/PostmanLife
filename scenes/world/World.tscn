@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://c66dar30xo83l"]
+[gd_scene load_steps=40 format=3 uid="uid://c66dar30xo83l"]
 
 [ext_resource type="Script" path="res://scenes/world/World.gd" id="1_xxt06"]
 [ext_resource type="Script" path="res://addons/zylann.hterrain/hterrain.gd" id="2_j3jfb"]
@@ -19,7 +19,6 @@
 [ext_resource type="Script" path="res://addons/proton_scatter/src/shapes/path_shape.gd" id="14_ncutn"]
 [ext_resource type="PackedScene" uid="uid://cv6pe72xsdkc7" path="res://assets/models/builds/gasStation.blend" id="17_su4wl"]
 [ext_resource type="PackedScene" uid="uid://r6ob8fb72sj2" path="res://assets/models/builds/abandonedFactory.blend" id="19_ygd30"]
-[ext_resource type="PackedScene" uid="uid://bk4v0uv6pn5kx" path="res://assets/models/builds/ruralHouse.blend" id="20_a0eyv"]
 
 [sub_resource type="Environment" id="Environment_kqe7o"]
 background_mode = 2
@@ -37,7 +36,7 @@ script = ExtResource("4_rbhmn")
 mode = 0
 textures = [[], []]
 
-[sub_resource type="Resource" id="Resource_1kwvh"]
+[sub_resource type="Resource" id="Resource_8pijp"]
 script = ExtResource("8_dfwde")
 amount = 75
 enabled = true
@@ -46,7 +45,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 1
 
-[sub_resource type="Resource" id="Resource_tp5ac"]
+[sub_resource type="Resource" id="Resource_y8v7x"]
 script = ExtResource("9_tbmug")
 position = Vector3(0.15, 0.15, 0.15)
 rotation = Vector3(20, 360, 20)
@@ -57,7 +56,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 2
 
-[sub_resource type="Resource" id="Resource_f4sya"]
+[sub_resource type="Resource" id="Resource_y0ade"]
 script = ExtResource("10_vasbw")
 iterations = 3
 offset_step = 0.2
@@ -69,7 +68,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_4gvc4"]
+[sub_resource type="Resource" id="Resource_8edby"]
 script = ExtResource("11_fbnr5")
 ray_direction = Vector3(0, -1, 0)
 ray_length = 5.0
@@ -85,9 +84,9 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_6coxv"]
+[sub_resource type="Resource" id="Resource_6b0wl"]
 script = ExtResource("7_35ifk")
-stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_1kwvh"), SubResource("Resource_tp5ac"), SubResource("Resource_f4sya"), SubResource("Resource_4gvc4")])
+stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_8pijp"), SubResource("Resource_y8v7x"), SubResource("Resource_y0ade"), SubResource("Resource_8edby")])
 
 [sub_resource type="Curve3D" id="Curve3D_36d0m"]
 _data = {
@@ -217,7 +216,7 @@ cast_shadow = 1
 [node name="ProtonScatter" type="Node3D" parent="Levels/big_forest"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 538, 0, 11)
 script = ExtResource("6_l61ph")
-modifier_stack = SubResource("Resource_6coxv")
+modifier_stack = SubResource("Resource_6b0wl")
 Performance/use_chunks = true
 Performance/chunk_dimensions = Vector3(15, 15, 15)
 
@@ -248,10 +247,11 @@ mesh = SubResource("QuadMesh_edxtc")
 [node name="streets" type="Node" parent="Levels"]
 
 [node name="Player" parent="." instance=ExtResource("5_6o1kf")]
-transform = Transform3D(1, 0, 0, 0, 0.999918, -0.0128104, 0, 0.0128104, 0.999918, 661.193, 0, 79.1351)
+transform = Transform3D(1, 0, 0, 0, 0.999918, -0.0128104, 0, 0.0128104, 0.999918, 204.282, 0, 866.367)
 collision_layer = 3
 collision_mask = 3
 wall_min_slide_angle = 0.548033
+sprint_speed = 100.0
 
 [node name="road1" parent="." instance=ExtResource("7_ly4c8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 366.998, 0, 560.142)
@@ -262,29 +262,5 @@ top_level = true
 
 [node name="abandonedFactory" parent="." instance=ExtResource("19_ygd30")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 653.381, 4.76837e-07, 73.4445)
-
-[node name="ruralHouse" parent="." instance=ExtResource("20_a0eyv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 182.331, 0, 710.272)
-
-[node name="ruralHouse2" parent="." instance=ExtResource("20_a0eyv")]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 221.848, 0, 681.272)
-
-[node name="ruralHouse3" parent="." instance=ExtResource("20_a0eyv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 182.331, 0, 681.272)
-
-[node name="ruralHouse4" parent="." instance=ExtResource("20_a0eyv")]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 221.848, 0, 710.272)
-
-[node name="ruralHouse5" parent="." instance=ExtResource("20_a0eyv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 182.331, 0, 739.272)
-
-[node name="ruralHouse6" parent="." instance=ExtResource("20_a0eyv")]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 221.848, 0, 739.272)
-
-[node name="ruralHouse7" parent="." instance=ExtResource("20_a0eyv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 182.331, 0, 766.272)
-
-[node name="ruralHouse8" parent="." instance=ExtResource("20_a0eyv")]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 221.848, 0, 766.272)
 
 [connection signal="timeout" from="SERVERS/timer_daycycle" to="." method="_on_timer_daycycle_timeout"]
