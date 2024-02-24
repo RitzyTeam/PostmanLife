@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dkj4ku0wve5y6"]
+[gd_scene load_steps=11 format=3 uid="uid://dkj4ku0wve5y6"]
 
 [ext_resource type="Script" path="res://objects/PROPS/package_letter_receiver/package_letter_receiver.gd" id="1_o3at6"]
 
@@ -102,6 +102,67 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_paxao")
 
+[sub_resource type="Animation" id="Animation_3od8f"]
+resource_name = "warn"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("warn:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("warn:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.7, 1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 0, 0, 0), Color(1, 0, 0, 0), Color(1, 0, 0, 1), Color(1, 0, 0, 1), Color(1, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_isgux"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("warn:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("warn:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_616k3"]
+_data = {
+"RESET": SubResource("Animation_isgux"),
+"warn": SubResource("Animation_3od8f")
+}
+
 [node name="package_letter_receiver" type="StaticBody3D"]
 script = ExtResource("1_o3at6")
 
@@ -112,3 +173,16 @@ shape = SubResource("BoxShape3D_8wgig")
 [node name="mailbox" type="MeshInstance3D" parent="."]
 mesh = SubResource("ArrayMesh_srice")
 skeleton = NodePath("")
+
+[node name="warn" type="Label3D" parent="."]
+pixel_size = 0.001
+billboard = 1
+modulate = Color(1, 0, 0, 0)
+outline_modulate = Color(0, 0, 0, 0)
+text = "X"
+font_size = 317
+
+[node name="anim_warn" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_616k3")
+}

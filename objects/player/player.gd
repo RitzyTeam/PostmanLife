@@ -372,6 +372,17 @@ func _unhandled_input(event):
 		HEAD.rotation_degrees.y -= event.relative.x * mouse_sensitivity
 		HEAD.rotation_degrees.x -= event.relative.y * mouse_sensitivity
 	
+	# INVENTORY MOUSE WHEEL
+	if event.is_action_pressed('wheel_up'):
+		if current_slot_selected < 4:
+			current_slot_selected += 1
+			set_slot_selected(current_slot_selected)
+	if event.is_action_pressed('wheel_down'):
+		if current_slot_selected > 1:
+			current_slot_selected -= 1
+			set_slot_selected(current_slot_selected)
+	
+	# INVENTORY BY KEYS
 	if event.is_action_pressed("key_1"):
 		set_slot_selected(1)
 	if event.is_action_pressed("key_2"):
@@ -380,10 +391,12 @@ func _unhandled_input(event):
 		set_slot_selected(3)
 	if event.is_action_pressed("key_4"):
 		set_slot_selected(4)
-		
+	
+	# DROP ITEMS
 	if event.is_action_pressed('key_g'):
 		drop_item_slot(current_slot_selected)
 	
+	# PICKUP/INTERACT WITH ITEMS/PROPS
 	if event.is_action_pressed("key_e"):
 		if $Head/Camera/raycast_hand.is_colliding():
 			if not $Head/Camera/raycast_hand.get_collider() == null:

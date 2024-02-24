@@ -10,4 +10,5 @@ func try_put_package(item_data: Dictionary):
 			if deliver_code == item_data['deliver_id']:
 				SIN_WORLD_SIGNALS.emit_signal('PACKAGE_DELIVERED', item_data['task_id'])
 				return true
+	$anim_warn.play('warn')
 	return false
