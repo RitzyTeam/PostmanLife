@@ -1,0 +1,80 @@
+[gd_scene load_steps=16 format=3 uid="uid://tu0kqb526m7s"]
+
+[ext_resource type="PackedScene" uid="uid://bk3jtt3db0f3q" path="res://objects/PROPS/nature/bush_1.tscn" id="1_ia3xf"]
+[ext_resource type="PackedScene" uid="uid://cv1hc8s36pd62" path="res://objects/PROPS/nature/forest_tree_1.tscn" id="2_t7s6u"]
+[ext_resource type="PackedScene" uid="uid://c8m05isgyr7bs" path="res://objects/PROPS/nature/forest_tree_2.tscn" id="3_q5ka7"]
+[ext_resource type="PackedScene" uid="uid://5j6ogcfi04hq" path="res://objects/PROPS/nature/forest_tree_3.tscn" id="4_3w8cn"]
+[ext_resource type="PackedScene" uid="uid://gxpc4hv3a04n" path="res://objects/PROPS/nature/stone_1.tscn" id="5_lsl4g"]
+[ext_resource type="PackedScene" uid="uid://c5yw4ijavwp4j" path="res://objects/PROPS/nature/stone_2.tscn" id="6_g2aep"]
+[ext_resource type="PackedScene" uid="uid://c2r4x07r0xqps" path="res://objects/PROPS/nature/tree_log_1.tscn" id="7_6v0p7"]
+[ext_resource type="PackedScene" uid="uid://d3ycqc3tlcdjd" path="res://objects/PROPS/nature/tree_stump_1.tscn" id="8_vmjn5"]
+[ext_resource type="PackedScene" uid="uid://cc1m2a1obsyn4" path="res://objects/player/player.tscn" id="9_b7e6e"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_qxmct"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_mdn5c"]
+sky_material = SubResource("ProceduralSkyMaterial_qxmct")
+
+[sub_resource type="Environment" id="Environment_jnnfp"]
+background_mode = 2
+sky = SubResource("Sky_mdn5c")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_umhpq"]
+albedo_color = Color(0.243137, 0.243137, 0.243137, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_gct5f"]
+material = SubResource("StandardMaterial3D_umhpq")
+size = Vector2(100, 100)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_wdw4l"]
+data = PackedVector3Array(50, 0, 50, -50, 0, 50, 50, 0, -50, -50, 0, 50, -50, 0, -50, 50, 0, -50)
+
+[node name="PropsView" type="Node"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_jnnfp")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="ground" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+
+[node name="mesh" type="MeshInstance3D" parent="ground"]
+mesh = SubResource("PlaneMesh_gct5f")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ground"]
+shape = SubResource("ConcavePolygonShape3D_wdw4l")
+
+[node name="bush1" parent="." instance=ExtResource("1_ia3xf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 0, -36)
+
+[node name="forest_tree1" parent="." instance=ExtResource("2_t7s6u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32, 0, -36)
+
+[node name="forest_tree2" parent="." instance=ExtResource("3_q5ka7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45, 0, -36)
+
+[node name="forest_tree3" parent="." instance=ExtResource("4_3w8cn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21, 0, -36)
+
+[node name="stone1" parent="." instance=ExtResource("5_lsl4g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -36)
+
+[node name="stone2" parent="." instance=ExtResource("6_g2aep")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -36)
+
+[node name="tree_log1" parent="." instance=ExtResource("7_6v0p7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 0, -36)
+
+[node name="tree_stump1" parent="." instance=ExtResource("8_vmjn5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -36)
+
+[node name="Player" parent="." instance=ExtResource("9_b7e6e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 0, -16)

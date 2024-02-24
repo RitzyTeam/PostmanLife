@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://c66dar30xo83l"]
+[gd_scene load_steps=20 format=3 uid="uid://c66dar30xo83l"]
 
 [ext_resource type="Script" path="res://scenes/world/World.gd" id="1_xxt06"]
 [ext_resource type="Script" path="res://addons/zylann.hterrain/hterrain.gd" id="2_j3jfb"]
@@ -6,19 +6,8 @@
 [ext_resource type="Resource" path="res://scenes/world/terrain_data/data.hterrain" id="3_ajii5"]
 [ext_resource type="Script" path="res://addons/zylann.hterrain/hterrain_texture_set.gd" id="4_rbhmn"]
 [ext_resource type="PackedScene" uid="uid://cc1m2a1obsyn4" path="res://objects/player/player.tscn" id="5_6o1kf"]
-[ext_resource type="Script" path="res://addons/proton_scatter/src/scatter.gd" id="6_l61ph"]
-[ext_resource type="Script" path="res://addons/proton_scatter/src/stack/modifier_stack.gd" id="7_35ifk"]
-[ext_resource type="PackedScene" uid="uid://c82lrnm6bufeh" path="res://assets/models/urban_elements/road1.blend" id="7_ly4c8"]
-[ext_resource type="Script" path="res://addons/proton_scatter/src/modifiers/create_inside_random.gd" id="8_dfwde"]
+[ext_resource type="PackedScene" uid="uid://brijlfscvd1yk" path="res://objects/PROPS/environment/road.tscn" id="6_fw7ra"]
 [ext_resource type="Shader" path="res://shaders/lake_water.gdshader" id="8_gtq7j"]
-[ext_resource type="Script" path="res://addons/proton_scatter/src/modifiers/randomize_transforms.gd" id="9_tbmug"]
-[ext_resource type="Script" path="res://addons/proton_scatter/src/modifiers/relax.gd" id="10_vasbw"]
-[ext_resource type="Script" path="res://addons/proton_scatter/src/modifiers/project_on_geometry.gd" id="11_fbnr5"]
-[ext_resource type="Script" path="res://addons/proton_scatter/src/scatter_item.gd" id="12_q88ff"]
-[ext_resource type="Script" path="res://addons/proton_scatter/src/scatter_shape.gd" id="13_e7vl4"]
-[ext_resource type="Script" path="res://addons/proton_scatter/src/shapes/path_shape.gd" id="14_ncutn"]
-[ext_resource type="PackedScene" uid="uid://cv6pe72xsdkc7" path="res://assets/models/builds/gasStation.blend" id="17_su4wl"]
-[ext_resource type="PackedScene" uid="uid://r6ob8fb72sj2" path="res://assets/models/builds/abandonedFactory.blend" id="19_ygd30"]
 
 [sub_resource type="Environment" id="Environment_kqe7o"]
 background_mode = 2
@@ -35,84 +24,6 @@ volumetric_fog_density = 0.0
 script = ExtResource("4_rbhmn")
 mode = 0
 textures = [[], []]
-
-[sub_resource type="Resource" id="Resource_8pijp"]
-script = ExtResource("8_dfwde")
-amount = 75
-enabled = true
-override_global_seed = false
-custom_seed = 0
-restrict_height = true
-reference_frame = 1
-
-[sub_resource type="Resource" id="Resource_y8v7x"]
-script = ExtResource("9_tbmug")
-position = Vector3(0.15, 0.15, 0.15)
-rotation = Vector3(20, 360, 20)
-scale = Vector3(0.1, 0.1, 0.1)
-enabled = true
-override_global_seed = false
-custom_seed = 0
-restrict_height = false
-reference_frame = 2
-
-[sub_resource type="Resource" id="Resource_y0ade"]
-script = ExtResource("10_vasbw")
-iterations = 3
-offset_step = 0.2
-consecutive_step_multiplier = 0.75
-use_computeshader = true
-enabled = true
-override_global_seed = false
-custom_seed = 0
-restrict_height = true
-reference_frame = 0
-
-[sub_resource type="Resource" id="Resource_8edby"]
-script = ExtResource("11_fbnr5")
-ray_direction = Vector3(0, -1, 0)
-ray_length = 5.0
-ray_offset = 5.0
-remove_points_on_miss = false
-align_with_collision_normal = false
-max_slope = 90.0
-collision_mask = 1
-exclude_mask = 0
-enabled = true
-override_global_seed = false
-custom_seed = 0
-restrict_height = false
-reference_frame = 0
-
-[sub_resource type="Resource" id="Resource_6b0wl"]
-script = ExtResource("7_35ifk")
-stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_8pijp"), SubResource("Resource_y8v7x"), SubResource("Resource_y0ade"), SubResource("Resource_8edby")])
-
-[sub_resource type="Curve3D" id="Curve3D_36d0m"]
-_data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -29.5607, 0, -6.01589, 0, 0, 0, 0, 0, 0, 83.0442, 0, -5.26016, 0, 0, 0, 0, 0, 0, 205.096, 0, -2.99294, 0, 0, 0, 0, 0, 0, 203.962, 0, 41.5956, 0, 0, 0, 0, 0, 0, -28.805, 0, 41.2177),
-"tilts": PackedFloat32Array(0, 0, 0, 0, 0)
-}
-point_count = 5
-
-[sub_resource type="Resource" id="Resource_xpviu"]
-script = ExtResource("14_ncutn")
-closed = true
-thickness = 0.0
-curve = SubResource("Curve3D_36d0m")
-
-[sub_resource type="Curve3D" id="Curve3D_0bk65"]
-_data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -19.82, 0, 82.3972, 0, 0, 0, 0, 0, 0, 209.221, 0, 81.1013, 0, 0, 0, 0, 0, 0, 215.052, 0, 161.768, 0, 0, 0, 0, 0, 0, -17.5522, 0, 158.204),
-"tilts": PackedFloat32Array(0, 0, 0, 0)
-}
-point_count = 4
-
-[sub_resource type="Resource" id="Resource_qp8a8"]
-script = ExtResource("14_ncutn")
-closed = true
-thickness = 0.0
-curve = SubResource("Curve3D_0bk65")
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_erk5x"]
 noise_type = 3
@@ -207,32 +118,12 @@ texture_set = SubResource("Resource_hxkjo")
 render_layers = 1
 cast_shadow = 1
 
-[node name="roads" type="Node" parent="Levels"]
+[node name="road" type="Node" parent="Levels"]
 
-[node name="main_road" type="Node" parent="Levels/roads"]
+[node name="road" parent="Levels/road" instance=ExtResource("6_fw7ra")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 366.998, 0, 560.142)
 
 [node name="big_forest" type="Node" parent="Levels"]
-
-[node name="ProtonScatter" type="Node3D" parent="Levels/big_forest"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 538, 0, 11)
-script = ExtResource("6_l61ph")
-modifier_stack = SubResource("Resource_6b0wl")
-Performance/use_chunks = true
-Performance/chunk_dimensions = Vector3(15, 15, 15)
-
-[node name="ScatterItem" type="Node3D" parent="Levels/big_forest/ProtonScatter"]
-script = ExtResource("12_q88ff")
-path = "res://assets/models/nature/forest_tree2.blend"
-
-[node name="ScatterShape" type="Node3D" parent="Levels/big_forest/ProtonScatter"]
-transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 0, 0, 0)
-script = ExtResource("13_e7vl4")
-shape = SubResource("Resource_xpviu")
-
-[node name="ScatterShape2" type="Node3D" parent="Levels/big_forest/ProtonScatter"]
-transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 0, 0, 0)
-script = ExtResource("13_e7vl4")
-shape = SubResource("Resource_qp8a8")
 
 [node name="lake" type="Node" parent="Levels"]
 
@@ -250,17 +141,6 @@ mesh = SubResource("QuadMesh_edxtc")
 transform = Transform3D(1, 0, 0, 0, 0.999918, -0.0128104, 0, 0.0128104, 0.999918, 204.282, 0, 866.367)
 collision_layer = 3
 collision_mask = 3
-wall_min_slide_angle = 0.548033
-sprint_speed = 100.0
-
-[node name="road1" parent="." instance=ExtResource("7_ly4c8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 366.998, 0, 560.142)
-
-[node name="gasStation" parent="." instance=ExtResource("17_su4wl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 245.848, 0, 596.808)
-top_level = true
-
-[node name="abandonedFactory" parent="." instance=ExtResource("19_ygd30")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 653.381, 4.76837e-07, 73.4445)
+wall_min_slide_angle = 1.5708
 
 [connection signal="timeout" from="SERVERS/timer_daycycle" to="." method="_on_timer_daycycle_timeout"]

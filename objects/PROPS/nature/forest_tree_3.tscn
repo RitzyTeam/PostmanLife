@@ -70,7 +70,7 @@ shadow_mesh = SubResource("ArrayMesh_ewkxr")
 
 [node name="forest_tree3" type="StaticBody3D"]
 
-[node name="Cylinder" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.863963, 0, 0, 0, 0.863963, 0, 0, 0, 0.863963, 0, 1.56993, 0)
+[node name="mesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.81509, 0)
 mesh = SubResource("ArrayMesh_k2rn0")
 skeleton = NodePath("")
