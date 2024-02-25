@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cfl6vt4pjnbo6"]
 
-[ext_resource type="PackedScene" uid="uid://6r772qyq7ofh" path="res://assets/models/package_letter.blend" id="1_u7a65"]
+[ext_resource type="PackedScene" uid="uid://dpnyj3efcch3y" path="res://assets/models/ball.blend" id="1_l1dp7"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_61ug0"]
 size = Vector2(2000, 2000)
@@ -19,5 +19,4 @@ fov = 31.5
 [node name="origin" type="Marker3D" parent="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.555, 0)
 
-[node name="package_letter" parent="Node3D/origin" instance=ExtResource("1_u7a65")]
-transform = Transform3D(0.255, 0, 0, 0, 0.255, 0, 0, 0, 0.255, 0, 0, 0)
+[node name="ball" parent="Node3D/origin" instance=ExtResource("1_l1dp7")]

@@ -332,6 +332,14 @@ func drop_item_slot(slot_id: int):
 			obj.global_rotation = $Head/Camera/item_display/letter.global_rotation
 			obj.apply_central_impulse($Head/Camera/item_display/letter.global_transform.basis.z * -throw_item_power)
 			inv['slot_' + str(slot_id)] = {'id': 'void'}
+		'ball':
+			var obj = load('res://objects/PROPS/ball/ball.tscn').instantiate()
+			get_tree().get_root().add_child(obj)
+			obj.item = inv['slot_' + str(slot_id)]
+			obj.global_position = $Head/Camera/item_display/ball.global_position
+			obj.global_rotation = $Head/Camera/item_display/ball.global_rotation
+			obj.apply_central_impulse($Head/Camera/item_display/ball.global_transform.basis.z * -50)
+			inv['slot_' + str(slot_id)] = {'id': 'void'}
 	inventory_loader.load_hand_visual(current_slot_selected)
 	inventory_loader.load_inventory_visual()
 
