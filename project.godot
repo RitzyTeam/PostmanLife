@@ -41,6 +41,10 @@ folder_colors={
 "res://objects/PROPS/": "teal"
 }
 
+[filesystem]
+
+import/fbx/enabled=false
+
 [input]
 
 move_jump={
