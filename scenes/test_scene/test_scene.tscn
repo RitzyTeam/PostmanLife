@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://ebql6u7l33sb"]
+[gd_scene load_steps=12 format=3 uid="uid://ebql6u7l33sb"]
 
 [ext_resource type="PackedScene" uid="uid://cc1m2a1obsyn4" path="res://objects/player/player.tscn" id="1_vsp3c"]
 [ext_resource type="PackedScene" uid="uid://din700dmcsdr4" path="res://objects/PROPS/package_spawner/package_spawner.tscn" id="2_jefhr"]
 [ext_resource type="PackedScene" uid="uid://d3k3mjiras3di" path="res://objects/PROPS/package_box_receiver/package_box_receiver.tscn" id="3_gkgb8"]
 [ext_resource type="PackedScene" uid="uid://dkj4ku0wve5y6" path="res://objects/PROPS/package_letter_receiver/package_letter_receiver.tscn" id="4_xh0xn"]
 [ext_resource type="PackedScene" uid="uid://biogoa42trr1k" path="res://objects/PROPS/ball/ball.tscn" id="5_85iv5"]
+[ext_resource type="PackedScene" uid="uid://cpat5kv2ue7yo" path="res://objects/TRANSPORT/car/car.tscn" id="6_mbphw"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_mtor7"]
 size = Vector3(100, 1, 100)
@@ -56,3 +57,6 @@ deliver_code = "aaaa1"
 
 [node name="ball" parent="." instance=ExtResource("5_85iv5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.755104, 0.525949, 0)
+
+[node name="car" parent="." instance=ExtResource("6_mbphw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.71762, 1.30373, 0)

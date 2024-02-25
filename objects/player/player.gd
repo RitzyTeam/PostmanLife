@@ -418,3 +418,6 @@ func _unhandled_input(event):
 						inv['slot_' + str(current_slot_selected)] = {'id': 'void'}
 						inventory_loader.load_inventory_visual()
 						inventory_loader.load_hand_visual(current_slot_selected)
+				# DRIVE A CAR
+				if $Head/Camera/raycast_hand.get_collider().has_method('enter'):
+					$Head/Camera/raycast_hand.get_collider().enter(self)
