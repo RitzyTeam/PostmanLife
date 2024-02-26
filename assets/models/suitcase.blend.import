@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://ckthoht2tqua4"
-path="res://.godot/imported/PostOfficeBulild.blend-efa35803a636185b9c73ceaa592d1a22.scn"
+uid="uid://djfbws1q3yv7q"
+path="res://.godot/imported/suitcase.blend-a287fddd170029b5b8482b25e6147014.scn"
 
 [deps]
 
-source_file="res://assets/models/builds/PostOfficeBulild.blend"
-dest_files=["res://.godot/imported/PostOfficeBulild.blend-efa35803a636185b9c73ceaa592d1a22.scn"]
+source_file="res://assets/models/suitcase.blend"
+dest_files=["res://.godot/imported/suitcase.blend-a287fddd170029b5b8482b25e6147014.scn"]
 
 [params]
 
