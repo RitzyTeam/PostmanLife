@@ -8,10 +8,10 @@
 [ext_resource type="PackedScene" uid="uid://cpat5kv2ue7yo" path="res://objects/TRANSPORT/car/car.tscn" id="6_mbphw"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_mtor7"]
-size = Vector3(100, 1, 100)
+size = Vector3(1000, 1, 1000)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_374bo"]
-size = Vector3(100, 1, 100)
+size = Vector3(1000, 1, 1000)
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_pwqpn"]
 sky_top_color = Color(0.764706, 0.8, 0.992157, 1)
@@ -59,4 +59,4 @@ deliver_code = "aaaa1"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.755104, 0.525949, 0)
 
 [node name="car" parent="." instance=ExtResource("6_mbphw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.71762, 1.30373, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.71762, 1.30373, 15.2915)
