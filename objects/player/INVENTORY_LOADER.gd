@@ -30,7 +30,7 @@ func load_inventory_visual():
 		'letter':
 			item_2_icon.texture = load('res://assets/images/item_letter.png')
 		'ball':
-			item_1_icon.texture = load('res://assets/images/item_ball.png')
+			item_2_icon.texture = load('res://assets/images/item_ball.png')
 	# slot 3
 	match inv.slot_3.id:
 		# space is free
@@ -41,7 +41,7 @@ func load_inventory_visual():
 		'letter':
 			item_3_icon.texture = load('res://assets/images/item_letter.png')
 		'ball':
-			item_1_icon.texture = load('res://assets/images/item_ball.png')
+			item_3_icon.texture = load('res://assets/images/item_ball.png')
 	# slot 4
 	match inv.slot_4.id:
 		# space is free
@@ -52,7 +52,7 @@ func load_inventory_visual():
 		'letter':
 			item_4_icon.texture = load('res://assets/images/item_letter.png')
 		'ball':
-			item_1_icon.texture = load('res://assets/images/item_ball.png')
+			item_4_icon.texture = load('res://assets/images/item_ball.png')
 
 func load_hand_visual(slot_id):
 	$"../UI/UserInterface/item_name/item_name_anim".play('popup')

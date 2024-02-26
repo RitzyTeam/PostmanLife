@@ -7,6 +7,9 @@ extends VehicleBody3D
 @onready var wheel_3 = $wheel_3
 @onready var wheel_4 = $wheel_4
 @onready var pos_of_exit = $pos_of_exit
+@onready var rul = $rul_hinge/rul
+@onready var fara_1 = $fara_1
+@onready var fara_2 = $fara_2
 
 var isPlayerInside: bool = false
 # WHEEL SETTINGS
@@ -18,6 +21,7 @@ var MAX_STEER: float = 0.4
 var ENGINE_POWER: float = 5000
 
 func _ready():
+	lights_on()
 	# SET STIFFNESS
 	wheel_1.suspension_stiffness = wheel_stiffness
 	wheel_2.suspension_stiffness = wheel_stiffness
@@ -45,8 +49,13 @@ func _physics_process(delta):
 	if isPlayerInside:
 		steering = move_toward(steering, Input.get_axis("move_right", "move_left") * MAX_STEER, delta * 2.5)
 		engine_force = Input.get_axis("move_backward", "move_foward") * ENGINE_POWER
-
-
+		if Input.is_action_pressed('move_left'):
+			rul.rotation.y = lerp(rul.rotation.y, deg_to_rad(90), 0.05)
+		elif Input.is_action_pressed('move_right'):
+			rul.rotation.y = lerp(rul.rotation.y, deg_to_rad(-90), 0.05)
+		else:
+			rul.rotation.y = lerp(rul.rotation.y, deg_to_rad(0), 0.05)
+	
 func enter(player_obj: Object):
 	if not isPlayerInside:
 		isPlayerInside = true
@@ -61,3 +70,10 @@ func leave():
 		player_obj.global_position = pos_of_exit.global_position
 		$CAMERA.current = false
 	
+func lights_on():
+	fara_1.light_energy = 25
+	fara_2.light_energy = 25
+
+func lights_off():
+	fara_1.light_energy = 0
+	fara_2.light_energy = 0
