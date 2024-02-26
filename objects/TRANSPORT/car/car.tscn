@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=3 uid="uid://cpat5kv2ue7yo"]
+[gd_scene load_steps=67 format=3 uid="uid://cpat5kv2ue7yo"]
 
 [ext_resource type="Script" path="res://objects/TRANSPORT/car/car.gd" id="1_qyjyp"]
 [ext_resource type="PackedScene" uid="uid://cc1m2a1obsyn4" path="res://objects/player/player.tscn" id="2_vq0iw"]
@@ -186,6 +186,8 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_q8cpk")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_5b3q8"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fq3di"]
 resource_name = "wheel.001"
@@ -972,6 +974,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000621319, 0.189287, 0.027
 mesh = SubResource("ArrayMesh_ncvsb")
 skeleton = NodePath("")
 
+[node name="fuel_hole" type="Marker3D" parent="."]
+transform = Transform3D(-4.37114e-08, 1, 0, 1, 4.37114e-08, 8.74228e-08, 8.74228e-08, 3.82137e-15, -1, -1.58003, 1.68089, 0)
+
+[node name="area" type="Area3D" parent="fuel_hole"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="fuel_hole/area"]
+shape = SubResource("SphereShape3D_5b3q8")
+
 [node name="stat_energy" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.0790985, 0, 0, 0, 0.0523288, -0.0586071, 0, 0.0523288, 0.0586071, -1.10637, 1.83206, -2.27149)
 mesh = SubResource("ArrayMesh_ij6tj")
@@ -1174,3 +1184,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.06199, -2.9032)
 stream = ExtResource("5_8ws1p")
 max_distance = 50.0
 emission_angle_filter_attenuation_db = 0.0
+
+[connection signal="body_entered" from="fuel_hole/area" to="." method="_on_area_body_entered"]
+[connection signal="body_exited" from="fuel_hole/area" to="." method="_on_area_body_exited"]

@@ -20,6 +20,8 @@ func load_inventory_visual():
 			item_1_icon.texture = load('res://assets/images/item_letter.png')
 		'ball':
 			item_1_icon.texture = load('res://assets/images/item_ball.png')
+		'fuel_tank':
+			item_1_icon.texture = load('res://assets/images/item_fuel_tank.png')
 	# slot 2
 	match inv.slot_2.id:
 		# space is free
@@ -31,6 +33,8 @@ func load_inventory_visual():
 			item_2_icon.texture = load('res://assets/images/item_letter.png')
 		'ball':
 			item_2_icon.texture = load('res://assets/images/item_ball.png')
+		'fuel_tank':
+			item_2_icon.texture = load('res://assets/images/item_fuel_tank.png')
 	# slot 3
 	match inv.slot_3.id:
 		# space is free
@@ -42,6 +46,8 @@ func load_inventory_visual():
 			item_3_icon.texture = load('res://assets/images/item_letter.png')
 		'ball':
 			item_3_icon.texture = load('res://assets/images/item_ball.png')
+		'fuel_tank':
+			item_3_icon.texture = load('res://assets/images/item_fuel_tank.png')
 	# slot 4
 	match inv.slot_4.id:
 		# space is free
@@ -53,6 +59,8 @@ func load_inventory_visual():
 			item_4_icon.texture = load('res://assets/images/item_letter.png')
 		'ball':
 			item_4_icon.texture = load('res://assets/images/item_ball.png')
+		'fuel_tank':
+			item_4_icon.texture = load('res://assets/images/item_fuel_tank.png')
 
 func load_hand_visual(slot_id):
 	$"../UI/UserInterface/item_name/item_name_anim".play('popup')
@@ -64,18 +72,28 @@ func load_hand_visual(slot_id):
 			$"../Head/Camera/item_display/letter".visible = false
 			$"../Head/Camera/item_display/box".visible = false
 			$"../Head/Camera/item_display/ball".visible = false
-		'box':
-			$"../Head/Camera/item_display/letter".visible = false
-			$"../Head/Camera/item_display/box".visible = true
-			$"../Head/Camera/item_display/ball".visible = false
-			$"../UI/UserInterface/item_name".text = item['name']
+			$"../Head/Camera/item_display/fuel_tank".visible = false
 		'letter':
 			$"../Head/Camera/item_display/letter".visible = true
 			$"../Head/Camera/item_display/box".visible = false
 			$"../Head/Camera/item_display/ball".visible = false
+			$"../Head/Camera/item_display/fuel_tank".visible = false
+			$"../UI/UserInterface/item_name".text = item['name']
+		'box':
+			$"../Head/Camera/item_display/letter".visible = false
+			$"../Head/Camera/item_display/box".visible = true
+			$"../Head/Camera/item_display/ball".visible = false
+			$"../Head/Camera/item_display/fuel_tank".visible = false
 			$"../UI/UserInterface/item_name".text = item['name']
 		'ball':
 			$"../Head/Camera/item_display/letter".visible = false
 			$"../Head/Camera/item_display/box".visible = false
 			$"../Head/Camera/item_display/ball".visible = true
+			$"../Head/Camera/item_display/fuel_tank".visible = false
+			$"../UI/UserInterface/item_name".text = item['name']
+		'fuel_tank':
+			$"../Head/Camera/item_display/letter".visible = false
+			$"../Head/Camera/item_display/box".visible = false
+			$"../Head/Camera/item_display/ball".visible = false
+			$"../Head/Camera/item_display/fuel_tank".visible = true
 			$"../UI/UserInterface/item_name".text = item['name']

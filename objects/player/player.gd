@@ -340,6 +340,14 @@ func drop_item_slot(slot_id: int):
 			obj.global_rotation = $Head/Camera/item_display/ball.global_rotation
 			obj.apply_central_impulse($Head/Camera/item_display/ball.global_transform.basis.z * -50)
 			inv['slot_' + str(slot_id)] = {'id': 'void'}
+		'fuel_tank':
+			var obj = load('res://objects/PROPS/fuel_tank/fuel_tank.tscn').instantiate()
+			get_tree().get_root().add_child(obj)
+			obj.item = inv['slot_' + str(slot_id)]
+			obj.global_position = $Head/Camera/item_display/fuel_tank.global_position
+			obj.global_rotation = $Head/Camera/item_display/fuel_tank.global_rotation
+			obj.apply_central_impulse($Head/Camera/item_display/fuel_tank.global_transform.basis.x * throw_item_power)
+			inv['slot_' + str(slot_id)] = {'id': 'void'}
 	inventory_loader.load_hand_visual(current_slot_selected)
 	inventory_loader.load_inventory_visual()
 

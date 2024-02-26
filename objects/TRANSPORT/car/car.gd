@@ -1,7 +1,7 @@
 extends VehicleBody3D
 
 @export var player: PackedScene
-
+var current_tank: Object = null
 
 @onready var wheel_1 = $wheel_1
 @onready var wheel_2 = $wheel_2
@@ -20,7 +20,7 @@ var isPlayerInside: bool = false
 # RESOURCES
 var res_fuel: float = 100.0
 var res_energy: float = 100.0
-var consumption_fuel: float = 0.0001 # drive purposes
+var consumption_fuel: float = 1.0001 # drive purposes
 var consumption_energy: float = 0.0001 # light purposes
 # RUL ANIMATION
 var steer_points: float = 0.0
@@ -72,6 +72,19 @@ func _input(event):
 
 
 func _physics_process(delta):
+	if not current_tank == null:
+		if res_fuel < 100.0:
+			if current_tank.item['litres'] >= 0.1:
+				res_fuel += 0.1
+				current_tank.item['litres'] -= 0.1
+				if int(res_energy) > 0:
+					$stat_fuel/value.text = str(int(res_fuel)) + '%'
+			else:
+				current_tank.freeze = false
+				current_tank = null
+		else:
+			current_tank.freeze = false
+			current_tank = null
 	if isFlashlightsOn:
 		res_energy -= consumption_energy * 1000
 		if int(res_energy) > 0:
@@ -96,11 +109,13 @@ func _physics_process(delta):
 			engine_force = 0
 		# CONTROLS
 		if Input.is_action_pressed('move_foward'):
-			res_fuel -= consumption_fuel
+			if res_fuel >= consumption_fuel:
+				res_fuel -= consumption_fuel
 			if int(res_energy) > 0:
 				$stat_fuel/value.text = str(int(res_fuel)) + '%'
 		if Input.is_action_pressed('move_backward'):
-			res_fuel -= consumption_fuel
+			if res_fuel >= consumption_fuel:
+				res_fuel -= consumption_fuel
 			if int(res_energy) > 0:
 				$stat_fuel/value.text = str(int(res_fuel)) + '%'
 		# STEERING BY RUL
@@ -156,3 +171,33 @@ func set_lever(speed: float):
 		handle.position.z = lerp(handle.position.z,  0.37, 0.1)
 		handle.position.x = lerp(handle.position.x,  0.273, 0.1)
 		
+
+
+func _on_area_body_entered(body):
+	if body is RigidBody3D:
+		if 'item' in body:
+			if body.has_method('grab'):
+				if not body.item['litres'] == null:
+					if body.item['litres'] > 0:
+						if res_fuel < 100:
+							if current_tank == null:
+								linear_velocity.x = 0
+								linear_velocity.z = 0
+								current_tank = body
+								body.freeze = true
+								rotate_tank()
+								var tween = create_tween()
+								tween.tween_property(current_tank, 'global_position', $fuel_hole.global_position, 1)
+								tween.play()
+func rotate_tank():
+	var tween = create_tween()
+	tween.tween_property(current_tank, 'global_rotation', $fuel_hole.global_rotation, 1)
+	tween.play()
+
+
+func _on_area_body_exited(body):
+	if body is RigidBody3D:
+		if 'item' in body:
+			if body.has_method('grab'):
+				if not body.item['litres'] == null:
+					body.freeze = false
