@@ -6,8 +6,26 @@ var seconds_to_deliver: int = 90
 @onready var delivery_timer = $delivery_timer
 @onready var timer = $timer
 
+
 var item = {}
 
+func set_fill_type():
+	if item['fill_type'] == 'based':
+		$package_type_glass.visible = false
+		$package_type_eco.visible = false
+		$package_type_water.visible = false
+	elif item['fill_type'] == 'food':
+		$package_type_glass.visible = false
+		$package_type_eco.visible = true
+		$package_type_water.visible = false
+	elif item['fill_type'] == 'docs':
+		$package_type_glass.visible = false
+		$package_type_eco.visible = false
+		$package_type_water.visible = true
+	elif item['fill_type'] == 'glass':
+		$package_type_glass.visible = true
+		$package_type_eco.visible = false
+		$package_type_water.visible = false
 
 func deliver():
 	if canBeGrabbed:
@@ -34,9 +52,6 @@ func anim_deliver():
 	var tween = create_tween()
 	tween.tween_property(self, 'scale', Vector3(0, 0, 0), 1)
 	tween.play()
-	
-
-
 
 func grab():
 	return item
@@ -59,4 +74,3 @@ func _on_delivery_timer_timeout():
 	else:
 		seconds_display = str(seconds)
 	timer.text = str(minutes_display) + ':' + str(seconds_display)
-		

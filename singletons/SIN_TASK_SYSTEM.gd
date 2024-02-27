@@ -19,8 +19,19 @@ func _ready():
 # Deliver ID должен выбираться из списка доступных Deliver ID.
 # Deliver ID должен совпадать с Deliver ID для конкретного дома (Зоны приема посылки)
 func add_random_task() -> void:
-	var package_type_id: String = 'void'
+	var package_fill_type: int = randi_range(0,10)
+	var package_fill: String = 'void'
+	if package_fill_type >= 0 and package_fill_type < 6:
+		package_fill = 'based'
+	elif package_fill_type >= 6 and package_fill_type < 9:
+		package_fill = 'food' # ECO
+	elif package_fill_type == 9:
+		package_fill = 'docs' # AVOID WATER
+	elif package_fill_type == 10:
+		package_fill = 'glass' # FRAGILE
+
 	var package_type: int = randi_range(0,1)
+	var package_type_id: String = 'void'
 	match package_type:
 		0:
 			package_type_id = 'box'
@@ -35,6 +46,7 @@ func add_random_task() -> void:
 		'name': 'Доставка на адрес ' + target_address,
 		'deliver_id': deliver_id,
 		'target_address': target_address,
+		'fill_type': package_fill,
 		'weight': randi_range(2, 20)
 	}
 	ACTIVE_TASKS.append(task_data)

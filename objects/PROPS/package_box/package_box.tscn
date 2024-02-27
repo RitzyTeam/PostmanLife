@@ -1,6 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://58hl61px281c"]
+[gd_scene load_steps=19 format=3 uid="uid://58hl61px281c"]
 
 [ext_resource type="Script" path="res://objects/PROPS/package_box/package_box.gd" id="1_lly81"]
+[ext_resource type="Texture2D" uid="uid://cuvt4anhakusy" path="res://assets/models/package_types/package_type_water_package_type_water.png" id="2_pwlvm"]
+[ext_resource type="Texture2D" uid="uid://dbyhvno4irkhv" path="res://assets/models/package_types/package_type_glass_package_type_glass.png" id="2_t8ggx"]
+[ext_resource type="Texture2D" uid="uid://b5p2oqgtwrakf" path="res://assets/models/package_types/package_type_eco_package_type_eco.png" id="3_pkjj0"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fq8pu"]
 resource_name = "box"
@@ -73,6 +76,126 @@ shadow_mesh = SubResource("ArrayMesh_texmx")
 [sub_resource type="BoxShape3D" id="BoxShape3D_kwxbf"]
 size = Vector3(0.501953, 0.382813, 0.753967)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3bnys"]
+resource_name = "package_type_glass"
+transparency = 4
+cull_mode = 2
+albedo_texture = ExtResource("2_t8ggx")
+roughness = 0.5
+texture_repeat = false
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_824ft"]
+_surfaces = [{
+"aabb": AABB(-0.5, 0, -0.5, 1, 1e-05, 1.00001),
+"format": 34896613377,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 3, 0, 1, 0, 0, 0, 2, 0, 3, 0),
+"name": "package_type_glass",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 254, 255, 0, 0, 255, 255, 0, 0, 254, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0)
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_ycaqo"]
+resource_name = "package_type_glass_package_type_glass"
+_surfaces = [{
+"aabb": AABB(-0.5, 0, -0.5, 1, 1e-05, 1.00001),
+"attribute_data": PackedByteArray(0, 0, 255, 255, 255, 255, 255, 255, 0, 0, 0, 0, 255, 255, 0, 0),
+"format": 34896613399,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 3, 0, 1, 0, 0, 0, 2, 0, 3, 0),
+"material": SubResource("StandardMaterial3D_3bnys"),
+"name": "package_type_glass",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 254, 255, 255, 191, 255, 255, 0, 0, 254, 255, 255, 191, 0, 0, 0, 0, 0, 0, 255, 191, 255, 255, 0, 0, 0, 0, 255, 191, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127)
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_824ft")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cqro0"]
+resource_name = "package_type_eco"
+transparency = 4
+cull_mode = 2
+albedo_texture = ExtResource("3_pkjj0")
+roughness = 0.5
+texture_repeat = false
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_a2gam"]
+_surfaces = [{
+"aabb": AABB(-0.5, 0, -0.5, 1, 1e-05, 1.00001),
+"format": 34896613377,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 3, 0, 1, 0, 0, 0, 2, 0, 3, 0),
+"name": "package_type_eco",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 254, 255, 0, 0, 255, 255, 0, 0, 254, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0)
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_wlgpv"]
+resource_name = "package_type_eco_package_type_eco"
+_surfaces = [{
+"aabb": AABB(-0.5, 0, -0.5, 1, 1e-05, 1.00001),
+"attribute_data": PackedByteArray(0, 0, 255, 255, 255, 255, 255, 255, 0, 0, 0, 0, 255, 255, 0, 0),
+"format": 34896613399,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 3, 0, 1, 0, 0, 0, 2, 0, 3, 0),
+"material": SubResource("StandardMaterial3D_cqro0"),
+"name": "package_type_eco",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 254, 255, 255, 191, 255, 255, 0, 0, 254, 255, 255, 191, 0, 0, 0, 0, 0, 0, 255, 191, 255, 255, 0, 0, 0, 0, 255, 191, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127)
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_a2gam")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k6dkw"]
+resource_name = "package_type_water"
+transparency = 4
+cull_mode = 2
+albedo_texture = ExtResource("2_pwlvm")
+roughness = 0.5
+texture_repeat = false
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_57aln"]
+_surfaces = [{
+"aabb": AABB(-0.5, 0, -0.5, 1, 1e-05, 1.00001),
+"format": 34896613377,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 3, 0, 1, 0, 0, 0, 2, 0, 3, 0),
+"name": "package_type_water",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 254, 255, 0, 0, 255, 255, 0, 0, 254, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0)
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_xjoje"]
+resource_name = "package_type_water_package_type_water"
+_surfaces = [{
+"aabb": AABB(-0.5, 0, -0.5, 1, 1e-05, 1.00001),
+"attribute_data": PackedByteArray(0, 0, 255, 255, 255, 255, 255, 255, 0, 0, 0, 0, 255, 255, 0, 0),
+"format": 34896613399,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 3, 0, 1, 0, 0, 0, 2, 0, 3, 0),
+"material": SubResource("StandardMaterial3D_k6dkw"),
+"name": "package_type_water",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 254, 255, 255, 191, 255, 255, 0, 0, 254, 255, 255, 191, 0, 0, 0, 0, 0, 0, 255, 191, 255, 255, 0, 0, 0, 0, 255, 191, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127)
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_57aln")
+
 [node name="package_box" type="RigidBody3D"]
 mass = 3.0
 can_sleep = false
@@ -94,9 +217,36 @@ autostart = true
 [node name="timer" type="Label3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.250444, 0, 0)
 pixel_size = 0.0001
-modulate = Color(0.835294, 0.505882, 0.0980392, 1)
+modulate = Color(0.298039, 0.184314, 0.0392157, 1)
 text = "00:00"
 font_size = 1867
 outline_size = 0
+
+[node name="package_type_glass" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.79217e-08, -0.205, -1.54771e-08, -1.79217e-08, 1.54771e-08, -0.205, 0.205, 1.79217e-08, -1.79217e-08, -0.251263, -0.0851691, -0.269272)
+visible = false
+mesh = SubResource("ArrayMesh_ycaqo")
+skeleton = NodePath("")
+
+[node name="package_type_eco" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.79217e-08, -0.205, -1.54771e-08, -1.79217e-08, 1.54771e-08, -0.205, 0.205, 1.79217e-08, -1.79217e-08, -0.251263, -0.0851691, -0.269272)
+visible = false
+mesh = SubResource("ArrayMesh_wlgpv")
+skeleton = NodePath("")
+
+[node name="package_type_water" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.79217e-08, -0.205, -1.54771e-08, -1.79217e-08, 1.54771e-08, -0.205, 0.205, 1.79217e-08, -1.79217e-08, -0.251263, -0.0851691, -0.269272)
+visible = false
+mesh = SubResource("ArrayMesh_xjoje")
+skeleton = NodePath("")
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.252584, 0.147672, 0.357763)
+pixel_size = 0.001
+modulate = Color(0.188235, 0.109804, 0.0156863, 1)
+outline_modulate = Color(0, 0, 0, 0)
+text = "10kg"
+font_size = 67
+horizontal_alignment = 2
 
 [connection signal="timeout" from="delivery_timer" to="." method="_on_delivery_timer_timeout"]
