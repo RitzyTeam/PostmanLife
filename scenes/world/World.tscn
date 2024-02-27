@@ -98,7 +98,7 @@ environment = SubResource("Environment_kqe7o")
 camera_attributes = SubResource("CameraAttributesPractical_ke1mj")
 
 [node name="Sun" type="DirectionalLight3D" parent="WorldEnv"]
-transform = Transform3D(0.9906, -0.000922591, -0.136791, 0.115967, -0.524722, 0.843338, -0.0725551, -0.851273, -0.519682, 0.992416, 0, -4.94073)
+transform = Transform3D(0.97853, 0.0551317, -0.198593, -0.163588, 0.79388, -0.585657, 0.125371, 0.60557, 0.785854, 0.992416, 0, -4.94073)
 light_bake_mode = 1
 
 [node name="Levels" type="Node" parent="."]
@@ -378,7 +378,11 @@ wall_min_slide_angle = 1.5708
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 367, 0, 978)
 
 [node name="car" parent="." instance=ExtResource("10_x1dbs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 219, 0, 1009)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 219, 0, 1009.35)
+consumption_fuel = 0.005
+consumption_energy = 0.005
+MAX_TORQUE = 7000.0
+MAX_RPM = 1500
 
 [connection signal="timeout" from="SERVERS/timer_daycycle" to="." method="_on_timer_daycycle_timeout"]
 

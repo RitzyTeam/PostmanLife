@@ -644,6 +644,7 @@ skeleton = NodePath("")
 
 [node name="fuel_tank" type="MeshInstance3D" parent="Head/Camera/item_display"]
 transform = Transform3D(3.04324e-09, 0, 0.150842, 0, 0.255201, 0, -0.255201, 0, 1.79877e-09, 0.24, -0.405, 0)
+visible = false
 mesh = SubResource("ArrayMesh_cgtu4")
 skeleton = NodePath("")
 
@@ -651,7 +652,7 @@ skeleton = NodePath("")
 libraries = {
 "": SubResource("AnimationLibrary_o0unb")
 }
-blend_times = [&"headbob", &"RESET", 0.5, &"RESET", &"headbob", 0.5, &"RESET", &"RESET", 0.5]
+blend_times = [&"RESET", &"RESET", 0.5, &"RESET", &"headbob", 0.5, &"headbob", &"RESET", 0.5]
 
 [node name="JumpAnimation" type="AnimationPlayer" parent="Head"]
 libraries = {

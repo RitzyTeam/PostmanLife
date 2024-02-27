@@ -20,18 +20,19 @@ var isPlayerInside: bool = false
 # RESOURCES
 var res_fuel: float = 100.0
 var res_energy: float = 100.0
-var consumption_fuel: float = 0.0001 # drive purposes
-var consumption_energy: float = 0.0001 # light purposes
+@export var consumption_fuel: float = 0.0005 ## FUEL CONSUMPTION PER FRAME (DRIVING CAR)
+@export var consumption_energy: float = 0.0005 ## ENERGY CONSUMPTION PER FRAME (LIGHTS AND ALERTS)
 # RUL ANIMATION
 var steer_points: float = 0.0
 var max_steer_points: float = 720.0
 # WHEEL SETTINGS
-var wheel_stiffness: float = 100.0
-var wheel_max_force: float = 16000.0
+var wheel_stiffness: float = 50.0
+var wheel_max_force: float = 12000.0
 var wheel_travel_distance: float = 0.1
 # ENGINE SETTINGS
-var MAX_STEER: float = 0.4
-var ENGINE_POWER: float = 15000
+@export var MAX_STEER: float = 0.4 ## POWER OF CAR ROTATION
+@export var MAX_TORQUE: float = 5000 ## POWER OF CAR ENGINE
+@export var MAX_RPM: int = 500 ## POWER OF CAR WHEEL ROTATION
 # PREVENT PLAYER INVENTORY DELETION
 var temp_player_inv: Dictionary = {}
 
@@ -67,7 +68,7 @@ func _input(event):
 			if int(res_energy) > 0:
 				if not $beep.playing:
 					$beep.play()
-					res_energy -= consumption_energy * 1000
+					res_energy -= consumption_energy
 					$stat_energy/value.text = str(int(res_energy)) + '%'
 		if event.is_action_pressed('key_e'):
 			leave()
@@ -88,7 +89,7 @@ func _physics_process(delta):
 			current_tank.freeze = false
 			current_tank = null
 	if isFlashlightsOn:
-		res_energy -= consumption_energy * 1000
+		res_energy -= consumption_energy
 		if int(res_energy) > 0:
 			$stat_energy/value.text = str(int(res_energy)) + '%'
 		else:
@@ -105,8 +106,13 @@ func _physics_process(delta):
 			set_lever(speed)
 		# DRIVING FUNCTION
 		if int(res_fuel) > 0:
-			steering = move_toward(steering, Input.get_axis("move_right", "move_left") * MAX_STEER, delta * 2.5)
-			engine_force = Input.get_axis("move_backward", "move_foward") * ENGINE_POWER
+			var target_steer = move_toward(steering, Input.get_axis("move_right", "move_left") * MAX_STEER, delta * 2.5)
+			steering = lerp(steering, target_steer, 0.05)
+			var accel = Input.get_axis("move_backward", "move_foward")
+			var rpm_wheel_2 = $wheel_2.get_rpm()
+			wheel_2.engine_force =  accel * MAX_TORQUE * (1 - rpm_wheel_2 / MAX_RPM)
+			var rpm_wheel_3 = $wheel_3.get_rpm()
+			wheel_3.engine_force =  accel * MAX_TORQUE * (1 - rpm_wheel_3 / MAX_RPM)
 		else:
 			engine_force = 0
 		# CONTROLS
