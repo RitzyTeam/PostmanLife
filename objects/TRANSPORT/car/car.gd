@@ -20,7 +20,7 @@ var isPlayerInside: bool = false
 # RESOURCES
 var res_fuel: float = 100.0
 var res_energy: float = 100.0
-var consumption_fuel: float = 1.0001 # drive purposes
+var consumption_fuel: float = 0.0001 # drive purposes
 var consumption_energy: float = 0.0001 # light purposes
 # RUL ANIMATION
 var steer_points: float = 0.0
@@ -32,6 +32,8 @@ var wheel_travel_distance: float = 0.1
 # ENGINE SETTINGS
 var MAX_STEER: float = 0.4
 var ENGINE_POWER: float = 15000
+# PREVENT PLAYER INVENTORY DELETION
+var temp_player_inv: Dictionary = {}
 
 func _ready():
 	# SET STIFFNESS
@@ -134,6 +136,7 @@ func enter(player_obj: Object):
 	if not isPlayerInside:
 		isPlayerInside = true
 		player_obj.queue_free()
+		temp_player_inv = player_obj.inv
 		$CAMERA.current = true
 
 func leave():
@@ -143,6 +146,11 @@ func leave():
 		isPlayerInside = false
 		var player_obj = player.instantiate()
 		get_tree().get_root().add_child(player_obj)
+		player_obj.inv = temp_player_inv
+		player_obj.inventory_loader.load_inventory_visual()
+		player_obj.inventory_loader.load_hand_visual(1)
+		player_obj.set_slot_selected(1)
+		temp_player_inv = {}
 		player_obj.global_position = pos_of_exit.global_position
 		$CAMERA.current = false
 	
