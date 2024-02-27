@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://c6776lt6vo53g"]
+
+[ext_resource type="PackedScene" uid="uid://db3nv5i7gk2i7" path="res://assets/models/builds/hospital.blend" id="1_aouy5"]
+
+[node name="hospital" instance=ExtResource("1_aouy5")]

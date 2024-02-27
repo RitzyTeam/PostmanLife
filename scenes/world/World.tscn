@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://c66dar30xo83l"]
+[gd_scene load_steps=24 format=3 uid="uid://c66dar30xo83l"]
 
 [ext_resource type="Script" path="res://scenes/world/World.gd" id="1_xxt06"]
 [ext_resource type="Script" path="res://addons/zylann.hterrain/hterrain.gd" id="2_j3jfb"]
@@ -10,7 +10,8 @@
 [ext_resource type="Shader" path="res://shaders/lake_water.gdshader" id="8_gtq7j"]
 [ext_resource type="PackedScene" uid="uid://dkfbfrrjn8o18" path="res://objects/builds/fourStoryBuldsVariations/four_story_building_main.tscn" id="8_rq71q"]
 [ext_resource type="PackedScene" uid="uid://dp80ffcw30b84" path="res://objects/builds/rural_house/rural_house.tscn" id="9_vdlv5"]
-[ext_resource type="PackedScene" uid="uid://ptsr0bwyexga" path="res://assets/models/builds/twoStoryBuilding.blend" id="11_fobwy"]
+[ext_resource type="PackedScene" uid="uid://cpat5kv2ue7yo" path="res://objects/TRANSPORT/car/car.tscn" id="10_x1dbs"]
+[ext_resource type="PackedScene" uid="uid://c6776lt6vo53g" path="res://objects/builds/hospital/hospital.tscn" id="12_fw7f4"]
 
 [sub_resource type="Environment" id="Environment_kqe7o"]
 background_mode = 2
@@ -368,13 +369,16 @@ transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 391, 0
 [node name="Старинная улица" type="Node" parent="Levels/streets"]
 
 [node name="Player" parent="." instance=ExtResource("5_6o1kf")]
-transform = Transform3D(1, 0, 0, 0, 0.999918, -0.0128104, 0, 0.0128104, 0.999918, 204.282, 0, 866.367)
+transform = Transform3D(1, 0, 0, 0, 0.999918, -0.0128104, 0, 0.0128104, 0.999918, 204.282, 0, 1005.67)
 collision_layer = 3
 collision_mask = 3
 wall_min_slide_angle = 1.5708
 
-[node name="twoStoryBuilding" parent="." instance=ExtResource("11_fobwy")]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 55, 0, 571)
+[node name="hospital" parent="." instance=ExtResource("12_fw7f4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 367, 0, 978)
+
+[node name="car" parent="." instance=ExtResource("10_x1dbs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 219, 0, 1009)
 
 [connection signal="timeout" from="SERVERS/timer_daycycle" to="." method="_on_timer_daycycle_timeout"]
 
