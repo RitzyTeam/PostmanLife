@@ -184,8 +184,6 @@ func set_lever(speed: float):
 	elif speed >= 60:
 		handle.position.z = lerp(handle.position.z,  0.37, 0.1)
 		handle.position.x = lerp(handle.position.x,  0.273, 0.1)
-		
-
 
 func _on_area_body_entered(body):
 	if body is RigidBody3D:
@@ -203,11 +201,11 @@ func _on_area_body_entered(body):
 								var tween = create_tween()
 								tween.tween_property(current_tank, 'global_position', $fuel_hole.global_position, 1)
 								tween.play()
+
 func rotate_tank():
 	var tween = create_tween()
 	tween.tween_property(current_tank, 'global_rotation', $fuel_hole.global_rotation, 1)
 	tween.play()
-
 
 func _on_area_body_exited(body):
 	if body is RigidBody3D:
