@@ -1,6 +1,7 @@
 extends Node
 
 @onready var sun: DirectionalLight3D = $WorldEnv/Sun
+@onready var anim_tod = $WorldEnv/anim_tod
 
 # DAY TIME
 var time_hours: int = 0
@@ -13,10 +14,8 @@ func _ready():
 	tod = SIN_WORLD_DATA.WORLD_DATA['tod']
 	time_hours = int(tod/60)
 	time_minutes = int(tod%60)
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+	anim_tod.play("tod")
+	anim_tod.seek(tod)
 
 #region SERVERS
 # ХОД ВРЕМЕНИ
