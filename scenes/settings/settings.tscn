@@ -1,0 +1,231 @@
+[gd_scene load_steps=8 format=3 uid="uid://cosi6kxvm7qxp"]
+
+[ext_resource type="Script" path="res://scenes/settings/settings.gd" id="1_brffx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vkhqg"]
+bg_color = Color(0.280657, 0.091383, 1, 1)
+corner_radius_top_left = 90
+corner_radius_top_right = 90
+corner_radius_bottom_right = 90
+corner_radius_bottom_left = 90
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qvssi"]
+bg_color = Color(0.219608, 0, 0.819608, 1)
+corner_radius_top_left = 90
+corner_radius_top_right = 90
+corner_radius_bottom_right = 90
+corner_radius_bottom_left = 90
+
+[sub_resource type="Animation" id="Animation_atg5s"]
+resource_name = "show"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("UI/bg/visibility_changer:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_42k0r"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("UI/bg/visibility_changer:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_gmxbm"]
+resource_name = "hide"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("UI/bg/visibility_changer:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_djxko"]
+_data = {
+"RESET": SubResource("Animation_42k0r"),
+"hide": SubResource("Animation_gmxbm"),
+"show": SubResource("Animation_atg5s")
+}
+
+[node name="SETTINGS" type="Node"]
+script = ExtResource("1_brffx")
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="bg" type="ColorRect" parent="UI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.435294, 0.482353, 1, 1)
+
+[node name="visibility_changer" type="Control" parent="UI/bg"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="title" type="Label" parent="UI/bg/visibility_changer"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.012037
+anchor_right = 1.0
+anchor_bottom = 0.127778
+offset_bottom = -1.52588e-05
+grow_horizontal = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_font_sizes/font_size = 91
+text = "Настройки"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="btn_exit" type="Button" parent="UI/bg/visibility_changer"]
+layout_mode = 2
+anchor_left = 0.369792
+anchor_top = 0.908333
+anchor_right = 0.630208
+anchor_bottom = 0.985185
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxFlat_vkhqg")
+theme_override_styles/hover = SubResource("StyleBoxFlat_qvssi")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_vkhqg")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_vkhqg")
+theme_override_styles/focus = SubResource("StyleBoxFlat_vkhqg")
+text = "Назад"
+metadata/_edit_use_anchors_ = true
+
+[node name="parts" type="HBoxContainer" parent="UI/bg/visibility_changer"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.152778
+anchor_right = 1.0
+anchor_bottom = 0.211111
+grow_horizontal = 2
+theme_override_constants/separation = 35
+alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="btn_audio" type="Button" parent="UI/bg/visibility_changer/parts"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 41
+theme_override_styles/normal = SubResource("StyleBoxFlat_vkhqg")
+theme_override_styles/hover = SubResource("StyleBoxFlat_qvssi")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_vkhqg")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_vkhqg")
+theme_override_styles/focus = SubResource("StyleBoxFlat_vkhqg")
+text = "Аудио"
+metadata/_edit_use_anchors_ = true
+
+[node name="btn_graphics" type="Button" parent="UI/bg/visibility_changer/parts"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 41
+theme_override_styles/normal = SubResource("StyleBoxFlat_vkhqg")
+theme_override_styles/hover = SubResource("StyleBoxFlat_qvssi")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_vkhqg")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_vkhqg")
+theme_override_styles/focus = SubResource("StyleBoxFlat_vkhqg")
+text = "Графика"
+metadata/_edit_use_anchors_ = true
+
+[node name="btn_additional" type="Button" parent="UI/bg/visibility_changer/parts"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 41
+theme_override_styles/normal = SubResource("StyleBoxFlat_vkhqg")
+theme_override_styles/hover = SubResource("StyleBoxFlat_qvssi")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_vkhqg")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_vkhqg")
+theme_override_styles/focus = SubResource("StyleBoxFlat_vkhqg")
+text = "Дополнительно"
+metadata/_edit_use_anchors_ = true
+
+[node name="panel_audio" type="Panel" parent="UI/bg/visibility_changer"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.109375
+anchor_top = 0.255556
+anchor_right = 0.890625
+anchor_bottom = 0.857407
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_vkhqg")
+metadata/_edit_use_anchors_ = true
+
+[node name="panel_graphics" type="Panel" parent="UI/bg/visibility_changer"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.109375
+anchor_top = 0.255556
+anchor_right = 0.890625
+anchor_bottom = 0.857407
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_vkhqg")
+metadata/_edit_use_anchors_ = true
+
+[node name="panel_additional" type="Panel" parent="UI/bg/visibility_changer"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.109375
+anchor_top = 0.255556
+anchor_right = 0.890625
+anchor_bottom = 0.857407
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_vkhqg")
+metadata/_edit_use_anchors_ = true
+
+[node name="anim" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_djxko")
+}
+
+[connection signal="pressed" from="UI/bg/visibility_changer/btn_exit" to="." method="_on_btn_exit_pressed"]
+[connection signal="pressed" from="UI/bg/visibility_changer/parts/btn_audio" to="." method="_on_btn_audio_pressed"]
+[connection signal="pressed" from="UI/bg/visibility_changer/parts/btn_graphics" to="." method="_on_btn_graphics_pressed"]
+[connection signal="pressed" from="UI/bg/visibility_changer/parts/btn_additional" to="." method="_on_btn_additional_pressed"]
+[connection signal="animation_finished" from="anim" to="." method="_on_anim_animation_finished"]

@@ -11,13 +11,17 @@ config_version=5
 [application]
 
 config/name="PostmanLife"
+run/main_scene="res://scenes/splash/splash.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
+boot_splash/bg_color=Color(1, 1, 1, 1)
+boot_splash/show_image=false
 config/icon="res://icon.svg"
 
 [autoload]
 
 SIN_WORLD_SIGNALS="*res://singletons/SIN_WORLD_SIGNALS.gd"
 SIN_TASK_SYSTEM="*res://singletons/SIN_TASK_SYSTEM.gd"
+SIN_WORLD_DATA="*res://singletons/SIN_WORLD_DATA.gd"
 
 [display]
 

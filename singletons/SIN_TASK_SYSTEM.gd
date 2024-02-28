@@ -70,6 +70,8 @@ func generate_word(length):
 # SIGNAL HANDLE
 func _package_delivered(task_id: String):
 	SIN_TASK_SYSTEM.remove_task(task_id)
+	randomize()
+	SIN_WORLD_DATA.value_add_money(randi_range(10,50))
 
 func _package_failed(task_id: String):
 	SIN_TASK_SYSTEM.remove_task(task_id)
