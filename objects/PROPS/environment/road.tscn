@@ -1,5 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://brijlfscvd1yk"]
-
-[ext_resource type="PackedScene" uid="uid://c82lrnm6bufeh" path="res://assets/models/urban_elements/road.blend" id="1_b14lv"]
-
-[node name="road" instance=ExtResource("1_b14lv")]
