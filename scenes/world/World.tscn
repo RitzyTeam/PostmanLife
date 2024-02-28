@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://c66dar30xo83l"]
+[gd_scene load_steps=12 format=3 uid="uid://c66dar30xo83l"]
 
 [ext_resource type="Script" path="res://scenes/world/World.gd" id="1_xxt06"]
 [ext_resource type="Script" path="res://addons/zylann.hterrain/hterrain.gd" id="2_j3jfb"]
@@ -6,12 +6,8 @@
 [ext_resource type="Resource" path="res://scenes/world/terrain_data/data.hterrain" id="3_ajii5"]
 [ext_resource type="Script" path="res://addons/zylann.hterrain/hterrain_texture_set.gd" id="4_rbhmn"]
 [ext_resource type="PackedScene" uid="uid://cc1m2a1obsyn4" path="res://objects/player/player.tscn" id="5_6o1kf"]
-[ext_resource type="PackedScene" uid="uid://brijlfscvd1yk" path="res://objects/PROPS/environment/road.tscn" id="6_fw7ra"]
-[ext_resource type="Shader" path="res://shaders/lake_water.gdshader" id="8_gtq7j"]
-[ext_resource type="PackedScene" uid="uid://dkfbfrrjn8o18" path="res://objects/builds/fourStoryBuldsVariations/four_story_building_main.tscn" id="8_rq71q"]
-[ext_resource type="PackedScene" uid="uid://dp80ffcw30b84" path="res://objects/builds/rural_house/rural_house.tscn" id="9_vdlv5"]
-[ext_resource type="PackedScene" uid="uid://cpat5kv2ue7yo" path="res://objects/TRANSPORT/car/car.tscn" id="10_x1dbs"]
-[ext_resource type="PackedScene" uid="uid://c6776lt6vo53g" path="res://objects/builds/hospital/hospital.tscn" id="12_fw7f4"]
+[ext_resource type="PackedScene" uid="uid://uwb0s5kkpf43" path="res://objects/PROPS/environment/roads/road_segment_1.tscn" id="6_5pps4"]
+[ext_resource type="PackedScene" uid="uid://cpat5kv2ue7yo" path="res://objects/TRANSPORT/car/car.tscn" id="7_b7dlb"]
 
 [sub_resource type="Environment" id="Environment_kqe7o"]
 background_mode = 2
@@ -26,61 +22,6 @@ volumetric_fog_sky_affect = 0.546
 script = ExtResource("4_rbhmn")
 mode = 0
 textures = [[], []]
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_erk5x"]
-noise_type = 3
-seed = 10
-fractal_type = 0
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_tyagm"]
-seamless = true
-as_normal_map = true
-noise = SubResource("FastNoiseLite_erk5x")
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_delmy"]
-noise_type = 3
-seed = 20
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_vbfsc"]
-seamless = true
-seamless_blend_skirt = 0.296
-as_normal_map = true
-noise = SubResource("FastNoiseLite_delmy")
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_ujskj"]
-frequency = 0.0006
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ni5jx"]
-noise = SubResource("FastNoiseLite_ujskj")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_rbf8v"]
-render_priority = 0
-shader = ExtResource("8_gtq7j")
-shader_parameter/albedo = Color(0.364706, 0.560784, 0.992157, 1)
-shader_parameter/albedo2 = Color(0.203922, 0.243137, 0.392157, 1)
-shader_parameter/metallic = 0.0
-shader_parameter/roughness = 0.536
-shader_parameter/wave_direction = Vector2(2, 0)
-shader_parameter/wave_direction2 = Vector2(0, 1)
-shader_parameter/time_scale = 0.035
-shader_parameter/noise_scale = 10.0
-shader_parameter/height_scale = 0.15
-shader_parameter/color_deep = Color(0.141176, 0.305882, 0.266667, 1)
-shader_parameter/color_shallow = Color(0.388235, 0.4, 0.290196, 1)
-shader_parameter/beers_law = 2.0
-shader_parameter/depth_offset = -0.75
-shader_parameter/edge_scale = 0.1
-shader_parameter/near = 1.0
-shader_parameter/far = 100.0
-shader_parameter/edge_color = Color(0.52549, 0.639216, 0.792157, 1)
-shader_parameter/wave = SubResource("NoiseTexture2D_ni5jx")
-shader_parameter/texture_normal = SubResource("NoiseTexture2D_tyagm")
-shader_parameter/texture_normal2 = SubResource("NoiseTexture2D_vbfsc")
-
-[sub_resource type="QuadMesh" id="QuadMesh_edxtc"]
-material = SubResource("ShaderMaterial_rbf8v")
-size = Vector2(500, 500)
-orientation = 1
 
 [node name="World" type="Node"]
 script = ExtResource("1_xxt06")
@@ -97,7 +38,7 @@ environment = SubResource("Environment_kqe7o")
 camera_attributes = SubResource("CameraAttributesPractical_ke1mj")
 
 [node name="Sun" type="DirectionalLight3D" parent="WorldEnv"]
-transform = Transform3D(0.97853, 0.0551317, -0.198593, -0.163588, 0.79388, -0.585657, 0.125371, 0.60557, 0.785854, 0.992416, 0, -4.94073)
+transform = Transform3D(0.901292, 0.43049, 0.0484868, 0.0397445, -0.19362, 0.980271, 0.431385, -0.881583, -0.191618, 0.992416, 0, -4.94073)
 light_bake_mode = 1
 
 [node name="Levels" type="Node" parent="."]
@@ -121,269 +62,17 @@ cast_shadow = 1
 
 [node name="road" type="Node" parent="Levels"]
 
-[node name="road" parent="Levels/road" instance=ExtResource("6_fw7ra")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 366.998, 0, 560.142)
-
-[node name="big_forest" type="Node" parent="Levels"]
-
-[node name="lake" type="Node" parent="Levels"]
-
-[node name="lake_forest" type="Node" parent="Levels/lake"]
-
-[node name="lake_water" type="Node" parent="Levels/lake"]
-
-[node name="water" type="MeshInstance3D" parent="Levels/lake/lake_water"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 271.222, -0.76712, 268.675)
-mesh = SubResource("QuadMesh_edxtc")
-
-[node name="streets" type="Node" parent="Levels"]
-
-[node name="Пролетарская улица" type="Node" parent="Levels/streets"]
-
-[node name="1" parent="Levels/streets/Пролетарская улица" instance=ExtResource("8_rq71q")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 34.4661, 0, 611.354)
-
-[node name="2" parent="Levels/streets/Пролетарская улица" instance=ExtResource("9_vdlv5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38, 0, 680.179)
-
-[node name="3" parent="Levels/streets/Пролетарская улица" instance=ExtResource("9_vdlv5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38, 0, 752.179)
-
-[node name="5" parent="Levels/streets/Пролетарская улица" instance=ExtResource("9_vdlv5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38, 0, 820.179)
-
-[node name="7" parent="Levels/streets/Пролетарская улица" instance=ExtResource("9_vdlv5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38, 0, 892.179)
-
-[node name="9" parent="Levels/streets/Пролетарская улица" instance=ExtResource("9_vdlv5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38, 0, 965.179)
-
-[node name="Октябрьская улица" type="Node" parent="Levels/streets"]
-
-[node name="1" parent="Levels/streets/Октябрьская улица" instance=ExtResource("9_vdlv5")]
-transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, 109, 0, 683.679)
-
-[node name="2" parent="Levels/streets/Октябрьская улица" instance=ExtResource("9_vdlv5")]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 74, 0, 713.679)
-
-[node name="3" parent="Levels/streets/Октябрьская улица" instance=ExtResource("9_vdlv5")]
-transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, 109, 0, 743.679)
-
-[node name="4" parent="Levels/streets/Октябрьская улица" instance=ExtResource("9_vdlv5")]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 74, 0, 781.679)
-
-[node name="5" parent="Levels/streets/Октябрьская улица" instance=ExtResource("9_vdlv5")]
-transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, 109, 0, 813.679)
-
-[node name="6" parent="Levels/streets/Октябрьская улица" instance=ExtResource("9_vdlv5")]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 74, 0, 855.679)
-
-[node name="7" parent="Levels/streets/Октябрьская улица" instance=ExtResource("9_vdlv5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 109, 0, 896.679)
-
-[node name="8" parent="Levels/streets/Октябрьская улица" instance=ExtResource("9_vdlv5")]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 74, 0, 927.679)
-
-[node name="9" parent="Levels/streets/Октябрьская улица" instance=ExtResource("9_vdlv5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 110, 0, 964.679)
-
-[node name="10" parent="Levels/streets/Октябрьская улица" instance=ExtResource("9_vdlv5")]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 74, 0, 992.679)
-
-[node name="Комсомольская улица" type="Node" parent="Levels/streets"]
-
-[node name="1" parent="Levels/streets/Комсомольская улица" instance=ExtResource("9_vdlv5")]
-transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 172, 0, 681.714)
-
-[node name="2" parent="Levels/streets/Комсомольская улица" instance=ExtResource("9_vdlv5")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 139, 0, 707)
-
-[node name="3" parent="Levels/streets/Комсомольская улица" instance=ExtResource("9_vdlv5")]
-transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 172, 0, 744.714)
-
-[node name="4" parent="Levels/streets/Комсомольская улица" instance=ExtResource("9_vdlv5")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 139, 0, 780)
-
-[node name="5" parent="Levels/streets/Комсомольская улица" instance=ExtResource("9_vdlv5")]
-transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 172, 0, 810.714)
-
-[node name="6" parent="Levels/streets/Комсомольская улица" instance=ExtResource("9_vdlv5")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 139, 0, 860)
-
-[node name="7" parent="Levels/streets/Комсомольская улица" instance=ExtResource("9_vdlv5")]
-transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 172, 0, 893.714)
-
-[node name="8" parent="Levels/streets/Комсомольская улица" instance=ExtResource("9_vdlv5")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 139, 0, 933)
-
-[node name="9" parent="Levels/streets/Комсомольская улица" instance=ExtResource("9_vdlv5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 173, 0, 964)
-
-[node name="10" parent="Levels/streets/Комсомольская улица" instance=ExtResource("9_vdlv5")]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 138, 0, 993)
-
-[node name="Первомайская улица" type="Node" parent="Levels/streets"]
-
-[node name="1" parent="Levels/streets/Первомайская улица" instance=ExtResource("9_vdlv5")]
-transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 218, 0, 682.714)
-
-[node name="2" parent="Levels/streets/Первомайская улица" instance=ExtResource("9_vdlv5")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 187, 0, 713.714)
-
-[node name="3" parent="Levels/streets/Первомайская улица" instance=ExtResource("9_vdlv5")]
-transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 218, 0, 745.714)
-
-[node name="4" parent="Levels/streets/Первомайская улица" instance=ExtResource("9_vdlv5")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 187, 0, 779.714)
-
-[node name="5" parent="Levels/streets/Первомайская улица" instance=ExtResource("9_vdlv5")]
-transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 218, 0, 811.714)
-
-[node name="6" parent="Levels/streets/Первомайская улица" instance=ExtResource("9_vdlv5")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 187, 0, 848.714)
-
-[node name="7" parent="Levels/streets/Первомайская улица" instance=ExtResource("9_vdlv5")]
-transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 218, 0, 893.714)
-
-[node name="8" parent="Levels/streets/Первомайская улица" instance=ExtResource("9_vdlv5")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 187, 0, 930.714)
-
-[node name="9" parent="Levels/streets/Первомайская улица" instance=ExtResource("9_vdlv5")]
-transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 218, 0, 962.714)
-
-[node name="10" parent="Levels/streets/Первомайская улица" instance=ExtResource("9_vdlv5")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 187, 0, 992.714)
-
-[node name="Революциии улица" type="Node" parent="Levels/streets"]
-
-[node name="1" parent="Levels/streets/Революциии улица" instance=ExtResource("9_vdlv5")]
-transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 267, 0, 685.714)
-
-[node name="2" parent="Levels/streets/Революциии улица" instance=ExtResource("9_vdlv5")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 236, 0, 713.714)
-
-[node name="3" parent="Levels/streets/Революциии улица" instance=ExtResource("9_vdlv5")]
-transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 267, 0, 747.714)
-
-[node name="4" parent="Levels/streets/Революциии улица" instance=ExtResource("9_vdlv5")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 236, 0, 777.714)
-
-[node name="5" parent="Levels/streets/Революциии улица" instance=ExtResource("9_vdlv5")]
-transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 267, 0, 808.714)
-
-[node name="6" parent="Levels/streets/Революциии улица" instance=ExtResource("9_vdlv5")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 236, 0, 853.714)
-
-[node name="7" parent="Levels/streets/Революциии улица" instance=ExtResource("9_vdlv5")]
-transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 267, 0, 888.714)
-
-[node name="8" parent="Levels/streets/Революциии улица" instance=ExtResource("9_vdlv5")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 236, 0, 931.714)
-
-[node name="9" parent="Levels/streets/Революциии улица" instance=ExtResource("9_vdlv5")]
-transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 267, 0, 961.714)
-
-[node name="10" parent="Levels/streets/Революциии улица" instance=ExtResource("9_vdlv5")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 236, 0, 991.714)
-
-[node name="Советская улица" type="Node" parent="Levels/streets"]
-
-[node name="1" parent="Levels/streets/Советская улица" instance=ExtResource("9_vdlv5")]
-transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 316, 0, 683.714)
-
-[node name="2" parent="Levels/streets/Советская улица" instance=ExtResource("9_vdlv5")]
-transform = Transform3D(-1, 0, -2.62268e-07, 0, 1, 0, 2.62268e-07, 0, -1, 284, 0, 718.714)
-
-[node name="3" parent="Levels/streets/Советская улица" instance=ExtResource("9_vdlv5")]
-transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 316, 0, 748.714)
-
-[node name="4" parent="Levels/streets/Советская улица" instance=ExtResource("9_vdlv5")]
-transform = Transform3D(-1, 0, -2.62268e-07, 0, 1, 0, 2.62268e-07, 0, -1, 284, 0, 780.714)
-
-[node name="5" parent="Levels/streets/Советская улица" instance=ExtResource("9_vdlv5")]
-transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 316, 0, 813.714)
-
-[node name="6" parent="Levels/streets/Советская улица" instance=ExtResource("9_vdlv5")]
-transform = Transform3D(-1, 0, -2.62268e-07, 0, 1, 0, 2.62268e-07, 0, -1, 284, 0, 847.714)
-
-[node name="7" parent="Levels/streets/Советская улица" instance=ExtResource("9_vdlv5")]
-transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 316, 0, 882.714)
-
-[node name="8" parent="Levels/streets/Советская улица" instance=ExtResource("9_vdlv5")]
-transform = Transform3D(-1, 0, -2.62268e-07, 0, 1, 0, 2.62268e-07, 0, -1, 284, 0, 926.714)
-
-[node name="9" parent="Levels/streets/Советская улица" instance=ExtResource("9_vdlv5")]
-transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 316, 0, 954.714)
-
-[node name="10" parent="Levels/streets/Советская улица" instance=ExtResource("9_vdlv5")]
-transform = Transform3D(-1, 0, -2.62268e-07, 0, 1, 0, 2.62268e-07, 0, -1, 284, 0, 986.714)
-
-[node name="Славы проспект" type="Node" parent="Levels/streets"]
-
-[node name="Геройская улица" type="Node" parent="Levels/streets"]
-
-[node name="Труда аллея" type="Node" parent="Levels/streets"]
-
-[node name="Победы переулок" type="Node" parent="Levels/streets"]
-
-[node name="Пионеров проспект" type="Node" parent="Levels/streets"]
-
-[node name="Космонавтов улица" type="Node" parent="Levels/streets"]
-
-[node name="Новикова проспект" type="Node" parent="Levels/streets"]
-
-[node name="Ленинский проспект" type="Node" parent="Levels/streets"]
-
-[node name="Московский проспект" type="Node" parent="Levels/streets"]
-
-[node name="1" parent="Levels/streets/Московский проспект" instance=ExtResource("8_rq71q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 89, 0, 651)
-
-[node name="2" parent="Levels/streets/Московский проспект" instance=ExtResource("8_rq71q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 200, 0, 651)
-
-[node name="3" parent="Levels/streets/Московский проспект" instance=ExtResource("8_rq71q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 302, 0, 651)
-
-[node name="4" parent="Levels/streets/Московский проспект" instance=ExtResource("8_rq71q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 392, 0, 650)
-
-[node name="5" parent="Levels/streets/Московский проспект" instance=ExtResource("8_rq71q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 480, 0, 650)
-
-[node name="6" parent="Levels/streets/Московский проспект" instance=ExtResource("8_rq71q")]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 480, 0, 681)
-
-[node name="7" parent="Levels/streets/Московский проспект" instance=ExtResource("8_rq71q")]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 391, 0, 678)
-
-[node name="Мира улица" type="Node" parent="Levels/streets"]
-
-[node name="Кировский проспект" type="Node" parent="Levels/streets"]
-
-[node name="Беговая улица" type="Node" parent="Levels/streets"]
-
-[node name="Сторожная улица" type="Node" parent="Levels/streets"]
-
-[node name="Старинная улица" type="Node" parent="Levels/streets"]
+[node name="road" parent="Levels/road" instance=ExtResource("6_5pps4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 577, 0, 272)
+
+[node name="car" parent="." instance=ExtResource("7_b7dlb")]
+transform = Transform3D(1, 0, 0, 0, 0.999918, -0.0128104, 0, 0.0128104, 0.999918, 601.282, 0, 287.67)
+MAX_TORQUE = 10000.0
 
 [node name="Player" parent="." instance=ExtResource("5_6o1kf")]
-transform = Transform3D(1, 0, 0, 0, 0.999918, -0.0128104, 0, 0.0128104, 0.999918, 204.282, 0, 1005.67)
+transform = Transform3D(1, 0, 0, 0, 0.999918, -0.0128104, 0, 0.0128104, 0.999918, 601.282, 0, 287.67)
 collision_layer = 3
 collision_mask = 3
 wall_min_slide_angle = 1.5708
 
-[node name="hospital" parent="." instance=ExtResource("12_fw7f4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 367, 0, 978)
-
-[node name="car" parent="." instance=ExtResource("10_x1dbs")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 219, 0, 1009.35)
-consumption_fuel = 0.005
-consumption_energy = 0.005
-MAX_TORQUE = 7000.0
-MAX_RPM = 1500
-
 [connection signal="timeout" from="SERVERS/timer_daycycle" to="." method="_on_timer_daycycle_timeout"]
-
-[editable path="Levels/streets/Пролетарская улица/1"]
-[editable path="Levels/streets/Пролетарская улица/2"]
