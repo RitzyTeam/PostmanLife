@@ -1,5 +1,8 @@
 extends Node
 
+# EXPORTS
+@export var car: PackedScene
+
 @onready var sun: DirectionalLight3D = $WorldEnv/Sun
 @onready var anim_tod = $WorldEnv/anim_tod
 
@@ -11,13 +14,24 @@ var tod: int = 0
 var isTimeOfWork: bool = false
 
 func _ready():
+	set_tod()
+	spawn_car()
+
+func spawn_car():
+	var obj_car = car.instantiate()
+	add_child(obj_car)
+	obj_car.global_position = SIN_WORLD_DATA.WORLD_DATA['car_last_pos']
+	obj_car.global_rotation = SIN_WORLD_DATA.WORLD_DATA['car_last_rot']
+
+#region TIME
+# ЗАГРУЗКА ВРЕМЕНИ ИЗ ФАЙЛА
+func set_tod():
 	tod = SIN_WORLD_DATA.WORLD_DATA['tod']
 	time_hours = int(tod/60)
 	time_minutes = int(tod%60)
 	anim_tod.play("tod")
 	anim_tod.seek(tod)
 
-#region SERVERS
 # ХОД ВРЕМЕНИ
 func _on_timer_daycycle_timeout():
 	if tod < 1439:

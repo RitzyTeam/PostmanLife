@@ -448,15 +448,13 @@ func _unhandled_input(event):
 # UI action
 
 func _on_btn_exit_pressed():
-	if not anim_esc_menu.is_playing():
-		anim_esc_menu.play("exit")
-		await anim_esc_menu.animation_finished
-		SIN_WORLD_DATA.data_save()
-		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-		get_tree().change_scene_to_file('res://scenes/main/main.tscn')
+	SIN_WORLD_DATA.data_save()
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	anim_esc_menu.play("exit")
+	await get_tree().create_timer(1).timeout
+	get_tree().change_scene_to_file('res://scenes/main/main.tscn')
 
 
 func _on_btn_return_pressed():
-	if not anim_esc_menu.is_playing():
-		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-		anim_esc_menu.play("hide")
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	anim_esc_menu.play("hide")

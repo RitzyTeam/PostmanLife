@@ -185,6 +185,7 @@ textures = [[], []]
 
 [node name="World" type="Node"]
 script = ExtResource("1_xxt06")
+car = ExtResource("7_b7dlb")
 
 [node name="SERVERS" type="Node" parent="."]
 
