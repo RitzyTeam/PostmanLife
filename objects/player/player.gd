@@ -1,8 +1,12 @@
 extends CharacterBody3D
 
 
+# ESC MENU
+var isEscMenuOpened: bool = false
+@onready var esc_menu = $UI/esc_menu
+@onready var anim_esc_menu = $UI/esc_menu/anim_esc_menu
 
-
+# INVENTORY
 @onready var inventory_loader = $INVENTORY_LOADER
 @export var throw_item_power: float = 10.0
 var current_slot_selected: int = 1
@@ -408,6 +412,17 @@ func _unhandled_input(event):
 	if event.is_action_pressed("key_4"):
 		set_slot_selected(4)
 	
+	# ESC MENU 
+	if event.is_action_pressed('key_esc'):
+		if not anim_esc_menu.is_playing():
+			isEscMenuOpened = not isEscMenuOpened
+			if isEscMenuOpened:
+				Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+				anim_esc_menu.play("show")
+			else:
+				Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+				anim_esc_menu.play("hide")
+
 	# DROP ITEMS
 	if event.is_action_pressed('key_g'):
 		drop_item_slot(current_slot_selected)
@@ -429,3 +444,19 @@ func _unhandled_input(event):
 				# DRIVE A CAR
 				if $Head/Camera/raycast_hand.get_collider().has_method('enter'):
 					$Head/Camera/raycast_hand.get_collider().enter(self)
+
+# UI action
+
+func _on_btn_exit_pressed():
+	if not anim_esc_menu.is_playing():
+		anim_esc_menu.play("exit")
+		await anim_esc_menu.animation_finished
+		SIN_WORLD_DATA.data_save()
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		get_tree().change_scene_to_file('res://scenes/main/main.tscn')
+
+
+func _on_btn_return_pressed():
+	if not anim_esc_menu.is_playing():
+		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+		anim_esc_menu.play("hide")

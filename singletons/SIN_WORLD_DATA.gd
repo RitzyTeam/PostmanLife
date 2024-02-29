@@ -7,6 +7,8 @@ var WORLD_DATA_EMPTY: Dictionary = {
 	'tod': 540, # TIME OF DAY IN SECONDS
 	'day_num': 1, # NUM OF DAYS PASSED
 	'daily_quota': 10, # AMOUNT OF PACKAGES TO DELIVER
+	'car_last_pos': Vector3(), # LAST CAR POS
+	'car_last_rot': Vector3(), # LAST CAR ROT
 }
 
 var WORLD_DATA: Dictionary = {
@@ -14,6 +16,8 @@ var WORLD_DATA: Dictionary = {
 	'tod': 540,
 	'day_num': 1,
 	'daily_quota': 10,
+	'car_last_pos': Vector3(),
+	'car_last_rot': Vector3(),
 }
 
 func _ready():
@@ -63,7 +67,6 @@ func data_exists() -> bool:
 func value_add_money(money_to_add: int) -> bool:
 	if data_load():
 		WORLD_DATA['money'] += money_to_add
-		data_save()
 		return true
 	return false
 
@@ -73,4 +76,3 @@ func value_tod_changed(new_tod: int):
 
 func value_day_passed():
 	WORLD_DATA['day_num'] += 1
-	data_save()

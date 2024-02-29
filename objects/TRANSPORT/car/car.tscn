@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=3 uid="uid://cpat5kv2ue7yo"]
+[gd_scene load_steps=75 format=3 uid="uid://cpat5kv2ue7yo"]
 
 [ext_resource type="Script" path="res://objects/TRANSPORT/car/car.gd" id="1_qyjyp"]
 [ext_resource type="PackedScene" uid="uid://cc1m2a1obsyn4" path="res://objects/player/player.tscn" id="2_vq0iw"]
@@ -6,6 +6,166 @@
 [ext_resource type="Texture2D" uid="uid://dx0fnivlqgsrc" path="res://assets/images/res_fuel.png" id="3_nlv6y"]
 [ext_resource type="AudioStream" uid="uid://t788nusgr7rc" path="res://assets/sounds/car_beep.mp3" id="5_8ws1p"]
 [ext_resource type="Texture2D" uid="uid://cmo2nbgj5nbvj" path="res://assets/images/res_flashlight.png" id="5_lgrf1"]
+
+[sub_resource type="Animation" id="Animation_3bkuh"]
+resource_name = "on"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("fara_1:light_energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 25.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("fara_2:light_energy")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 25.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("body/fara_left:mesh:surface_0/material:emission_energy_multiplier")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 16.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("body/fara_right:mesh:surface_0/material:emission_energy_multiplier")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 16.0]
+}
+
+[sub_resource type="Animation" id="Animation_i7n8v"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("fara_1:light_energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("fara_2:light_energy")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [25.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("body/fara_left:mesh:surface_0/material:emission_energy_multiplier")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("body/fara_right:mesh:surface_0/material:emission_energy_multiplier")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [16.0]
+}
+
+[sub_resource type="Animation" id="Animation_r5aui"]
+resource_name = "off"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("fara_1:light_energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [25.0, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("fara_2:light_energy")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [25.0, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("body/fara_left:mesh:surface_0/material:emission_energy_multiplier")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [16.0, 0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("body/fara_right:mesh:surface_0/material:emission_energy_multiplier")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [16.0, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0kqqq"]
+_data = {
+"RESET": SubResource("Animation_i7n8v"),
+"off": SubResource("Animation_r5aui"),
+"on": SubResource("Animation_3bkuh")
+}
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_83abi"]
 resource_name = "blue"
@@ -1050,19 +1210,23 @@ mass = 3000.0
 center_of_mass_mode = 1
 script = ExtResource("1_qyjyp")
 player = ExtResource("2_vq0iw")
-MAX_TORQUE = 50000.0
+
+[node name="anim_flashlights" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_0kqqq")
+}
 
 [node name="body" type="MeshInstance3D" parent="."]
 transform = Transform3D(1.27711, 0, 0, 0, 0.62254, 0, 0, 0, 2.61359, 0, 1.1697, 0)
 mesh = SubResource("ArrayMesh_4637i")
 skeleton = NodePath("")
 
-[node name="Sphere2" type="MeshInstance3D" parent="body"]
+[node name="fara_left" type="MeshInstance3D" parent="body"]
 transform = Transform3D(0.783017, 0, 0, 0, 0, -1.60632, 0, 0.382616, 0, -0.681225, 0.112371, -0.968018)
 mesh = SubResource("ArrayMesh_4lkx6")
 skeleton = NodePath("")
 
-[node name="Sphere_006" type="MeshInstance3D" parent="body"]
+[node name="fara_right" type="MeshInstance3D" parent="body"]
 transform = Transform3D(0.783017, 0, 0, 0, 0, -1.60632, 0, 0.382616, 0, 0.681225, 0.112371, -0.968018)
 mesh = SubResource("ArrayMesh_hc21c")
 skeleton = NodePath("")
@@ -1089,11 +1253,13 @@ skeleton = NodePath("")
 
 [node name="fara_1" type="SpotLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0.873701, 1.21774, -2.99165)
+light_energy = 0.0
 spot_range = 50.0
 spot_angle = 24.0
 
 [node name="fara_2" type="SpotLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, -0.874, 1.218, -2.991)
+light_energy = 25.0
 spot_range = 50.0
 spot_angle = 24.0
 

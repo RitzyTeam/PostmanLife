@@ -35,8 +35,12 @@ var wheel_travel_distance: float = 0.1
 @export var MAX_RPM: int = 500 ## POWER OF CAR WHEEL ROTATION
 # PREVENT PLAYER INVENTORY DELETION
 var temp_player_inv: Dictionary = {}
+# ANIMATORS
+@onready var anim_flashlights = $anim_flashlights
+
 
 func _ready():
+	lights_off()
 	# SET STIFFNESS
 	wheel_1.suspension_stiffness = wheel_stiffness
 	wheel_2.suspension_stiffness = wheel_stiffness
@@ -57,13 +61,14 @@ func _input(event):
 	if isPlayerInside:
 		if event.is_action_pressed('key_f'):
 			if int(res_energy) > 0:
-				isFlashlightsOn = not isFlashlightsOn
-				if isFlashlightsOn:
-					lights_on()
-					$stat_flashlight/icon.texture = load('res://assets/images/res_flashlight_green.png')
-				else:
-					lights_off()
-					$stat_flashlight/icon.texture = load('res://assets/images/res_flashlight.png')
+				if not anim_flashlights.is_playing():
+					isFlashlightsOn = not isFlashlightsOn
+					if isFlashlightsOn:
+						lights_on()
+						$stat_flashlight/icon.texture = load('res://assets/images/res_flashlight_green.png')
+					else:
+						lights_off()
+						$stat_flashlight/icon.texture = load('res://assets/images/res_flashlight.png')
 		if event.is_action_pressed('rmb'):
 			if int(res_energy) > 0:
 				if not $beep.playing:
@@ -106,8 +111,6 @@ func _physics_process(delta):
 			set_lever(speed)
 		# DRIVING FUNCTION
 		if int(res_fuel) > 0:
-			var target_steer = move_toward(steering, Input.get_axis("move_right", "move_left") * MAX_STEER, delta * 2.5)
-			steering = lerp(steering, target_steer, 0.05)
 			var accel = Input.get_axis("move_backward", "move_foward")
 			var rpm_wheel_2 = $wheel_2.get_rpm()
 			wheel_2.engine_force =  accel * MAX_TORQUE * (1 - rpm_wheel_2 / MAX_RPM)
@@ -134,8 +137,9 @@ func _physics_process(delta):
 			if steer_points > -max_steer_points:
 				steer_points -= 2.0
 		else:
-			steer_points = lerp(steer_points, 0.0, 0.05)
-		
+			steer_points = lerp(steer_points, 0.0, 0.1)
+		var target_steer = move_toward(steering, Input.get_axis("move_right", "move_left") * MAX_STEER, delta * 2.5)
+		steering = lerp(steering, deg_to_rad(steer_points/5), 0.05)
 		rul.rotation.y = lerp(rul.rotation.y, deg_to_rad(steer_points), 0.05)
 	
 func enter(player_obj: Object):
@@ -147,6 +151,8 @@ func enter(player_obj: Object):
 
 func leave():
 	if isPlayerInside:
+		SIN_WORLD_DATA.WORLD_DATA['car_last_pos'] = global_position
+		SIN_WORLD_DATA.WORLD_DATA['car_last_rot'] = global_rotation
 		steering = 0
 		engine_force = 0
 		isPlayerInside = false
@@ -161,12 +167,10 @@ func leave():
 		$CAMERA.current = false
 	
 func lights_on():
-	fara_1.light_energy = 25
-	fara_2.light_energy = 25
+	anim_flashlights.play("on")
 
 func lights_off():
-	fara_1.light_energy = 0
-	fara_2.light_energy = 0
+	anim_flashlights.play("off")
 
 func set_lever(speed: float):
 	if speed > 0 and speed < 15:
