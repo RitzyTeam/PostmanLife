@@ -7,7 +7,7 @@ var WORLD_DATA_EMPTY: Dictionary = {
 	'tod': 540, # TIME OF DAY IN SECONDS
 	'day_num': 1, # NUM OF DAYS PASSED
 	'daily_quota': 10, # AMOUNT OF PACKAGES TO DELIVER
-	'car_last_pos': Vector3(), # LAST CAR POS
+	'car_last_pos': Vector3(1480.28, 0, 1300), # LAST CAR POS
 	'car_last_rot': Vector3(), # LAST CAR ROT
 }
 

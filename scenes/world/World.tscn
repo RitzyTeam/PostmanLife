@@ -233,9 +233,6 @@ cast_shadow = 1
 [node name="road" parent="Levels/road" instance=ExtResource("6_j5vhd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 964.54, 0, 1047.9)
 
-[node name="car" parent="." instance=ExtResource("7_b7dlb")]
-transform = Transform3D(1, 0, 0, 0, 0.999918, -0.0128104, 0, 0.0128104, 0.999918, 1480.28, 0, 1299.67)
-
 [node name="Player" parent="." instance=ExtResource("5_6o1kf")]
 transform = Transform3D(1, 0, 0, 0, 0.999918, -0.0128104, 0, 0.0128104, 0.999918, 1525.28, 0, 1289.67)
 collision_layer = 3
