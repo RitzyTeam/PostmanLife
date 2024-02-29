@@ -14,14 +14,14 @@ var tod: int = 0
 var isTimeOfWork: bool = false
 
 func _ready():
+	SIN_WORLD_SIGNALS.SAVE_WORLD.connect(_save_world)
 	set_tod()
-	spawn_car()
 
-func spawn_car():
-	var obj_car = car.instantiate()
-	add_child(obj_car)
-	obj_car.global_position = SIN_WORLD_DATA.WORLD_DATA['car_last_pos']
-	obj_car.global_rotation = SIN_WORLD_DATA.WORLD_DATA['car_last_rot']
+#region WORLD
+func _save_world():
+	var package = ClassScenePacker.create_package(self)
+	ResourceSaver.save(package, SIN_WORLD_DATA.world_path)
+#endregion
 
 #region TIME
 # ЗАГРУЗКА ВРЕМЕНИ ИЗ ФАЙЛА

@@ -8,7 +8,7 @@ extends Node
 
 
 func load_inventory_visual():
-	var inv: Dictionary = $"..".inv
+	var inv: Dictionary = SIN_WORLD_DATA.WORLD_DATA['player_inv']
 	# slot 1
 	match inv.slot_1.id:
 		# space is free
@@ -65,7 +65,7 @@ func load_inventory_visual():
 func load_hand_visual(slot_id):
 	$"../UI/UserInterface/item_name/item_name_anim".play('popup')
 	$"../UI/UserInterface/item_name".text = ''
-	var inv: Dictionary = $"..".inv
+	var inv: Dictionary = SIN_WORLD_DATA.WORLD_DATA['player_inv']
 	var item = inv['slot_' + str(slot_id)]
 	match item.id:
 		'void': 

@@ -1,34 +1,43 @@
 extends Node
 
 var work_path: String = 'user://save.dat'
+var world_path: String = 'user://world.tscn'
+var WORLD_NODE = null
 
 var WORLD_DATA_EMPTY: Dictionary = {
 	'money': 0, # MONEY OF PLAYER
+	'player_inv': {
+		'slot_1': {'id': 'void'},
+		'slot_2': {'id': 'void'},
+		'slot_3': {'id': 'void'},
+		'slot_4': {'id': 'void'}
+		}, # INVENTORY
+	'world': null, # FULL SETUP OF WORLD
 	'tod': 540, # TIME OF DAY IN SECONDS
 	'day_num': 1, # NUM OF DAYS PASSED
 	'daily_quota': 10, # AMOUNT OF PACKAGES TO DELIVER
-	'car_last_pos': Vector3(1480.28, 0, 1300), # LAST CAR POS
-	'car_last_rot': Vector3(), # LAST CAR ROT
 }
 
 var WORLD_DATA: Dictionary = {
 	'money': 0,
+	'player_inv': {
+		'slot_1': {'id': 'void'},
+		'slot_2': {'id': 'void'},
+		'slot_3': {'id': 'void'},
+		'slot_4': {'id': 'void'}
+		},
+	'world': null,
 	'tod': 540,
 	'day_num': 1,
 	'daily_quota': 10,
-	'car_last_pos': Vector3(),
-	'car_last_rot': Vector3(),
 }
 
 func _ready():
 	if data_exists():
-		if data_is_empty():
-			pass
-		else:
-			data_load()
+		data_load()
 	else:
 		data_reset()
-
+	
 # MAIN FUNCS
 
 func data_reset():
@@ -57,6 +66,8 @@ func data_is_empty() -> bool:
 				return true
 			else:
 				return false
+		else:
+			return true
 	return true
 
 func data_exists() -> bool:
@@ -76,3 +87,9 @@ func value_tod_changed(new_tod: int):
 
 func value_day_passed():
 	WORLD_DATA['day_num'] += 1
+
+#
+
+func _physics_process(delta):
+	WORLD_NODE = get_tree().get_root().get_node_or_null('/root/World/')
+	

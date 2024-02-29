@@ -33,8 +33,6 @@ var wheel_travel_distance: float = 0.1
 @export var MAX_STEER: float = 0.4 ## POWER OF CAR ROTATION
 @export var MAX_TORQUE: float = 5000 ## POWER OF CAR ENGINE
 @export var MAX_RPM: int = 500 ## POWER OF CAR WHEEL ROTATION
-# PREVENT PLAYER INVENTORY DELETION
-var temp_player_inv: Dictionary = {}
 # ANIMATORS
 @onready var anim_flashlights = $anim_flashlights
 
@@ -146,23 +144,18 @@ func enter(player_obj: Object):
 	if not isPlayerInside:
 		isPlayerInside = true
 		player_obj.queue_free()
-		temp_player_inv = player_obj.inv
 		$CAMERA.current = true
 
 func leave():
 	if isPlayerInside:
-		SIN_WORLD_DATA.WORLD_DATA['car_last_pos'] = global_position
-		SIN_WORLD_DATA.WORLD_DATA['car_last_rot'] = global_rotation
+		isPlayerInside = false
 		steering = 0
 		engine_force = 0
-		isPlayerInside = false
 		var player_obj = player.instantiate()
-		get_tree().get_root().add_child(player_obj)
-		player_obj.inv = temp_player_inv
+		SIN_WORLD_DATA.WORLD_NODE.add_child(player_obj)
 		player_obj.inventory_loader.load_inventory_visual()
 		player_obj.inventory_loader.load_hand_visual(1)
 		player_obj.set_slot_selected(1)
-		temp_player_inv = {}
 		player_obj.global_position = pos_of_exit.global_position
 		$CAMERA.current = false
 	

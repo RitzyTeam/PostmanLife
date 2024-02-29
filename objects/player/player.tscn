@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://cc1m2a1obsyn4"]
+[gd_scene load_steps=50 format=3 uid="uid://cc1m2a1obsyn4"]
 
 [ext_resource type="Script" path="res://objects/player/player.gd" id="1_w4mcw"]
 [ext_resource type="Script" path="res://objects/player/INVENTORY_LOADER.gd" id="2_lldw2"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://objects/player/debug.gd" id="3_qtvqh"]
 [ext_resource type="Shader" path="res://shaders/player.gdshader" id="4_qn28d"]
 [ext_resource type="Texture2D" uid="uid://d6xs006qy5ib" path="res://assets/images/item_slot.png" id="4_vcdfw"]
+[ext_resource type="Script" path="res://objects/player/esc_menu.gd" id="7_alls3"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kp17n"]
 albedo_color = Color(0.470588, 0.768627, 0, 1)
@@ -857,7 +858,6 @@ _data = {
 }
 
 [node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("HEAD", "CAMERA", "HEADBOB_ANIMATION", "JUMP_ANIMATION", "CROUCH_ANIMATION", "COLLISION_MESH")]
-process_mode = 3
 wall_min_slide_angle = 1.81514
 script = ExtResource("1_w4mcw")
 HEAD = NodePath("Head")
@@ -1092,6 +1092,7 @@ color = Color(1, 1, 1, 0)
 metadata/_edit_use_anchors_ = true
 
 [node name="esc_menu" type="Control" parent="UI"]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -1099,6 +1100,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+script = ExtResource("7_alls3")
 
 [node name="bg" type="ColorRect" parent="UI/esc_menu"]
 visible = false
@@ -1167,7 +1169,8 @@ libraries = {
 "": SubResource("AnimationLibrary_iogab")
 }
 
-[connection signal="pressed" from="UI/esc_menu/bg/btn_return" to="." method="_on_btn_return_pressed"]
-[connection signal="pressed" from="UI/esc_menu/bg/btn_exit" to="." method="_on_btn_exit_pressed"]
+[connection signal="pressed" from="UI/esc_menu/bg/btn_return" to="UI/esc_menu" method="_on_btn_return_pressed"]
+[connection signal="pressed" from="UI/esc_menu/bg/btn_exit" to="UI/esc_menu" method="_on_btn_exit_pressed"]
+[connection signal="animation_finished" from="UI/esc_menu/anim_esc_menu" to="UI/esc_menu" method="_on_anim_esc_menu_animation_finished"]
 
 [editable path="UI/UserInterface/Reticle_1"]

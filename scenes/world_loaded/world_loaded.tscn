@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://vfl2dcaxod7n"]
+
+[ext_resource type="Script" path="res://scenes/world_loaded/world_loaded.gd" id="1_sfkoq"]
+
+[node name="world_loaded" type="Node"]
+script = ExtResource("1_sfkoq")

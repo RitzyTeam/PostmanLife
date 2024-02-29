@@ -10,12 +10,6 @@ var isEscMenuOpened: bool = false
 @onready var inventory_loader = $INVENTORY_LOADER
 @export var throw_item_power: float = 10.0
 var current_slot_selected: int = 1
-var inv: Dictionary = {
-	'slot_1': {'id': 'void'},
-	'slot_2': {'id': 'void'},
-	'slot_3': {'id': 'void'},
-	'slot_4': {'id': 'void'},
-}
 @onready var slot_1 = $UI/UserInterface/inventory/slot_1
 @onready var slot_2 = $UI/UserInterface/inventory/slot_2
 @onready var slot_3 = $UI/UserInterface/inventory/slot_3
@@ -86,8 +80,9 @@ var gravity : float = ProjectSettings.get_setting("physics/3d/default_gravity") 
 
 func _ready():
 	set_slot_selected(1)
+	inventory_loader.load_hand_visual(1)
+	inventory_loader.load_inventory_visual()
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	
 	# Set the camera rotation to whatever initial_facing_direction is
 	if initial_facing_direction:
 		HEAD.set_rotation_degrees(initial_facing_direction) # I don't want to be calling this function if the vector is zero
@@ -295,20 +290,20 @@ func _process(delta):
 func add_item_to_inv(item_data: Dictionary) -> bool:
 	var hasFreeSlot: bool = false
 	var target_slot: int = -1
-	if inv.slot_4.id == 'void':
+	if SIN_WORLD_DATA.WORLD_DATA['player_inv'].slot_4.id == 'void':
 		hasFreeSlot = true
 		target_slot = 4
-	if inv.slot_3.id == 'void':
+	if SIN_WORLD_DATA.WORLD_DATA['player_inv'].slot_3.id == 'void':
 		hasFreeSlot = true
 		target_slot = 3
-	if inv.slot_2.id == 'void':
+	if SIN_WORLD_DATA.WORLD_DATA['player_inv'].slot_2.id == 'void':
 		hasFreeSlot = true
 		target_slot = 2
-	if inv.slot_1.id == 'void':
+	if SIN_WORLD_DATA.WORLD_DATA['player_inv'].slot_1.id == 'void':
 		hasFreeSlot = true
 		target_slot = 1
 	if hasFreeSlot:
-		inv['slot_' + str(target_slot)] = item_data
+		SIN_WORLD_DATA.WORLD_DATA['player_inv']['slot_' + str(target_slot)] = item_data
 		inventory_loader.load_inventory_visual()
 		inventory_loader.load_hand_visual(target_slot)
 		set_slot_selected(target_slot)
@@ -316,42 +311,42 @@ func add_item_to_inv(item_data: Dictionary) -> bool:
 	return false
 
 func drop_item_slot(slot_id: int):
-	var item_full_data = inv['slot_' + str(slot_id)]
+	var item_full_data = SIN_WORLD_DATA.WORLD_DATA['player_inv']['slot_' + str(slot_id)]
 	match item_full_data.id:
 		'void':
 			pass
 		'box':
 			var obj = load('res://objects/PROPS/package_box/package_box.tscn').instantiate()
-			get_tree().get_root().add_child(obj)
-			obj.item = inv['slot_' + str(slot_id)]
+			SIN_WORLD_DATA.WORLD_NODE.add_child(obj)
+			obj.item = SIN_WORLD_DATA.WORLD_DATA['player_inv']['slot_' + str(slot_id)]
 			obj.global_position = $Head/Camera/item_display/box.global_position
 			obj.global_rotation = $Head/Camera/item_display/box.global_rotation
 			obj.apply_central_impulse($Head/Camera/item_display/box.global_transform.basis.z * -throw_item_power)
-			inv['slot_' + str(slot_id)] = {'id': 'void'}
+			SIN_WORLD_DATA.WORLD_DATA['player_inv']['slot_' + str(slot_id)] = {'id': 'void'}
 		'letter':
 			var obj = load('res://objects/PROPS/package_letter/package_letter.tscn').instantiate()
-			get_tree().get_root().add_child(obj)
-			obj.item = inv['slot_' + str(slot_id)]
+			SIN_WORLD_DATA.WORLD_NODE.add_child(obj)
+			obj.item = SIN_WORLD_DATA.WORLD_DATA['player_inv']['slot_' + str(slot_id)]
 			obj.global_position = $Head/Camera/item_display/letter.global_position
 			obj.global_rotation = $Head/Camera/item_display/letter.global_rotation
 			obj.apply_central_impulse($Head/Camera/item_display/letter.global_transform.basis.z * -throw_item_power)
-			inv['slot_' + str(slot_id)] = {'id': 'void'}
+			SIN_WORLD_DATA.WORLD_DATA['player_inv']['slot_' + str(slot_id)] = {'id': 'void'}
 		'ball':
 			var obj = load('res://objects/PROPS/ball/ball.tscn').instantiate()
-			get_tree().get_root().add_child(obj)
-			obj.item = inv['slot_' + str(slot_id)]
+			SIN_WORLD_DATA.WORLD_NODE.add_child(obj)
+			obj.item = SIN_WORLD_DATA.WORLD_DATA['player_inv']['slot_' + str(slot_id)]
 			obj.global_position = $Head/Camera/item_display/ball.global_position
 			obj.global_rotation = $Head/Camera/item_display/ball.global_rotation
 			obj.apply_central_impulse($Head/Camera/item_display/ball.global_transform.basis.z * -100)
-			inv['slot_' + str(slot_id)] = {'id': 'void'}
+			SIN_WORLD_DATA.WORLD_DATA['player_inv']['slot_' + str(slot_id)] = {'id': 'void'}
 		'fuel_tank':
 			var obj = load('res://objects/PROPS/fuel_tank/fuel_tank.tscn').instantiate()
-			get_tree().get_root().add_child(obj)
-			obj.item = inv['slot_' + str(slot_id)]
+			SIN_WORLD_DATA.WORLD_NODE.add_child(obj)
+			obj.item = SIN_WORLD_DATA.WORLD_DATA['player_inv']['slot_' + str(slot_id)]
 			obj.global_position = $Head/Camera/item_display/fuel_tank.global_position
 			obj.global_rotation = $Head/Camera/item_display/fuel_tank.global_rotation
 			obj.apply_central_impulse($Head/Camera/item_display/fuel_tank.global_transform.basis.x * throw_item_power)
-			inv['slot_' + str(slot_id)] = {'id': 'void'}
+			SIN_WORLD_DATA.WORLD_DATA['player_inv']['slot_' + str(slot_id)] = {'id': 'void'}
 	inventory_loader.load_hand_visual(current_slot_selected)
 	inventory_loader.load_inventory_visual()
 
@@ -412,17 +407,6 @@ func _unhandled_input(event):
 	if event.is_action_pressed("key_4"):
 		set_slot_selected(4)
 	
-	# ESC MENU 
-	if event.is_action_pressed('key_esc'):
-		if not anim_esc_menu.is_playing():
-			isEscMenuOpened = not isEscMenuOpened
-			if isEscMenuOpened:
-				Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-				anim_esc_menu.play("show")
-			else:
-				Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-				anim_esc_menu.play("hide")
-
 	# DROP ITEMS
 	if event.is_action_pressed('key_g'):
 		drop_item_slot(current_slot_selected)
@@ -437,24 +421,10 @@ func _unhandled_input(event):
 						$Head/Camera/raycast_hand.get_collider().queue_free()
 				# PUT PACKAGE IN A BOX
 				if $Head/Camera/raycast_hand.get_collider().has_method('try_put_package'):
-					if $Head/Camera/raycast_hand.get_collider().try_put_package(inv['slot_' + str(current_slot_selected)]):
-						inv['slot_' + str(current_slot_selected)] = {'id': 'void'}
+					if $Head/Camera/raycast_hand.get_collider().try_put_package(SIN_WORLD_DATA.WORLD_DATA['player_inv']['slot_' + str(current_slot_selected)]):
+						SIN_WORLD_DATA.WORLD_DATA['player_inv']['slot_' + str(current_slot_selected)] = {'id': 'void'}
 						inventory_loader.load_inventory_visual()
 						inventory_loader.load_hand_visual(current_slot_selected)
 				# DRIVE A CAR
 				if $Head/Camera/raycast_hand.get_collider().has_method('enter'):
 					$Head/Camera/raycast_hand.get_collider().enter(self)
-
-# UI action
-
-func _on_btn_exit_pressed():
-	SIN_WORLD_DATA.data_save()
-	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-	anim_esc_menu.play("exit")
-	await get_tree().create_timer(1).timeout
-	get_tree().change_scene_to_file('res://scenes/main/main.tscn')
-
-
-func _on_btn_return_pressed():
-	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	anim_esc_menu.play("hide")

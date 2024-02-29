@@ -1,19 +1,20 @@
-[gd_scene load_steps=16 format=3 uid="uid://c66dar30xo83l"]
+[gd_scene load_steps=17 format=3]
 
-[ext_resource type="Script" path="res://scenes/world/World.gd" id="1_xxt06"]
-[ext_resource type="Script" path="res://addons/zylann.hterrain/hterrain.gd" id="2_j3jfb"]
-[ext_resource type="Sky" uid="uid://bruk0nywbg66g" path="res://resources/sky/evening.tres" id="2_qo1ld"]
-[ext_resource type="Resource" path="res://scenes/world/terrain_data/data.hterrain" id="3_ajii5"]
-[ext_resource type="Script" path="res://addons/zylann.hterrain/hterrain_texture_set.gd" id="4_rbhmn"]
-[ext_resource type="PackedScene" uid="uid://cc1m2a1obsyn4" path="res://objects/player/player.tscn" id="5_6o1kf"]
-[ext_resource type="PackedScene" uid="uid://cjsj70ofmvnx2" path="res://objects/PROPS/environment/roads/road.tscn" id="6_j5vhd"]
-[ext_resource type="PackedScene" uid="uid://cpat5kv2ue7yo" path="res://objects/TRANSPORT/car/car.tscn" id="7_b7dlb"]
-[ext_resource type="PackedScene" uid="uid://l8c5m4h132nv" path="res://assets/models/builds/house1.blend" id="9_lx5ro"]
+[ext_resource type="Script" path="res://scenes/world/World.gd" id="1_1gor8"]
+[ext_resource type="PackedScene" path="res://objects/TRANSPORT/car/car.tscn" id="2_msjkr"]
+[ext_resource type="Sky" path="res://resources/sky/evening.tres" id="3_n1tcl"]
+[ext_resource type="Script" path="res://addons/zylann.hterrain/hterrain.gd" id="4_jkmq2"]
+[ext_resource type="Resource" path="res://scenes/world/terrain_data/data.hterrain" id="5_jndwu"]
+[ext_resource type="Script" path="res://addons/zylann.hterrain/hterrain_texture_set.gd" id="6_so5bk"]
+[ext_resource type="PackedScene" path="res://objects/PROPS/environment/roads/road.tscn" id="7_bcjsy"]
+[ext_resource type="PackedScene" path="res://objects/player/player.tscn" id="8_51253"]
+[ext_resource type="Script" path="res://objects/player/player.gd" id="9_hoolb"]
+[ext_resource type="PackedScene" path="res://assets/models/builds/house1.blend" id="10_tmxv2"]
 
 [sub_resource type="Environment" id="Environment_kqe7o"]
 background_mode = 2
 background_color = Color(0.592157, 0.592157, 0.592157, 1)
-sky = ExtResource("2_qo1ld")
+sky = ExtResource("3_n1tcl")
 fog_density = 0.0
 volumetric_fog_sky_affect = 0.546
 
@@ -179,18 +180,17 @@ _data = {
 }
 
 [sub_resource type="Resource" id="Resource_hxkjo"]
-script = ExtResource("4_rbhmn")
+script = ExtResource("6_so5bk")
 mode = 0
 textures = [[], []]
 
 [node name="World" type="Node"]
-script = ExtResource("1_xxt06")
-car = ExtResource("7_b7dlb")
+script = ExtResource("1_1gor8")
+car = ExtResource("2_msjkr")
 
 [node name="SERVERS" type="Node" parent="."]
 
 [node name="timer_daycycle" type="Timer" parent="SERVERS"]
-autostart = true
 
 [node name="WorldEnv" type="Node" parent="."]
 
@@ -199,8 +199,8 @@ environment = SubResource("Environment_kqe7o")
 camera_attributes = SubResource("CameraAttributesPractical_ke1mj")
 
 [node name="Sun" type="DirectionalLight3D" parent="WorldEnv"]
-transform = Transform3D(1, -3.80277e-06, 2.19553e-06, -2.19553e-06, -0.866025, -0.5, 3.80277e-06, 0.5, -0.866025, 0.992416, 0, -4.94073)
-light_energy = 0.0
+transform = Transform3D(1, 0, 0, 0, 0.835354, 0.549711, 0, -0.549711, 0.835354, 0.992416, 0, -4.94073)
+light_energy = 0.370525
 light_bake_mode = 1
 
 [node name="anim_tod" type="AnimationPlayer" parent="WorldEnv"]
@@ -214,9 +214,12 @@ libraries = {
 [node name="terrain" type="Node" parent="Levels"]
 
 [node name="HTerrain" type="Node3D" parent="Levels/terrain"]
-script = ExtResource("2_j3jfb")
+script = ExtResource("4_jkmq2")
 ambient_wind = 1.0
-_terrain_data = ExtResource("3_ajii5")
+lod_scale = 2.0
+map_scale = Vector3(1, 1, 1)
+centered = false
+_terrain_data = ExtResource("5_jndwu")
 chunk_size = 64
 collision_enabled = true
 collision_layer = 1
@@ -230,19 +233,51 @@ cast_shadow = 1
 
 [node name="road" type="Node" parent="Levels"]
 
-[node name="road" parent="Levels/road" instance=ExtResource("6_j5vhd")]
+[node name="road" type="Node3D" parent="Levels/road" instance=ExtResource("7_bcjsy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 964.54, 0, 1047.9)
 
-[node name="Player" parent="." instance=ExtResource("5_6o1kf")]
+[node name="Player" type="CharacterBody3D" parent="." node_paths=PackedStringArray("HEAD", "CAMERA", "HEADBOB_ANIMATION", "JUMP_ANIMATION", "CROUCH_ANIMATION", "COLLISION_MESH") instance=ExtResource("8_51253")]
 transform = Transform3D(1, 0, 0, 0, 0.999918, -0.0128104, 0, 0.0128104, 0.999918, 1525.28, 0, 1289.67)
 collision_layer = 3
 collision_mask = 3
 wall_min_slide_angle = 1.5708
+script = ExtResource("9_hoolb")
+throw_item_power = 10.0
+base_speed = 3.0
+sprint_speed = 6.0
+crouch_speed = 1.0
+acceleration = 10.0
+jump_velocity = 4.5
+mouse_sensitivity = 0.1
+initial_facing_direction = Vector3(0, 0, 0)
+HEAD = NodePath("Head")
+CAMERA = NodePath("Head/Camera")
+HEADBOB_ANIMATION = NodePath("Head/HeadbobAnimation")
+JUMP_ANIMATION = NodePath("Head/JumpAnimation")
+CROUCH_ANIMATION = NodePath("CrouchAnimation")
+COLLISION_MESH = NodePath("Collision")
+JUMP = "move_jump"
+LEFT = "move_left"
+RIGHT = "move_right"
+FORWARD = "move_foward"
+BACKWARD = "move_backward"
+PAUSE = "ui_cancel"
+CROUCH = "move_crouch"
+SPRINT = "move_sprint"
+immobile = false
+jumping_enabled = true
+in_air_momentum = true
+motion_smoothing = true
+sprint_enabled = true
+crouch_enabled = true
+crouch_mode = 0
+sprint_mode = 0
+dynamic_fov = true
+continuous_jumping = true
+view_bobbing = true
+jump_animation = true
 
-[node name="house1" parent="." instance=ExtResource("9_lx5ro")]
+[node name="house1" type="Node3D" parent="." instance=ExtResource("10_tmxv2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1486, 0, 1287)
-
-[node name="car" parent="." instance=ExtResource("7_b7dlb")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1486.56, -4.76837e-07, 1294.67)
 
 [connection signal="timeout" from="SERVERS/timer_daycycle" to="." method="_on_timer_daycycle_timeout"]
