@@ -1,12 +1,12 @@
 [gd_resource type="Sky" load_steps=2 format=3 uid="uid://bruk0nywbg66g"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_1paft"]
-sky_top_color = Color(0, 0, 0, 1)
-sky_horizon_color = Color(0, 0, 0, 1)
+sky_top_color = Color(0.689979, 0.858824, 0.995643, 1)
+sky_horizon_color = Color(0.65512, 0.827451, 0.953159, 1)
 sky_curve = 0.6
 sky_cover_modulate = Color(0.47451, 0.560784, 1, 1)
-ground_bottom_color = Color(0, 0, 0, 1)
-ground_horizon_color = Color(0, 0, 0, 1)
+ground_bottom_color = Color(0.65512, 0.827451, 0.953159, 1)
+ground_horizon_color = Color(0.65512, 0.827451, 0.953159, 1)
 ground_curve = 0.16
 sun_curve = 0.243676
 
