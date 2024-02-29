@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://bhuacmlsd7e7b"]
+
+[ext_resource type="PackedScene" uid="uid://bjrtbpyw0gud3" path="res://assets/models/builds/barn1.blend" id="1_doap4"]
+
+[node name="barn1" instance=ExtResource("1_doap4")]

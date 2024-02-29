@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://dji8x7kh3idvq"]
+
+[ext_resource type="PackedScene" uid="uid://cfjcexgr4cf7b" path="res://assets/models/builds/doghouse.blend" id="1_p4d7o"]
+
+[node name="doghouse" instance=ExtResource("1_p4d7o")]

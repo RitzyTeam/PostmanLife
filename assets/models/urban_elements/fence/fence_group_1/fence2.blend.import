@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://mxldda71juxy"
-path="res://.godot/imported/fence2.blend-3749f9968a14a7270bad4f8c8bac6971.scn"
+path="res://.godot/imported/fence2.blend-7dabed67a3f4eb566dbcb69d2efc5a5a.scn"
 
 [deps]
 
-source_file="res://assets/models/urban_elements/fence/fence2.blend"
-dest_files=["res://.godot/imported/fence2.blend-3749f9968a14a7270bad4f8c8bac6971.scn"]
+source_file="res://assets/models/urban_elements/fence/fence_group_1/fence2.blend"
+dest_files=["res://.godot/imported/fence2.blend-7dabed67a3f4eb566dbcb69d2efc5a5a.scn"]
 
 [params]
 

@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://u537if4v7wxi"
-path="res://.godot/imported/gate.blend-f9fff77fb703acce780c9522a0bd0379.scn"
+uid="uid://0dsggfudu28i"
+path="res://.godot/imported/fence1.blend-cdbef11965f34748c05df33e3a63c543.scn"
 
 [deps]
 
-source_file="res://assets/models/urban_elements/fence/gate.blend"
-dest_files=["res://.godot/imported/gate.blend-f9fff77fb703acce780c9522a0bd0379.scn"]
+source_file="res://assets/models/urban_elements/fence/fence_group_1/fence1.blend"
+dest_files=["res://.godot/imported/fence1.blend-cdbef11965f34748c05df33e3a63c543.scn"]
 
 [params]
 
