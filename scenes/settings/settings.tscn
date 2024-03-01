@@ -16,6 +16,10 @@ corner_radius_top_right = 90
 corner_radius_bottom_right = 90
 corner_radius_bottom_left = 90
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_70o84"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d34vn"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mv1m3"]
 bg_color = Color(0.435294, 0.482353, 1, 1)
 corner_radius_top_left = 90
@@ -64,10 +68,6 @@ corner_radius_bottom_left = 90
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dhlvg"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_08lvs"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_70o84"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d34vn"]
 
 [sub_resource type="Animation" id="Animation_42k0r"]
 length = 0.001
@@ -252,7 +252,6 @@ text = "Дополнительно"
 metadata/_edit_use_anchors_ = true
 
 [node name="panel_audio" type="Panel" parent="UI/bg/visibility_changer"]
-visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.109375
@@ -264,7 +263,94 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_vkhqg")
 metadata/_edit_use_anchors_ = true
 
+[node name="margin" type="MarginContainer" parent="UI/bg/visibility_changer/panel_audio"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="gr_box" type="VBoxContainer" parent="UI/bg/visibility_changer/panel_audio/margin"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="item_sounds" type="HBoxContainer" parent="UI/bg/visibility_changer/panel_audio/margin/gr_box"]
+layout_mode = 2
+
+[node name="title" type="Label" parent="UI/bg/visibility_changer/panel_audio/margin/gr_box/item_sounds"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 45
+text = "Громкость звуков"
+
+[node name="options" type="HBoxContainer" parent="UI/bg/visibility_changer/panel_audio/margin/gr_box/item_sounds"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 15
+alignment = 2
+
+[node name="margin" type="Control" parent="UI/bg/visibility_changer/panel_audio/margin/gr_box/item_sounds/options"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[node name="db_sounds" type="HSlider" parent="UI/bg/visibility_changer/panel_audio/margin/gr_box/item_sounds/options"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_styles/grabber_area = SubResource("StyleBoxEmpty_70o84")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxEmpty_d34vn")
+min_value = -100.0
+
+[node name="db_sounds_value" type="Label" parent="UI/bg/visibility_changer/panel_audio/margin/gr_box/item_sounds/options"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 43
+text = "x1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="item_music" type="HBoxContainer" parent="UI/bg/visibility_changer/panel_audio/margin/gr_box"]
+layout_mode = 2
+
+[node name="title" type="Label" parent="UI/bg/visibility_changer/panel_audio/margin/gr_box/item_music"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 45
+text = "Громкость музыки"
+
+[node name="options" type="HBoxContainer" parent="UI/bg/visibility_changer/panel_audio/margin/gr_box/item_music"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 15
+alignment = 2
+
+[node name="margin" type="Control" parent="UI/bg/visibility_changer/panel_audio/margin/gr_box/item_music/options"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+
+[node name="db_music" type="HSlider" parent="UI/bg/visibility_changer/panel_audio/margin/gr_box/item_music/options"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_styles/grabber_area = SubResource("StyleBoxEmpty_70o84")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxEmpty_d34vn")
+min_value = -100.0
+
+[node name="db_music_value" type="Label" parent="UI/bg/visibility_changer/panel_audio/margin/gr_box/item_music/options"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 43
+text = "x1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="panel_graphics" type="Panel" parent="UI/bg/visibility_changer"]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.109375
@@ -605,6 +691,8 @@ libraries = {
 [connection signal="pressed" from="UI/bg/visibility_changer/parts/btn_audio" to="." method="_on_btn_audio_pressed"]
 [connection signal="pressed" from="UI/bg/visibility_changer/parts/btn_graphics" to="." method="_on_btn_graphics_pressed"]
 [connection signal="pressed" from="UI/bg/visibility_changer/parts/btn_additional" to="." method="_on_btn_additional_pressed"]
+[connection signal="value_changed" from="UI/bg/visibility_changer/panel_audio/margin/gr_box/item_sounds/options/db_sounds" to="." method="_on_db_sounds_value_changed"]
+[connection signal="value_changed" from="UI/bg/visibility_changer/panel_audio/margin/gr_box/item_music/options/db_music" to="." method="_on_db_music_value_changed"]
 [connection signal="pressed" from="UI/bg/visibility_changer/panel_graphics/margin/gr_box/item_aliasing/options/alias_no" to="." method="_on_alias_no_pressed"]
 [connection signal="pressed" from="UI/bg/visibility_changer/panel_graphics/margin/gr_box/item_aliasing/options/alias_x2" to="." method="_on_alias_x_2_pressed"]
 [connection signal="pressed" from="UI/bg/visibility_changer/panel_graphics/margin/gr_box/item_aliasing/options/alias_x4" to="." method="_on_alias_x_4_pressed"]

@@ -29,10 +29,16 @@ extends Node
 @onready var bad_shadows = $UI/bg/visibility_changer/panel_graphics/margin/gr_box/item_shadows/options/bad_shadows
 @onready var mid_shadows = $UI/bg/visibility_changer/panel_graphics/margin/gr_box/item_shadows/options/mid_shadows
 @onready var good_shadows = $UI/bg/visibility_changer/panel_graphics/margin/gr_box/item_shadows/options/good_shadows
-
 # RESO
 @onready var reso_slider = $UI/bg/visibility_changer/panel_graphics/margin/gr_box/item_resolution/options/reso_slider
 @onready var reso_value = $UI/bg/visibility_changer/panel_graphics/margin/gr_box/item_resolution/options/value
+
+# AUDIO SETTINGS UI
+@onready var db_sounds = $UI/bg/visibility_changer/panel_audio/margin/gr_box/item_sounds/options/db_sounds
+@onready var db_sounds_value = $UI/bg/visibility_changer/panel_audio/margin/gr_box/item_sounds/options/db_sounds_value
+@onready var db_music = $UI/bg/visibility_changer/panel_audio/margin/gr_box/item_music/options/db_music
+@onready var db_music_value = $UI/bg/visibility_changer/panel_audio/margin/gr_box/item_music/options/db_music_value
+
 
 
 func _ready():
@@ -77,8 +83,14 @@ func _on_btn_additional_pressed():
 # LOAD SETTINGS VISUALLY FROM FILE
 
 func load_settings():
-	# LOAD GRAPHICAL SETTINGS
 	
+	# LOAD AUDIO SETTINGS
+	db_sounds.value = float(SIN_SETTINGS.SETTINGS['AUDIO']['db_sounds'])
+	db_music.value = float(SIN_SETTINGS.SETTINGS['AUDIO']['db_music'])
+	db_sounds_value.text = 'x' + str(db_sounds.value)
+	db_music_value.text = 'x' + str(db_music.value)
+	
+	# LOAD GRAPHICAL SETTINGS
 	match SIN_SETTINGS.SETTINGS['GRAPHICS']['antialiasing']:
 		'no':
 			alias_no.button_pressed = true
@@ -143,6 +155,9 @@ func load_settings():
 			mid_shadows.button_pressed = false
 			good_shadows.button_pressed = true
 	reso_slider.value = float(SIN_SETTINGS.SETTINGS['GRAPHICS']['resolution'])
+	
+	# LOAD MISC SETTINGS
+	
 # GRAPHICS - ALIASING PICK
 
 func _on_alias_no_pressed():
@@ -236,6 +251,14 @@ func _on_reso_slider_value_changed(value):
 	reso_value.text = 'x' + str(value)
 	SIN_SETTINGS.SETTINGS['GRAPHICS']['resolution'] = str(value)
 
+# AUDIO - SOUND DB PICK
 
+func _on_db_sounds_value_changed(value):
+	SIN_SETTINGS.SETTINGS['AUDIO']['db_sounds'] = str(value)
+	db_sounds_value.text = 'x' + str(value)
 
+# AUDIO - MUSIC DB PICK
 
+func _on_db_music_value_changed(value):
+	SIN_SETTINGS.SETTINGS['AUDIO']['db_music'] = str(value)
+	db_music_value.text = 'x' + str(value)

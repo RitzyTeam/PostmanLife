@@ -4,7 +4,8 @@ var work_path: String = 'user://settings.dat'
 
 var SETTINGS : Dictionary = {
 	'AUDIO': {
-		
+		'db_sounds': '1',
+		'db_music': '1',
 	},
 	'GRAPHICS': {
 		'antialiasing': 'no',
