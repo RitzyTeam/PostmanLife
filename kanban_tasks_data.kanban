@@ -1,0 +1,188 @@
+{
+	"categories": [
+		{
+			"uuid": "bdd855b3-9b0c-454e-bfa5-11fd692bfca7",
+			"title": "Task",
+			"color": "70bafa"
+		}
+	],
+	"stages": [
+		{
+			"uuid": "e1d1f979-3e2c-4ce9-8030-ad09661af42f",
+			"title": "Надо сделать",
+			"tasks": [
+				"0d1475ac-0fe2-4f2e-8bad-32dc05994a48",
+				"4fd0ead9-2cf0-4954-b715-79921c5fc167",
+				"c90920b6-6263-4168-b0df-b1c7c2680873",
+				"05f1181d-3732-4805-847f-4ec349556c0a",
+				"ab9eca95-f7a0-48c5-9fe4-fafb1f1c4596"
+			]
+		},
+		{
+			"uuid": "bb632252-011c-4d16-856c-61fccde1bc18",
+			"title": "Делаю",
+			"tasks": [
+				"c25123d7-cbdf-4d5d-97e3-84627f408780"
+			]
+		},
+		{
+			"uuid": "738c5a28-3f9a-4896-96e1-4aedc94fc208",
+			"title": "Сделано",
+			"tasks": [
+				"f49d22a8-7c50-4dd6-bf76-256b037f4f19",
+				"5c1b6c98-6c69-4353-ad70-cc7b033561af",
+				"2e7e8596-54b8-4caf-b88e-5a3e3f191710",
+				"5cd716de-5629-48eb-b93a-981257031cdf",
+				"ee40c034-3e62-4026-9fa3-b1b836618908",
+				"289b78f8-88a5-41af-b747-8c9905270224",
+				"70a14764-b78e-4fd7-8eeb-365ea6a31bb5",
+				"a67497ec-2a7c-441d-ab43-ea85660a10db",
+				"75ef904f-daf2-4e26-bd3a-aac432930ccc",
+				"66e46e2b-c831-4a2a-89f6-ce4a5c461ed7",
+				"deebfae9-50b1-4e9d-8695-9608c33c4c95",
+				"36c9df1c-39bf-48ab-ba58-d3e5654bac9b"
+			]
+		}
+	],
+	"tasks": [
+		{
+			"uuid": "c25123d7-cbdf-4d5d-97e3-84627f408780",
+			"title": "(Саша) Сохранение мира",
+			"description": "",
+			"category": "bdd855b3-9b0c-454e-bfa5-11fd692bfca7",
+			"steps": []
+		},
+		{
+			"uuid": "0d1475ac-0fe2-4f2e-8bad-32dc05994a48",
+			"title": "(Саша) Проверка работы ВорлдЭнва с сохранением мира",
+			"description": "",
+			"category": "bdd855b3-9b0c-454e-bfa5-11fd692bfca7",
+			"steps": []
+		},
+		{
+			"uuid": "4fd0ead9-2cf0-4954-b715-79921c5fc167",
+			"title": "(Саша) Выплаты денег за посылки ",
+			"description": "",
+			"category": "bdd855b3-9b0c-454e-bfa5-11fd692bfca7",
+			"steps": []
+		},
+		{
+			"uuid": "c90920b6-6263-4168-b0df-b1c7c2680873",
+			"title": "(Саша) Покупка предметов (Ожидание Никиты)",
+			"description": "",
+			"category": "bdd855b3-9b0c-454e-bfa5-11fd692bfca7",
+			"steps": []
+		},
+		{
+			"uuid": "05f1181d-3732-4805-847f-4ec349556c0a",
+			"title": "(Саша) Добавление мобов (Частично ожидание Никиты)",
+			"description": "",
+			"category": "bdd855b3-9b0c-454e-bfa5-11fd692bfca7",
+			"steps": []
+		},
+		{
+			"uuid": "f49d22a8-7c50-4dd6-bf76-256b037f4f19",
+			"title": "(Саша) Создана Птица",
+			"description": "",
+			"category": "bdd855b3-9b0c-454e-bfa5-11fd692bfca7",
+			"steps": []
+		},
+		{
+			"uuid": "5c1b6c98-6c69-4353-ad70-cc7b033561af",
+			"title": "(Саша) Создано НЛО",
+			"description": "",
+			"category": "bdd855b3-9b0c-454e-bfa5-11fd692bfca7",
+			"steps": []
+		},
+		{
+			"uuid": "2e7e8596-54b8-4caf-b88e-5a3e3f191710",
+			"title": "(Саша) Создан Призрак",
+			"description": "",
+			"category": "bdd855b3-9b0c-454e-bfa5-11fd692bfca7",
+			"steps": []
+		},
+		{
+			"uuid": "5cd716de-5629-48eb-b93a-981257031cdf",
+			"title": "(Саша) Создана система TOD",
+			"description": "",
+			"category": "bdd855b3-9b0c-454e-bfa5-11fd692bfca7",
+			"steps": []
+		},
+		{
+			"uuid": "ee40c034-3e62-4026-9fa3-b1b836618908",
+			"title": "(Саша) Создан Грузовик",
+			"description": "",
+			"category": "bdd855b3-9b0c-454e-bfa5-11fd692bfca7",
+			"steps": []
+		},
+		{
+			"uuid": "289b78f8-88a5-41af-b747-8c9905270224",
+			"title": "(Саша) Создан Игрок -> Инвентарь",
+			"description": "",
+			"category": "bdd855b3-9b0c-454e-bfa5-11fd692bfca7",
+			"steps": []
+		},
+		{
+			"uuid": "70a14764-b78e-4fd7-8eeb-365ea6a31bb5",
+			"title": "(Саша) Создан Предмет -> Канистра топлива",
+			"description": "",
+			"category": "bdd855b3-9b0c-454e-bfa5-11fd692bfca7",
+			"steps": []
+		},
+		{
+			"uuid": "a67497ec-2a7c-441d-ab43-ea85660a10db",
+			"title": "(Саша) Создан Предмет -> Мячик",
+			"description": "",
+			"category": "bdd855b3-9b0c-454e-bfa5-11fd692bfca7",
+			"steps": []
+		},
+		{
+			"uuid": "75ef904f-daf2-4e26-bd3a-aac432930ccc",
+			"title": "(Саша) Создан Предмет -> Ящик",
+			"description": "",
+			"category": "bdd855b3-9b0c-454e-bfa5-11fd692bfca7",
+			"steps": []
+		},
+		{
+			"uuid": "66e46e2b-c831-4a2a-89f6-ce4a5c461ed7",
+			"title": "(Саша) Создан Предмет -> Письмо",
+			"description": "",
+			"category": "bdd855b3-9b0c-454e-bfa5-11fd692bfca7",
+			"steps": []
+		},
+		{
+			"uuid": "deebfae9-50b1-4e9d-8695-9608c33c4c95",
+			"title": "(Саша) Система Заказов",
+			"description": "",
+			"category": "bdd855b3-9b0c-454e-bfa5-11fd692bfca7",
+			"steps": []
+		},
+		{
+			"uuid": "ab9eca95-f7a0-48c5-9fe4-fafb1f1c4596",
+			"title": "(Саша) Вес предметов влияет на скорость игрока",
+			"description": "",
+			"category": "bdd855b3-9b0c-454e-bfa5-11fd692bfca7",
+			"steps": []
+		},
+		{
+			"uuid": "36c9df1c-39bf-48ab-ba58-d3e5654bac9b",
+			"title": "(Саша) Стамина Игрока",
+			"description": "",
+			"category": "bdd855b3-9b0c-454e-bfa5-11fd692bfca7",
+			"steps": []
+		}
+	],
+	"layout": {
+		"columns": [
+			[
+				"e1d1f979-3e2c-4ce9-8030-ad09661af42f"
+			],
+			[
+				"bb632252-011c-4d16-856c-61fccde1bc18"
+			],
+			[
+				"738c5a28-3f9a-4896-96e1-4aedc94fc208"
+			]
+		]
+	}
+}
