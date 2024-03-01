@@ -87,8 +87,15 @@ func load_settings():
 	# LOAD AUDIO SETTINGS
 	db_sounds.value = float(SIN_SETTINGS.SETTINGS['AUDIO']['db_sounds'])
 	db_music.value = float(SIN_SETTINGS.SETTINGS['AUDIO']['db_music'])
-	db_sounds_value.text = 'x' + str(db_sounds.value)
-	db_music_value.text = 'x' + str(db_music.value)
+	if db_sounds.value > 0:
+		db_sounds_value.text = '+' + str(db_sounds.value)
+	else:
+		db_sounds_value.text = str(db_sounds.value)
+	
+	if db_music.value > 0:
+		db_music_value.text = '+' + str(db_music.value)
+	else:
+		db_music_value.text = str(db_music.value)
 	
 	# LOAD GRAPHICAL SETTINGS
 	match SIN_SETTINGS.SETTINGS['GRAPHICS']['antialiasing']:
@@ -255,10 +262,17 @@ func _on_reso_slider_value_changed(value):
 
 func _on_db_sounds_value_changed(value):
 	SIN_SETTINGS.SETTINGS['AUDIO']['db_sounds'] = str(value)
-	db_sounds_value.text = 'x' + str(value)
+	if value > 0:
+		db_sounds_value.text = '+' + str(value)
+	else:
+		db_sounds_value.text = str(value)
 
 # AUDIO - MUSIC DB PICK
 
 func _on_db_music_value_changed(value):
 	SIN_SETTINGS.SETTINGS['AUDIO']['db_music'] = str(value)
-	db_music_value.text = 'x' + str(value)
+	if value > 0:
+		db_music_value.text = '+' + str(value)
+	else:
+		db_music_value.text = str(value)
+		

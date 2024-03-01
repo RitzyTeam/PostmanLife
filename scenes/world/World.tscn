@@ -9,9 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://cjsj70ofmvnx2" path="res://objects/PROPS/environment/roads/road.tscn" id="6_j5vhd"]
 [ext_resource type="PackedScene" uid="uid://cpat5kv2ue7yo" path="res://objects/TRANSPORT/car/car.tscn" id="7_b7dlb"]
 [ext_resource type="PackedScene" uid="uid://dkfbfrrjn8o18" path="res://objects/builds/fourStoryBuldsVariations/four_story_building_main.tscn" id="7_t74fg"]
-[ext_resource type="PackedScene" uid="uid://cm8vci4pysgq1" path="res://objects/builds/house_2.tscn" id="8_7t2yj"]
+[ext_resource type="PackedScene" path="res://objects/builds/house_2.tscn" id="8_7t2yj"]
 [ext_resource type="PackedScene" uid="uid://bhuacmlsd7e7b" path="res://objects/builds/barn_1.tscn" id="9_mt0c7"]
-[ext_resource type="PackedScene" uid="uid://csm60gr7f2vti" path="res://objects/builds/house_1.tscn" id="10_qyej0"]
+[ext_resource type="PackedScene" path="res://objects/builds/house_1.tscn" id="10_qyej0"]
 [ext_resource type="PackedScene" uid="uid://dp80ffcw30b84" path="res://objects/builds/rural_house/rural_house.tscn" id="11_cxx1a"]
 [ext_resource type="Shader" path="res://shaders/lake_water.gdshader" id="12_jiaus"]
 
