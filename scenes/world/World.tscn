@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://c66dar30xo83l"]
+[gd_scene load_steps=21 format=3 uid="uid://c66dar30xo83l"]
 
 [ext_resource type="Script" path="res://scenes/world/World.gd" id="1_xxt06"]
 [ext_resource type="Script" path="res://addons/zylann.hterrain/hterrain.gd" id="2_j3jfb"]
@@ -13,6 +13,8 @@
 [ext_resource type="PackedScene" uid="uid://csm60gr7f2vti" path="res://objects/builds/house_1.tscn" id="10_qyej0"]
 [ext_resource type="PackedScene" uid="uid://dp80ffcw30b84" path="res://objects/builds/rural_house/rural_house.tscn" id="11_cxx1a"]
 [ext_resource type="PackedScene" uid="uid://bygta15dq1jdm" path="res://assets/models/builds/house3.blend" id="13_xdksr"]
+[ext_resource type="PackedScene" uid="uid://dmnnbwo5hahij" path="res://assets/models/builds/toilet.blend" id="14_utg2b"]
+[ext_resource type="PackedScene" uid="uid://c6fuu578kag5f" path="res://assets/models/urban_elements/waterTower.blend" id="15_fbsiv"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_td0pw"]
 sky_curve = 2.48463
@@ -134,5 +136,11 @@ wall_min_slide_angle = 1.5708
 
 [node name="house3" parent="." instance=ExtResource("13_xdksr")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1568, 0, 1285)
+
+[node name="toilet" parent="." instance=ExtResource("14_utg2b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1583, 0, 1269)
+
+[node name="waterTower" parent="." instance=ExtResource("15_fbsiv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1591, 0, 1269)
 
 [connection signal="timeout" from="SERVERS/timer_daycycle" to="." method="_on_timer_daycycle_timeout"]
