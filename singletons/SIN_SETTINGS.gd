@@ -9,10 +9,13 @@ var SETTINGS : Dictionary = {
 	},
 	'GRAPHICS': {
 		'antialiasing': 'no',
-		'glow': 'no',
-		'sdfgi': 'no',
-		'ssao': 'no',
-		'shadows': 'no',
+		'glow': 'no', # USED IN ENV NODE
+		'vsync': 'no',
+		'fxaa': 'no', # USED IN ENV NODE
+		'taa': 'no',
+		'sdfgi': 'no', # USED IN ENV NODE
+		'ssao': 'no', # USED IN ENV NODE
+		'shadows': 'no', # USED IN ENV NODE dir_light.light.directional_shadow_mode = 
 		'resolution': '1',
 	},
 	'MISC': {
@@ -23,6 +26,7 @@ var SETTINGS : Dictionary = {
 func _ready():
 	if settings_exists():
 		settings_load()
+		settings_consume()
 	else:
 		settings_save()
 	
@@ -38,3 +42,25 @@ func settings_load():
 	var filer = FileAccess.open(work_path,FileAccess.READ)
 	SETTINGS = filer.get_var()
 	filer.close()
+
+func settings_consume():
+	match SETTINGS['GRAPHICS']['antialiasing']:
+		'no':
+			get_viewport().msaa_3d = Viewport.MSAA_DISABLED
+		'x2':
+			get_viewport().msaa_3d = Viewport.MSAA_2X
+		'x4':
+			get_viewport().msaa_3d = Viewport.MSAA_4X
+		'x8':
+			get_viewport().msaa_3d = Viewport.MSAA_8X
+	match SETTINGS['GRAPHICS']['vsync']:
+		'no':
+			DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED)
+		'yes':
+			DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_ENABLED)
+	match SETTINGS['GRAPHICS']['taa']:
+		'no':
+			get_viewport().use_taa = false
+		'yes':
+			get_viewport().use_taa = true
+	DisplayServer.window_set_size(Vector2(1920*float(SETTINGS['GRAPHICS']['resolution']),1080*float(SETTINGS['GRAPHICS']['resolution'])))

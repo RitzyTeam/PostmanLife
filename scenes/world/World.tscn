@@ -1,91 +1,18 @@
-[gd_scene load_steps=36 format=3 uid="uid://c66dar30xo83l"]
+[gd_scene load_steps=21 format=3 uid="uid://c66dar30xo83l"]
 
 [ext_resource type="Script" path="res://scenes/world/World.gd" id="1_xxt06"]
 [ext_resource type="Script" path="res://addons/zylann.hterrain/hterrain.gd" id="2_j3jfb"]
+[ext_resource type="PackedScene" uid="uid://b6xb3m0mq55td" path="res://objects/ENVIRONMENT/ENV.tscn" id="3_7t5e4"]
 [ext_resource type="Resource" path="res://scenes/world/terrain_data/data.hterrain" id="3_ajii5"]
-[ext_resource type="Shader" path="res://shaders/clouds.gdshader" id="3_ylebi"]
 [ext_resource type="Script" path="res://addons/zylann.hterrain/hterrain_texture_set.gd" id="4_rbhmn"]
 [ext_resource type="PackedScene" uid="uid://cc1m2a1obsyn4" path="res://objects/player/player.tscn" id="5_6o1kf"]
 [ext_resource type="PackedScene" uid="uid://cjsj70ofmvnx2" path="res://objects/PROPS/environment/roads/road.tscn" id="6_j5vhd"]
-[ext_resource type="PackedScene" uid="uid://cpat5kv2ue7yo" path="res://objects/TRANSPORT/car/car.tscn" id="7_b7dlb"]
 [ext_resource type="PackedScene" uid="uid://dkfbfrrjn8o18" path="res://objects/builds/fourStoryBuldsVariations/four_story_building_main.tscn" id="7_t74fg"]
 [ext_resource type="PackedScene" path="res://objects/builds/house_2.tscn" id="8_7t2yj"]
 [ext_resource type="PackedScene" uid="uid://bhuacmlsd7e7b" path="res://objects/builds/barn_1.tscn" id="9_mt0c7"]
 [ext_resource type="PackedScene" path="res://objects/builds/house_1.tscn" id="10_qyej0"]
 [ext_resource type="PackedScene" uid="uid://dp80ffcw30b84" path="res://objects/builds/rural_house/rural_house.tscn" id="11_cxx1a"]
 [ext_resource type="Shader" path="res://shaders/lake_water.gdshader" id="12_jiaus"]
-
-[sub_resource type="Gradient" id="Gradient_fxqsm"]
-offsets = PackedFloat32Array(0)
-colors = PackedColorArray(1, 1, 1, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_d6l6k"]
-gradient = SubResource("Gradient_fxqsm")
-fill_from = Vector2(0.5, 0.5)
-
-[sub_resource type="Curve" id="Curve_t3yt5"]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.20132, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.801987), 0.0, 0.0, 0, 0]
-point_count = 3
-
-[sub_resource type="CurveTexture" id="CurveTexture_1uajy"]
-curve = SubResource("Curve_t3yt5")
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_kmtpb"]
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_0yoa6"]
-seamless = true
-noise = SubResource("FastNoiseLite_kmtpb")
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_t81k0"]
-fractal_octaves = 10
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_kr4gu"]
-seamless = true
-noise = SubResource("FastNoiseLite_t81k0")
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_kvbpp"]
-noise_type = 3
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_o1n6i"]
-noise = SubResource("FastNoiseLite_kvbpp")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ysubo"]
-shader = ExtResource("3_ylebi")
-shader_parameter/clouds_samples = 32
-shader_parameter/shadow_sample = 4
-shader_parameter/clouds_density = 0.4
-shader_parameter/clouds_scale = 1.0
-shader_parameter/clouds_smoothness = 0.03
-shader_parameter/clouds_light_color = Color(1, 1, 1, 1)
-shader_parameter/clouds_shadow_intensity = 3.5
-shader_parameter/cloud_shape_sampler = SubResource("NoiseTexture2D_kr4gu")
-shader_parameter/cloud_noise_sampler = SubResource("NoiseTexture2D_0yoa6")
-shader_parameter/cloud_curves = SubResource("CurveTexture_1uajy")
-shader_parameter/high_clouds_density = 0.2
-shader_parameter/high_clouds_sampler = SubResource("NoiseTexture2D_o1n6i")
-shader_parameter/top_color = Color(0.34902, 0.588235, 1, 1)
-shader_parameter/bottom_color = Color(1, 1, 1, 1)
-shader_parameter/sun_scatter = Color(0.298039, 0.298039, 0.298039, 1)
-shader_parameter/astro_tint = Color(0.905882, 0.788235, 0.627451, 1)
-shader_parameter/astro_scale = 8.8
-shader_parameter/astro_intensity = 3.0
-shader_parameter/astro_sampler = SubResource("GradientTexture2D_d6l6k")
-shader_parameter/stars_intensity = 0.0
-shader_parameter/shooting_stars_intensity = 0.0
-shader_parameter/shooting_star_tint = null
-
-[sub_resource type="Sky" id="Sky_ylmtc"]
-sky_material = SubResource("ShaderMaterial_ysubo")
-
-[sub_resource type="Environment" id="Environment_kqe7o"]
-background_mode = 2
-background_color = Color(0.592157, 0.592157, 0.592157, 1)
-sky = SubResource("Sky_ylmtc")
-glow_enabled = true
-fog_density = 0.0
-volumetric_fog_sky_affect = 0.546
-
-[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_ke1mj"]
 
 [sub_resource type="Resource" id="Resource_hxkjo"]
 script = ExtResource("4_rbhmn")
@@ -138,7 +65,6 @@ size = Vector2(2000, 450)
 
 [node name="World" type="Node"]
 script = ExtResource("1_xxt06")
-car = ExtResource("7_b7dlb")
 
 [node name="SERVERS" type="Node" parent="."]
 
@@ -147,13 +73,7 @@ autostart = true
 
 [node name="WorldEnv" type="Node" parent="."]
 
-[node name="WE" type="WorldEnvironment" parent="WorldEnv"]
-environment = SubResource("Environment_kqe7o")
-camera_attributes = SubResource("CameraAttributesPractical_ke1mj")
-
-[node name="Sun" type="DirectionalLight3D" parent="WorldEnv"]
-transform = Transform3D(1, 6.59773e-08, 8.47516e-08, -8.47516e-08, 0.969445, 0.245307, -6.59773e-08, -0.245307, 0.969445, 0.992416, 0, -4.94073)
-light_bake_mode = 1
+[node name="ENV" parent="WorldEnv" instance=ExtResource("3_7t5e4")]
 
 [node name="Levels" type="Node" parent="."]
 

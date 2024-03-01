@@ -37,11 +37,12 @@ window/vsync/vsync_mode=0
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/kanban_tasks/plugin.cfg", "res://addons/proton_scatter/plugin.cfg", "res://addons/zylann.hterrain/plugin.cfg")
+enabled=PackedStringArray("res://addons/SmoothScroll/plugin.cfg", "res://addons/kanban_tasks/plugin.cfg", "res://addons/proton_scatter/plugin.cfg", "res://addons/zylann.hterrain/plugin.cfg")
 
 [file_customization]
 
 folder_colors={
+"res://objects/ENVIRONMENT/": "purple",
 "res://objects/MOBS/": "red",
 "res://objects/PROPS/": "teal"
 }

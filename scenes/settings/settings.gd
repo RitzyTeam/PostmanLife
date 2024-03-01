@@ -11,33 +11,42 @@ extends Node
 
 # GRAPHICAL SETTINGS UI
 # ALIASING
-@onready var alias_no = $UI/bg/visibility_changer/panel_graphics/margin/gr_box/item_aliasing/options/alias_no
-@onready var alias_x_2 = $UI/bg/visibility_changer/panel_graphics/margin/gr_box/item_aliasing/options/alias_x2
-@onready var alias_x_4 = $UI/bg/visibility_changer/panel_graphics/margin/gr_box/item_aliasing/options/alias_x4
-@onready var alias_x_8 = $UI/bg/visibility_changer/panel_graphics/margin/gr_box/item_aliasing/options/alias_x8
+@onready var alias_no = $UI/bg/visibility_changer/panel_graphics/margin/smoother/gr_box/item_aliasing/options/alias_no
+@onready var alias_x_2 = $UI/bg/visibility_changer/panel_graphics/margin/smoother/gr_box/item_aliasing/options/alias_x2
+@onready var alias_x_4 = $UI/bg/visibility_changer/panel_graphics/margin/smoother/gr_box/item_aliasing/options/alias_x4
+@onready var alias_x_8 = $UI/bg/visibility_changer/panel_graphics/margin/smoother/gr_box/item_aliasing/options/alias_x8
 # GLOW
-@onready var glow_no = $UI/bg/visibility_changer/panel_graphics/margin/gr_box/item_glow/options/glow_no
-@onready var glow_yes = $UI/bg/visibility_changer/panel_graphics/margin/gr_box/item_glow/options/glow_yes
+@onready var glow_no = $UI/bg/visibility_changer/panel_graphics/margin/smoother/gr_box/item_glow/options/glow_no
+@onready var glow_yes = $UI/bg/visibility_changer/panel_graphics/margin/smoother/gr_box/item_glow/options/glow_yes
+# VSYNC
+@onready var vsync_no = $UI/bg/visibility_changer/panel_graphics/margin/smoother/gr_box/item_vsync/options/vsync_no
+@onready var vsync_yes = $UI/bg/visibility_changer/panel_graphics/margin/smoother/gr_box/item_vsync/options/vsync_yes
+# FXAA
+@onready var fxaa_no = $UI/bg/visibility_changer/panel_graphics/margin/smoother/gr_box/item_fxaa/options/fxaa_no
+@onready var fxaa_yes = $UI/bg/visibility_changer/panel_graphics/margin/smoother/gr_box/item_fxaa/options/fxaa_yes
+# TAA
+@onready var taa_no = $UI/bg/visibility_changer/panel_graphics/margin/smoother/gr_box/item_taa/options/taa_no
+@onready var taa_yes = $UI/bg/visibility_changer/panel_graphics/margin/smoother/gr_box/item_taa/options/taa_yes
 # SDFGI
-@onready var sdfgi_no = $UI/bg/visibility_changer/panel_graphics/margin/gr_box/item_sdfgi/options/sdfgi_no
-@onready var sdfgi_yes = $UI/bg/visibility_changer/panel_graphics/margin/gr_box/item_sdfgi/options/sdfgi_yes
+@onready var sdfgi_no = $UI/bg/visibility_changer/panel_graphics/margin/smoother/gr_box/item_sdfgi/options/sdfgi_no
+@onready var sdfgi_yes = $UI/bg/visibility_changer/panel_graphics/margin/smoother/gr_box/item_sdfgi/options/sdfgi_yes
 #SSAO
-@onready var ssao_no = $UI/bg/visibility_changer/panel_graphics/margin/gr_box/item_ssao/options/ssao_no
-@onready var ssao_yes = $UI/bg/visibility_changer/panel_graphics/margin/gr_box/item_ssao/options/ssao_yes
+@onready var ssao_no = $UI/bg/visibility_changer/panel_graphics/margin/smoother/gr_box/item_ssao/options/ssao_no
+@onready var ssao_yes = $UI/bg/visibility_changer/panel_graphics/margin/smoother/gr_box/item_ssao/options/ssao_yes
 # SHADOWS
-@onready var no_shadows = $UI/bg/visibility_changer/panel_graphics/margin/gr_box/item_shadows/options/no_shadows
-@onready var bad_shadows = $UI/bg/visibility_changer/panel_graphics/margin/gr_box/item_shadows/options/bad_shadows
-@onready var mid_shadows = $UI/bg/visibility_changer/panel_graphics/margin/gr_box/item_shadows/options/mid_shadows
-@onready var good_shadows = $UI/bg/visibility_changer/panel_graphics/margin/gr_box/item_shadows/options/good_shadows
+@onready var no_shadows = $UI/bg/visibility_changer/panel_graphics/margin/smoother/gr_box/item_shadows/options/no_shadows
+@onready var bad_shadows = $UI/bg/visibility_changer/panel_graphics/margin/smoother/gr_box/item_shadows/options/bad_shadows
+@onready var mid_shadows = $UI/bg/visibility_changer/panel_graphics/margin/smoother/gr_box/item_shadows/options/mid_shadows
+@onready var good_shadows = $UI/bg/visibility_changer/panel_graphics/margin/smoother/gr_box/item_shadows/options/good_shadows
 # RESO
-@onready var reso_slider = $UI/bg/visibility_changer/panel_graphics/margin/gr_box/item_resolution/options/reso_slider
-@onready var reso_value = $UI/bg/visibility_changer/panel_graphics/margin/gr_box/item_resolution/options/value
+@onready var reso_slider = $UI/bg/visibility_changer/panel_graphics/margin/smoother/gr_box/item_resolution/options/reso_slider
+@onready var reso_value = $UI/bg/visibility_changer/panel_graphics/margin/smoother/gr_box/item_resolution/options/value
 
 # AUDIO SETTINGS UI
-@onready var db_sounds = $UI/bg/visibility_changer/panel_audio/margin/gr_box/item_sounds/options/db_sounds
-@onready var db_sounds_value = $UI/bg/visibility_changer/panel_audio/margin/gr_box/item_sounds/options/db_sounds_value
-@onready var db_music = $UI/bg/visibility_changer/panel_audio/margin/gr_box/item_music/options/db_music
-@onready var db_music_value = $UI/bg/visibility_changer/panel_audio/margin/gr_box/item_music/options/db_music_value
+@onready var db_sounds = $UI/bg/visibility_changer/panel_audio/margin/smoother/au_box/item_sounds/options/db_sounds
+@onready var db_sounds_value = $UI/bg/visibility_changer/panel_audio/margin/smoother/au_box/item_sounds/options/db_sounds_value
+@onready var db_music = $UI/bg/visibility_changer/panel_audio/margin/smoother/au_box/item_music/options/db_music
+@onready var db_music_value = $UI/bg/visibility_changer/panel_audio/margin/smoother/au_box/item_music/options/db_music_value
 
 
 
@@ -53,6 +62,7 @@ func _on_btn_exit_pressed():
 
 func _on_btn_save_pressed():
 	SIN_SETTINGS.settings_save()
+	SIN_SETTINGS.settings_consume()
 
 func _on_anim_animation_finished(anim_name):
 	if anim_name == 'hide':
@@ -126,6 +136,27 @@ func load_settings():
 		'yes':
 			glow_no.button_pressed = false
 			glow_yes.button_pressed = true
+	match SIN_SETTINGS.SETTINGS['GRAPHICS']['vsync']:
+		'no':
+			vsync_no.button_pressed = true
+			vsync_yes.button_pressed = false
+		'yes':
+			vsync_no.button_pressed = false
+			vsync_yes.button_pressed = true
+	match SIN_SETTINGS.SETTINGS['GRAPHICS']['fxaa']:
+		'no':
+			fxaa_no.button_pressed = true
+			fxaa_yes.button_pressed = false
+		'yes':
+			fxaa_no.button_pressed = false
+			fxaa_yes.button_pressed = true
+	match SIN_SETTINGS.SETTINGS['GRAPHICS']['taa']:
+		'no':
+			taa_no.button_pressed = true
+			taa_yes.button_pressed = false
+		'yes':
+			taa_no.button_pressed = false
+			taa_yes.button_pressed = true
 	match SIN_SETTINGS.SETTINGS['GRAPHICS']['sdfgi']:
 		'no':
 			sdfgi_no.button_pressed = true
@@ -203,6 +234,39 @@ func _on_glow_yes_pressed():
 	glow_yes.button_pressed = true
 	SIN_SETTINGS.SETTINGS['GRAPHICS']['glow'] = 'yes'
 
+# GRAPHICS - VSYNC PICK
+
+func _on_vsync_no_pressed():
+	vsync_no.button_pressed = true
+	vsync_yes.button_pressed = false
+	SIN_SETTINGS.SETTINGS['GRAPHICS']['vsync'] = 'no'
+func _on_vsync_yes_pressed():
+	vsync_no.button_pressed = false
+	vsync_yes.button_pressed = true
+	SIN_SETTINGS.SETTINGS['GRAPHICS']['vsync'] = 'yes'
+
+# GRAPHICS - FXAA PICK
+
+func _on_fxaa_no_pressed():
+	fxaa_no.button_pressed = true
+	fxaa_yes.button_pressed = false
+	SIN_SETTINGS.SETTINGS['GRAPHICS']['fxaa'] = 'no'
+func _on_fxaa_yes_pressed():
+	fxaa_no.button_pressed = false
+	fxaa_yes.button_pressed = true
+	SIN_SETTINGS.SETTINGS['GRAPHICS']['fxaa'] = 'yes'
+
+# GRAPHICS - TAA PICK
+
+func _on_taa_no_pressed():
+	taa_no.button_pressed = true
+	taa_yes.button_pressed = false
+	SIN_SETTINGS.SETTINGS['GRAPHICS']['taa'] = 'no'
+func _on_taa_yes_pressed():
+	taa_no.button_pressed = false
+	taa_yes.button_pressed = true
+	SIN_SETTINGS.SETTINGS['GRAPHICS']['taa'] = 'yes'
+
 # GRAPHICS - SDFGI PICK
 
 func _on_sdfgi_no_pressed():
@@ -276,3 +340,12 @@ func _on_db_music_value_changed(value):
 	else:
 		db_music_value.text = str(value)
 		
+
+
+
+
+
+
+
+
+

@@ -1,6 +1,7 @@
-[gd_scene load_steps=27 format=3 uid="uid://cosi6kxvm7qxp"]
+[gd_scene load_steps=34 format=3 uid="uid://cosi6kxvm7qxp"]
 
 [ext_resource type="Script" path="res://scenes/settings/settings.gd" id="1_brffx"]
+[ext_resource type="Script" path="res://addons/SmoothScroll/SmoothScrollContainer.gd" id="2_ko3px"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vkhqg"]
 bg_color = Color(0.280657, 0.091383, 1, 1)
@@ -19,6 +20,23 @@ corner_radius_bottom_left = 90
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_70o84"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d34vn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0wams"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lk8j4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c3fho"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jnbcj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3oj4n"]
+
+[sub_resource type="Theme" id="Theme_87nje"]
+VScrollBar/styles/grabber = SubResource("StyleBoxEmpty_0wams")
+VScrollBar/styles/grabber_highlight = SubResource("StyleBoxEmpty_lk8j4")
+VScrollBar/styles/grabber_pressed = SubResource("StyleBoxEmpty_c3fho")
+VScrollBar/styles/scroll = SubResource("StyleBoxEmpty_jnbcj")
+VScrollBar/styles/scroll_focus = SubResource("StyleBoxEmpty_3oj4n")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mv1m3"]
 bg_color = Color(0.435294, 0.482353, 1, 1)
@@ -252,6 +270,7 @@ text = "Дополнительно"
 metadata/_edit_use_anchors_ = true
 
 [node name="panel_audio" type="Panel" parent="UI/bg/visibility_changer"]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.109375
@@ -275,82 +294,95 @@ theme_override_constants/margin_top = 30
 theme_override_constants/margin_right = 30
 theme_override_constants/margin_bottom = 30
 
-[node name="gr_box" type="VBoxContainer" parent="UI/bg/visibility_changer/panel_audio/margin"]
+[node name="smoother" type="ScrollContainer" parent="UI/bg/visibility_changer/panel_audio/margin"]
 layout_mode = 2
+script = ExtResource("2_ko3px")
+
+[node name="au_box" type="VBoxContainer" parent="UI/bg/visibility_changer/panel_audio/margin/smoother"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 theme_override_constants/separation = 20
 
-[node name="item_sounds" type="HBoxContainer" parent="UI/bg/visibility_changer/panel_audio/margin/gr_box"]
+[node name="item_sounds" type="HBoxContainer" parent="UI/bg/visibility_changer/panel_audio/margin/smoother/au_box"]
 layout_mode = 2
 
-[node name="title" type="Label" parent="UI/bg/visibility_changer/panel_audio/margin/gr_box/item_sounds"]
+[node name="title" type="Label" parent="UI/bg/visibility_changer/panel_audio/margin/smoother/au_box/item_sounds"]
 layout_mode = 2
+mouse_filter = 1
 theme_override_font_sizes/font_size = 45
 text = "Громкость звуков"
 
-[node name="options" type="HBoxContainer" parent="UI/bg/visibility_changer/panel_audio/margin/gr_box/item_sounds"]
+[node name="options" type="HBoxContainer" parent="UI/bg/visibility_changer/panel_audio/margin/smoother/au_box/item_sounds"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 15
 alignment = 2
 
-[node name="margin" type="Control" parent="UI/bg/visibility_changer/panel_audio/margin/gr_box/item_sounds/options"]
+[node name="margin" type="Control" parent="UI/bg/visibility_changer/panel_audio/margin/smoother/au_box/item_sounds/options"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
+mouse_filter = 1
 
-[node name="db_sounds" type="HSlider" parent="UI/bg/visibility_changer/panel_audio/margin/gr_box/item_sounds/options"]
+[node name="db_sounds" type="HSlider" parent="UI/bg/visibility_changer/panel_audio/margin/smoother/au_box/item_sounds/options"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
+mouse_filter = 1
 theme_override_styles/grabber_area = SubResource("StyleBoxEmpty_70o84")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxEmpty_d34vn")
 min_value = -100.0
 
-[node name="db_sounds_value" type="Label" parent="UI/bg/visibility_changer/panel_audio/margin/gr_box/item_sounds/options"]
+[node name="db_sounds_value" type="Label" parent="UI/bg/visibility_changer/panel_audio/margin/smoother/au_box/item_sounds/options"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_vertical = 1
+mouse_filter = 1
 theme_override_font_sizes/font_size = 43
 text = "x1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="item_music" type="HBoxContainer" parent="UI/bg/visibility_changer/panel_audio/margin/gr_box"]
+[node name="item_music" type="HBoxContainer" parent="UI/bg/visibility_changer/panel_audio/margin/smoother/au_box"]
 layout_mode = 2
 
-[node name="title" type="Label" parent="UI/bg/visibility_changer/panel_audio/margin/gr_box/item_music"]
+[node name="title" type="Label" parent="UI/bg/visibility_changer/panel_audio/margin/smoother/au_box/item_music"]
 layout_mode = 2
+mouse_filter = 1
 theme_override_font_sizes/font_size = 45
 text = "Громкость музыки"
 
-[node name="options" type="HBoxContainer" parent="UI/bg/visibility_changer/panel_audio/margin/gr_box/item_music"]
+[node name="options" type="HBoxContainer" parent="UI/bg/visibility_changer/panel_audio/margin/smoother/au_box/item_music"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 15
 alignment = 2
 
-[node name="margin" type="Control" parent="UI/bg/visibility_changer/panel_audio/margin/gr_box/item_music/options"]
+[node name="margin" type="Control" parent="UI/bg/visibility_changer/panel_audio/margin/smoother/au_box/item_music/options"]
 custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
+mouse_filter = 1
 
-[node name="db_music" type="HSlider" parent="UI/bg/visibility_changer/panel_audio/margin/gr_box/item_music/options"]
+[node name="db_music" type="HSlider" parent="UI/bg/visibility_changer/panel_audio/margin/smoother/au_box/item_music/options"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
+mouse_filter = 1
 theme_override_styles/grabber_area = SubResource("StyleBoxEmpty_70o84")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxEmpty_d34vn")
 min_value = -100.0
 
-[node name="db_music_value" type="Label" parent="UI/bg/visibility_changer/panel_audio/margin/gr_box/item_music/options"]
+[node name="db_music_value" type="Label" parent="UI/bg/visibility_changer/panel_audio/margin/smoother/au_box/item_music/options"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_vertical = 1
+mouse_filter = 1
 theme_override_font_sizes/font_size = 43
 text = "x1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="panel_graphics" type="Panel" parent="UI/bg/visibility_changer"]
-visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.109375
@@ -374,27 +406,39 @@ theme_override_constants/margin_top = 30
 theme_override_constants/margin_right = 30
 theme_override_constants/margin_bottom = 30
 
-[node name="gr_box" type="VBoxContainer" parent="UI/bg/visibility_changer/panel_graphics/margin"]
+[node name="smoother" type="ScrollContainer" parent="UI/bg/visibility_changer/panel_graphics/margin"]
 layout_mode = 2
+theme = SubResource("Theme_87nje")
+script = ExtResource("2_ko3px")
+drag_with_mouse = false
+drag_with_touch = false
+allow_horizontal_scroll = false
+
+[node name="gr_box" type="VBoxContainer" parent="UI/bg/visibility_changer/panel_graphics/margin/smoother"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 theme_override_constants/separation = 20
 
-[node name="item_aliasing" type="HBoxContainer" parent="UI/bg/visibility_changer/panel_graphics/margin/gr_box"]
+[node name="item_aliasing" type="HBoxContainer" parent="UI/bg/visibility_changer/panel_graphics/margin/smoother/gr_box"]
 layout_mode = 2
 
-[node name="title" type="Label" parent="UI/bg/visibility_changer/panel_graphics/margin/gr_box/item_aliasing"]
+[node name="title" type="Label" parent="UI/bg/visibility_changer/panel_graphics/margin/smoother/gr_box/item_aliasing"]
 layout_mode = 2
+mouse_filter = 1
 theme_override_font_sizes/font_size = 45
 text = "Сглаживание"
 
-[node name="options" type="HBoxContainer" parent="UI/bg/visibility_changer/panel_graphics/margin/gr_box/item_aliasing"]
+[node name="options" type="HBoxContainer" parent="UI/bg/visibility_changer/panel_graphics/margin/smoother/gr_box/item_aliasing"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 15
 alignment = 2
 
-[node name="alias_no" type="Button" parent="UI/bg/visibility_changer/panel_graphics/margin/gr_box/item_aliasing/options"]
+[node name="alias_no" type="Button" parent="UI/bg/visibility_changer/panel_graphics/margin/smoother/gr_box/item_aliasing/options"]
 custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
+mouse_filter = 1
 theme_override_font_sizes/font_size = 41
 theme_override_styles/normal = SubResource("StyleBoxFlat_mv1m3")
 theme_override_styles/hover = SubResource("StyleBoxFlat_4pe7t")
@@ -405,9 +449,10 @@ toggle_mode = true
 text = "Нет"
 metadata/_edit_use_anchors_ = true
 
-[node name="alias_x2" type="Button" parent="UI/bg/visibility_changer/panel_graphics/margin/gr_box/item_aliasing/options"]
+[node name="alias_x2" type="Button" parent="UI/bg/visibility_changer/panel_graphics/margin/smoother/gr_box/item_aliasing/options"]
 custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
+mouse_filter = 1
 theme_override_font_sizes/font_size = 41
 theme_override_styles/normal = SubResource("StyleBoxFlat_mv1m3")
 theme_override_styles/hover = SubResource("StyleBoxFlat_4pe7t")
@@ -418,9 +463,10 @@ toggle_mode = true
 text = "x2"
 metadata/_edit_use_anchors_ = true
 
-[node name="alias_x4" type="Button" parent="UI/bg/visibility_changer/panel_graphics/margin/gr_box/item_aliasing/options"]
+[node name="alias_x4" type="Button" parent="UI/bg/visibility_changer/panel_graphics/margin/smoother/gr_box/item_aliasing/options"]
 custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
+mouse_filter = 1
 theme_override_font_sizes/font_size = 41
 theme_override_styles/normal = SubResource("StyleBoxFlat_mv1m3")
 theme_override_styles/hover = SubResource("StyleBoxFlat_4pe7t")
@@ -431,9 +477,10 @@ toggle_mode = true
 text = "x4"
 metadata/_edit_use_anchors_ = true
 
-[node name="alias_x8" type="Button" parent="UI/bg/visibility_changer/panel_graphics/margin/gr_box/item_aliasing/options"]
+[node name="alias_x8" type="Button" parent="UI/bg/visibility_changer/panel_graphics/margin/smoother/gr_box/item_aliasing/options"]
 custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
+mouse_filter = 1
 theme_override_font_sizes/font_size = 41
 theme_override_styles/normal = SubResource("StyleBoxFlat_mv1m3")
 theme_override_styles/hover = SubResource("StyleBoxFlat_4pe7t")
@@ -444,23 +491,25 @@ toggle_mode = true
 text = "x8"
 metadata/_edit_use_anchors_ = true
 
-[node name="item_glow" type="HBoxContainer" parent="UI/bg/visibility_changer/panel_graphics/margin/gr_box"]
+[node name="item_glow" type="HBoxContainer" parent="UI/bg/visibility_changer/panel_graphics/margin/smoother/gr_box"]
 layout_mode = 2
 
-[node name="title" type="Label" parent="UI/bg/visibility_changer/panel_graphics/margin/gr_box/item_glow"]
+[node name="title" type="Label" parent="UI/bg/visibility_changer/panel_graphics/margin/smoother/gr_box/item_glow"]
 layout_mode = 2
+mouse_filter = 1
 theme_override_font_sizes/font_size = 45
 text = "Свечение"
 
-[node name="options" type="HBoxContainer" parent="UI/bg/visibility_changer/panel_graphics/margin/gr_box/item_glow"]
+[node name="options" type="HBoxContainer" parent="UI/bg/visibility_changer/panel_graphics/margin/smoother/gr_box/item_glow"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 15
 alignment = 2
 
-[node name="glow_no" type="Button" parent="UI/bg/visibility_changer/panel_graphics/margin/gr_box/item_glow/options"]
+[node name="glow_no" type="Button" parent="UI/bg/visibility_changer/panel_graphics/margin/smoother/gr_box/item_glow/options"]
 custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
+mouse_filter = 1
 theme_override_font_sizes/font_size = 41
 theme_override_styles/normal = SubResource("StyleBoxFlat_mv1m3")
 theme_override_styles/hover = SubResource("StyleBoxFlat_4pe7t")
@@ -471,9 +520,10 @@ toggle_mode = true
 text = "Нет"
 metadata/_edit_use_anchors_ = true
 
-[node name="glow_yes" type="Button" parent="UI/bg/visibility_changer/panel_graphics/margin/gr_box/item_glow/options"]
+[node name="glow_yes" type="Button" parent="UI/bg/visibility_changer/panel_graphics/margin/smoother/gr_box/item_glow/options"]
 custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
+mouse_filter = 1
 theme_override_font_sizes/font_size = 41
 theme_override_styles/normal = SubResource("StyleBoxFlat_mv1m3")
 theme_override_styles/hover = SubResource("StyleBoxFlat_4pe7t")
@@ -484,23 +534,154 @@ toggle_mode = true
 text = "Да"
 metadata/_edit_use_anchors_ = true
 
-[node name="item_sdfgi" type="HBoxContainer" parent="UI/bg/visibility_changer/panel_graphics/margin/gr_box"]
+[node name="item_vsync" type="HBoxContainer" parent="UI/bg/visibility_changer/panel_graphics/margin/smoother/gr_box"]
 layout_mode = 2
 
-[node name="title" type="Label" parent="UI/bg/visibility_changer/panel_graphics/margin/gr_box/item_sdfgi"]
+[node name="title" type="Label" parent="UI/bg/visibility_changer/panel_graphics/margin/smoother/gr_box/item_vsync"]
 layout_mode = 2
+mouse_filter = 1
 theme_override_font_sizes/font_size = 45
-text = "SDFGI"
+text = "V-Sync"
 
-[node name="options" type="HBoxContainer" parent="UI/bg/visibility_changer/panel_graphics/margin/gr_box/item_sdfgi"]
+[node name="options" type="HBoxContainer" parent="UI/bg/visibility_changer/panel_graphics/margin/smoother/gr_box/item_vsync"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 15
 alignment = 2
 
-[node name="sdfgi_no" type="Button" parent="UI/bg/visibility_changer/panel_graphics/margin/gr_box/item_sdfgi/options"]
+[node name="vsync_no" type="Button" parent="UI/bg/visibility_changer/panel_graphics/margin/smoother/gr_box/item_vsync/options"]
 custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
+mouse_filter = 1
+theme_override_font_sizes/font_size = 41
+theme_override_styles/normal = SubResource("StyleBoxFlat_mv1m3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_4pe7t")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_w5dho")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_mv1m3")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_2bsdf")
+toggle_mode = true
+text = "Нет"
+metadata/_edit_use_anchors_ = true
+
+[node name="vsync_yes" type="Button" parent="UI/bg/visibility_changer/panel_graphics/margin/smoother/gr_box/item_vsync/options"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+mouse_filter = 1
+theme_override_font_sizes/font_size = 41
+theme_override_styles/normal = SubResource("StyleBoxFlat_mv1m3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_4pe7t")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_w5dho")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_mv1m3")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_x5ytr")
+toggle_mode = true
+text = "Да"
+metadata/_edit_use_anchors_ = true
+
+[node name="item_fxaa" type="HBoxContainer" parent="UI/bg/visibility_changer/panel_graphics/margin/smoother/gr_box"]
+layout_mode = 2
+
+[node name="title" type="Label" parent="UI/bg/visibility_changer/panel_graphics/margin/smoother/gr_box/item_fxaa"]
+layout_mode = 2
+mouse_filter = 1
+theme_override_font_sizes/font_size = 45
+text = "FXAA"
+
+[node name="options" type="HBoxContainer" parent="UI/bg/visibility_changer/panel_graphics/margin/smoother/gr_box/item_fxaa"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 15
+alignment = 2
+
+[node name="fxaa_no" type="Button" parent="UI/bg/visibility_changer/panel_graphics/margin/smoother/gr_box/item_fxaa/options"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+mouse_filter = 1
+theme_override_font_sizes/font_size = 41
+theme_override_styles/normal = SubResource("StyleBoxFlat_mv1m3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_4pe7t")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_w5dho")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_mv1m3")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_2bsdf")
+toggle_mode = true
+text = "Нет"
+metadata/_edit_use_anchors_ = true
+
+[node name="fxaa_yes" type="Button" parent="UI/bg/visibility_changer/panel_graphics/margin/smoother/gr_box/item_fxaa/options"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+mouse_filter = 1
+theme_override_font_sizes/font_size = 41
+theme_override_styles/normal = SubResource("StyleBoxFlat_mv1m3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_4pe7t")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_w5dho")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_mv1m3")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_x5ytr")
+toggle_mode = true
+text = "Да"
+metadata/_edit_use_anchors_ = true
+
+[node name="item_taa" type="HBoxContainer" parent="UI/bg/visibility_changer/panel_graphics/margin/smoother/gr_box"]
+layout_mode = 2
+
+[node name="title" type="Label" parent="UI/bg/visibility_changer/panel_graphics/margin/smoother/gr_box/item_taa"]
+layout_mode = 2
+mouse_filter = 1
+theme_override_font_sizes/font_size = 45
+text = "TAA"
+
+[node name="options" type="HBoxContainer" parent="UI/bg/visibility_changer/panel_graphics/margin/smoother/gr_box/item_taa"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 15
+alignment = 2
+
+[node name="taa_no" type="Button" parent="UI/bg/visibility_changer/panel_graphics/margin/smoother/gr_box/item_taa/options"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+mouse_filter = 1
+theme_override_font_sizes/font_size = 41
+theme_override_styles/normal = SubResource("StyleBoxFlat_mv1m3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_4pe7t")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_w5dho")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_mv1m3")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_2bsdf")
+toggle_mode = true
+text = "Нет"
+metadata/_edit_use_anchors_ = true
+
+[node name="taa_yes" type="Button" parent="UI/bg/visibility_changer/panel_graphics/margin/smoother/gr_box/item_taa/options"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+mouse_filter = 1
+theme_override_font_sizes/font_size = 41
+theme_override_styles/normal = SubResource("StyleBoxFlat_mv1m3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_4pe7t")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_w5dho")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_mv1m3")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_x5ytr")
+toggle_mode = true
+text = "Да"
+metadata/_edit_use_anchors_ = true
+
+[node name="item_sdfgi" type="HBoxContainer" parent="UI/bg/visibility_changer/panel_graphics/margin/smoother/gr_box"]
+layout_mode = 2
+
+[node name="title" type="Label" parent="UI/bg/visibility_changer/panel_graphics/margin/smoother/gr_box/item_sdfgi"]
+layout_mode = 2
+mouse_filter = 1
+theme_override_font_sizes/font_size = 45
+text = "SDFGI"
+
+[node name="options" type="HBoxContainer" parent="UI/bg/visibility_changer/panel_graphics/margin/smoother/gr_box/item_sdfgi"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 15
+alignment = 2
+
+[node name="sdfgi_no" type="Button" parent="UI/bg/visibility_changer/panel_graphics/margin/smoother/gr_box/item_sdfgi/options"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+mouse_filter = 1
 theme_override_font_sizes/font_size = 41
 theme_override_styles/normal = SubResource("StyleBoxFlat_mv1m3")
 theme_override_styles/hover = SubResource("StyleBoxFlat_4pe7t")
@@ -511,9 +692,10 @@ toggle_mode = true
 text = "Нет"
 metadata/_edit_use_anchors_ = true
 
-[node name="sdfgi_yes" type="Button" parent="UI/bg/visibility_changer/panel_graphics/margin/gr_box/item_sdfgi/options"]
+[node name="sdfgi_yes" type="Button" parent="UI/bg/visibility_changer/panel_graphics/margin/smoother/gr_box/item_sdfgi/options"]
 custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
+mouse_filter = 1
 theme_override_font_sizes/font_size = 41
 theme_override_styles/normal = SubResource("StyleBoxFlat_mv1m3")
 theme_override_styles/hover = SubResource("StyleBoxFlat_4pe7t")
@@ -524,23 +706,25 @@ toggle_mode = true
 text = "Да"
 metadata/_edit_use_anchors_ = true
 
-[node name="item_ssao" type="HBoxContainer" parent="UI/bg/visibility_changer/panel_graphics/margin/gr_box"]
+[node name="item_ssao" type="HBoxContainer" parent="UI/bg/visibility_changer/panel_graphics/margin/smoother/gr_box"]
 layout_mode = 2
 
-[node name="title" type="Label" parent="UI/bg/visibility_changer/panel_graphics/margin/gr_box/item_ssao"]
+[node name="title" type="Label" parent="UI/bg/visibility_changer/panel_graphics/margin/smoother/gr_box/item_ssao"]
 layout_mode = 2
+mouse_filter = 1
 theme_override_font_sizes/font_size = 45
 text = "SSAO"
 
-[node name="options" type="HBoxContainer" parent="UI/bg/visibility_changer/panel_graphics/margin/gr_box/item_ssao"]
+[node name="options" type="HBoxContainer" parent="UI/bg/visibility_changer/panel_graphics/margin/smoother/gr_box/item_ssao"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 15
 alignment = 2
 
-[node name="ssao_no" type="Button" parent="UI/bg/visibility_changer/panel_graphics/margin/gr_box/item_ssao/options"]
+[node name="ssao_no" type="Button" parent="UI/bg/visibility_changer/panel_graphics/margin/smoother/gr_box/item_ssao/options"]
 custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
+mouse_filter = 1
 theme_override_font_sizes/font_size = 41
 theme_override_styles/normal = SubResource("StyleBoxFlat_mv1m3")
 theme_override_styles/hover = SubResource("StyleBoxFlat_4pe7t")
@@ -551,9 +735,10 @@ toggle_mode = true
 text = "Нет"
 metadata/_edit_use_anchors_ = true
 
-[node name="ssao_yes" type="Button" parent="UI/bg/visibility_changer/panel_graphics/margin/gr_box/item_ssao/options"]
+[node name="ssao_yes" type="Button" parent="UI/bg/visibility_changer/panel_graphics/margin/smoother/gr_box/item_ssao/options"]
 custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
+mouse_filter = 1
 theme_override_font_sizes/font_size = 41
 theme_override_styles/normal = SubResource("StyleBoxFlat_mv1m3")
 theme_override_styles/hover = SubResource("StyleBoxFlat_4pe7t")
@@ -564,23 +749,25 @@ toggle_mode = true
 text = "Да"
 metadata/_edit_use_anchors_ = true
 
-[node name="item_shadows" type="HBoxContainer" parent="UI/bg/visibility_changer/panel_graphics/margin/gr_box"]
+[node name="item_shadows" type="HBoxContainer" parent="UI/bg/visibility_changer/panel_graphics/margin/smoother/gr_box"]
 layout_mode = 2
 
-[node name="title" type="Label" parent="UI/bg/visibility_changer/panel_graphics/margin/gr_box/item_shadows"]
+[node name="title" type="Label" parent="UI/bg/visibility_changer/panel_graphics/margin/smoother/gr_box/item_shadows"]
 layout_mode = 2
+mouse_filter = 1
 theme_override_font_sizes/font_size = 45
 text = "Тени"
 
-[node name="options" type="HBoxContainer" parent="UI/bg/visibility_changer/panel_graphics/margin/gr_box/item_shadows"]
+[node name="options" type="HBoxContainer" parent="UI/bg/visibility_changer/panel_graphics/margin/smoother/gr_box/item_shadows"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 15
 alignment = 2
 
-[node name="no_shadows" type="Button" parent="UI/bg/visibility_changer/panel_graphics/margin/gr_box/item_shadows/options"]
+[node name="no_shadows" type="Button" parent="UI/bg/visibility_changer/panel_graphics/margin/smoother/gr_box/item_shadows/options"]
 custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
+mouse_filter = 1
 theme_override_font_sizes/font_size = 41
 theme_override_styles/normal = SubResource("StyleBoxFlat_mv1m3")
 theme_override_styles/hover = SubResource("StyleBoxFlat_4pe7t")
@@ -591,9 +778,10 @@ toggle_mode = true
 text = "Нет"
 metadata/_edit_use_anchors_ = true
 
-[node name="bad_shadows" type="Button" parent="UI/bg/visibility_changer/panel_graphics/margin/gr_box/item_shadows/options"]
+[node name="bad_shadows" type="Button" parent="UI/bg/visibility_changer/panel_graphics/margin/smoother/gr_box/item_shadows/options"]
 custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
+mouse_filter = 1
 theme_override_font_sizes/font_size = 41
 theme_override_styles/normal = SubResource("StyleBoxFlat_mv1m3")
 theme_override_styles/hover = SubResource("StyleBoxFlat_4pe7t")
@@ -604,9 +792,10 @@ toggle_mode = true
 text = "Плохие"
 metadata/_edit_use_anchors_ = true
 
-[node name="mid_shadows" type="Button" parent="UI/bg/visibility_changer/panel_graphics/margin/gr_box/item_shadows/options"]
+[node name="mid_shadows" type="Button" parent="UI/bg/visibility_changer/panel_graphics/margin/smoother/gr_box/item_shadows/options"]
 custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
+mouse_filter = 1
 theme_override_font_sizes/font_size = 41
 theme_override_styles/normal = SubResource("StyleBoxFlat_mv1m3")
 theme_override_styles/hover = SubResource("StyleBoxFlat_4pe7t")
@@ -617,9 +806,10 @@ toggle_mode = true
 text = "Средние"
 metadata/_edit_use_anchors_ = true
 
-[node name="good_shadows" type="Button" parent="UI/bg/visibility_changer/panel_graphics/margin/gr_box/item_shadows/options"]
+[node name="good_shadows" type="Button" parent="UI/bg/visibility_changer/panel_graphics/margin/smoother/gr_box/item_shadows/options"]
 custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
+mouse_filter = 1
 theme_override_font_sizes/font_size = 41
 theme_override_styles/normal = SubResource("StyleBoxFlat_mv1m3")
 theme_override_styles/hover = SubResource("StyleBoxFlat_4pe7t")
@@ -630,39 +820,44 @@ toggle_mode = true
 text = "Ультра"
 metadata/_edit_use_anchors_ = true
 
-[node name="item_resolution" type="HBoxContainer" parent="UI/bg/visibility_changer/panel_graphics/margin/gr_box"]
+[node name="item_resolution" type="HBoxContainer" parent="UI/bg/visibility_changer/panel_graphics/margin/smoother/gr_box"]
+visible = false
 layout_mode = 2
 
-[node name="title" type="Label" parent="UI/bg/visibility_changer/panel_graphics/margin/gr_box/item_resolution"]
+[node name="title" type="Label" parent="UI/bg/visibility_changer/panel_graphics/margin/smoother/gr_box/item_resolution"]
 layout_mode = 2
+mouse_filter = 1
 theme_override_font_sizes/font_size = 45
 text = "Разрешение"
 
-[node name="options" type="HBoxContainer" parent="UI/bg/visibility_changer/panel_graphics/margin/gr_box/item_resolution"]
+[node name="options" type="HBoxContainer" parent="UI/bg/visibility_changer/panel_graphics/margin/smoother/gr_box/item_resolution"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 15
 alignment = 2
 
-[node name="margin" type="Control" parent="UI/bg/visibility_changer/panel_graphics/margin/gr_box/item_resolution/options"]
+[node name="margin" type="Control" parent="UI/bg/visibility_changer/panel_graphics/margin/smoother/gr_box/item_resolution/options"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
+mouse_filter = 1
 
-[node name="reso_slider" type="HSlider" parent="UI/bg/visibility_changer/panel_graphics/margin/gr_box/item_resolution/options"]
+[node name="reso_slider" type="HSlider" parent="UI/bg/visibility_changer/panel_graphics/margin/smoother/gr_box/item_resolution/options"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
+mouse_filter = 1
 theme_override_styles/grabber_area = SubResource("StyleBoxEmpty_70o84")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxEmpty_d34vn")
-min_value = 0.1
+min_value = 0.25
 max_value = 2.0
-step = 0.1
-value = 0.1
+step = 0.25
+value = 1.0
 
-[node name="value" type="Label" parent="UI/bg/visibility_changer/panel_graphics/margin/gr_box/item_resolution/options"]
+[node name="value" type="Label" parent="UI/bg/visibility_changer/panel_graphics/margin/smoother/gr_box/item_resolution/options"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_vertical = 1
+mouse_filter = 1
 theme_override_font_sizes/font_size = 43
 text = "x1"
 horizontal_alignment = 1
@@ -691,21 +886,27 @@ libraries = {
 [connection signal="pressed" from="UI/bg/visibility_changer/parts/btn_audio" to="." method="_on_btn_audio_pressed"]
 [connection signal="pressed" from="UI/bg/visibility_changer/parts/btn_graphics" to="." method="_on_btn_graphics_pressed"]
 [connection signal="pressed" from="UI/bg/visibility_changer/parts/btn_additional" to="." method="_on_btn_additional_pressed"]
-[connection signal="value_changed" from="UI/bg/visibility_changer/panel_audio/margin/gr_box/item_sounds/options/db_sounds" to="." method="_on_db_sounds_value_changed"]
-[connection signal="value_changed" from="UI/bg/visibility_changer/panel_audio/margin/gr_box/item_music/options/db_music" to="." method="_on_db_music_value_changed"]
-[connection signal="pressed" from="UI/bg/visibility_changer/panel_graphics/margin/gr_box/item_aliasing/options/alias_no" to="." method="_on_alias_no_pressed"]
-[connection signal="pressed" from="UI/bg/visibility_changer/panel_graphics/margin/gr_box/item_aliasing/options/alias_x2" to="." method="_on_alias_x_2_pressed"]
-[connection signal="pressed" from="UI/bg/visibility_changer/panel_graphics/margin/gr_box/item_aliasing/options/alias_x4" to="." method="_on_alias_x_4_pressed"]
-[connection signal="pressed" from="UI/bg/visibility_changer/panel_graphics/margin/gr_box/item_aliasing/options/alias_x8" to="." method="_on_alias_x_8_pressed"]
-[connection signal="pressed" from="UI/bg/visibility_changer/panel_graphics/margin/gr_box/item_glow/options/glow_no" to="." method="_on_glow_no_pressed"]
-[connection signal="pressed" from="UI/bg/visibility_changer/panel_graphics/margin/gr_box/item_glow/options/glow_yes" to="." method="_on_glow_yes_pressed"]
-[connection signal="pressed" from="UI/bg/visibility_changer/panel_graphics/margin/gr_box/item_sdfgi/options/sdfgi_no" to="." method="_on_sdfgi_no_pressed"]
-[connection signal="pressed" from="UI/bg/visibility_changer/panel_graphics/margin/gr_box/item_sdfgi/options/sdfgi_yes" to="." method="_on_sdfgi_yes_pressed"]
-[connection signal="pressed" from="UI/bg/visibility_changer/panel_graphics/margin/gr_box/item_ssao/options/ssao_no" to="." method="_on_ssao_no_pressed"]
-[connection signal="pressed" from="UI/bg/visibility_changer/panel_graphics/margin/gr_box/item_ssao/options/ssao_yes" to="." method="_on_ssao_yes_pressed"]
-[connection signal="pressed" from="UI/bg/visibility_changer/panel_graphics/margin/gr_box/item_shadows/options/no_shadows" to="." method="_on_no_shadows_pressed"]
-[connection signal="pressed" from="UI/bg/visibility_changer/panel_graphics/margin/gr_box/item_shadows/options/bad_shadows" to="." method="_on_bad_shadows_pressed"]
-[connection signal="pressed" from="UI/bg/visibility_changer/panel_graphics/margin/gr_box/item_shadows/options/mid_shadows" to="." method="_on_mid_shadows_pressed"]
-[connection signal="pressed" from="UI/bg/visibility_changer/panel_graphics/margin/gr_box/item_shadows/options/good_shadows" to="." method="_on_good_shadows_pressed"]
-[connection signal="value_changed" from="UI/bg/visibility_changer/panel_graphics/margin/gr_box/item_resolution/options/reso_slider" to="." method="_on_reso_slider_value_changed"]
+[connection signal="value_changed" from="UI/bg/visibility_changer/panel_audio/margin/smoother/au_box/item_sounds/options/db_sounds" to="." method="_on_db_sounds_value_changed"]
+[connection signal="value_changed" from="UI/bg/visibility_changer/panel_audio/margin/smoother/au_box/item_music/options/db_music" to="." method="_on_db_music_value_changed"]
+[connection signal="pressed" from="UI/bg/visibility_changer/panel_graphics/margin/smoother/gr_box/item_aliasing/options/alias_no" to="." method="_on_alias_no_pressed"]
+[connection signal="pressed" from="UI/bg/visibility_changer/panel_graphics/margin/smoother/gr_box/item_aliasing/options/alias_x2" to="." method="_on_alias_x_2_pressed"]
+[connection signal="pressed" from="UI/bg/visibility_changer/panel_graphics/margin/smoother/gr_box/item_aliasing/options/alias_x4" to="." method="_on_alias_x_4_pressed"]
+[connection signal="pressed" from="UI/bg/visibility_changer/panel_graphics/margin/smoother/gr_box/item_aliasing/options/alias_x8" to="." method="_on_alias_x_8_pressed"]
+[connection signal="pressed" from="UI/bg/visibility_changer/panel_graphics/margin/smoother/gr_box/item_glow/options/glow_no" to="." method="_on_glow_no_pressed"]
+[connection signal="pressed" from="UI/bg/visibility_changer/panel_graphics/margin/smoother/gr_box/item_glow/options/glow_yes" to="." method="_on_glow_yes_pressed"]
+[connection signal="pressed" from="UI/bg/visibility_changer/panel_graphics/margin/smoother/gr_box/item_vsync/options/vsync_no" to="." method="_on_vsync_no_pressed"]
+[connection signal="pressed" from="UI/bg/visibility_changer/panel_graphics/margin/smoother/gr_box/item_vsync/options/vsync_yes" to="." method="_on_vsync_yes_pressed"]
+[connection signal="pressed" from="UI/bg/visibility_changer/panel_graphics/margin/smoother/gr_box/item_fxaa/options/fxaa_no" to="." method="_on_fxaa_no_pressed"]
+[connection signal="pressed" from="UI/bg/visibility_changer/panel_graphics/margin/smoother/gr_box/item_fxaa/options/fxaa_yes" to="." method="_on_fxaa_yes_pressed"]
+[connection signal="pressed" from="UI/bg/visibility_changer/panel_graphics/margin/smoother/gr_box/item_taa/options/taa_no" to="." method="_on_taa_no_pressed"]
+[connection signal="pressed" from="UI/bg/visibility_changer/panel_graphics/margin/smoother/gr_box/item_taa/options/taa_yes" to="." method="_on_taa_yes_pressed"]
+[connection signal="pressed" from="UI/bg/visibility_changer/panel_graphics/margin/smoother/gr_box/item_sdfgi/options/sdfgi_no" to="." method="_on_sdfgi_no_pressed"]
+[connection signal="pressed" from="UI/bg/visibility_changer/panel_graphics/margin/smoother/gr_box/item_sdfgi/options/sdfgi_yes" to="." method="_on_sdfgi_yes_pressed"]
+[connection signal="pressed" from="UI/bg/visibility_changer/panel_graphics/margin/smoother/gr_box/item_ssao/options/ssao_no" to="." method="_on_ssao_no_pressed"]
+[connection signal="pressed" from="UI/bg/visibility_changer/panel_graphics/margin/smoother/gr_box/item_ssao/options/ssao_yes" to="." method="_on_ssao_yes_pressed"]
+[connection signal="pressed" from="UI/bg/visibility_changer/panel_graphics/margin/smoother/gr_box/item_shadows/options/no_shadows" to="." method="_on_no_shadows_pressed"]
+[connection signal="pressed" from="UI/bg/visibility_changer/panel_graphics/margin/smoother/gr_box/item_shadows/options/bad_shadows" to="." method="_on_bad_shadows_pressed"]
+[connection signal="pressed" from="UI/bg/visibility_changer/panel_graphics/margin/smoother/gr_box/item_shadows/options/mid_shadows" to="." method="_on_mid_shadows_pressed"]
+[connection signal="pressed" from="UI/bg/visibility_changer/panel_graphics/margin/smoother/gr_box/item_shadows/options/good_shadows" to="." method="_on_good_shadows_pressed"]
+[connection signal="value_changed" from="UI/bg/visibility_changer/panel_graphics/margin/smoother/gr_box/item_resolution/options/reso_slider" to="." method="_on_reso_slider_value_changed"]
 [connection signal="animation_finished" from="anim" to="." method="_on_anim_animation_finished"]
