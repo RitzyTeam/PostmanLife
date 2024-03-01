@@ -26,8 +26,8 @@ func set_tod():
 	tod = SIN_WORLD_DATA.WORLD_DATA['tod']
 	time_hours = int(tod/60)
 	time_minutes = int(tod%60)
-	anim_tod.play("tod")
-	anim_tod.seek(tod)
+	#anim_tod.play("tod")
+	#anim_tod.seek(tod)
 
 # ХОД ВРЕМЕНИ
 func _on_timer_daycycle_timeout():
