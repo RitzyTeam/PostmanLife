@@ -29,7 +29,6 @@ func _on_btn_return_pressed():
 func _on_btn_exit_pressed():
 	get_tree().paused = false
 	SIN_WORLD_DATA.data_save()
-	SIN_WORLD_SIGNALS.emit_signal('SAVE_WORLD')
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	anim_esc_menu.play("exit")
 	await anim_esc_menu.animation_finished

@@ -14,13 +14,10 @@ var tod: int = 0
 var isTimeOfWork: bool = false
 
 func _ready():
-	SIN_WORLD_SIGNALS.SAVE_WORLD.connect(_save_world)
 	set_tod()
 
 #region WORLD
-func _save_world():
-	var package = ClassScenePacker.create_package(self)
-	ResourceSaver.save(package, SIN_WORLD_DATA.world_path)
+
 #endregion
 
 #region TIME

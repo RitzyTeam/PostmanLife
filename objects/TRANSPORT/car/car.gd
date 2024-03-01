@@ -26,7 +26,7 @@ var res_energy: float = 100.0
 var steer_points: float = 0.0
 var max_steer_points: float = 720.0
 # WHEEL SETTINGS
-var wheel_stiffness: float = 50.0
+var wheel_stiffness: float = 200
 var wheel_max_force: float = 12000.0
 var wheel_travel_distance: float = 0.1
 # ENGINE SETTINGS

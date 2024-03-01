@@ -290,16 +290,16 @@ func _process(delta):
 func add_item_to_inv(item_data: Dictionary) -> bool:
 	var hasFreeSlot: bool = false
 	var target_slot: int = -1
-	if SIN_WORLD_DATA.WORLD_DATA['player_inv'].slot_4.id == 'void':
+	if SIN_WORLD_DATA.WORLD_DATA['player_inv']['slot_4']['id'] == 'void':
 		hasFreeSlot = true
 		target_slot = 4
-	if SIN_WORLD_DATA.WORLD_DATA['player_inv'].slot_3.id == 'void':
+	if SIN_WORLD_DATA.WORLD_DATA['player_inv']['slot_3']['id'] == 'void':
 		hasFreeSlot = true
 		target_slot = 3
-	if SIN_WORLD_DATA.WORLD_DATA['player_inv'].slot_2.id == 'void':
+	if SIN_WORLD_DATA.WORLD_DATA['player_inv']['slot_2']['id'] == 'void':
 		hasFreeSlot = true
 		target_slot = 2
-	if SIN_WORLD_DATA.WORLD_DATA['player_inv'].slot_1.id == 'void':
+	if SIN_WORLD_DATA.WORLD_DATA['player_inv']['slot_1']['id'] == 'void':
 		hasFreeSlot = true
 		target_slot = 1
 	if hasFreeSlot:

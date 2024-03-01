@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://c66dar30xo83l"]
+[gd_scene load_steps=22 format=3 uid="uid://c66dar30xo83l"]
 
 [ext_resource type="Script" path="res://scenes/world/World.gd" id="1_xxt06"]
 [ext_resource type="Script" path="res://addons/zylann.hterrain/hterrain.gd" id="2_j3jfb"]
@@ -9,10 +9,12 @@
 [ext_resource type="PackedScene" uid="uid://cjsj70ofmvnx2" path="res://objects/PROPS/environment/roads/road.tscn" id="6_j5vhd"]
 [ext_resource type="PackedScene" uid="uid://cpat5kv2ue7yo" path="res://objects/TRANSPORT/car/car.tscn" id="7_b7dlb"]
 [ext_resource type="PackedScene" uid="uid://dkfbfrrjn8o18" path="res://objects/builds/fourStoryBuldsVariations/four_story_building_main.tscn" id="7_t74fg"]
-[ext_resource type="PackedScene" uid="uid://cm8vci4pysgq1" path="res://objects/builds/house_2.tscn" id="8_7t2yj"]
+[ext_resource type="PackedScene" path="res://objects/builds/house_2.tscn" id="8_7t2yj"]
 [ext_resource type="PackedScene" uid="uid://bhuacmlsd7e7b" path="res://objects/builds/barn_1.tscn" id="9_mt0c7"]
-[ext_resource type="PackedScene" uid="uid://csm60gr7f2vti" path="res://objects/builds/house_1.tscn" id="10_qyej0"]
+[ext_resource type="PackedScene" path="res://objects/builds/house_1.tscn" id="10_qyej0"]
 [ext_resource type="PackedScene" uid="uid://dp80ffcw30b84" path="res://objects/builds/rural_house/rural_house.tscn" id="11_cxx1a"]
+[ext_resource type="PackedScene" uid="uid://biogoa42trr1k" path="res://objects/PROPS/ball/ball.tscn" id="15_tgvhg"]
+[ext_resource type="PackedScene" uid="uid://d1dfxl3goj7rx" path="res://objects/PROPS/fuel_tank/fuel_tank.tscn" id="16_4hkpl"]
 
 [sub_resource type="Environment" id="Environment_kqe7o"]
 background_mode = 2
@@ -283,9 +285,6 @@ transform = Transform3D(0.258819, 0, -0.965926, 0, 1, 0, 0.965926, 0, 0.258819, 
 [node name="ruralHouse" parent="Levels/streets/Садовая Улица/29" instance=ExtResource("11_cxx1a")]
 transform = Transform3D(0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, 1556, 0, 1245)
 
-[node name="car" parent="." instance=ExtResource("7_b7dlb")]
-transform = Transform3D(1, 0, 0, 0, 0.999918, -0.0128104, 0, 0.0128104, 0.999918, 1480.28, 0, 1299.67)
-
 [node name="Player" parent="." instance=ExtResource("5_6o1kf")]
 transform = Transform3D(1, 0, 0, 0, 0.999918, -0.0128104, 0, 0.0128104, 0.999918, 1525.28, 0, 1289.67)
 collision_layer = 3
@@ -293,6 +292,12 @@ collision_mask = 3
 wall_min_slide_angle = 1.5708
 
 [node name="car" parent="." instance=ExtResource("7_b7dlb")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1486.56, -4.76837e-07, 1294.67)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1486.56, 1.62719, 1294.67)
+
+[node name="ball" parent="." instance=ExtResource("15_tgvhg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1483.67, 0.970138, 1289.13)
+
+[node name="fuel_tank" parent="." instance=ExtResource("16_4hkpl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1483.67, 1.23588, 1289.71)
 
 [connection signal="timeout" from="SERVERS/timer_daycycle" to="." method="_on_timer_daycycle_timeout"]

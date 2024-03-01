@@ -1217,7 +1217,7 @@ libraries = {
 }
 
 [node name="body" type="MeshInstance3D" parent="."]
-transform = Transform3D(1.27711, 0, 0, 0, 0.62254, 0, 0, 0, 2.61359, 0, 1.1697, 0)
+transform = Transform3D(1.27711, 0, 0, 0, 0.62254, 0, 0, 0, 2.61359, 0, 1.02986, 0)
 mesh = SubResource("ArrayMesh_4637i")
 skeleton = NodePath("")
 
@@ -1252,31 +1252,31 @@ mesh = SubResource("ArrayMesh_lxs0f")
 skeleton = NodePath("")
 
 [node name="fara_1" type="SpotLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0.873701, 1.21774, -2.99165)
+transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0.873701, 1.0779, -2.99165)
 light_energy = 0.0
 spot_range = 50.0
 spot_angle = 24.0
 
 [node name="fara_2" type="SpotLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, -0.874, 1.218, -2.991)
+transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, -0.874, 1.07816, -2.991)
 light_energy = 0.0
 spot_range = 50.0
 spot_angle = 24.0
 
 [node name="CAMERA" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.262, 2.451, -1.047)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.262, 2.31116, -1.047)
 far = 20000.0
 
 [node name="Cube" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.0753665, 0, 0, 0, 0.0753665, 0, 0, 0, 0.0753665, -1.27893, 1.68264, 0.00271427)
+transform = Transform3D(0.0753665, 0, 0, 0, 0.0753665, 0, 0, 0, 0.0753665, -1.27893, 1.5428, 0.00271427)
 mesh = SubResource("ArrayMesh_rchv2")
 skeleton = NodePath("")
 
 [node name="pos_of_exit" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.16461, 1.3057, -1.35315)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.16461, 1.16586, -1.35315)
 
 [node name="rul_hinge" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.766045, -0.642788, 0, 0.642788, 0.766045, -0.262, 2.039, -2.118)
+transform = Transform3D(1, 0, 0, 0, 0.766045, -0.642788, 0, 0.642788, 0.766045, -0.262, 1.89916, -2.118)
 
 [node name="rul_place" type="MeshInstance3D" parent="rul_hinge"]
 transform = Transform3D(0.163075, 0, 0, 0, 0.163075, 0, 0, 0, 0.163075, 0, -0.212959, -0.0611186)
@@ -1289,7 +1289,7 @@ mesh = SubResource("ArrayMesh_ncvsb")
 skeleton = NodePath("")
 
 [node name="fuel_hole" type="Marker3D" parent="."]
-transform = Transform3D(-4.37114e-08, 1, 0, 1, 4.37114e-08, 8.74228e-08, 8.74228e-08, 3.82137e-15, -1, -1.31942, 1.68089, 0)
+transform = Transform3D(-4.37114e-08, 1, 0, 1, 4.37114e-08, 8.74228e-08, 8.74228e-08, 3.82137e-15, -1, -1.31942, 1.54105, 0)
 
 [node name="area" type="Area3D" parent="fuel_hole"]
 
@@ -1297,7 +1297,7 @@ transform = Transform3D(-4.37114e-08, 1, 0, 1, 4.37114e-08, 8.74228e-08, 8.74228
 shape = SubResource("SphereShape3D_5b3q8")
 
 [node name="stat_energy" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.0790985, 0, 0, 0, 0.0523288, -0.0586071, 0, 0.0523288, 0.0586071, -0.941, 1.832, -2.271)
+transform = Transform3D(0.0790985, 0, 0, 0, 0.0523288, -0.0586071, 0, 0.0523288, 0.0586071, -0.941, 1.69216, -2.271)
 mesh = SubResource("ArrayMesh_ij6tj")
 skeleton = NodePath("")
 
@@ -1313,7 +1313,7 @@ transform = Transform3D(0.195, 0, 0, 0, -8.52372e-09, 0.195, 0, -0.195, -8.52372
 texture = ExtResource("3_ee150")
 
 [node name="stat_fuel" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.0790985, 0, 0, 0, 0.0523288, -0.0586071, 0, 0.0523288, 0.0586071, -0.769, 1.832, -2.271)
+transform = Transform3D(0.0790985, 0, 0, 0, 0.0523288, -0.0586071, 0, 0.0523288, 0.0586071, -0.769, 1.69216, -2.271)
 mesh = SubResource("ArrayMesh_ij6tj")
 skeleton = NodePath("")
 
@@ -1329,7 +1329,7 @@ transform = Transform3D(0.195, 0, 0, 0, -8.52372e-09, 0.195, 0, -0.195, -8.52372
 texture = ExtResource("3_nlv6y")
 
 [node name="stat_flashlight" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.0790985, 0, 0, 0, 0.0523288, -0.0586071, 0, 0.0523288, 0.0586071, 0.256, 1.98, -2.394)
+transform = Transform3D(0.0790985, 0, 0, 0, 0.0523288, -0.0586071, 0, 0.0523288, 0.0586071, 0.256, 1.84016, -2.394)
 mesh = SubResource("ArrayMesh_ij6tj")
 skeleton = NodePath("")
 
@@ -1338,7 +1338,7 @@ transform = Transform3D(0.195, 0, 0, 0, 0, 0.195, 0, -0.195, -1.49012e-08, 0, 1.
 texture = ExtResource("5_lgrf1")
 
 [node name="speedometer" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.13908, 0, 0, 0, 0.0523288, -0.0586071, 0, 0.0523288, 0.0586071, -0.854487, 1.961, -2.401)
+transform = Transform3D(0.13908, 0, 0, 0, 0.0523288, -0.0586071, 0, 0.0523288, 0.0586071, -0.854487, 1.82116, -2.401)
 mesh = SubResource("ArrayMesh_j7e0d")
 skeleton = NodePath("")
 
@@ -1351,7 +1351,7 @@ outline_size = 0
 horizontal_alignment = 0
 
 [node name="automat" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.0682721, 0, 0, 0, 0.0482757, -0.102491, 0, 0.0482757, 0.102491, 0.257, 1.767, -2.168)
+transform = Transform3D(0.0682721, 0, 0, 0, 0.0482757, -0.102491, 0, 0.0482757, 0.102491, 0.257, 1.62716, -2.168)
 mesh = SubResource("ArrayMesh_uqwc0")
 skeleton = NodePath("")
 
@@ -1361,14 +1361,13 @@ mesh = SubResource("ArrayMesh_2c834")
 skeleton = NodePath("")
 
 [node name="magnitola" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.13908, 0, 0, 0, 0.0280965, -0.0586071, 0, 0.0280965, 0.0586071, -0.714, 1.727, -2.122)
+transform = Transform3D(0.13908, 0, 0, 0, 0.0280965, -0.0586071, 0, 0.0280965, 0.0586071, -0.714, 1.58716, -2.122)
 mesh = SubResource("ArrayMesh_qxpm6")
 skeleton = NodePath("")
 
 [node name="wheel_1" type="VehicleWheel3D" parent="."]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 1, 0.632, -1.386)
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 1, 0.492161, -1.386)
 use_as_steering = true
-suspension_stiffness = 100.04
 
 [node name="wheel" type="MeshInstance3D" parent="wheel_1"]
 transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
@@ -1376,7 +1375,7 @@ mesh = SubResource("ArrayMesh_gubyx")
 skeleton = NodePath("")
 
 [node name="wheel_2" type="VehicleWheel3D" parent="."]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 1, 0.632, 1.965)
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 1, 0.492161, 1.965)
 use_as_traction = true
 suspension_stiffness = 100.0
 
@@ -1386,7 +1385,7 @@ mesh = SubResource("ArrayMesh_gubyx")
 skeleton = NodePath("")
 
 [node name="wheel_3" type="VehicleWheel3D" parent="."]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -1, 0.632, 1.965)
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -1, 0.492161, 1.965)
 use_as_traction = true
 suspension_stiffness = 100.0
 
@@ -1396,7 +1395,7 @@ mesh = SubResource("ArrayMesh_gubyx")
 skeleton = NodePath("")
 
 [node name="wheel_4" type="VehicleWheel3D" parent="."]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -1, 0.632, -1.386)
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -1, 0.492161, -1.386)
 use_as_steering = true
 suspension_stiffness = 100.0
 
@@ -1406,47 +1405,47 @@ mesh = SubResource("ArrayMesh_gubyx")
 skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00104499, 1.26472, -1.13736)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00104499, 1.12488, -1.13736)
 shape = SubResource("BoxShape3D_h6546")
 
 [node name="CollisionShape3D7" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0046618, 3.20605, -0.814117)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0046618, 3.06621, -0.814117)
 shape = SubResource("BoxShape3D_plfsy")
 
 [node name="CollisionShape3D8" type="CollisionShape3D" parent="."]
-transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -1.24794, 2.535, -1.10782)
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -1.24794, 2.39516, -1.10782)
 shape = SubResource("BoxShape3D_6i2ko")
 
 [node name="CollisionShape3D9" type="CollisionShape3D" parent="."]
-transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 1.24904, 2.535, -1.108)
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 1.24904, 2.39516, -1.108)
 shape = SubResource("BoxShape3D_6i2ko")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00427985, 0.832598, 1.6991)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00427985, 0.692759, 1.6991)
 shape = SubResource("BoxShape3D_67qve")
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00210571, 1.30192, 0.422935)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00210571, 1.16208, 0.422935)
 shape = SubResource("BoxShape3D_nlnp3")
 
 [node name="CollisionShape3D10" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00237942, 2.20057, 0.221329)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00237942, 2.06073, 0.221329)
 shape = SubResource("BoxShape3D_3jur2")
 
 [node name="CollisionShape3D4" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00821662, 1.29351, 2.9764)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00821662, 1.15367, 2.9764)
 shape = SubResource("BoxShape3D_nlnp3")
 
 [node name="CollisionShape3D5" type="CollisionShape3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.1925, 1.2981, 1.69919)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.1925, 1.15826, 1.69919)
 shape = SubResource("BoxShape3D_u47cx")
 
 [node name="CollisionShape3D6" type="CollisionShape3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.19678, 1.29962, 1.69919)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.19678, 1.15978, 1.69919)
 shape = SubResource("BoxShape3D_aie8g")
 
 [node name="SpringArm3D" type="ConeTwistJoint3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.99974, -1.79582)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.8599, -1.79582)
 node_a = NodePath("..")
 node_b = NodePath("visulka")
 swing_span = 0.0
@@ -1469,7 +1468,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00190508, -0.00180817, -0.
 shape = SubResource("BoxShape3D_oao0j")
 
 [node name="beep" type="AudioStreamPlayer3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.06199, -2.9032)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.922151, -2.9032)
 stream = ExtResource("5_8ws1p")
 max_distance = 50.0
 emission_angle_filter_attenuation_db = 0.0
