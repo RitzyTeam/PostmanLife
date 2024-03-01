@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://c66dar30xo83l"]
+[gd_scene load_steps=22 format=3 uid="uid://c66dar30xo83l"]
 
 [ext_resource type="Script" path="res://scenes/world/World.gd" id="1_xxt06"]
 [ext_resource type="Script" path="res://addons/zylann.hterrain/hterrain.gd" id="2_j3jfb"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://bygta15dq1jdm" path="res://assets/models/builds/house3.blend" id="13_xdksr"]
 [ext_resource type="PackedScene" uid="uid://dmnnbwo5hahij" path="res://assets/models/builds/toilet.blend" id="14_utg2b"]
 [ext_resource type="PackedScene" uid="uid://c6fuu578kag5f" path="res://assets/models/urban_elements/waterTower.blend" id="15_fbsiv"]
+[ext_resource type="PackedScene" uid="uid://c1nwbxcn1umny" path="res://assets/models/urban_elements/pit.blend" id="16_lccfr"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_td0pw"]
 sky_curve = 2.48463
@@ -142,5 +143,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1583, 0, 1269)
 
 [node name="waterTower" parent="." instance=ExtResource("15_fbsiv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1591, 0, 1269)
+
+[node name="pit" parent="." instance=ExtResource("16_lccfr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1525, 0, 1286)
 
 [connection signal="timeout" from="SERVERS/timer_daycycle" to="." method="_on_timer_daycycle_timeout"]
