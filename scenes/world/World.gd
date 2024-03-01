@@ -4,7 +4,6 @@ extends Node
 @export var car: PackedScene
 
 @onready var sun: DirectionalLight3D = $WorldEnv/Sun
-@onready var anim_tod = $WorldEnv/anim_tod
 
 # DAY TIME
 var time_hours: int = 0

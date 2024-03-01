@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://c66dar30xo83l"]
+[gd_scene load_steps=19 format=3 uid="uid://c66dar30xo83l"]
 
 [ext_resource type="Script" path="res://scenes/world/World.gd" id="1_xxt06"]
 [ext_resource type="Script" path="res://addons/zylann.hterrain/hterrain.gd" id="2_j3jfb"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://bhuacmlsd7e7b" path="res://objects/builds/barn_1.tscn" id="9_mt0c7"]
 [ext_resource type="PackedScene" uid="uid://csm60gr7f2vti" path="res://objects/builds/house_1.tscn" id="10_qyej0"]
 [ext_resource type="PackedScene" uid="uid://dp80ffcw30b84" path="res://objects/builds/rural_house/rural_house.tscn" id="11_cxx1a"]
+[ext_resource type="PackedScene" uid="uid://bygta15dq1jdm" path="res://assets/models/builds/house3.blend" id="13_xdksr"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_td0pw"]
 sky_curve = 2.48463
@@ -130,5 +131,8 @@ transform = Transform3D(1, 0, 0, 0, 0.999918, -0.0128104, 0, 0.0128104, 0.999918
 collision_layer = 3
 collision_mask = 3
 wall_min_slide_angle = 1.5708
+
+[node name="house3" parent="." instance=ExtResource("13_xdksr")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1568, 0, 1285)
 
 [connection signal="timeout" from="SERVERS/timer_daycycle" to="." method="_on_timer_daycycle_timeout"]
