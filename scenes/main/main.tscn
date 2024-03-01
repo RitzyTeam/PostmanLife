@@ -113,8 +113,6 @@ anchor_right = 1.0
 anchor_bottom = 0.127778
 offset_bottom = -1.52588e-05
 grow_horizontal = 2
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 20
 theme_override_font_sizes/font_size = 91
 text = "Жизнь почтальона"
 horizontal_alignment = 1
@@ -138,8 +136,6 @@ metadata/_edit_use_anchors_ = true
 [node name="btn_continue" type="Button" parent="UI/bg/visibility_toggler/button_list"]
 visible = false
 layout_mode = 2
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 20
 theme_override_font_sizes/font_size = 60
 theme_override_styles/normal = SubResource("StyleBoxFlat_ktw4k")
 theme_override_styles/hover = SubResource("StyleBoxFlat_ycoon")
@@ -151,7 +147,6 @@ text = "Продолжить"
 [node name="btn_new_game" type="Button" parent="UI/bg/visibility_toggler/button_list"]
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 20
 theme_override_font_sizes/font_size = 60
 theme_override_styles/normal = SubResource("StyleBoxFlat_ktw4k")
 theme_override_styles/hover = SubResource("StyleBoxFlat_ycoon")
@@ -163,7 +158,6 @@ text = "Новая игра"
 [node name="btn_settings" type="Button" parent="UI/bg/visibility_toggler/button_list"]
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 20
 theme_override_font_sizes/font_size = 60
 theme_override_styles/normal = SubResource("StyleBoxFlat_ktw4k")
 theme_override_styles/hover = SubResource("StyleBoxFlat_8welf")
@@ -175,7 +169,6 @@ text = "Настройки"
 [node name="btn_exit" type="Button" parent="UI/bg/visibility_toggler/button_list"]
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 20
 theme_override_font_sizes/font_size = 60
 theme_override_styles/normal = SubResource("StyleBoxFlat_ktw4k")
 theme_override_styles/hover = SubResource("StyleBoxFlat_ycoon")

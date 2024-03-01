@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cosi6kxvm7qxp"]
+[gd_scene load_steps=27 format=3 uid="uid://cosi6kxvm7qxp"]
 
 [ext_resource type="Script" path="res://scenes/settings/settings.gd" id="1_brffx"]
 
@@ -15,6 +15,59 @@ corner_radius_top_left = 90
 corner_radius_top_right = 90
 corner_radius_bottom_right = 90
 corner_radius_bottom_left = 90
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mv1m3"]
+bg_color = Color(0.435294, 0.482353, 1, 1)
+corner_radius_top_left = 90
+corner_radius_top_right = 90
+corner_radius_bottom_right = 90
+corner_radius_bottom_left = 90
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4pe7t"]
+bg_color = Color(0.435294, 0.482353, 1, 1)
+corner_radius_top_left = 90
+corner_radius_top_right = 90
+corner_radius_bottom_right = 90
+corner_radius_bottom_left = 90
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w5dho"]
+bg_color = Color(0.611765, 0.666667, 1, 1)
+corner_radius_top_left = 90
+corner_radius_top_right = 90
+corner_radius_bottom_right = 90
+corner_radius_bottom_left = 90
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ee5yo"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ldymk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j5byt"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gr3lo"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2bsdf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x5ytr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_in8df"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5pnmt"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sxsrd"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2k7bi"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_85bnm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3r6te"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dhlvg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_08lvs"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_70o84"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d34vn"]
 
 [sub_resource type="Animation" id="Animation_42k0r"]
 length = 0.001
@@ -107,7 +160,6 @@ anchor_bottom = 0.127778
 offset_bottom = -1.52588e-05
 grow_horizontal = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 20
 theme_override_font_sizes/font_size = 91
 text = "Настройки"
 horizontal_alignment = 1
@@ -115,12 +167,13 @@ metadata/_edit_use_anchors_ = true
 
 [node name="btn_exit" type="Button" parent="UI/bg/visibility_changer"]
 layout_mode = 2
-anchor_left = 0.369792
-anchor_top = 0.908333
-anchor_right = 0.630208
-anchor_bottom = 0.985185
+anchor_left = 0.113542
+anchor_top = 0.897222
+anchor_right = 0.373958
+anchor_bottom = 0.974074
+grow_horizontal = 2
+grow_vertical = 0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 20
 theme_override_font_sizes/font_size = 60
 theme_override_styles/normal = SubResource("StyleBoxFlat_vkhqg")
 theme_override_styles/hover = SubResource("StyleBoxFlat_qvssi")
@@ -128,6 +181,24 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_vkhqg")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_vkhqg")
 theme_override_styles/focus = SubResource("StyleBoxFlat_vkhqg")
 text = "Назад"
+metadata/_edit_use_anchors_ = true
+
+[node name="btn_save" type="Button" parent="UI/bg/visibility_changer"]
+layout_mode = 2
+anchor_left = 0.636458
+anchor_top = 0.897222
+anchor_right = 0.896874
+anchor_bottom = 0.974074
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxFlat_vkhqg")
+theme_override_styles/hover = SubResource("StyleBoxFlat_qvssi")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_vkhqg")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_vkhqg")
+theme_override_styles/focus = SubResource("StyleBoxFlat_vkhqg")
+text = "Сохранить"
 metadata/_edit_use_anchors_ = true
 
 [node name="parts" type="HBoxContainer" parent="UI/bg/visibility_changer"]
@@ -145,7 +216,6 @@ metadata/_edit_use_anchors_ = true
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 10
 theme_override_font_sizes/font_size = 41
 theme_override_styles/normal = SubResource("StyleBoxFlat_vkhqg")
 theme_override_styles/hover = SubResource("StyleBoxFlat_qvssi")
@@ -159,7 +229,6 @@ metadata/_edit_use_anchors_ = true
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 10
 theme_override_font_sizes/font_size = 41
 theme_override_styles/normal = SubResource("StyleBoxFlat_vkhqg")
 theme_override_styles/hover = SubResource("StyleBoxFlat_qvssi")
@@ -173,7 +242,6 @@ metadata/_edit_use_anchors_ = true
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 10
 theme_override_font_sizes/font_size = 41
 theme_override_styles/normal = SubResource("StyleBoxFlat_vkhqg")
 theme_override_styles/hover = SubResource("StyleBoxFlat_qvssi")
@@ -184,6 +252,7 @@ text = "Дополнительно"
 metadata/_edit_use_anchors_ = true
 
 [node name="panel_audio" type="Panel" parent="UI/bg/visibility_changer"]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.109375
@@ -207,7 +276,314 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_vkhqg")
 metadata/_edit_use_anchors_ = true
 
+[node name="margin" type="MarginContainer" parent="UI/bg/visibility_changer/panel_graphics"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="gr_box" type="VBoxContainer" parent="UI/bg/visibility_changer/panel_graphics/margin"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="item_aliasing" type="HBoxContainer" parent="UI/bg/visibility_changer/panel_graphics/margin/gr_box"]
+layout_mode = 2
+
+[node name="title" type="Label" parent="UI/bg/visibility_changer/panel_graphics/margin/gr_box/item_aliasing"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 45
+text = "Сглаживание"
+
+[node name="options" type="HBoxContainer" parent="UI/bg/visibility_changer/panel_graphics/margin/gr_box/item_aliasing"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 15
+alignment = 2
+
+[node name="alias_no" type="Button" parent="UI/bg/visibility_changer/panel_graphics/margin/gr_box/item_aliasing/options"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 41
+theme_override_styles/normal = SubResource("StyleBoxFlat_mv1m3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_4pe7t")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_w5dho")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_mv1m3")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ee5yo")
+toggle_mode = true
+text = "Нет"
+metadata/_edit_use_anchors_ = true
+
+[node name="alias_x2" type="Button" parent="UI/bg/visibility_changer/panel_graphics/margin/gr_box/item_aliasing/options"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 41
+theme_override_styles/normal = SubResource("StyleBoxFlat_mv1m3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_4pe7t")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_w5dho")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_mv1m3")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ldymk")
+toggle_mode = true
+text = "x2"
+metadata/_edit_use_anchors_ = true
+
+[node name="alias_x4" type="Button" parent="UI/bg/visibility_changer/panel_graphics/margin/gr_box/item_aliasing/options"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 41
+theme_override_styles/normal = SubResource("StyleBoxFlat_mv1m3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_4pe7t")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_w5dho")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_mv1m3")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_j5byt")
+toggle_mode = true
+text = "x4"
+metadata/_edit_use_anchors_ = true
+
+[node name="alias_x8" type="Button" parent="UI/bg/visibility_changer/panel_graphics/margin/gr_box/item_aliasing/options"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 41
+theme_override_styles/normal = SubResource("StyleBoxFlat_mv1m3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_4pe7t")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_w5dho")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_mv1m3")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_gr3lo")
+toggle_mode = true
+text = "x8"
+metadata/_edit_use_anchors_ = true
+
+[node name="item_glow" type="HBoxContainer" parent="UI/bg/visibility_changer/panel_graphics/margin/gr_box"]
+layout_mode = 2
+
+[node name="title" type="Label" parent="UI/bg/visibility_changer/panel_graphics/margin/gr_box/item_glow"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 45
+text = "Свечение"
+
+[node name="options" type="HBoxContainer" parent="UI/bg/visibility_changer/panel_graphics/margin/gr_box/item_glow"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 15
+alignment = 2
+
+[node name="glow_no" type="Button" parent="UI/bg/visibility_changer/panel_graphics/margin/gr_box/item_glow/options"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 41
+theme_override_styles/normal = SubResource("StyleBoxFlat_mv1m3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_4pe7t")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_w5dho")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_mv1m3")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_2bsdf")
+toggle_mode = true
+text = "Нет"
+metadata/_edit_use_anchors_ = true
+
+[node name="glow_yes" type="Button" parent="UI/bg/visibility_changer/panel_graphics/margin/gr_box/item_glow/options"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 41
+theme_override_styles/normal = SubResource("StyleBoxFlat_mv1m3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_4pe7t")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_w5dho")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_mv1m3")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_x5ytr")
+toggle_mode = true
+text = "Да"
+metadata/_edit_use_anchors_ = true
+
+[node name="item_sdfgi" type="HBoxContainer" parent="UI/bg/visibility_changer/panel_graphics/margin/gr_box"]
+layout_mode = 2
+
+[node name="title" type="Label" parent="UI/bg/visibility_changer/panel_graphics/margin/gr_box/item_sdfgi"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 45
+text = "SDFGI"
+
+[node name="options" type="HBoxContainer" parent="UI/bg/visibility_changer/panel_graphics/margin/gr_box/item_sdfgi"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 15
+alignment = 2
+
+[node name="sdfgi_no" type="Button" parent="UI/bg/visibility_changer/panel_graphics/margin/gr_box/item_sdfgi/options"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 41
+theme_override_styles/normal = SubResource("StyleBoxFlat_mv1m3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_4pe7t")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_w5dho")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_mv1m3")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_in8df")
+toggle_mode = true
+text = "Нет"
+metadata/_edit_use_anchors_ = true
+
+[node name="sdfgi_yes" type="Button" parent="UI/bg/visibility_changer/panel_graphics/margin/gr_box/item_sdfgi/options"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 41
+theme_override_styles/normal = SubResource("StyleBoxFlat_mv1m3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_4pe7t")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_w5dho")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_mv1m3")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_5pnmt")
+toggle_mode = true
+text = "Да"
+metadata/_edit_use_anchors_ = true
+
+[node name="item_ssao" type="HBoxContainer" parent="UI/bg/visibility_changer/panel_graphics/margin/gr_box"]
+layout_mode = 2
+
+[node name="title" type="Label" parent="UI/bg/visibility_changer/panel_graphics/margin/gr_box/item_ssao"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 45
+text = "SSAO"
+
+[node name="options" type="HBoxContainer" parent="UI/bg/visibility_changer/panel_graphics/margin/gr_box/item_ssao"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 15
+alignment = 2
+
+[node name="ssao_no" type="Button" parent="UI/bg/visibility_changer/panel_graphics/margin/gr_box/item_ssao/options"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 41
+theme_override_styles/normal = SubResource("StyleBoxFlat_mv1m3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_4pe7t")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_w5dho")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_mv1m3")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_sxsrd")
+toggle_mode = true
+text = "Нет"
+metadata/_edit_use_anchors_ = true
+
+[node name="ssao_yes" type="Button" parent="UI/bg/visibility_changer/panel_graphics/margin/gr_box/item_ssao/options"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 41
+theme_override_styles/normal = SubResource("StyleBoxFlat_mv1m3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_4pe7t")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_w5dho")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_mv1m3")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_2k7bi")
+toggle_mode = true
+text = "Да"
+metadata/_edit_use_anchors_ = true
+
+[node name="item_shadows" type="HBoxContainer" parent="UI/bg/visibility_changer/panel_graphics/margin/gr_box"]
+layout_mode = 2
+
+[node name="title" type="Label" parent="UI/bg/visibility_changer/panel_graphics/margin/gr_box/item_shadows"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 45
+text = "Тени"
+
+[node name="options" type="HBoxContainer" parent="UI/bg/visibility_changer/panel_graphics/margin/gr_box/item_shadows"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 15
+alignment = 2
+
+[node name="no_shadows" type="Button" parent="UI/bg/visibility_changer/panel_graphics/margin/gr_box/item_shadows/options"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 41
+theme_override_styles/normal = SubResource("StyleBoxFlat_mv1m3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_4pe7t")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_w5dho")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_mv1m3")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_85bnm")
+toggle_mode = true
+text = "Нет"
+metadata/_edit_use_anchors_ = true
+
+[node name="bad_shadows" type="Button" parent="UI/bg/visibility_changer/panel_graphics/margin/gr_box/item_shadows/options"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 41
+theme_override_styles/normal = SubResource("StyleBoxFlat_mv1m3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_4pe7t")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_w5dho")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_mv1m3")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_3r6te")
+toggle_mode = true
+text = "Плохие"
+metadata/_edit_use_anchors_ = true
+
+[node name="mid_shadows" type="Button" parent="UI/bg/visibility_changer/panel_graphics/margin/gr_box/item_shadows/options"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 41
+theme_override_styles/normal = SubResource("StyleBoxFlat_mv1m3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_4pe7t")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_w5dho")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_mv1m3")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_dhlvg")
+toggle_mode = true
+text = "Средние"
+metadata/_edit_use_anchors_ = true
+
+[node name="good_shadows" type="Button" parent="UI/bg/visibility_changer/panel_graphics/margin/gr_box/item_shadows/options"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 41
+theme_override_styles/normal = SubResource("StyleBoxFlat_mv1m3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_4pe7t")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_w5dho")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_mv1m3")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_08lvs")
+toggle_mode = true
+text = "Ультра"
+metadata/_edit_use_anchors_ = true
+
+[node name="item_resolution" type="HBoxContainer" parent="UI/bg/visibility_changer/panel_graphics/margin/gr_box"]
+layout_mode = 2
+
+[node name="title" type="Label" parent="UI/bg/visibility_changer/panel_graphics/margin/gr_box/item_resolution"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 45
+text = "Разрешение"
+
+[node name="options" type="HBoxContainer" parent="UI/bg/visibility_changer/panel_graphics/margin/gr_box/item_resolution"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 15
+alignment = 2
+
+[node name="margin" type="Control" parent="UI/bg/visibility_changer/panel_graphics/margin/gr_box/item_resolution/options"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[node name="reso_slider" type="HSlider" parent="UI/bg/visibility_changer/panel_graphics/margin/gr_box/item_resolution/options"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_styles/grabber_area = SubResource("StyleBoxEmpty_70o84")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxEmpty_d34vn")
+min_value = 0.1
+max_value = 2.0
+step = 0.1
+value = 0.1
+
+[node name="value" type="Label" parent="UI/bg/visibility_changer/panel_graphics/margin/gr_box/item_resolution/options"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 43
+text = "x1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="panel_additional" type="Panel" parent="UI/bg/visibility_changer"]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.109375
@@ -225,7 +601,23 @@ libraries = {
 }
 
 [connection signal="pressed" from="UI/bg/visibility_changer/btn_exit" to="." method="_on_btn_exit_pressed"]
+[connection signal="pressed" from="UI/bg/visibility_changer/btn_save" to="." method="_on_btn_save_pressed"]
 [connection signal="pressed" from="UI/bg/visibility_changer/parts/btn_audio" to="." method="_on_btn_audio_pressed"]
 [connection signal="pressed" from="UI/bg/visibility_changer/parts/btn_graphics" to="." method="_on_btn_graphics_pressed"]
 [connection signal="pressed" from="UI/bg/visibility_changer/parts/btn_additional" to="." method="_on_btn_additional_pressed"]
+[connection signal="pressed" from="UI/bg/visibility_changer/panel_graphics/margin/gr_box/item_aliasing/options/alias_no" to="." method="_on_alias_no_pressed"]
+[connection signal="pressed" from="UI/bg/visibility_changer/panel_graphics/margin/gr_box/item_aliasing/options/alias_x2" to="." method="_on_alias_x_2_pressed"]
+[connection signal="pressed" from="UI/bg/visibility_changer/panel_graphics/margin/gr_box/item_aliasing/options/alias_x4" to="." method="_on_alias_x_4_pressed"]
+[connection signal="pressed" from="UI/bg/visibility_changer/panel_graphics/margin/gr_box/item_aliasing/options/alias_x8" to="." method="_on_alias_x_8_pressed"]
+[connection signal="pressed" from="UI/bg/visibility_changer/panel_graphics/margin/gr_box/item_glow/options/glow_no" to="." method="_on_glow_no_pressed"]
+[connection signal="pressed" from="UI/bg/visibility_changer/panel_graphics/margin/gr_box/item_glow/options/glow_yes" to="." method="_on_glow_yes_pressed"]
+[connection signal="pressed" from="UI/bg/visibility_changer/panel_graphics/margin/gr_box/item_sdfgi/options/sdfgi_no" to="." method="_on_sdfgi_no_pressed"]
+[connection signal="pressed" from="UI/bg/visibility_changer/panel_graphics/margin/gr_box/item_sdfgi/options/sdfgi_yes" to="." method="_on_sdfgi_yes_pressed"]
+[connection signal="pressed" from="UI/bg/visibility_changer/panel_graphics/margin/gr_box/item_ssao/options/ssao_no" to="." method="_on_ssao_no_pressed"]
+[connection signal="pressed" from="UI/bg/visibility_changer/panel_graphics/margin/gr_box/item_ssao/options/ssao_yes" to="." method="_on_ssao_yes_pressed"]
+[connection signal="pressed" from="UI/bg/visibility_changer/panel_graphics/margin/gr_box/item_shadows/options/no_shadows" to="." method="_on_no_shadows_pressed"]
+[connection signal="pressed" from="UI/bg/visibility_changer/panel_graphics/margin/gr_box/item_shadows/options/bad_shadows" to="." method="_on_bad_shadows_pressed"]
+[connection signal="pressed" from="UI/bg/visibility_changer/panel_graphics/margin/gr_box/item_shadows/options/mid_shadows" to="." method="_on_mid_shadows_pressed"]
+[connection signal="pressed" from="UI/bg/visibility_changer/panel_graphics/margin/gr_box/item_shadows/options/good_shadows" to="." method="_on_good_shadows_pressed"]
+[connection signal="value_changed" from="UI/bg/visibility_changer/panel_graphics/margin/gr_box/item_resolution/options/reso_slider" to="." method="_on_reso_slider_value_changed"]
 [connection signal="animation_finished" from="anim" to="." method="_on_anim_animation_finished"]

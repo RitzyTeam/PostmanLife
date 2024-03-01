@@ -8,7 +8,6 @@ extends Node
 # DAY TIME
 var time_hours: int = 0
 var time_minutes: int = 0
-var tod: int = 0
 
 var isTimeOfWork: bool = false
 
@@ -20,26 +19,20 @@ func _ready():
 #endregion
 
 #region TIME
-# ЗАГРУЗКА ВРЕМЕНИ ИЗ ФАЙЛА
+# ЗАГРУЗКА ВРЕМЕНИ
 func set_tod():
-	tod = SIN_WORLD_DATA.WORLD_DATA['tod']
-	time_hours = int(tod/60)
-	time_minutes = int(tod%60)
-	#anim_tod.play("tod")
-	#anim_tod.seek(tod)
+	time_hours = int(SIN_WORLD_DATA.WORLD_DATA['tod']/60)
+	time_minutes = int(SIN_WORLD_DATA.WORLD_DATA['tod']%60)
 
 # ХОД ВРЕМЕНИ
 func _on_timer_daycycle_timeout():
-	if tod < 1439:
-		tod += 1
-		time_hours = int(tod/60)
-		time_minutes = int(tod%60)
+	if SIN_WORLD_DATA.WORLD_DATA['tod'] < 1439:
+		SIN_WORLD_DATA.WORLD_DATA['tod'] += 1
 	else:
-		SIN_WORLD_DATA.value_day_passed()
-		tod = 0
-		time_hours = int(tod/60)
-		time_minutes = int(tod%60)
-	SIN_WORLD_DATA.value_tod_changed(tod)
+		SIN_WORLD_DATA.WORLD_DATA['day_num'] += 1
+		SIN_WORLD_DATA.WORLD_DATA['tod'] = 0
+	time_hours = int(SIN_WORLD_DATA.WORLD_DATA['tod']/60)
+	time_minutes = int(SIN_WORLD_DATA.WORLD_DATA['tod']%60)
 
 # РАБОЧАЯ СМЕНА. ПРОВЕРКА. С 9-18.
 func checkIsItTimeOfWork():
