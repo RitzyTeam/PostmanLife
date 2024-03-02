@@ -343,7 +343,7 @@ transform = Transform3D(-0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, -0.5, 1142.59,
 transform = Transform3D(-0.0871556, 0, -0.996195, 0, 1, 0, 0.996195, 0, -0.0871556, 719.9, 0, 565)
 
 [node name="55" parent="Levels/streets" instance=ExtResource("10_qyej0")]
-transform = Transform3D(0.0871555, 0, 0.996195, 0, 1, 0, -0.996195, 0, 0.0871555, 775.1, 0, 514)
+transform = Transform3D(0.0871555, 0, 0.996195, 0, 1, 0, -0.996195, 0, 0.0871555, 770.1, 0, 514)
 
 [node name="56" parent="Levels/streets" instance=ExtResource("10_qyej0")]
 transform = Transform3D(0.173648, 0, 0.984808, 0, 1, 0, -0.984808, 0, 0.173648, 827.1, 0, 635)
