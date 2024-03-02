@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://c66dar30xo83l"]
+[gd_scene load_steps=44 format=3 uid="uid://c66dar30xo83l"]
 
 [ext_resource type="Script" path="res://scenes/world/World.gd" id="1_xxt06"]
 [ext_resource type="Script" path="res://addons/zylann.hterrain/hterrain.gd" id="2_j3jfb"]
@@ -8,8 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://cc1m2a1obsyn4" path="res://objects/player/player.tscn" id="5_6o1kf"]
 [ext_resource type="PackedScene" uid="uid://cjsj70ofmvnx2" path="res://objects/PROPS/environment/roads/road.tscn" id="6_j5vhd"]
 [ext_resource type="PackedScene" uid="uid://dkfbfrrjn8o18" path="res://objects/builds/fourStoryBuldsVariations/four_story_building_main.tscn" id="7_t74fg"]
-[ext_resource type="PackedScene" uid="uid://cm8vci4pysgq1" path="res://objects/builds/house_2.tscn" id="8_7t2yj"]
-[ext_resource type="PackedScene" uid="uid://csm60gr7f2vti" path="res://objects/builds/house_1.tscn" id="10_qyej0"]
+[ext_resource type="PackedScene" path="res://objects/builds/house_2.tscn" id="8_7t2yj"]
+[ext_resource type="PackedScene" path="res://objects/builds/house_1.tscn" id="10_qyej0"]
 [ext_resource type="PackedScene" uid="uid://cmorp412pryek" path="res://objects/builds/house_3.tscn" id="11_4a5py"]
 [ext_resource type="PackedScene" uid="uid://dp80ffcw30b84" path="res://objects/builds/rural_house/rural_house.tscn" id="11_cxx1a"]
 [ext_resource type="PackedScene" uid="uid://btwke8875ebcq" path="res://objects/builds/two_story_building.tscn" id="12_2pvwt"]
@@ -27,6 +27,8 @@
 [ext_resource type="Script" path="res://addons/proton_scatter/src/scatter_shape.gd" id="24_g5fqv"]
 [ext_resource type="Script" path="res://addons/proton_scatter/src/shapes/path_shape.gd" id="25_4ndlv"]
 [ext_resource type="AudioStream" uid="uid://b1dvxv0j0lqfh" path="res://assets/sounds/forest_sound_nature.mp3" id="26_hqxx8"]
+[ext_resource type="PackedScene" uid="uid://b2dspemfb0g23" path="res://objects/MOBS/ufo/ufo.tscn" id="27_mbv02"]
+[ext_resource type="PackedScene" uid="uid://cpat5kv2ue7yo" path="res://objects/TRANSPORT/car/car.tscn" id="27_vrtll"]
 
 [sub_resource type="Resource" id="Resource_hxkjo"]
 script = ExtResource("4_rbhmn")
@@ -77,7 +79,7 @@ shader_parameter/texture_normal = SubResource("NoiseTexture2D_hemwg")
 material = SubResource("ShaderMaterial_divvh")
 size = Vector2(2000, 450)
 
-[sub_resource type="Resource" id="Resource_tafsj"]
+[sub_resource type="Resource" id="Resource_i1agm"]
 script = ExtResource("19_6qlp7")
 amount = 1000
 enabled = true
@@ -86,7 +88,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 1
 
-[sub_resource type="Resource" id="Resource_jq6il"]
+[sub_resource type="Resource" id="Resource_x664y"]
 script = ExtResource("20_xv4po")
 position = Vector3(0.15, 0.15, 0.15)
 rotation = Vector3(0, 360, 0)
@@ -97,7 +99,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 2
 
-[sub_resource type="Resource" id="Resource_03hjl"]
+[sub_resource type="Resource" id="Resource_8p0bc"]
 script = ExtResource("21_ai286")
 iterations = 3
 offset_step = 0.2
@@ -109,7 +111,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_8iyab"]
+[sub_resource type="Resource" id="Resource_2sw4x"]
 script = ExtResource("22_k8kdo")
 ray_direction = Vector3(0, -1, 0)
 ray_length = 5.0
@@ -125,9 +127,9 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_kud65"]
+[sub_resource type="Resource" id="Resource_k3mps"]
 script = ExtResource("18_1fwha")
-stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_tafsj"), SubResource("Resource_jq6il"), SubResource("Resource_03hjl"), SubResource("Resource_8iyab")])
+stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_i1agm"), SubResource("Resource_x664y"), SubResource("Resource_8p0bc"), SubResource("Resource_2sw4x")])
 
 [sub_resource type="Curve3D" id="Curve3D_dvrdm"]
 _data = {
@@ -565,7 +567,7 @@ transform = Transform3D(0.34202, 0, 0.939693, 0, 1, 0, -0.939693, 0, 0.34202, 10
 [node name="big_forest" type="Node3D" parent="Levels/nature"]
 script = ExtResource("17_0tutk")
 render_mode = 1
-modifier_stack = SubResource("Resource_kud65")
+modifier_stack = SubResource("Resource_k3mps")
 Performance/use_chunks = true
 Performance/chunk_dimensions = Vector3(15, 15, 15)
 
@@ -592,6 +594,14 @@ stream = ExtResource("26_hqxx8")
 autoplay = true
 max_distance = 1403.33
 doppler_tracking = 1
+
+[node name="MOBS" type="Node" parent="."]
+
+[node name="ufo" parent="MOBS" instance=ExtResource("27_mbv02")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1000, 200, 1000)
+
+[node name="car" parent="." instance=ExtResource("27_vrtll")]
+transform = Transform3D(1, 0, 0, 0, 0.999918, -0.0128104, 0, 0.0128104, 0.999918, 1572.36, 0, 537.67)
 
 [node name="Player" parent="." instance=ExtResource("5_6o1kf")]
 transform = Transform3D(1, 0, 0, 0, 0.999918, -0.0128104, 0, 0.0128104, 0.999918, 1577.28, 0, 537.67)
