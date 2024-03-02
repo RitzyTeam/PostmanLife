@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://cj1ydvi2t3bot"]
+
+[ext_resource type="PackedScene" uid="uid://ckthoht2tqua4" path="res://assets/models/builds/postOfficeBulild.blend" id="1_t12fr"]
+
+[node name="postOfficeBulild" instance=ExtResource("1_t12fr")]

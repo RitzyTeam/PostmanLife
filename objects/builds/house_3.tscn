@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://cmorp412pryek"]
+
+[ext_resource type="PackedScene" uid="uid://bygta15dq1jdm" path="res://assets/models/builds/house3.blend" id="1_tqjw6"]
+
+[node name="house3" instance=ExtResource("1_tqjw6")]

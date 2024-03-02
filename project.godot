@@ -44,7 +44,8 @@ enabled=PackedStringArray("res://addons/SmoothScroll/plugin.cfg", "res://addons/
 folder_colors={
 "res://objects/ENVIRONMENT/": "purple",
 "res://objects/MOBS/": "red",
-"res://objects/PROPS/": "teal"
+"res://objects/PROPS/": "teal",
+"res://objects/builds/": "pink"
 }
 
 [filesystem]
