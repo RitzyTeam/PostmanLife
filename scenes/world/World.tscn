@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://c66dar30xo83l"]
+[gd_scene load_steps=57 format=3 uid="uid://c66dar30xo83l"]
 
 [ext_resource type="Script" path="res://scenes/world/World.gd" id="1_xxt06"]
 [ext_resource type="Script" path="res://addons/zylann.hterrain/hterrain.gd" id="2_j3jfb"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://addons/zylann.hterrain/hterrain_texture_set.gd" id="4_rbhmn"]
 [ext_resource type="PackedScene" uid="uid://cc1m2a1obsyn4" path="res://objects/player/player.tscn" id="5_6o1kf"]
 [ext_resource type="PackedScene" uid="uid://cjsj70ofmvnx2" path="res://objects/PROPS/environment/roads/road.tscn" id="6_j5vhd"]
+[ext_resource type="PackedScene" uid="uid://bskp62bdkhqpp" path="res://objects/PROPS/environment/lampPost.tscn" id="7_6dfov"]
 [ext_resource type="PackedScene" uid="uid://dkfbfrrjn8o18" path="res://objects/builds/fourStoryBuldsVariations/four_story_building_main.tscn" id="7_t74fg"]
 [ext_resource type="PackedScene" uid="uid://jxlhyaaw08ri" path="res://objects/builds/house_2.tscn" id="8_7t2yj"]
 [ext_resource type="PackedScene" uid="uid://c4uetwurks8ly" path="res://objects/builds/house_1.tscn" id="10_qyej0"]
@@ -48,6 +49,14 @@ seamless = true
 as_normal_map = true
 noise = SubResource("FastNoiseLite_1gdrn")
 
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_qqcrm"]
+fractal_octaves = 1
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_npkdg"]
+seamless = true
+as_normal_map = true
+noise = SubResource("FastNoiseLite_qqcrm")
+
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_kt21m"]
 frequency = 0.0002
 
@@ -58,10 +67,10 @@ noise = SubResource("FastNoiseLite_kt21m")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_divvh"]
 render_priority = 0
 shader = ExtResource("12_jiaus")
-shader_parameter/albedo = Color(0.439216, 0.615686, 1, 1)
+shader_parameter/albedo = Color(0.00392157, 0, 0.462745, 1)
 shader_parameter/albedo2 = Color(0.631373, 0.556863, 0.803922, 1)
 shader_parameter/metallic = 0.0
-shader_parameter/roughness = 0.071
+shader_parameter/roughness = 0.031
 shader_parameter/wave_direction = Vector2(2, 0)
 shader_parameter/wave_direction2 = Vector2(0, 1)
 shader_parameter/time_scale = 0.025
@@ -77,12 +86,13 @@ shader_parameter/far = 100.0
 shader_parameter/edge_color = Color(0.811765, 0.811765, 0.811765, 1)
 shader_parameter/wave = SubResource("NoiseTexture2D_nv46i")
 shader_parameter/texture_normal = SubResource("NoiseTexture2D_hemwg")
+shader_parameter/texture_normal2 = SubResource("NoiseTexture2D_npkdg")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_gc26u"]
 material = SubResource("ShaderMaterial_divvh")
 size = Vector2(2000, 450)
 
-[sub_resource type="Resource" id="Resource_3lrjt"]
+[sub_resource type="Resource" id="Resource_qk6h7"]
 script = ExtResource("19_6qlp7")
 amount = 1000
 enabled = true
@@ -91,7 +101,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 1
 
-[sub_resource type="Resource" id="Resource_urubv"]
+[sub_resource type="Resource" id="Resource_q7t5d"]
 script = ExtResource("20_xv4po")
 position = Vector3(0.15, 0.15, 0.15)
 rotation = Vector3(0, 360, 0)
@@ -102,7 +112,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 2
 
-[sub_resource type="Resource" id="Resource_ihwq2"]
+[sub_resource type="Resource" id="Resource_5j2a2"]
 script = ExtResource("21_ai286")
 iterations = 3
 offset_step = 0.2
@@ -114,7 +124,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_rn01v"]
+[sub_resource type="Resource" id="Resource_m843u"]
 script = ExtResource("22_k8kdo")
 ray_direction = Vector3(0, -1, 0)
 ray_length = 5.0
@@ -130,22 +140,87 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_xr8aq"]
+[sub_resource type="Resource" id="Resource_0nuij"]
 script = ExtResource("18_1fwha")
-stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_3lrjt"), SubResource("Resource_urubv"), SubResource("Resource_ihwq2"), SubResource("Resource_rn01v")])
+stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_qk6h7"), SubResource("Resource_q7t5d"), SubResource("Resource_5j2a2"), SubResource("Resource_m843u")])
 
-[sub_resource type="Curve3D" id="Curve3D_dvrdm"]
+[sub_resource type="Curve3D" id="Curve3D_2u2vc"]
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 8.2619, 0, 23.7001, 0, 0, 0, 0, 0, 0, -0.983429, 0, 1029.14, 0, 0, 0, 0, 0, 0, 179.302, 0, 761.02, 0, 0, 0, 0, 0, 0, 267.133, 0, 520.64, 0, 0, 0, 0, 0, 0, 368.832, 0, 335.732, 0, 0, 0, 0, 0, 0, 528.315, 0, 217.853, 0, 0, 0, 0, 0, 0, 814.923, 0, 143.89, 0, 0, 0, 0, 0, 0, 1187.05, 0, 148.513, 0, 0, 0, 0, 0, 0, 1506.02, 0, 287.194, 0, 0, 0, 0, 0, 0, 1720.97, 0, 541.442, 0, 0, 0, 0, 0, 0, 1778.76, 0, 830.361, 0, 0, 0, 0, 0, 0, 2000.64, 0, 978.287, 0, 0, 0, 0, 0, 0, 2037.63, 0, 950.551, 0, 0, 0, 0, 0, 0, 2028.38, 0, 19.0773),
-"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -0.729141, 0, 1554.43, 0, 0, 0, 0, 0, 0, 214.226, 0, 1346.41, 0, 0, 0, 0, 0, 0, 235.028, 0, 923.429, 0, 0, 0, 0, 0, 0, 135.64, 0, 787.06, 0, 0, 0, 0, 0, 0, 315.926, 0, 599.841, 0, 0, 0, 0, 0, 0, 433.804, 0, 387.197, 0, 0, 0, 0, 0, 0, 334.416, 0, 220.779, 0, 0, 0, 0, 0, 0, 831.356, 0, 324.79, 0, 0, 0, 0, 0, 0, 1138.77, 0, 167.618, 0, 0, 0, 0, 0, 0, 1397.64, 0, 218.468, 0, 0, 0, 0, 0, 0, 1679.62, 0, 255.45, 0, 0, 0, 0, 0, 0, 1760.52, 0, 562.859, 0, 0, 0, 0, 0, 0, 1797.5, 0, 934.986, 0, 0, 0, 0, 0, 0, 1896.89, 0, 1078.29, 0, 0, 0, 0, 0, 0, 2042.5, 0, 1057.49, 0, 0, 0, 0, 0, 0, 2044.81, 0, 22.0034, 0, 0, 0, 0, 0, 0, -7.66327, 0, 10.4467),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 }
-point_count = 14
+point_count = 17
 
-[sub_resource type="Resource" id="Resource_bx7eo"]
+[sub_resource type="Resource" id="Resource_e18i2"]
 script = ExtResource("25_4ndlv")
 closed = true
 thickness = 0.0
-curve = SubResource("Curve3D_dvrdm")
+curve = SubResource("Curve3D_2u2vc")
+
+[sub_resource type="Resource" id="Resource_62t1h"]
+script = ExtResource("19_6qlp7")
+amount = 2000
+enabled = true
+override_global_seed = false
+custom_seed = 0
+restrict_height = true
+reference_frame = 1
+
+[sub_resource type="Resource" id="Resource_2f4dc"]
+script = ExtResource("20_xv4po")
+position = Vector3(0.15, 0.15, 0.15)
+rotation = Vector3(1, 360, 1)
+scale = Vector3(0.1, 1, 0.1)
+enabled = true
+override_global_seed = false
+custom_seed = 0
+restrict_height = false
+reference_frame = 2
+
+[sub_resource type="Resource" id="Resource_is3v2"]
+script = ExtResource("21_ai286")
+iterations = 1
+offset_step = 0.1
+consecutive_step_multiplier = 1.0
+use_computeshader = true
+enabled = true
+override_global_seed = false
+custom_seed = 0
+restrict_height = true
+reference_frame = 0
+
+[sub_resource type="Resource" id="Resource_wjk7v"]
+script = ExtResource("22_k8kdo")
+ray_direction = Vector3(0, -1, 0)
+ray_length = 5.0
+ray_offset = 5.0
+remove_points_on_miss = false
+align_with_collision_normal = false
+max_slope = 90.0
+collision_mask = 1
+exclude_mask = 0
+enabled = true
+override_global_seed = false
+custom_seed = 0
+restrict_height = false
+reference_frame = 0
+
+[sub_resource type="Resource" id="Resource_crj38"]
+script = ExtResource("18_1fwha")
+stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_62t1h"), SubResource("Resource_2f4dc"), SubResource("Resource_is3v2"), SubResource("Resource_wjk7v")])
+
+[sub_resource type="Curve3D" id="Curve3D_ulu54"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 14.8257, 0, 24.3597, 0, 0, 0, 0, 0, 0, -11.1921, 0, 17.8553, 0, 0, 0, 0, 0, 0, -29.2806, 0, 14.1384, 0, 0, 0, 0, 0, 0, -44.9802, 0, 15.2767, 0, 0, 0, 0, 0, 0, -60.5908, 0, 20.0468, 0, 0, 0, 0, 0, 0, -66.2477, 0, 23.4337, 0, 0, 0, 0, 0, 0, -76.469, 0, 29.8762, 0, 0, 0, 0, 0, 0, -93.0176, 0, 34.1563, 0, 0, 0, 0, 0, 0, -110.363, 0, 39.2358, 0, 0, 0, 0, 0, 0, -127.707, 0, 42.4541, 0, 0, 0, 0, 0, 0, -154.341, 0, 47.8529, 0, 0, 0, 0, 0, 0, -179.535, 0, 54.1515, 0, 0, 0, 0, 0, 0, -205.893, 0, 57.1208, 0, 0, 0, 0, 0, 0, -237.021, 0, 64.4293, 0, 0, 0, 0, 0, 0, -251.638, 0, 73.3618, 0, 0, 0, 0, 0, 0, -276.27, 0, 70.3843, 0, 0, 0, 0, 0, 0, -301.985, 0, 66.5947, 0, 0, 0, 0, 0, 0, -333.384, 0, 71.467, 0, 0, 0, 0, 0, 0, -344.919, 0, 83.048, 0, 0, 0, 0, 0, 0, -361.387, 0, 89.129, 0, 0, 0, 0, 0, 0, -401.517, 0, 101.574, 0, 0, 0, 0, 0, 0, -432.514, 0, 117.358, 0, 0, 0, 0, 0, 0, -438.672, 0, 100.425, 0, 0, 0, 0, 0, 0, -418.659, 0, 30.8949, 0, 0, 0, 0, 0, 0, -278.79, 0, -4.70251, 0, 0, 0, 0, 0, 0, -156.743, 0, -26.5475, 0, 0, 0, 0, 0, 0, -97.8563, 0, -37.47, 0, 0, 0, 0, 0, 0, 14.6926, 0, -34.6206),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 28
+
+[sub_resource type="Resource" id="Resource_6vu7o"]
+script = ExtResource("25_4ndlv")
+closed = true
+thickness = 0.0
+curve = SubResource("Curve3D_ulu54")
 
 [node name="World" type="Node"]
 script = ExtResource("1_xxt06")
@@ -182,6 +257,98 @@ cast_shadow = 1
 
 [node name="road" parent="Levels/road" instance=ExtResource("6_j5vhd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 964.54, 0, 1047.9)
+
+[node name="lampposts" type="Node" parent="Levels/road"]
+
+[node name="lamppost" parent="Levels/road/lampposts" instance=ExtResource("7_6dfov")]
+transform = Transform3D(0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, 2028, 0, 1121.4)
+
+[node name="lamppost2" parent="Levels/road/lampposts" instance=ExtResource("7_6dfov")]
+transform = Transform3D(0.984808, 0, 0.173648, 0, 1, 0, -0.173648, 0, 0.984808, 2008, 0, 1125.7)
+
+[node name="lamppost3" parent="Levels/road/lampposts" instance=ExtResource("7_6dfov")]
+transform = Transform3D(-0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, -0.965926, 2022.5, 0, 1137.8)
+
+[node name="lamppost4" parent="Levels/road/lampposts" instance=ExtResource("7_6dfov")]
+transform = Transform3D(-0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, -0.965926, 2042.9, 0, 1133)
+
+[node name="lamppost5" parent="Levels/road/lampposts" instance=ExtResource("7_6dfov")]
+transform = Transform3D(0.866026, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866026, 1984.7, 0, 1135)
+
+[node name="lamppost6" parent="Levels/road/lampposts" instance=ExtResource("7_6dfov")]
+transform = Transform3D(-0.906308, 0, -0.422618, 0, 1, 0, 0.422618, 0, -0.906308, 2003.5, 0, 1143.7)
+
+[node name="lamppost7" parent="Levels/road/lampposts" instance=ExtResource("7_6dfov")]
+transform = Transform3D(-0.906308, 0, -0.422618, 0, 1, 0, 0.422618, 0, -0.906308, 1979.3, 0, 1155.2)
+
+[node name="lamppost8" parent="Levels/road/lampposts" instance=ExtResource("7_6dfov")]
+transform = Transform3D(0.866026, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866026, 1959.7, 0, 1147.9)
+
+[node name="lamppost9" parent="Levels/road/lampposts" instance=ExtResource("7_6dfov")]
+transform = Transform3D(0.866026, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866026, 1935.1, 0, 1161.7)
+
+[node name="lamppost10" parent="Levels/road/lampposts" instance=ExtResource("7_6dfov")]
+transform = Transform3D(-0.866026, 0, -0.5, 0, 1, 0, 0.5, 0, -0.866026, 1955.3, 0, 1167.7)
+
+[node name="lamppost11" parent="Levels/road/lampposts" instance=ExtResource("7_6dfov")]
+transform = Transform3D(0.866026, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866026, 1911.6, 0, 1174.7)
+
+[node name="lamppost12" parent="Levels/road/lampposts" instance=ExtResource("7_6dfov")]
+transform = Transform3D(-0.866026, 0, -0.5, 0, 1, 0, 0.5, 0, -0.866026, 1931.7, 0, 1181.1)
+
+[node name="lamppost13" parent="Levels/road/lampposts" instance=ExtResource("7_6dfov")]
+transform = Transform3D(0.906308, 0, 0.422618, 0, 1, 0, -0.422618, 0, 0.906308, 1888.6, 0, 1186.4)
+
+[node name="lamppost16" parent="Levels/road/lampposts" instance=ExtResource("7_6dfov")]
+transform = Transform3D(0.939693, 0, 0.34202, 0, 1, 0, -0.34202, 0, 0.939693, 1864.5, 0, 1197.5)
+
+[node name="lamppost14" parent="Levels/road/lampposts" instance=ExtResource("7_6dfov")]
+transform = Transform3D(-0.866026, 0, -0.5, 0, 1, 0, 0.5, 0, -0.866026, 1908.1, 0, 1194.2)
+
+[node name="lamppost15" parent="Levels/road/lampposts" instance=ExtResource("7_6dfov")]
+transform = Transform3D(-0.866026, 0, -0.5, 0, 1, 0, 0.5, 0, -0.866026, 1883.7, 0, 1205.7)
+
+[node name="lamppost17" parent="Levels/road/lampposts" instance=ExtResource("7_6dfov")]
+transform = Transform3D(0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, 1838.8, 0, 1207.3)
+
+[node name="lamppost18" parent="Levels/road/lampposts" instance=ExtResource("7_6dfov")]
+transform = Transform3D(-0.906308, 0, -0.422618, 0, 1, 0, 0.422618, 0, -0.906308, 1857.4, 0, 1217.1)
+
+[node name="lamppost19" parent="Levels/road/lampposts" instance=ExtResource("7_6dfov")]
+transform = Transform3D(0.984808, 0, 0.173648, 0, 1, 0, -0.173648, 0, 0.984808, 1815.2, 0, 1214.3)
+
+[node name="lamppost20" parent="Levels/road/lampposts" instance=ExtResource("7_6dfov")]
+transform = Transform3D(-0.939693, 0, -0.34202, 0, 1, 0, 0.34202, 0, -0.939693, 1831.2, 0, 1225.8)
+
+[node name="lamppost21" parent="Levels/road/lampposts" instance=ExtResource("7_6dfov")]
+transform = Transform3D(0.996195, 0, 0.0871555, 0, 1, 0, -0.0871555, 0, 0.996195, 1789.2, 0, 1218.5)
+
+[node name="lamppost22" parent="Levels/road/lampposts" instance=ExtResource("7_6dfov")]
+transform = Transform3D(-0.984808, 0, -0.173648, 0, 1, 0, 0.173648, 0, -0.984808, 1804.9, 0, 1231.9)
+
+[node name="lamppost23" parent="Levels/road/lampposts" instance=ExtResource("7_6dfov")]
+transform = Transform3D(1, 0, -2.83122e-07, 0, 1, 0, 2.83122e-07, 0, 1, 1764.2, 0, 1219.3)
+
+[node name="lamppost24" parent="Levels/road/lampposts" instance=ExtResource("7_6dfov")]
+transform = Transform3D(-1, 0, 1.11759e-07, 0, 1, 0, -1.11759e-07, 0, -1, 1777.9, 0, 1234.4)
+
+[node name="lamppost25" parent="Levels/road/lampposts" instance=ExtResource("7_6dfov")]
+transform = Transform3D(0.984808, 0, -0.173648, 0, 1, 0, 0.173648, 0, 0.984808, 1739.9, 0, 1216.7)
+
+[node name="lamppost26" parent="Levels/road/lampposts" instance=ExtResource("7_6dfov")]
+transform = Transform3D(-0.996195, 0, 0.0871559, 0, 1, 0, -0.0871559, 0, -0.996195, 1750.3, 0, 1233.5)
+
+[node name="lamppost27" parent="Levels/road/lampposts" instance=ExtResource("7_6dfov")]
+transform = Transform3D(0.984808, 0, -0.173648, 0, 1, 0, 0.173648, 0, 0.984808, 1715.6, 0, 1210.8)
+
+[node name="lamppost28" parent="Levels/road/lampposts" instance=ExtResource("7_6dfov")]
+transform = Transform3D(-0.984808, 0, 0.173648, 0, 1, 0, -0.173648, 0, -0.984808, 1724, 0, 1229)
+
+[node name="lamppost29" parent="Levels/road/lampposts" instance=ExtResource("7_6dfov")]
+transform = Transform3D(-0.984808, 0, 0.173648, 0, 1, 0, -0.173648, 0, -0.984808, 1699.7, 0, 1223.1)
+
+[node name="lamppost30" parent="Levels/road/lampposts" instance=ExtResource("7_6dfov")]
+transform = Transform3D(0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, 1690.5, 0, 1204.6)
 
 [node name="streets" type="Node" parent="Levels"]
 
@@ -1130,25 +1297,50 @@ deliver_code = "00062"
 
 [node name="big_forest" type="Node3D" parent="Levels/nature"]
 script = ExtResource("17_0tutk")
+global_seed = 20
 render_mode = 1
-modifier_stack = SubResource("Resource_xr8aq")
+modifier_stack = SubResource("Resource_0nuij")
 Performance/use_chunks = true
 Performance/chunk_dimensions = Vector3(15, 15, 15)
 
 [node name="tree_1" type="Node3D" parent="Levels/nature/big_forest"]
 script = ExtResource("23_kpixf")
 source_scale_multiplier = 2.0
-path = "res://objects/PROPS/nature/forest_tree_2.tscn"
+path = "res://objects/PROPS/nature/forest_tree_1.tscn"
 
 [node name="tree_2" type="Node3D" parent="Levels/nature/big_forest"]
 script = ExtResource("23_kpixf")
 source_scale_multiplier = 3.0
-path = "res://objects/PROPS/nature/forest_tree_3.tscn"
+path = "res://objects/PROPS/nature/forest_tree_2.tscn"
+
+[node name="tree_3" type="Node3D" parent="Levels/nature/big_forest"]
+script = ExtResource("23_kpixf")
+source_scale_multiplier = 4.0
+path = "res://assets/models/nature/forest_tree3.blend"
 
 [node name="ScatterShape" type="Node3D" parent="Levels/nature/big_forest"]
 transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 0, 0, 0)
 script = ExtResource("24_g5fqv")
-shape = SubResource("Resource_bx7eo")
+shape = SubResource("Resource_e18i2")
+
+[node name="reed" type="Node3D" parent="Levels/nature"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2032, 0, 1595)
+script = ExtResource("17_0tutk")
+render_mode = 1
+modifier_stack = SubResource("Resource_crj38")
+Performance/use_chunks = true
+Performance/chunk_dimensions = Vector3(15, 15, 15)
+
+[node name="ScatterItem" type="Node3D" parent="Levels/nature/reed"]
+script = ExtResource("23_kpixf")
+source_scale_multiplier = 2.0
+override_cast_shadow = 0
+path = "res://objects/PROPS/nature/reed.tscn"
+
+[node name="ScatterShape" type="Node3D" parent="Levels/nature/reed"]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 0, 0, 0)
+script = ExtResource("24_g5fqv")
+shape = SubResource("Resource_6vu7o")
 
 [node name="sound_zones" type="Node" parent="Levels"]
 
@@ -1165,7 +1357,7 @@ doppler_tracking = 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1000, 200, 1000)
 
 [node name="Player" parent="." instance=ExtResource("5_6o1kf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 948, 0, 1177.24)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2008, 0, 1164.24)
 
 [node name="car" parent="." instance=ExtResource("27_vrtll")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 938.484, 0.145038, 1193.68)
