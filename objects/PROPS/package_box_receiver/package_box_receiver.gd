@@ -8,6 +8,7 @@ func try_put_package(item_data: Dictionary):
 	if item_data.has('deliver_id'):
 		if item_data.id == 'box':
 			if deliver_code == item_data['deliver_id']:
+				print('ya')
 				SIN_WORLD_SIGNALS.emit_signal('PACKAGE_DELIVERED', item_data['task_id'])
 				return true
 	$anim_warn.play('warn')

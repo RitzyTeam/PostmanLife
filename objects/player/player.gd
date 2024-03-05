@@ -422,7 +422,9 @@ func _unhandled_input(event):
 				# PUT PACKAGE IN A BOX
 				if $Head/Camera/raycast_hand.get_collider().has_method('try_put_package'):
 					if $Head/Camera/raycast_hand.get_collider().try_put_package(SIN_WORLD_DATA.WORLD_DATA['player_inv']['slot_' + str(current_slot_selected)]):
+						print(SIN_WORLD_DATA.WORLD_DATA['player_inv']['slot_' + str(current_slot_selected)])
 						SIN_WORLD_DATA.WORLD_DATA['player_inv']['slot_' + str(current_slot_selected)] = {'id': 'void'}
+						print(SIN_WORLD_DATA.WORLD_DATA['player_inv']['slot_' + str(current_slot_selected)])
 						inventory_loader.load_inventory_visual()
 						inventory_loader.load_hand_visual(current_slot_selected)
 				# DRIVE A CAR
