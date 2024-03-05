@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://bk3jtt3db0f3q"]
+[gd_scene load_steps=5 format=3 uid="uid://s0ufjsnuwkps"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_elw07"]
 resource_name = "1"
@@ -38,16 +38,19 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_gj6s8")
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_c0u6w"]
-points = PackedVector3Array(0.261663, 0.822875, -0.813409, 0.857045, 0.811617, -0.0719341, 0.579585, 0.00264231, -0.372634, -0.351302, 0.0106838, -0.69661, -0.780497, 0.845525, -0.49132, -0.0454217, 1.37157, 0.0253636, 1.049, 0.417584, 0.945497, 0.979397, 0.00264231, 0.693446, -0.749909, 0.00237426, -0.0270597, -1.01605, 0.00237426, -0.309516, -1.36697, 0.00237426, -0.143859, -1.21282, 0.305003, -0.269884, -0.701017, 0.897125, 0.418748, -1.41128, 0.313312, 0.0803031, 0.623902, 0.490627, 1.32819, 0.580067, 0.69649, 0.963741, 0.881371, 0.038561, 1.2116, 0.404487, 0.0334681, 1.32882, 0.121006, 0.00264231, 0.881541, -1.30579, 0.0242203, 0.229605, -0.29711, 0.00398256, 0.778791, -1.16128, 0.350973, 0.290625, 0.186517, 0.438089, 1.19461)
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_vels8"]
+height = 1.5
+radius = 1.5
 
-[node name="bush1" type="StaticBody3D"]
+[node name="bush1" type="Node3D"]
 
 [node name="mesh" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.00278501, 0)
 mesh = SubResource("ArrayMesh_s5n74")
 skeleton = NodePath("")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.00278501, 0)
-shape = SubResource("ConvexPolygonShape3D_c0u6w")
+[node name="StaticBody3D" type="StaticBody3D" parent="mesh"]
+
+[node name="collider" type="CollisionShape3D" parent="mesh/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.742841, 0)
+shape = SubResource("CylinderShape3D_vels8")
