@@ -1,5 +1,25 @@
-[gd_scene load_steps=2 format=3 uid="uid://c6776lt6vo53g"]
+[gd_scene load_steps=4 format=3 uid="uid://c6776lt6vo53g"]
 
 [ext_resource type="PackedScene" uid="uid://db3nv5i7gk2i7" path="res://assets/models/builds/hospital.blend" id="1_aouy5"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_eavfl"]
+size = Vector3(24.0137, 8.2309, 6.1438)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_c2jkq"]
+size = Vector3(20.034, 14.416, 9.01454)
+
 [node name="hospital" instance=ExtResource("1_aouy5")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.94833, 4.11685, 13.048)
+shape = SubResource("BoxShape3D_eavfl")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.948, 4.117, -13.048)
+shape = SubResource("BoxShape3D_eavfl")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="StaticBody3D" index="2"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 9.43027, 7.32916, 4.16437e-09)
+shape = SubResource("BoxShape3D_c2jkq")

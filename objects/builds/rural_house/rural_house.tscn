@@ -1,5 +1,28 @@
-[gd_scene load_steps=2 format=3 uid="uid://dp80ffcw30b84"]
+[gd_scene load_steps=5 format=3 uid="uid://dp80ffcw30b84"]
 
 [ext_resource type="PackedScene" uid="uid://bk4v0uv6pn5kx" path="res://assets/models/builds/ruralHouse.blend" id="1_74yto"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_ln4hh"]
+size = Vector3(10.4224, 8.039, 10.1168)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qp5pj"]
+size = Vector3(1.57837, 1.01024, 3.36295)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_njkyd"]
+size = Vector3(1.57837, 1.01024, 3.39761)
+
 [node name="ruralHouse" instance=ExtResource("1_74yto")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="3"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.166748, 4.01651, 0.0125122)
+shape = SubResource("BoxShape3D_ln4hh")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.88129, 0.505386, -0.012558)
+shape = SubResource("BoxShape3D_qp5pj")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="StaticBody3D" index="2"]
+transform = Transform3D(0.707107, -0.707107, 0, 0.707107, 0.707107, 0, 0, 0, 1, -6.857, 0.0951452, 0.00282288)
+shape = SubResource("BoxShape3D_njkyd")

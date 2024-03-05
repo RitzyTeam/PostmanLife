@@ -1,5 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://cm8vci4pysgq1"]
+[gd_scene load_steps=3 format=3 uid="uid://jxlhyaaw08ri"]
 
 [ext_resource type="PackedScene" uid="uid://c7csy5vlhlk1q" path="res://assets/models/builds/house2.blend" id="1_53rr4"]
 
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_so3cp"]
+points = PackedVector3Array(-8.64337, 6.99885, -7, -8.2018, -6.17504e-05, -6.20106, -8.64337, 6.99885, 7, -8.64337, 7.64118, -7, 8.7195, 6.99885, -7, -8.2018, -6.17504e-05, 6.19969, 8.19764, -6.17504e-05, -6.20106, -8.64337, 7.64118, 7, 8.7195, 6.99885, 7, -8.64337, 8.64141, -6.00098, 8.7195, 7.64118, -7, 15.48, 6.4994, -4.50039, 14.9936, -6.17504e-05, -4.0002, 8.19764, -6.17504e-05, 6.19969, -8.64337, 8.64141, 5.99961, 8.7195, 7.64118, 7, 14.9936, -6.17504e-05, 3.99883, 15.48, 6.4994, 4.49902, -8.64337, 13.6425, -0.00137043, 8.7195, 8.64141, -6.00098, 15.48, 7.01754, -4.50039, 8.7195, 8.64141, 5.99961, 15.48, 7.01754, 4.49902, 8.7195, 13.6425, -0.00137043, 15.48, 7.51699, -4.0002, 15.48, 7.51699, 3.99883, 15.48, 10.5177, -0.00137043)
+
 [node name="house2" instance=ExtResource("1_53rr4")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1"]
+shape = SubResource("ConvexPolygonShape3D_so3cp")

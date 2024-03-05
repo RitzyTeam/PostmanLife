@@ -859,6 +859,7 @@ _data = {
 
 [node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("HEAD", "CAMERA", "HEADBOB_ANIMATION", "JUMP_ANIMATION", "CROUCH_ANIMATION", "COLLISION_MESH")]
 wall_min_slide_angle = 1.81514
+floor_max_angle = 1.39626
 script = ExtResource("1_w4mcw")
 HEAD = NodePath("Head")
 CAMERA = NodePath("Head/Camera")
