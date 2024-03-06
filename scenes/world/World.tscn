@@ -92,7 +92,7 @@ shader_parameter/texture_normal2 = SubResource("NoiseTexture2D_npkdg")
 material = SubResource("ShaderMaterial_divvh")
 size = Vector2(2000, 450)
 
-[sub_resource type="Resource" id="Resource_2cqin"]
+[sub_resource type="Resource" id="Resource_kiick"]
 script = ExtResource("19_6qlp7")
 amount = 1000
 enabled = true
@@ -101,7 +101,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 1
 
-[sub_resource type="Resource" id="Resource_20ao2"]
+[sub_resource type="Resource" id="Resource_1jxgw"]
 script = ExtResource("20_xv4po")
 position = Vector3(0.15, 0.15, 0.15)
 rotation = Vector3(0, 360, 0)
@@ -112,7 +112,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 2
 
-[sub_resource type="Resource" id="Resource_3yanc"]
+[sub_resource type="Resource" id="Resource_dhtrb"]
 script = ExtResource("21_ai286")
 iterations = 3
 offset_step = 0.2
@@ -124,7 +124,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_5udqc"]
+[sub_resource type="Resource" id="Resource_l5guu"]
 script = ExtResource("22_k8kdo")
 ray_direction = Vector3(0, -1, 0)
 ray_length = 5.0
@@ -140,9 +140,9 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_utjb3"]
+[sub_resource type="Resource" id="Resource_o21et"]
 script = ExtResource("18_1fwha")
-stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_2cqin"), SubResource("Resource_20ao2"), SubResource("Resource_3yanc"), SubResource("Resource_5udqc")])
+stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_kiick"), SubResource("Resource_1jxgw"), SubResource("Resource_dhtrb"), SubResource("Resource_l5guu")])
 
 [sub_resource type="Curve3D" id="Curve3D_2u2vc"]
 _data = {
@@ -157,7 +157,7 @@ closed = true
 thickness = 0.0
 curve = SubResource("Curve3D_2u2vc")
 
-[sub_resource type="Resource" id="Resource_e37qg"]
+[sub_resource type="Resource" id="Resource_884lf"]
 script = ExtResource("19_6qlp7")
 amount = 2000
 enabled = true
@@ -166,7 +166,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 1
 
-[sub_resource type="Resource" id="Resource_o5tgo"]
+[sub_resource type="Resource" id="Resource_inm5p"]
 script = ExtResource("20_xv4po")
 position = Vector3(0.15, 0.15, 0.15)
 rotation = Vector3(1, 360, 1)
@@ -177,7 +177,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 2
 
-[sub_resource type="Resource" id="Resource_tq8hf"]
+[sub_resource type="Resource" id="Resource_5mw2s"]
 script = ExtResource("21_ai286")
 iterations = 1
 offset_step = 0.1
@@ -189,7 +189,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_vtxk4"]
+[sub_resource type="Resource" id="Resource_ri16e"]
 script = ExtResource("22_k8kdo")
 ray_direction = Vector3(0, -1, 0)
 ray_length = 5.0
@@ -205,9 +205,9 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_xhcd0"]
+[sub_resource type="Resource" id="Resource_7t2jn"]
 script = ExtResource("18_1fwha")
-stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_e37qg"), SubResource("Resource_o5tgo"), SubResource("Resource_tq8hf"), SubResource("Resource_vtxk4")])
+stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_884lf"), SubResource("Resource_inm5p"), SubResource("Resource_5mw2s"), SubResource("Resource_ri16e")])
 
 [sub_resource type="Curve3D" id="Curve3D_ulu54"]
 _data = {
@@ -556,30 +556,30 @@ transform = Transform3D(-0.999322, 0, -0.0368184, 0, 1, 0, 0.0368184, 0, -0.9993
 
 [node name="streets" type="Node" parent="Levels"]
 
-[node name="visotnaya_1" parent="Levels/streets" instance=ExtResource("7_t74fg")]
+[node name="pobedi_2" parent="Levels/streets" instance=ExtResource("7_t74fg")]
 transform = Transform3D(-0.953512, 0, 0.301355, 0, 1, 0, -0.301355, 0, -0.953512, 1026.37, 0, 817.73)
 
-[node name="package_box_receiver" parent="Levels/streets/visotnaya_1" instance=ExtResource("13_5msbq")]
+[node name="package_box_receiver" parent="Levels/streets/pobedi_2" instance=ExtResource("13_5msbq")]
 transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 0, 0, 0.999999, -18.5083, 0.268274, 5.2251)
 deliver_code = "00056"
 
-[node name="package_letter_receiver" parent="Levels/streets/visotnaya_1" instance=ExtResource("12_1elkd")]
+[node name="package_letter_receiver" parent="Levels/streets/pobedi_2" instance=ExtResource("12_1elkd")]
 transform = Transform3D(0.999999, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 0.999999, -21.4915, 1.05542, 5.05249)
 deliver_code = "00056"
 
-[node name="package_box_receiver2" parent="Levels/streets/visotnaya_1" instance=ExtResource("13_5msbq")]
+[node name="package_box_receiver2" parent="Levels/streets/pobedi_2" instance=ExtResource("13_5msbq")]
 transform = Transform3D(0.999999, 0, 5.96046e-08, 0, 1, 0, -5.96046e-08, 0, 0.999999, 1.50122, 0.268274, 5.22961)
 deliver_code = "00057"
 
-[node name="package_letter_receiver2" parent="Levels/streets/visotnaya_1" instance=ExtResource("12_1elkd")]
+[node name="package_letter_receiver2" parent="Levels/streets/pobedi_2" instance=ExtResource("12_1elkd")]
 transform = Transform3D(0.999998, 0, 1.49012e-08, 0, 1, 0, -1.49012e-08, 0, 0.999998, -1.48212, 1.05542, 5.05676)
 deliver_code = "00057"
 
-[node name="package_box_receiver3" parent="Levels/streets/visotnaya_1" instance=ExtResource("13_5msbq")]
+[node name="package_box_receiver3" parent="Levels/streets/pobedi_2" instance=ExtResource("13_5msbq")]
 transform = Transform3D(0.999998, 0, 1.49012e-08, 0, 1, 0, -1.49012e-08, 0, 0.999998, 21.5818, 0.268274, 5.22717)
 deliver_code = "00058"
 
-[node name="package_letter_receiver3" parent="Levels/streets/visotnaya_1" instance=ExtResource("12_1elkd")]
+[node name="package_letter_receiver3" parent="Levels/streets/pobedi_2" instance=ExtResource("12_1elkd")]
 transform = Transform3D(0.999997, 0, 1.49012e-08, 0, 1, 0, -1.49012e-08, 0, 0.999997, 18.5986, 1.05542, 5.05493)
 deliver_code = "00058"
 
@@ -640,12 +640,6 @@ deliver_code = "00061"
 [node name="4" parent="Levels/streets" instance=ExtResource("8_7t2yj")]
 transform = Transform3D(-2.98023e-08, 0, 1, 0, 1, 0, -1, 0, -2.98023e-08, 1640, 0, 1260.11)
 
-[node name="5" parent="Levels/streets" instance=ExtResource("10_qyej0")]
-transform = Transform3D(0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, 1604.09, 0, 1220.49)
-
-[node name="6" parent="Levels/streets" instance=ExtResource("11_cxx1a")]
-transform = Transform3D(0.258819, 0, -0.965926, 0, 1, 0, 0.965926, 0, 0.258819, 1574.39, 0, 1224.76)
-
 [node name="7" parent="Levels/streets" instance=ExtResource("10_qyej0")]
 transform = Transform3D(-0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, -0.258819, 1567, 0, 1295)
 
@@ -678,12 +672,6 @@ transform = Transform3D(-1, 0, -5.96046e-08, 0, 1, 0, 5.96046e-08, 0, -1, 1628.3
 
 [node name="17" parent="Levels/streets" instance=ExtResource("11_4a5py")]
 transform = Transform3D(0.173648, 0, 0.984808, 0, 1, 0, -0.984808, 0, 0.173648, 1722, 0, 1154)
-
-[node name="18" parent="Levels/streets" instance=ExtResource("11_4a5py")]
-transform = Transform3D(0.0871558, 0, 0.996195, 0, 1, 0, -0.996195, 0, 0.0871558, 1207.54, 0, 962.747)
-
-[node name="19" parent="Levels/streets" instance=ExtResource("11_4a5py")]
-transform = Transform3D(0.173648, 0, 0.984808, 0, 1, 0, -0.984808, 0, 0.173648, 1247.4, 0, 671)
 
 [node name="22" parent="Levels/streets" instance=ExtResource("11_4a5py")]
 transform = Transform3D(-0.258819, 0, -0.965926, 0, 1, 0, 0.965926, 0, -0.258819, 846.827, 0, 939.823)
@@ -743,14 +731,115 @@ deliver_code = "00004"
 [node name="25" parent="Levels/streets" instance=ExtResource("11_4a5py")]
 transform = Transform3D(0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, 1334, 0, 1616.2)
 
-[node name="26" parent="Levels/streets" instance=ExtResource("11_4a5py")]
+[node name="shkolnaya_2" parent="Levels/streets" instance=ExtResource("11_4a5py")]
 transform = Transform3D(0.984808, 0, 0.173648, 0, 1, 0, -0.173648, 0, 0.984808, 1053, 0, 1482.2)
 
-[node name="27" parent="Levels/streets" instance=ExtResource("11_4a5py")]
-transform = Transform3D(0.866026, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866026, 1064, 0, 1215.7)
+[node name="package_letter_receiver" parent="Levels/streets/shkolnaya_2" instance=ExtResource("12_1elkd")]
+transform = Transform3D(-0.999999, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, -0.999999, -0.0942993, 1.82908, -8.1073)
+deliver_code = "00074"
 
-[node name="28" parent="Levels/streets" instance=ExtResource("11_4a5py")]
-transform = Transform3D(-0.0871556, 0, -0.996195, 0, 1, 0, 0.996195, 0, -0.0871556, 1148.02, -1.90735e-06, 1046.77)
+[node name="package_box_receiver" parent="Levels/streets/shkolnaya_2" instance=ExtResource("13_5msbq")]
+transform = Transform3D(-0.999999, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, -0.999999, 0.393677, 0.315426, -8.23755)
+deliver_code = "00074"
+
+[node name="torgovaya_1" parent="Levels/streets" instance=ExtResource("8_7t2yj")]
+transform = Transform3D(0.819152, 0, -0.573576, 0, 1, 0, 0.573576, 0, 0.819152, 1020.81, 0, 1112.53)
+
+[node name="package_letter_receiver" parent="Levels/streets/torgovaya_1" instance=ExtResource("12_1elkd")]
+transform = Transform3D(0.999997, 0, 1.49012e-08, 0, 1, 0, -1.49012e-08, 0, 0.999997, -3.54675, 2.05833, 6.04932)
+deliver_code = "00077"
+
+[node name="package_box_receiver" parent="Levels/streets/torgovaya_1" instance=ExtResource("13_5msbq")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -2.78589, 0.269888, 6.38306)
+deliver_code = "00077"
+
+[node name="torgovaya_2" parent="Levels/streets" instance=ExtResource("11_4a5py")]
+transform = Transform3D(0.866026, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866026, 1065.61, 0, 1208.71)
+
+[node name="package_letter_receiver" parent="Levels/streets/torgovaya_2" instance=ExtResource("12_1elkd")]
+transform = Transform3D(-0.999999, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, -0.999999, -0.0942993, 1.82908, -8.1073)
+deliver_code = "00078"
+
+[node name="package_box_receiver" parent="Levels/streets/torgovaya_2" instance=ExtResource("13_5msbq")]
+transform = Transform3D(-0.999999, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, -0.999999, 0.393677, 0.315426, -8.23755)
+deliver_code = "00078"
+
+[node name="torgovaya_3" parent="Levels/streets" instance=ExtResource("10_qyej0")]
+transform = Transform3D(0.866026, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866026, 1103.61, 0, 1232.01)
+
+[node name="package_box_receiver" parent="Levels/streets/torgovaya_3" instance=ExtResource("13_5msbq")]
+transform = Transform3D(1, 0, 1.49012e-08, 0, 1, 0, -1.49012e-08, 0, 1, -0.131226, 0.272772, 3.38135)
+deliver_code = "00079"
+
+[node name="package_letter_receiver" parent="Levels/streets/torgovaya_3" instance=ExtResource("12_1elkd")]
+transform = Transform3D(1, 0, 1.49012e-08, 0, 1, 0, -1.49012e-08, 0, 1, 0.432861, 1.06838, 3.07153)
+deliver_code = "00079"
+
+[node name="torgovaya_4" parent="Levels/streets" instance=ExtResource("11_cxx1a")]
+transform = Transform3D(-0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, -0.5, 1144.2, 0, 1253.27)
+
+[node name="package_box_receiver" parent="Levels/streets/torgovaya_4" instance=ExtResource("13_5msbq")]
+transform = Transform3D(-7.45058e-08, 0, -1, 0, 1, 0, 1, 0, -7.45058e-08, -5.30151, 0.275626, 2.49475)
+deliver_code = "00080"
+
+[node name="package_letter_receiver" parent="Levels/streets/torgovaya_4" instance=ExtResource("12_1elkd")]
+transform = Transform3D(-7.45058e-08, 0, -1, 0, 1, 0, 1, 0, -7.45058e-08, -5.17261, 2.79797, 1.38417)
+deliver_code = "00080"
+
+[node name="torgovaya_5" parent="Levels/streets" instance=ExtResource("10_qyej0")]
+transform = Transform3D(0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, 1194.51, -3.8147e-06, 1273.34)
+
+[node name="package_box_receiver" parent="Levels/streets/torgovaya_5" instance=ExtResource("13_5msbq")]
+transform = Transform3D(1, 0, 1.49012e-08, 0, 1, 0, -1.49012e-08, 0, 1, -0.131226, 0.272772, 3.38135)
+deliver_code = "00081"
+
+[node name="package_letter_receiver" parent="Levels/streets/torgovaya_5" instance=ExtResource("12_1elkd")]
+transform = Transform3D(1, 0, 1.49012e-08, 0, 1, 0, -1.49012e-08, 0, 1, 0.432861, 1.06838, 3.07153)
+deliver_code = "00081"
+
+[node name="torgovaya_6" parent="Levels/streets" instance=ExtResource("8_7t2yj")]
+transform = Transform3D(-1, 0, 1.39091e-08, 0, 1, 0, -1.39091e-08, 0, -1, 1274.77, 0, 1292.66)
+
+[node name="package_letter_receiver" parent="Levels/streets/torgovaya_6" instance=ExtResource("12_1elkd")]
+transform = Transform3D(0.999997, 0, 1.49012e-08, 0, 1, 0, -1.49012e-08, 0, 0.999997, -3.54675, 2.05833, 6.04932)
+deliver_code = "00081"
+
+[node name="package_box_receiver" parent="Levels/streets/torgovaya_6" instance=ExtResource("13_5msbq")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -2.78589, 0.269888, 6.38306)
+deliver_code = "00081"
+
+[node name="torgovaya_7" parent="Levels/streets" instance=ExtResource("8_7t2yj")]
+transform = Transform3D(0.939693, 0, 0.34202, 0, 1, 0, -0.34202, 0, 0.939693, 1421.31, 0, 1220.43)
+
+[node name="package_letter_receiver" parent="Levels/streets/torgovaya_7" instance=ExtResource("12_1elkd")]
+transform = Transform3D(0.999997, 0, 1.49012e-08, 0, 1, 0, -1.49012e-08, 0, 0.999997, -3.54675, 2.05833, 6.04932)
+deliver_code = "00083"
+
+[node name="package_box_receiver" parent="Levels/streets/torgovaya_7" instance=ExtResource("13_5msbq")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -2.78589, 0.269888, 6.38306)
+deliver_code = "00083"
+
+[node name="torgovaya_8" parent="Levels/streets" instance=ExtResource("11_cxx1a")]
+transform = Transform3D(0.258819, 0, -0.965926, 0, 1, 0, 0.965926, 0, 0.258819, 1574.39, 0, 1224.76)
+
+[node name="package_box_receiver" parent="Levels/streets/torgovaya_8" instance=ExtResource("13_5msbq")]
+transform = Transform3D(-7.45058e-08, 0, -1, 0, 1, 0, 1, 0, -7.45058e-08, -5.30151, 0.275626, 2.49475)
+deliver_code = "00084"
+
+[node name="package_letter_receiver" parent="Levels/streets/torgovaya_8" instance=ExtResource("12_1elkd")]
+transform = Transform3D(-7.45058e-08, 0, -1, 0, 1, 0, 1, 0, -7.45058e-08, -5.17261, 2.79797, 1.38417)
+deliver_code = "00084"
+
+[node name="torgovaya_9" parent="Levels/streets" instance=ExtResource("10_qyej0")]
+transform = Transform3D(0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, 1604.09, 0, 1220.49)
+
+[node name="package_box_receiver" parent="Levels/streets/torgovaya_9" instance=ExtResource("13_5msbq")]
+transform = Transform3D(1, 0, 1.49012e-08, 0, 1, 0, -1.49012e-08, 0, 1, -0.131226, 0.272772, 3.38135)
+deliver_code = "00085"
+
+[node name="package_letter_receiver" parent="Levels/streets/torgovaya_9" instance=ExtResource("12_1elkd")]
+transform = Transform3D(1, 0, 1.49012e-08, 0, 1, 0, -1.49012e-08, 0, 1, 0.432861, 1.06838, 3.07153)
+deliver_code = "00085"
 
 [node name="31" parent="Levels/streets" instance=ExtResource("11_cxx1a")]
 transform = Transform3D(0.996195, 0, -0.0871558, 0, 1, 0, 0.0871558, 0, 0.996195, 1346.39, 0, 1109.76)
@@ -988,29 +1077,110 @@ transform = Transform3D(-0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, -0.965926
 [node name="48" parent="Levels/streets" instance=ExtResource("10_qyej0")]
 transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 1703, 0, 1523)
 
-[node name="49" parent="Levels/streets" instance=ExtResource("10_qyej0")]
-transform = Transform3D(0.866026, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866026, 1102, 0, 1239)
-
-[node name="50" parent="Levels/streets" instance=ExtResource("10_qyej0")]
-transform = Transform3D(1.19209e-07, 0, -1, 0, 1, 0, 1, 0, 1.19209e-07, 1201.4, 0, 1287.4)
-
 [node name="51" parent="Levels/streets" instance=ExtResource("10_qyej0")]
 transform = Transform3D(-2.06632e-07, 0, 1, 0, 1, 0, -1, 0, -2.06632e-07, 1281.4, 0, 1234.4)
 
-[node name="53" parent="Levels/streets" instance=ExtResource("11_cxx1a")]
-transform = Transform3D(-0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, -0.5, 1142.59, 0, 1260.26)
-
-[node name="62" parent="Levels/streets" instance=ExtResource("8_7t2yj")]
+[node name="first_grazhdanskaya_1" parent="Levels/streets" instance=ExtResource("8_7t2yj")]
 transform = Transform3D(0.173648, 0, 0.984808, 0, 1, 0, -0.984808, 0, 0.173648, 1186.71, 0, 664.628)
 
-[node name="63" parent="Levels/streets" instance=ExtResource("8_7t2yj")]
+[node name="package_letter_receiver" parent="Levels/streets/first_grazhdanskaya_1" instance=ExtResource("12_1elkd")]
+transform = Transform3D(0.999997, 0, 1.49012e-08, 0, 1, 0, -1.49012e-08, 0, 0.999997, -3.54675, 2.05833, 6.04932)
+deliver_code = "00086"
+
+[node name="package_box_receiver" parent="Levels/streets/first_grazhdanskaya_1" instance=ExtResource("13_5msbq")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -2.78589, 0.269888, 6.38306)
+deliver_code = "00086"
+
+[node name="first_grazhdanskaya_2" parent="Levels/streets" instance=ExtResource("11_4a5py")]
+transform = Transform3D(0.173648, 0, 0.984808, 0, 1, 0, -0.984808, 0, 0.173648, 1247.4, 0, 671)
+
+[node name="package_letter_receiver" parent="Levels/streets/first_grazhdanskaya_2" instance=ExtResource("12_1elkd")]
+transform = Transform3D(-0.999999, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, -0.999999, -0.0942993, 1.82908, -8.1073)
+deliver_code = "00087"
+
+[node name="package_box_receiver" parent="Levels/streets/first_grazhdanskaya_2" instance=ExtResource("13_5msbq")]
+transform = Transform3D(-0.999999, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, -0.999999, 0.393677, 0.315426, -8.23755)
+deliver_code = "00087"
+
+[node name="first_grazhdanskaya_3" parent="Levels/streets" instance=ExtResource("11_cxx1a")]
+transform = Transform3D(-1, 0, 2.5332e-07, 0, 1, 0, -2.5332e-07, 0, -1, 1176.89, 0, 729.76)
+
+[node name="package_box_receiver" parent="Levels/streets/first_grazhdanskaya_3" instance=ExtResource("13_5msbq")]
+transform = Transform3D(-7.45058e-08, 0, -1, 0, 1, 0, 1, 0, -7.45058e-08, -5.30151, 0.275626, 2.49475)
+deliver_code = "00088"
+
+[node name="package_letter_receiver" parent="Levels/streets/first_grazhdanskaya_3" instance=ExtResource("12_1elkd")]
+transform = Transform3D(-7.45058e-08, 0, -1, 0, 1, 0, 1, 0, -7.45058e-08, -5.17261, 2.79797, 1.38417)
+deliver_code = "00088"
+
+[node name="first_grazhdanskaya_4" parent="Levels/streets" instance=ExtResource("8_7t2yj")]
 transform = Transform3D(-0.173648, 0, -0.984808, 0, 1, 0, 0.984808, 0, -0.173648, 1236.31, 0, 766.628)
+
+[node name="package_letter_receiver" parent="Levels/streets/first_grazhdanskaya_4" instance=ExtResource("12_1elkd")]
+transform = Transform3D(0.999997, 0, 1.49012e-08, 0, 1, 0, -1.49012e-08, 0, 0.999997, -3.54675, 2.05833, 6.04932)
+deliver_code = "00089"
+
+[node name="package_box_receiver" parent="Levels/streets/first_grazhdanskaya_4" instance=ExtResource("13_5msbq")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -2.78589, 0.269888, 6.38306)
+deliver_code = "00089"
+
+[node name="first_grazhdanskaya_5" parent="Levels/streets" instance=ExtResource("11_4a5py")]
+transform = Transform3D(0.0871558, 0, 0.996195, 0, 1, 0, -0.996195, 0, 0.0871558, 1207.54, 0, 962.747)
+
+[node name="package_letter_receiver" parent="Levels/streets/first_grazhdanskaya_5" instance=ExtResource("12_1elkd")]
+transform = Transform3D(-0.999999, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, -0.999999, -0.0942993, 1.82908, -8.1073)
+deliver_code = "00090"
+
+[node name="package_box_receiver" parent="Levels/streets/first_grazhdanskaya_5" instance=ExtResource("13_5msbq")]
+transform = Transform3D(-0.999999, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, -0.999999, 0.393677, 0.315426, -8.23755)
+deliver_code = "00090"
+
+[node name="first_grazhdanskaya_6" parent="Levels/streets" instance=ExtResource("11_4a5py")]
+transform = Transform3D(-0.0871556, 0, -0.996195, 0, 1, 0, 0.996195, 0, -0.0871556, 1148.02, -1.90735e-06, 1046.77)
+
+[node name="package_letter_receiver" parent="Levels/streets/first_grazhdanskaya_6" instance=ExtResource("12_1elkd")]
+transform = Transform3D(-0.999999, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, -0.999999, -0.0942993, 1.82908, -8.1073)
+deliver_code = "00091"
+
+[node name="package_box_receiver" parent="Levels/streets/first_grazhdanskaya_6" instance=ExtResource("13_5msbq")]
+transform = Transform3D(-0.999999, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, -0.999999, 0.393677, 0.315426, -8.23755)
+deliver_code = "00091"
+
+[node name="first_grazhdanskaya_7" parent="Levels/streets" instance=ExtResource("11_cxx1a")]
+transform = Transform3D(-0.984808, 0, 0.173648, 0, 1, 0, -0.173648, 0, -0.984808, 1135.89, 0, 1107.76)
+
+[node name="package_box_receiver" parent="Levels/streets/first_grazhdanskaya_7" instance=ExtResource("13_5msbq")]
+transform = Transform3D(-7.45058e-08, 0, -1, 0, 1, 0, 1, 0, -7.45058e-08, -5.30151, 0.275626, 2.49475)
+deliver_code = "00092"
+
+[node name="package_letter_receiver" parent="Levels/streets/first_grazhdanskaya_7" instance=ExtResource("12_1elkd")]
+transform = Transform3D(-7.45058e-08, 0, -1, 0, 1, 0, 1, 0, -7.45058e-08, -5.17261, 2.79797, 1.38417)
+deliver_code = "00092"
 
 [node name="64" parent="Levels/streets" instance=ExtResource("8_7t2yj")]
 transform = Transform3D(0.173648, 0, 0.984808, 0, 1, 0, -0.984808, 0, 0.173648, 1238.31, 0, 1160.63)
 
-[node name="65" parent="Levels/streets" instance=ExtResource("8_7t2yj")]
-transform = Transform3D(-0.996195, 0, -0.0871555, 0, 1, 0, 0.0871555, 0, -0.996195, 1216.71, 0, 1409.93)
+[node name="cvetochnaya_1" parent="Levels/streets" instance=ExtResource("8_7t2yj")]
+transform = Transform3D(-0.933224, 0, -0.359296, 0, 1, 0, 0.359296, 0, -0.933224, 1174.06, 0, 1401)
+
+[node name="package_letter_receiver" parent="Levels/streets/cvetochnaya_1" instance=ExtResource("12_1elkd")]
+transform = Transform3D(0.999997, 0, 1.49012e-08, 0, 1, 0, -1.49012e-08, 0, 0.999997, -3.54675, 2.05833, 6.04932)
+deliver_code = "00075"
+
+[node name="package_box_receiver" parent="Levels/streets/cvetochnaya_1" instance=ExtResource("13_5msbq")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -2.78589, 0.269888, 6.38306)
+deliver_code = "00075"
+
+[node name="cvetochnaya_2" parent="Levels/streets" instance=ExtResource("8_7t2yj")]
+transform = Transform3D(-0.994418, 0, -0.105518, 0, 1, 0, 0.105518, 0, -0.994418, 1234.31, 0, 1397.15)
+
+[node name="package_letter_receiver" parent="Levels/streets/cvetochnaya_2" instance=ExtResource("12_1elkd")]
+transform = Transform3D(0.999997, 0, 1.49012e-08, 0, 1, 0, -1.49012e-08, 0, 0.999997, -3.54675, 2.05833, 6.04932)
+deliver_code = "00076"
+
+[node name="package_box_receiver" parent="Levels/streets/cvetochnaya_2" instance=ExtResource("13_5msbq")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -2.78589, 0.269888, 6.38306)
+deliver_code = "00076"
 
 [node name="sovetskaya_1" parent="Levels/streets" instance=ExtResource("8_7t2yj")]
 transform = Transform3D(-0.984808, 0, 0.173648, 0, 1, 0, -0.173648, 0, -0.984808, 513.706, 0, 1564.93)
@@ -1023,14 +1193,38 @@ deliver_code = "00069"
 transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -2.78589, 0.269888, 6.38306)
 deliver_code = "00069"
 
-[node name="69" parent="Levels/streets" instance=ExtResource("11_cxx1a")]
-transform = Transform3D(-0.984808, 0, 0.173648, 0, 1, 0, -0.173648, 0, -0.984808, 1135.89, 0, 1107.76)
-
-[node name="70" parent="Levels/streets" instance=ExtResource("11_cxx1a")]
+[node name="first_maya_1" parent="Levels/streets" instance=ExtResource("11_cxx1a")]
 transform = Transform3D(0.34202, 0, 0.939693, 0, 1, 0, -0.939693, 0, 0.34202, 1015.89, 0, 1298.76)
 
-[node name="71" parent="Levels/streets" instance=ExtResource("11_cxx1a")]
+[node name="package_box_receiver" parent="Levels/streets/first_maya_1" instance=ExtResource("13_5msbq")]
+transform = Transform3D(-7.45058e-08, 0, -1, 0, 1, 0, 1, 0, -7.45058e-08, -5.30151, 0.275626, 2.49475)
+deliver_code = "00070"
+
+[node name="package_letter_receiver" parent="Levels/streets/first_maya_1" instance=ExtResource("12_1elkd")]
+transform = Transform3D(-7.45058e-08, 0, -1, 0, 1, 0, 1, 0, -7.45058e-08, -5.17261, 2.79797, 1.38417)
+deliver_code = "00070"
+
+[node name="first_maya_2" parent="Levels/streets" instance=ExtResource("8_7t2yj")]
+transform = Transform3D(-0.906308, 0, 0.422619, 0, 1, 0, -0.422619, 0, -0.906308, 1010.91, 0, 1357.23)
+
+[node name="package_letter_receiver" parent="Levels/streets/first_maya_2" instance=ExtResource("12_1elkd")]
+transform = Transform3D(0.999997, 0, 1.49012e-08, 0, 1, 0, -1.49012e-08, 0, 0.999997, -3.54675, 2.05833, 6.04932)
+deliver_code = "00071"
+
+[node name="package_box_receiver" parent="Levels/streets/first_maya_2" instance=ExtResource("13_5msbq")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -2.78589, 0.269888, 6.38306)
+deliver_code = "00071"
+
+[node name="first_maya_3" parent="Levels/streets" instance=ExtResource("11_cxx1a")]
 transform = Transform3D(-0.573577, 0, -0.819152, 0, 1, 0, 0.819152, 0, -0.573577, 1069.39, 0, 1394.06)
+
+[node name="package_box_receiver" parent="Levels/streets/first_maya_3" instance=ExtResource("13_5msbq")]
+transform = Transform3D(-7.45058e-08, 0, -1, 0, 1, 0, 1, 0, -7.45058e-08, -5.30151, 0.275626, 2.49475)
+deliver_code = "00072"
+
+[node name="package_letter_receiver" parent="Levels/streets/first_maya_3" instance=ExtResource("12_1elkd")]
+transform = Transform3D(-7.45058e-08, 0, -1, 0, 1, 0, 1, 0, -7.45058e-08, -5.17261, 2.79797, 1.38417)
+deliver_code = "00072"
 
 [node name="72" parent="Levels/streets" instance=ExtResource("11_cxx1a")]
 transform = Transform3D(0.34202, 0, -0.939693, 0, 1, 0, 0.939693, 0, 0.34202, 1446.29, 0, 1588.26)
@@ -1053,31 +1247,25 @@ transform = Transform3D(-0.173648, 0, 0.984808, 0, 1, 0, -0.984808, 0, -0.173648
 [node name="78" parent="Levels/streets" instance=ExtResource("8_7t2yj")]
 transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 1421.41, 0, 1333.03)
 
-[node name="79" parent="Levels/streets" instance=ExtResource("8_7t2yj")]
-transform = Transform3D(2.98023e-08, 0, -1, 0, 1, 0, 1, 0, 2.98023e-08, 1251.31, 0, 1317.53)
-
-[node name="80" parent="Levels/streets" instance=ExtResource("8_7t2yj")]
-transform = Transform3D(0.819152, 0, -0.573576, 0, 1, 0, 0.573576, 0, 0.819152, 1020.81, 0, 1112.53)
-
-[node name="pobedi_1" parent="Levels/streets" instance=ExtResource("8_7t2yj")]
+[node name="slavi_1" parent="Levels/streets" instance=ExtResource("8_7t2yj")]
 transform = Transform3D(-0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, -0.965926, 966.074, 0, 986.106)
 
-[node name="package_letter_receiver" parent="Levels/streets/pobedi_1" instance=ExtResource("12_1elkd")]
+[node name="package_letter_receiver" parent="Levels/streets/slavi_1" instance=ExtResource("12_1elkd")]
 transform = Transform3D(0.999997, 0, 1.49012e-08, 0, 1, 0, -1.49012e-08, 0, 0.999997, -3.54675, 2.05833, 6.04932)
 deliver_code = "00063"
 
-[node name="package_box_receiver" parent="Levels/streets/pobedi_1" instance=ExtResource("13_5msbq")]
+[node name="package_box_receiver" parent="Levels/streets/slavi_1" instance=ExtResource("13_5msbq")]
 transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -2.78589, 0.269888, 6.38306)
 deliver_code = "00063"
 
-[node name="pobedi_2" parent="Levels/streets" instance=ExtResource("11_cxx1a")]
+[node name="slavi_2" parent="Levels/streets" instance=ExtResource("11_cxx1a")]
 transform = Transform3D(-0.258819, 0, -0.965926, 0, 1, 0, 0.965926, 0, -0.258819, 1042.22, 1.90735e-06, 1007.61)
 
-[node name="package_box_receiver" parent="Levels/streets/pobedi_2" instance=ExtResource("13_5msbq")]
+[node name="package_box_receiver" parent="Levels/streets/slavi_2" instance=ExtResource("13_5msbq")]
 transform = Transform3D(-7.45058e-08, 0, -1, 0, 1, 0, 1, 0, -7.45058e-08, -5.30151, 0.275626, 2.49475)
 deliver_code = "00064"
 
-[node name="package_letter_receiver" parent="Levels/streets/pobedi_2" instance=ExtResource("12_1elkd")]
+[node name="package_letter_receiver" parent="Levels/streets/slavi_2" instance=ExtResource("12_1elkd")]
 transform = Transform3D(-7.45058e-08, 0, -1, 0, 1, 0, 1, 0, -7.45058e-08, -5.17261, 2.79797, 1.38417)
 deliver_code = "00064"
 
@@ -1401,14 +1589,8 @@ transform = Transform3D(0.0871559, 0, 0.996195, 0, 1, 0, -0.996195, 0, 0.0871559
 [node name="98" parent="Levels/streets" instance=ExtResource("11_4a5py")]
 transform = Transform3D(-0.0871556, 0, -0.996195, 0, 1, 0, 0.996195, 0, -0.0871556, 1300, 0, 1145.7)
 
-[node name="99" parent="Levels/streets" instance=ExtResource("8_7t2yj")]
-transform = Transform3D(-0.906308, 0, 0.422619, 0, 1, 0, -0.422619, 0, -0.906308, 1010.91, 0, 1357.23)
-
 [node name="100" parent="Levels/streets" instance=ExtResource("8_7t2yj")]
 transform = Transform3D(0.0871554, 0, -0.996195, 0, 1, 0, 0.996195, 0, 0.0871554, 1513.91, 0, 1428.23)
-
-[node name="101" parent="Levels/streets" instance=ExtResource("8_7t2yj")]
-transform = Transform3D(0.939693, 0, 0.34202, 0, 1, 0, -0.34202, 0, 0.939693, 1421.31, 0, 1220.43)
 
 [node name="102" parent="Levels/streets" instance=ExtResource("8_7t2yj")]
 transform = Transform3D(1, 0, -2.83122e-07, 0, 1, 0, 2.83122e-07, 0, 1, 1638.31, 0, 1066.53)
@@ -1421,9 +1603,6 @@ transform = Transform3D(-0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, -0.258819
 
 [node name="105" parent="Levels/streets" instance=ExtResource("10_qyej0")]
 transform = Transform3D(-0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, -0.965926, 1507.69, 0, 1094.19)
-
-[node name="124" parent="Levels/streets" instance=ExtResource("11_cxx1a")]
-transform = Transform3D(-1, 0, 2.5332e-07, 0, 1, 0, -2.5332e-07, 0, -1, 1176.89, 0, 729.76)
 
 [node name="sec_grajdanskaya_1" parent="Levels/streets" instance=ExtResource("11_cxx1a")]
 transform = Transform3D(-0.984808, 0, 0.173648, 0, 1, 0, -0.173648, 0, -0.984808, 1093.52, 7.62939e-06, 878.253)
@@ -1480,6 +1659,14 @@ mesh = SubResource("PlaneMesh_gc26u")
 [node name="school" parent="Levels/infrastructure" instance=ExtResource("14_6dguf")]
 transform = Transform3D(0.0871557, 0, -0.996195, 0, 1, 0, 0.996195, 0, 0.0871557, 917.6, 0, 1565.8)
 
+[node name="package_box_receiver" parent="Levels/infrastructure/school" instance=ExtResource("13_5msbq")]
+transform = Transform3D(-4.47035e-08, 0, -1, 0, 1, 0, 1, 0, -4.47035e-08, -25.4293, 0.263761, -4.54688)
+deliver_code = "00073"
+
+[node name="package_letter_receiver" parent="Levels/infrastructure/school" instance=ExtResource("12_1elkd")]
+transform = Transform3D(-4.47035e-08, 0, -1, 0, 1, 0, 1, 0, -4.47035e-08, -25.0524, 1.1925, -5.0155)
+deliver_code = "00073"
+
 [node name="postOfficeBulild" parent="Levels/infrastructure" instance=ExtResource("15_hcqwq")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 948, 0.0231446, 1174)
 
@@ -1503,7 +1690,7 @@ deliver_code = "00062"
 script = ExtResource("17_0tutk")
 global_seed = 20
 render_mode = 1
-modifier_stack = SubResource("Resource_utjb3")
+modifier_stack = SubResource("Resource_o21et")
 Performance/use_chunks = true
 Performance/chunk_dimensions = Vector3(15, 15, 15)
 
@@ -1531,7 +1718,7 @@ shape = SubResource("Resource_e18i2")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2032, 0, 1595)
 script = ExtResource("17_0tutk")
 render_mode = 1
-modifier_stack = SubResource("Resource_xhcd0")
+modifier_stack = SubResource("Resource_7t2jn")
 Performance/use_chunks = true
 Performance/chunk_dimensions = Vector3(15, 15, 15)
 
