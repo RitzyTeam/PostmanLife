@@ -233,11 +233,10 @@ script = ExtResource("1_msngo")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -0.559453, 0.828862, 0, -0.828862, -0.559453, 0, 6.30265, 1.33231)
-light_color = Color(1, 1, 0.780392, 1)
 light_energy = 10.214
 light_bake_mode = 0
-spot_range = 15.4708
-spot_attenuation = 1.51572
+spot_range = 67.876
+spot_attenuation = 1.41422
 spot_angle_attenuation = 0.0769466
 
 [node name="bolts" type="Node3D" parent="."]
