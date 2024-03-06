@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bskp62bdkhqpp"]
+[gd_scene load_steps=22 format=3 uid="uid://bskp62bdkhqpp"]
 
 [ext_resource type="Script" path="res://objects/PROPS/environment/lampPost.gd" id="1_msngo"]
 
@@ -170,7 +170,7 @@ albedo_color = Color(0.906332, 0.906332, 0.906332, 1)
 roughness = 0.5
 emission_enabled = true
 emission = Color(1, 1, 1, 1)
-emission_energy_multiplier = 7.5
+emission_energy_multiplier = 0.0
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_exmqh"]
 _surfaces = [{
@@ -228,14 +228,138 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_exmqh")
 
+[sub_resource type="Animation" id="Animation_8ph0h"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpotLight3D:light_energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("main:mesh:surface_1/material:emission_energy_multiplier")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SpotLight3D:spot_range")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_0qv86"]
+resource_name = "lights_on"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpotLight3D:light_energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(-2, 1),
+"update": 0,
+"values": [0.0, 10.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("main:mesh:surface_1/material:emission_energy_multiplier")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(-2, 1),
+"update": 0,
+"values": [0.0, 7.5]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SpotLight3D:spot_range")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(-2, 1),
+"update": 0,
+"values": [0.0, 68.0]
+}
+
+[sub_resource type="Animation" id="Animation_masoq"]
+resource_name = "lights_off"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpotLight3D:light_energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(-2, 1),
+"update": 0,
+"values": [10.0, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("main:mesh:surface_1/material:emission_energy_multiplier")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(-2, 1),
+"update": 0,
+"values": [7.5, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SpotLight3D:spot_range")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(-2, 1),
+"update": 0,
+"values": [68.0, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2ajl4"]
+_data = {
+"RESET": SubResource("Animation_8ph0h"),
+"lights_off": SubResource("Animation_masoq"),
+"lights_on": SubResource("Animation_0qv86")
+}
+
 [node name="lamppost" type="Node3D"]
 script = ExtResource("1_msngo")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -0.559453, 0.828862, 0, -0.828862, -0.559453, 0, 6.30265, 1.33231)
-light_energy = 10.214
+light_energy = 0.0
 light_bake_mode = 0
-spot_range = 67.876
+spot_range = 0.0
 spot_attenuation = 1.41422
 spot_angle_attenuation = 0.0769466
 
@@ -279,3 +403,8 @@ shape = SubResource("CylinderShape3D_5jqk2")
 transform = Transform3D(1, 0, 0, 0, 1.07343, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("ArrayMesh_4a2v6")
 skeleton = NodePath("")
+
+[node name="anim_light" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_2ajl4")
+}

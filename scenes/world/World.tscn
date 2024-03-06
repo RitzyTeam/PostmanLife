@@ -2199,7 +2199,7 @@ doppler_tracking = 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1000, 200, 1000)
 
 [node name="Player" parent="." instance=ExtResource("5_6o1kf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1053.85, 0, 801.376)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 932.845, -1.71661e-05, 1192.25)
 
 [node name="car" parent="." instance=ExtResource("27_vrtll")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 938.484, 0.145038, 1193.68)
