@@ -11,3 +11,9 @@ points = PackedVector3Array(-8.64337, 6.99885, -7, -8.2018, -6.17504e-05, -6.201
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
 shape = SubResource("ConvexPolygonShape3D_so3cp")
+
+[node name="Label3D" type="Label3D" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.8555, 2.46302, 4.06355)
+outline_modulate = Color(0, 0, 0, 0)
+text = "Ул. Sample 1"
+uppercase = true

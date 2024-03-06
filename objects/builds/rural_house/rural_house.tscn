@@ -21,7 +21,7 @@ size = Vector3(1.57837, 1.01024, 3.39761)
 
 [node name="ruralHouse" instance=ExtResource("1_74yto")]
 
-[node name="main" parent="." index="1"]
+[node name="main" parent="." index="2"]
 surface_material_override/2 = SubResource("StandardMaterial3D_5ld68")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." index="3"]
@@ -37,3 +37,9 @@ shape = SubResource("BoxShape3D_qp5pj")
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="StaticBody3D" index="2"]
 transform = Transform3D(0.707107, -0.707107, 0, 0.707107, 0.707107, 0, 0, 0, 1, -6.857, 0.0951452, 0.00282288)
 shape = SubResource("BoxShape3D_njkyd")
+
+[node name="street_name_label" type="Label3D" parent="." index="5"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -5.0594, 3.56937, -4.16385)
+outline_modulate = Color(0, 0, 0, 0)
+text = "Ул. Sample 1"
+uppercase = true

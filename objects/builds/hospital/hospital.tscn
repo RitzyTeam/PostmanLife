@@ -49,3 +49,9 @@ shape = SubResource("CylinderShape3D_fcpoa")
 [node name="CollisionShape3D7" type="CollisionShape3D" parent="StaticBody3D" index="6"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.499, 2.145, 2.515)
 shape = SubResource("CylinderShape3D_fcpoa")
+
+[node name="street_name" type="Label3D" parent="." index="4"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -10.2142, 3.57519, 15.2291)
+double_sided = false
+outline_modulate = Color(1, 1, 1, 0)
+text = "Ул. Sample n1"

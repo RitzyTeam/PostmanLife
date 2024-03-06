@@ -11,3 +11,8 @@ data = PackedVector3Array(-2.0001, 0.0015, -5.989, 1.9879, 0, -5.989, -2.0001, 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="main/StaticBody3D" index="0"]
 shape = SubResource("ConcavePolygonShape3D_up0ki")
+
+[node name="street_name" type="Label3D" parent="." index="3"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 4.79315, 2.37369, -4.06706)
+outline_modulate = Color(1, 1, 1, 0)
+text = "Ул. Sample 3"
