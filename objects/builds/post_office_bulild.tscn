@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cj1ydvi2t3bot"]
+[gd_scene load_steps=18 format=3 uid="uid://cj1ydvi2t3bot"]
 
 [ext_resource type="PackedScene" uid="uid://ckthoht2tqua4" path="res://assets/models/builds/PostOfficeBulild.blend" id="1_t12fr"]
 [ext_resource type="Script" path="res://objects/builds/post_office_bulild.gd" id="2_qoyn2"]
@@ -109,19 +109,25 @@ _data = {
 }
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nywh3"]
-size = Vector3(35, 15, 1)
+size = Vector3(34.8917, 15, 0.0916138)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7acdt"]
+size = Vector3(24.0217, 15, 0.138489)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_d5foj"]
-size = Vector3(23.955, 15, 1)
+size = Vector3(24.0522, 15, 0.138489)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gh6hx"]
+size = Vector3(14.8687, 15, 0.150391)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_niivn"]
-size = Vector3(15, 15, 1)
+size = Vector3(15, 15, 0.210938)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_l5gqt"]
 size = Vector3(5.125, 9.865, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_g7spe"]
-size = Vector3(35.0169, 0.157532, 24.2952)
+size = Vector3(34.8693, 0.157532, 24.0203)
 
 [node name="postOfficeBulild" instance=ExtResource("1_t12fr")]
 script = ExtResource("2_qoyn2")
@@ -158,23 +164,23 @@ libraries = {
 [node name="StaticBody3D" type="StaticBody3D" parent="." index="6"]
 
 [node name="back" type="CollisionShape3D" parent="StaticBody3D" index="0"]
-transform = Transform3D(0.999995, -0.000200692, -0.0030652, 0.000200663, 1, -9.94627e-06, 0.0030652, 9.33235e-06, 0.999995, 0.565762, 7.50564, 11.3486)
+transform = Transform3D(0.999995, -0.000200692, -0.0030652, 0.000200663, 1, -9.94627e-06, 0.0030652, 9.33235e-06, 0.999995, 0.510495, 7.50563, 11.7166)
 shape = SubResource("BoxShape3D_nywh3")
 
 [node name="left" type="CollisionShape3D" parent="StaticBody3D" index="1"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 17.28, 7.506, -0.001)
-shape = SubResource("BoxShape3D_d5foj")
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 17.28, 7.506, -0.188877)
+shape = SubResource("BoxShape3D_7acdt")
 
 [node name="left2" type="CollisionShape3D" parent="StaticBody3D" index="2"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -16.415, 7.506, -0.001)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -16.7087, 7.506, -0.163349)
 shape = SubResource("BoxShape3D_d5foj")
 
 [node name="front_1" type="CollisionShape3D" parent="StaticBody3D" index="3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.6026, 7.50564, -11.5866)
-shape = SubResource("BoxShape3D_niivn")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5369, 7.50564, -12.1318)
+shape = SubResource("BoxShape3D_gh6hx")
 
 [node name="front_2" type="CollisionShape3D" parent="StaticBody3D" index="4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.39645, 7.50564, -11.5866)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.39645, 7.50564, -12.1036)
 shape = SubResource("BoxShape3D_niivn")
 
 [node name="front_3" type="CollisionShape3D" parent="StaticBody3D" index="5"]
@@ -182,5 +188,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.668586, 10.0836, -11.5866)
 shape = SubResource("BoxShape3D_l5gqt")
 
 [node name="floor" type="CollisionShape3D" parent="StaticBody3D" index="6"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.590279, 0.00265503, -0.172241)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.664084, 0.00265503, -0.193638)
 shape = SubResource("BoxShape3D_g7spe")

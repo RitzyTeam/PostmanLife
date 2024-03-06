@@ -391,11 +391,14 @@ func _unhandled_input(event):
 	if event.is_action_pressed('wheel_up'):
 		if current_slot_selected < 4:
 			current_slot_selected += 1
-			set_slot_selected(current_slot_selected)
+		else:
+			current_slot_selected = 0
 	if event.is_action_pressed('wheel_down'):
 		if current_slot_selected > 1:
 			current_slot_selected -= 1
-			set_slot_selected(current_slot_selected)
+		else:
+			current_slot_selected = 4
+	set_slot_selected(current_slot_selected)
 	
 	# INVENTORY BY KEYS
 	if event.is_action_pressed("key_1"):

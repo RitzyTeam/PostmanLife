@@ -63,8 +63,7 @@ func load_inventory_visual():
 			item_4_icon.texture = load('res://assets/images/item_fuel_tank.png')
 
 func load_hand_visual(slot_id):
-	if $"../UI/UserInterface/item_name/item_name_anim".is_playing():
-		$"../UI/UserInterface/item_name/item_name_anim".stop()
+	$"../UI/UserInterface/item_name/item_name_anim".stop()
 	$"../UI/UserInterface/item_name/item_name_anim".play('popup')
 	$"../UI/UserInterface/item_name".text = ''
 	var inv: Dictionary = SIN_WORLD_DATA.WORLD_DATA['player_inv']
