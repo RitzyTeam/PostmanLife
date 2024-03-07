@@ -1,8 +1,47 @@
-[gd_scene load_steps=8 format=3 uid="uid://dp80ffcw30b84"]
+[gd_scene load_steps=12 format=3 uid="uid://dp80ffcw30b84"]
 
 [ext_resource type="PackedScene" uid="uid://bk4v0uv6pn5kx" path="res://assets/models/builds/ruralHouse.blend" id="1_74yto"]
 [ext_resource type="Texture2D" uid="uid://c3qwibwe8ekow" path="res://assets/textures/glass.jpg" id="2_5sreh"]
 [ext_resource type="Script" path="res://objects/builds/house_4.gd" id="2_sgp7i"]
+[ext_resource type="FontFile" uid="uid://dv8jijr0th27a" path="res://assets/fonts/SubdexBold.ttf" id="4_ync78"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7gg2n"]
+resource_name = "street_name"
+cull_mode = 2
+albedo_color = Color(0.379992, 0.379992, 0.379992, 1)
+roughness = 0.5
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_x74y3"]
+_surfaces = [{
+"aabb": AABB(-1, 0, -1, 2, 2, 2.00001),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray(0, 0, 3, 0, 1, 0, 0, 0, 2, 0, 3, 0, 2, 0, 7, 0, 3, 0, 2, 0, 6, 0, 7, 0, 6, 0, 5, 0, 7, 0, 6, 0, 4, 0, 5, 0, 4, 0, 1, 0, 5, 0, 4, 0, 0, 0, 1, 0, 2, 0, 4, 0, 6, 0, 2, 0, 0, 0, 4, 0, 7, 0, 1, 0, 3, 0, 7, 0, 5, 0, 1, 0),
+"name": "street_name",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 254, 255, 0, 0, 0, 0, 255, 255, 254, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 255, 255, 0, 0, 254, 255, 0, 0, 255, 255, 255, 255, 254, 255, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 255, 255, 255, 255, 0, 0, 0, 0)
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_q2rt7"]
+resource_name = "ruralHouse_Cube_002"
+_surfaces = [{
+"aabb": AABB(-1, 0, -1, 2, 2, 2.00001),
+"attribute_data": PackedByteArray(255, 95, 255, 255, 255, 31, 255, 63, 255, 95, 0, 0, 255, 159, 255, 255, 255, 159, 0, 0, 255, 223, 255, 63, 255, 95, 255, 191, 255, 31, 255, 127, 255, 95, 255, 191, 255, 159, 255, 191, 255, 159, 255, 191, 255, 223, 255, 127, 255, 95, 255, 63, 255, 95, 255, 63, 255, 95, 255, 63, 255, 159, 255, 63, 255, 159, 255, 63, 255, 159, 255, 63, 255, 95, 255, 127, 255, 95, 255, 127, 255, 95, 255, 127, 255, 159, 255, 127, 255, 159, 255, 127, 255, 159, 255, 127),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray(0, 0, 9, 0, 3, 0, 0, 0, 6, 0, 9, 0, 8, 0, 21, 0, 10, 0, 8, 0, 19, 0, 21, 0, 20, 0, 17, 0, 23, 0, 20, 0, 14, 0, 17, 0, 13, 0, 4, 0, 15, 0, 13, 0, 2, 0, 4, 0, 7, 0, 12, 0, 18, 0, 7, 0, 1, 0, 12, 0, 22, 0, 5, 0, 11, 0, 22, 0, 16, 0, 5, 0),
+"material": SubResource("StandardMaterial3D_7gg2n"),
+"name": "street_name",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 254, 255, 84, 213, 0, 0, 0, 0, 254, 255, 255, 191, 0, 0, 0, 0, 254, 255, 255, 191, 0, 0, 255, 255, 254, 255, 84, 213, 0, 0, 255, 255, 254, 255, 255, 191, 0, 0, 255, 255, 254, 255, 255, 255, 0, 0, 0, 0, 0, 0, 84, 213, 0, 0, 0, 0, 0, 0, 255, 191, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 255, 255, 0, 0, 84, 213, 0, 0, 255, 255, 0, 0, 255, 255, 0, 0, 255, 255, 0, 0, 255, 255, 255, 255, 0, 0, 254, 255, 255, 191, 255, 255, 0, 0, 254, 255, 255, 191, 255, 255, 0, 0, 254, 255, 84, 213, 255, 255, 255, 255, 254, 255, 255, 191, 255, 255, 255, 255, 254, 255, 255, 255, 255, 255, 255, 255, 254, 255, 84, 213, 255, 255, 0, 0, 0, 0, 255, 191, 255, 255, 0, 0, 0, 0, 255, 255, 255, 255, 0, 0, 0, 0, 84, 213, 255, 255, 255, 255, 0, 0, 255, 255, 255, 255, 255, 255, 0, 0, 255, 255, 255, 255, 255, 255, 0, 0, 84, 213, 84, 213, 84, 213, 0, 0, 255, 127, 255, 255, 255, 255, 84, 213, 84, 213, 255, 255, 255, 255, 255, 127, 255, 191, 84, 213, 84, 213, 0, 0, 255, 127, 255, 191, 255, 191, 84, 213, 84, 213, 255, 191, 255, 191, 255, 127, 255, 191, 0, 0, 255, 127, 255, 255, 255, 255, 170, 42, 170, 42, 255, 255, 255, 255, 255, 127, 255, 191, 170, 42, 170, 42, 0, 0, 255, 127, 255, 191, 255, 191, 170, 42, 170, 42, 255, 191, 255, 191, 255, 127, 255, 191, 170, 42, 170, 42)
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_x74y3")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5ld68"]
 blend_mode = 1
@@ -23,6 +62,10 @@ size = Vector3(1.57837, 1.01024, 3.39761)
 [node name="ruralHouse" instance=ExtResource("1_74yto")]
 script = ExtResource("2_sgp7i")
 
+[node name="street_name" parent="." index="0"]
+transform = Transform3D(2.33649e-07, 0, 0.07, 0, 0.142, 0, -1.2, 0, 1.36295e-08, -4.9875, 3.42327, -3.70489)
+mesh = SubResource("ArrayMesh_q2rt7")
+
 [node name="main" parent="." index="2"]
 lod_bias = 0.047
 surface_material_override/2 = SubResource("StandardMaterial3D_5ld68")
@@ -42,7 +85,9 @@ transform = Transform3D(0.707107, -0.707107, 0, 0.707107, 0.707107, 0, 0, 0, 1, 
 shape = SubResource("BoxShape3D_njkyd")
 
 [node name="street_name_label" type="Label3D" parent="." index="5"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -5.0594, 3.56937, -4.16385)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -5.0594, 3.56055, -4.86069)
 outline_modulate = Color(0, 0, 0, 0)
-text = "Ул. Sample 1"
-uppercase = true
+text = "Ул. 1 железнодорожная д1"
+font = ExtResource("4_ync78")
+font_size = 40
+horizontal_alignment = 0

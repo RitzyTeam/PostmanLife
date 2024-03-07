@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://jxlhyaaw08ri"]
+[gd_scene load_steps=5 format=3 uid="uid://jxlhyaaw08ri"]
 
 [ext_resource type="PackedScene" uid="uid://c7csy5vlhlk1q" path="res://assets/models/builds/house2.blend" id="1_53rr4"]
 [ext_resource type="Script" path="res://objects/builds/house_2.gd" id="2_rmpui"]
+[ext_resource type="FontFile" uid="uid://dv8jijr0th27a" path="res://assets/fonts/SubdexBold.ttf" id="3_eka0t"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_so3cp"]
 points = PackedVector3Array(-8.64337, 6.99885, -7, -8.2018, -6.17504e-05, -6.20106, -8.64337, 6.99885, 7, -8.64337, 7.64118, -7, 8.7195, 6.99885, -7, -8.2018, -6.17504e-05, 6.19969, 8.19764, -6.17504e-05, -6.20106, -8.64337, 7.64118, 7, 8.7195, 6.99885, 7, -8.64337, 8.64141, -6.00098, 8.7195, 7.64118, -7, 15.48, 6.4994, -4.50039, 14.9936, -6.17504e-05, -4.0002, 8.19764, -6.17504e-05, 6.19969, -8.64337, 8.64141, 5.99961, 8.7195, 7.64118, 7, 14.9936, -6.17504e-05, 3.99883, 15.48, 6.4994, 4.49902, -8.64337, 13.6425, -0.00137043, 8.7195, 8.64141, -6.00098, 15.48, 7.01754, -4.50039, 8.7195, 8.64141, 5.99961, 15.48, 7.01754, 4.49902, 8.7195, 13.6425, -0.00137043, 15.48, 7.51699, -4.0002, 15.48, 7.51699, 3.99883, 15.48, 10.5177, -0.00137043)
@@ -10,18 +11,20 @@ points = PackedVector3Array(-8.64337, 6.99885, -7, -8.2018, -6.17504e-05, -6.201
 script = ExtResource("2_rmpui")
 
 [node name="street_name" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 0.16, 0, 0, 0, 0.064, 13.8216, 3.39857, 3.99906)
 lod_bias = 0.046
 
-[node name="StaticBody3D" type="StaticBody3D" parent="." index="1"]
+[node name="street_name_text" type="Label3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.8806, 3.39698, 4.06355)
+outline_modulate = Color(0, 0, 0, 0)
+text = "Ул. 1 железнодорожнаааая д1"
+font = ExtResource("3_eka0t")
+horizontal_alignment = 0
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="2"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
 shape = SubResource("ConvexPolygonShape3D_so3cp")
 
-[node name="Cube" parent="." index="2"]
+[node name="Cube" parent="." index="3"]
 lod_bias = 0.047
-
-[node name="$street_name_text" type="Label3D" parent="." index="3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.8555, 2.46302, 4.06355)
-outline_modulate = Color(0, 0, 0, 0)
-text = "Ул. Sample 1"
-uppercase = true

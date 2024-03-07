@@ -3,6 +3,11 @@ extends Node3D
 @onready var we = $WE
 @onready var sun = $Sun
 
+# OBJECTS
+@onready var ufo = $"../../MOBS/ufo"
+
+
+
 var time_hours: int = 0
 var time_minutes: int = 0
 
@@ -58,7 +63,14 @@ func _on_timer_daycycle_timeout():
 		SIN_WORLD_DATA.WORLD_DATA['tod'] = 0
 	time_hours = int(SIN_WORLD_DATA.WORLD_DATA['tod']/60)
 	time_minutes = int(SIN_WORLD_DATA.WORLD_DATA['tod']%60)
+	spawnUFO()
 
 # РАБОЧАЯ СМЕНА. ПРОВЕРКА. С 9-18.
 func isItTimeOfWork():
 	return time_hours >= 9 and time_hours < 18
+
+func spawnUFO():
+	if SIN_WORLD_DATA.WORLD_DATA['tod'] >= 1300 or SIN_WORLD_DATA.WORLD_DATA['tod'] <= 120:
+		ufo.visible = true
+	else:
+		ufo.visible = false
