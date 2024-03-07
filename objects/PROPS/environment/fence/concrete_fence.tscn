@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bt3oto3cb3ela"]
+
+[ext_resource type="PackedScene" uid="uid://clqkpc7qh2p1c" path="res://assets/models/urban_elements/fence/fence_group_2/concrete fence.blend" id="1_t4gve"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_y3u5t"]
+size = Vector3(2.01379, 1.91357, 0.697693)
+
+[node name="concrete fence" instance=ExtResource("1_t4gve")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Cube" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube/StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0108032, 1.04456, 0.00161741)
+shape = SubResource("BoxShape3D_y3u5t")
