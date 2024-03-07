@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://c5r3a6d6hpwja"]
+
+[ext_resource type="PackedScene" uid="uid://cv6pe72xsdkc7" path="res://assets/models/builds/gasStation.blend" id="1_v6qj4"]
+
+[node name="gasStation" instance=ExtResource("1_v6qj4")]
