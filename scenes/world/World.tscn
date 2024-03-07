@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://c66dar30xo83l"]
+[gd_scene load_steps=58 format=3 uid="uid://c66dar30xo83l"]
 
 [ext_resource type="Script" path="res://scenes/world/World.gd" id="1_xxt06"]
 [ext_resource type="Script" path="res://addons/zylann.hterrain/hterrain.gd" id="2_j3jfb"]
@@ -26,6 +26,7 @@
 [ext_resource type="Script" path="res://addons/proton_scatter/src/modifiers/create_inside_random.gd" id="19_6qlp7"]
 [ext_resource type="Script" path="res://addons/proton_scatter/src/modifiers/randomize_transforms.gd" id="20_xv4po"]
 [ext_resource type="Script" path="res://addons/proton_scatter/src/modifiers/relax.gd" id="21_ai286"]
+[ext_resource type="PackedScene" uid="uid://bqakwjktvavp5" path="res://objects/builds/abandoned_factory.tscn" id="21_h3s7q"]
 [ext_resource type="Script" path="res://addons/proton_scatter/src/modifiers/project_on_geometry.gd" id="22_k8kdo"]
 [ext_resource type="Script" path="res://addons/proton_scatter/src/scatter_item.gd" id="23_kpixf"]
 [ext_resource type="Script" path="res://addons/proton_scatter/src/scatter_shape.gd" id="24_g5fqv"]
@@ -92,7 +93,7 @@ shader_parameter/texture_normal2 = SubResource("NoiseTexture2D_npkdg")
 material = SubResource("ShaderMaterial_divvh")
 size = Vector2(2000, 450)
 
-[sub_resource type="Resource" id="Resource_fm6cg"]
+[sub_resource type="Resource" id="Resource_4whd8"]
 script = ExtResource("19_6qlp7")
 amount = 1000
 enabled = true
@@ -101,7 +102,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 1
 
-[sub_resource type="Resource" id="Resource_jahlc"]
+[sub_resource type="Resource" id="Resource_hni2y"]
 script = ExtResource("20_xv4po")
 position = Vector3(0.15, 0.15, 0.15)
 rotation = Vector3(0, 360, 0)
@@ -112,7 +113,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 2
 
-[sub_resource type="Resource" id="Resource_lhi2o"]
+[sub_resource type="Resource" id="Resource_iip8u"]
 script = ExtResource("21_ai286")
 iterations = 3
 offset_step = 0.2
@@ -124,7 +125,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_1g8ya"]
+[sub_resource type="Resource" id="Resource_0tyhh"]
 script = ExtResource("22_k8kdo")
 ray_direction = Vector3(0, -1, 0)
 ray_length = 5.0
@@ -140,9 +141,9 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_s4u45"]
+[sub_resource type="Resource" id="Resource_0colj"]
 script = ExtResource("18_1fwha")
-stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_fm6cg"), SubResource("Resource_jahlc"), SubResource("Resource_lhi2o"), SubResource("Resource_1g8ya")])
+stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_4whd8"), SubResource("Resource_hni2y"), SubResource("Resource_iip8u"), SubResource("Resource_0tyhh")])
 
 [sub_resource type="Curve3D" id="Curve3D_2u2vc"]
 _data = {
@@ -157,7 +158,7 @@ closed = true
 thickness = 0.0
 curve = SubResource("Curve3D_2u2vc")
 
-[sub_resource type="Resource" id="Resource_elmaf"]
+[sub_resource type="Resource" id="Resource_dp372"]
 script = ExtResource("19_6qlp7")
 amount = 2000
 enabled = true
@@ -166,7 +167,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 1
 
-[sub_resource type="Resource" id="Resource_70scl"]
+[sub_resource type="Resource" id="Resource_wu6v5"]
 script = ExtResource("20_xv4po")
 position = Vector3(0.15, 0.15, 0.15)
 rotation = Vector3(1, 360, 1)
@@ -177,7 +178,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 2
 
-[sub_resource type="Resource" id="Resource_i470k"]
+[sub_resource type="Resource" id="Resource_v5xlm"]
 script = ExtResource("21_ai286")
 iterations = 1
 offset_step = 0.1
@@ -189,7 +190,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_k0gl7"]
+[sub_resource type="Resource" id="Resource_kd40i"]
 script = ExtResource("22_k8kdo")
 ray_direction = Vector3(0, -1, 0)
 ray_length = 5.0
@@ -205,9 +206,9 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_3i138"]
+[sub_resource type="Resource" id="Resource_ofg8n"]
 script = ExtResource("18_1fwha")
-stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_elmaf"), SubResource("Resource_70scl"), SubResource("Resource_i470k"), SubResource("Resource_k0gl7")])
+stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_dp372"), SubResource("Resource_wu6v5"), SubResource("Resource_v5xlm"), SubResource("Resource_kd40i")])
 
 [sub_resource type="Curve3D" id="Curve3D_ulu54"]
 _data = {
@@ -2135,13 +2136,16 @@ deliver_code = "00062"
 transform = Transform3D(-2.98023e-08, 0, -1, 0, 1, 0, 1, 0, -2.98023e-08, 4.6875, 0.763645, -2.58154)
 deliver_code = "00062"
 
+[node name="abandonedFactory" parent="Levels/infrastructure" instance=ExtResource("21_h3s7q")]
+transform = Transform3D(-0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, -0.965926, 750.209, 0.1, 1125.71)
+
 [node name="nature" type="Node" parent="Levels"]
 
 [node name="big_forest" type="Node3D" parent="Levels/nature"]
 script = ExtResource("17_0tutk")
 global_seed = 20
 render_mode = 1
-modifier_stack = SubResource("Resource_s4u45")
+modifier_stack = SubResource("Resource_0colj")
 Performance/use_chunks = true
 Performance/chunk_dimensions = Vector3(15, 15, 15)
 
@@ -2169,7 +2173,7 @@ shape = SubResource("Resource_e18i2")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2032, 0, 1595)
 script = ExtResource("17_0tutk")
 render_mode = 1
-modifier_stack = SubResource("Resource_3i138")
+modifier_stack = SubResource("Resource_ofg8n")
 Performance/use_chunks = true
 Performance/chunk_dimensions = Vector3(15, 15, 15)
 
@@ -2202,6 +2206,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1000, 200, 1000)
 
 [node name="Player" parent="." instance=ExtResource("5_6o1kf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 932.845, -1.71661e-05, 1192.25)
+wall_min_slide_angle = 0.47822
 
 [node name="car" parent="." instance=ExtResource("27_vrtll")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 938.484, 0.145038, 1193.68)
