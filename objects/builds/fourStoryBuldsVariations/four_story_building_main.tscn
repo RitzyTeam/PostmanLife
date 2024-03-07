@@ -1,11 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://dkfbfrrjn8o18"]
+[gd_scene load_steps=4 format=3 uid="uid://dkfbfrrjn8o18"]
 
 [ext_resource type="PackedScene" uid="uid://d7y7erly8hwt" path="res://assets/models/builds/fourStoryBuilding.blend" id="1_8idf7"]
+[ext_resource type="Script" path="res://objects/builds/house_5.gd" id="2_c7bja"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jojxp"]
 size = Vector3(70.9736, 16.0295, 10.0371)
 
 [node name="fourStoryBuilding" instance=ExtResource("1_8idf7")]
+script = ExtResource("2_c7bja")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." index="4"]
 

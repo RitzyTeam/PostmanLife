@@ -355,29 +355,29 @@ func set_slot_selected(slot_id: int):
 		1:
 			current_slot_selected = 1
 			slot_1.modulate.a = 1
-			slot_2.modulate.a = 0.5
-			slot_3.modulate.a = 0.5
-			slot_4.modulate.a = 0.5
+			slot_2.modulate.a = 0.4
+			slot_3.modulate.a = 0.4
+			slot_4.modulate.a = 0.4
 			inventory_loader.load_hand_visual(current_slot_selected)
 		2:
 			current_slot_selected = 2
-			slot_1.modulate.a = 0.5
+			slot_1.modulate.a = 0.4
 			slot_2.modulate.a = 1
-			slot_3.modulate.a = 0.5
-			slot_4.modulate.a = 0.5
+			slot_3.modulate.a = 0.4
+			slot_4.modulate.a = 0.4
 			inventory_loader.load_hand_visual(current_slot_selected)
 		3:
 			current_slot_selected = 3
-			slot_1.modulate.a = 0.5
-			slot_2.modulate.a = 0.5
+			slot_1.modulate.a = 0.4
+			slot_2.modulate.a = 0.4
 			slot_3.modulate.a = 1
-			slot_4.modulate.a = 0.5
+			slot_4.modulate.a = 0.4
 			inventory_loader.load_hand_visual(current_slot_selected)
 		4:
 			current_slot_selected = 4
-			slot_1.modulate.a = 0.5
-			slot_2.modulate.a = 0.5
-			slot_3.modulate.a = 0.5
+			slot_1.modulate.a = 0.4
+			slot_2.modulate.a = 0.4
+			slot_3.modulate.a = 0.4
 			slot_4.modulate.a = 1
 			inventory_loader.load_hand_visual(current_slot_selected)
 	

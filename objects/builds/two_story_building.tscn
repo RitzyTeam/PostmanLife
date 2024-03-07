@@ -1,5 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://btwke8875ebcq"]
+[gd_scene load_steps=3 format=3 uid="uid://btwke8875ebcq"]
 
 [ext_resource type="PackedScene" uid="uid://ptsr0bwyexga" path="res://assets/models/builds/twoStoryBuilding.blend" id="1_mhfwo"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_3ilmu"]
+size = Vector3(19.979, 7.30942, 6.1084)
+
 [node name="twoStoryBuilding" instance=ExtResource("1_mhfwo")]
+
+[node name="Cube" parent="." index="0"]
+lod_bias = 0.047
+
+[node name="collider" type="StaticBody3D" parent="." index="1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="collider" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.029541, 3.6356, 0.0444336)
+shape = SubResource("BoxShape3D_3ilmu")

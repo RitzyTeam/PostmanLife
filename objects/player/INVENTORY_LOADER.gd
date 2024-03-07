@@ -63,8 +63,6 @@ func load_inventory_visual():
 			item_4_icon.texture = load('res://assets/images/item_fuel_tank.png')
 
 func load_hand_visual(slot_id):
-	$"../UI/UserInterface/item_name/item_name_anim".stop()
-	$"../UI/UserInterface/item_name/item_name_anim".play('popup')
 	$"../UI/UserInterface/item_name".text = ''
 	var inv: Dictionary = SIN_WORLD_DATA.WORLD_DATA['player_inv']
 	var item = inv['slot_' + str(slot_id)]
@@ -74,6 +72,7 @@ func load_hand_visual(slot_id):
 			$"../Head/Camera/item_display/box".visible = false
 			$"../Head/Camera/item_display/ball".visible = false
 			$"../Head/Camera/item_display/fuel_tank".visible = false
+			$"../UI/UserInterface/item_name".text = ''
 		'letter':
 			$"../Head/Camera/item_display/letter".visible = true
 			$"../Head/Camera/item_display/box".visible = false

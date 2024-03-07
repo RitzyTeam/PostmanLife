@@ -135,9 +135,6 @@ script = ExtResource("2_qoyn2")
 [node name="main" parent="." index="0"]
 surface_material_override/3 = SubResource("StandardMaterial3D_xgdln")
 
-[node name="colone" parent="." index="1"]
-visible = false
-
 [node name="StaticBody3D" type="StaticBody3D" parent="colone" index="0"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="colone/StaticBody3D" index="0"]

@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://dp80ffcw30b84"]
+[gd_scene load_steps=8 format=3 uid="uid://dp80ffcw30b84"]
 
 [ext_resource type="PackedScene" uid="uid://bk4v0uv6pn5kx" path="res://assets/models/builds/ruralHouse.blend" id="1_74yto"]
 [ext_resource type="Texture2D" uid="uid://c3qwibwe8ekow" path="res://assets/textures/glass.jpg" id="2_5sreh"]
+[ext_resource type="Script" path="res://objects/builds/house_4.gd" id="2_sgp7i"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5ld68"]
 blend_mode = 1
@@ -20,8 +21,10 @@ size = Vector3(1.57837, 1.01024, 3.36295)
 size = Vector3(1.57837, 1.01024, 3.39761)
 
 [node name="ruralHouse" instance=ExtResource("1_74yto")]
+script = ExtResource("2_sgp7i")
 
 [node name="main" parent="." index="2"]
+lod_bias = 0.047
 surface_material_override/2 = SubResource("StandardMaterial3D_5ld68")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." index="3"]
