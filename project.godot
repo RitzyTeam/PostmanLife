@@ -150,6 +150,10 @@ key_esc={
 3d_physics/layer_1="Ground"
 3d_physics/layer_2="Player"
 
+[physics]
+
+common/physics_jitter_fix=0.0
+
 [rendering]
 
 renderer/rendering_method.mobile="gl_compatibility"

@@ -38,9 +38,9 @@ extends Node
 @onready var bad_shadows = $UI/bg/visibility_changer/panel_graphics/margin/smoother/gr_box/item_shadows/options/bad_shadows
 @onready var mid_shadows = $UI/bg/visibility_changer/panel_graphics/margin/smoother/gr_box/item_shadows/options/mid_shadows
 @onready var good_shadows = $UI/bg/visibility_changer/panel_graphics/margin/smoother/gr_box/item_shadows/options/good_shadows
-# RESO
-@onready var reso_slider = $UI/bg/visibility_changer/panel_graphics/margin/smoother/gr_box/item_resolution/options/reso_slider
-@onready var reso_value = $UI/bg/visibility_changer/panel_graphics/margin/smoother/gr_box/item_resolution/options/value
+# FREQ
+@onready var freq_slider = $UI/bg/visibility_changer/panel_graphics/margin/smoother/gr_box/item_frequency/options/frequency
+@onready var freq_value = $UI/bg/visibility_changer/panel_graphics/margin/smoother/gr_box/item_frequency/options/value
 
 # AUDIO SETTINGS UI
 @onready var db_sounds = $UI/bg/visibility_changer/panel_audio/margin/smoother/au_box/item_sounds/options/db_sounds
@@ -108,6 +108,9 @@ func load_settings():
 		db_music_value.text = str(db_music.value)
 	
 	# LOAD GRAPHICAL SETTINGS
+	freq_slider.value = SIN_SETTINGS.SETTINGS['GRAPHICS']['frequency']
+	freq_value.text = str(SIN_SETTINGS.SETTINGS['GRAPHICS']['frequency']) +' Гц'
+	
 	match SIN_SETTINGS.SETTINGS['GRAPHICS']['antialiasing']:
 		'no':
 			alias_no.button_pressed = true
@@ -192,7 +195,7 @@ func load_settings():
 			bad_shadows.button_pressed = false
 			mid_shadows.button_pressed = false
 			good_shadows.button_pressed = true
-	reso_slider.value = float(SIN_SETTINGS.SETTINGS['GRAPHICS']['resolution'])
+	
 	
 	# LOAD MISC SETTINGS
 	
@@ -316,11 +319,11 @@ func _on_good_shadows_pressed():
 	good_shadows.button_pressed = true
 	SIN_SETTINGS.SETTINGS['GRAPHICS']['shadows'] = 'good'
 
-# GRAPHICS - RESOLUTION PICK
+# GRAPHICS - FREQUENCY PICK
 
-func _on_reso_slider_value_changed(value):
-	reso_value.text = 'x' + str(value)
-	SIN_SETTINGS.SETTINGS['GRAPHICS']['resolution'] = str(value)
+func _on_frequency_value_changed(value):
+	freq_value.text = str(value) + ' Гц'
+	SIN_SETTINGS.SETTINGS['GRAPHICS']['frequency'] = value
 
 # AUDIO - SOUND DB PICK
 
@@ -340,6 +343,9 @@ func _on_db_music_value_changed(value):
 	else:
 		db_music_value.text = str(value)
 		
+
+
+
 
 
 

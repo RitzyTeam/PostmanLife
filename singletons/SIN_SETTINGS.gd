@@ -16,7 +16,7 @@ var SETTINGS : Dictionary = {
 		'sdfgi': 'no', # USED IN ENV NODE
 		'ssao': 'no', # USED IN ENV NODE
 		'shadows': 'no', # USED IN ENV NODE dir_light.light.directional_shadow_mode = 
-		'resolution': '1',
+		'frequency': 60,
 	},
 	'MISC': {
 		
@@ -63,4 +63,5 @@ func settings_consume():
 			get_viewport().use_taa = false
 		'yes':
 			get_viewport().use_taa = true
-	DisplayServer.window_set_size(Vector2(1920*float(SETTINGS['GRAPHICS']['resolution']),1080*float(SETTINGS['GRAPHICS']['resolution'])))
+	# SET PHYSICAL FPS
+	ProjectSettings.set_setting('physics/common/physics_ticks_per_second', SETTINGS['GRAPHICS']['frequency'])
