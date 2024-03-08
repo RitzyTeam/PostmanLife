@@ -1,11 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://jxlhyaaw08ri"]
+[gd_scene load_steps=6 format=3 uid="uid://jxlhyaaw08ri"]
 
 [ext_resource type="PackedScene" uid="uid://c7csy5vlhlk1q" path="res://assets/models/builds/house2.blend" id="1_53rr4"]
 [ext_resource type="Script" path="res://objects/builds/house_2.gd" id="2_rmpui"]
 [ext_resource type="FontFile" uid="uid://dv8jijr0th27a" path="res://assets/fonts/SubdexBold.ttf" id="3_eka0t"]
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_so3cp"]
-points = PackedVector3Array(-8.64337, 6.99885, -7, -8.2018, -6.17504e-05, -6.20106, -8.64337, 6.99885, 7, -8.64337, 7.64118, -7, 8.7195, 6.99885, -7, -8.2018, -6.17504e-05, 6.19969, 8.19764, -6.17504e-05, -6.20106, -8.64337, 7.64118, 7, 8.7195, 6.99885, 7, -8.64337, 8.64141, -6.00098, 8.7195, 7.64118, -7, 15.48, 6.4994, -4.50039, 14.9936, -6.17504e-05, -4.0002, 8.19764, -6.17504e-05, 6.19969, -8.64337, 8.64141, 5.99961, 8.7195, 7.64118, 7, 14.9936, -6.17504e-05, 3.99883, 15.48, 6.4994, 4.49902, -8.64337, 13.6425, -0.00137043, 8.7195, 8.64141, -6.00098, 15.48, 7.01754, -4.50039, 8.7195, 8.64141, 5.99961, 15.48, 7.01754, 4.49902, 8.7195, 13.6425, -0.00137043, 15.48, 7.51699, -4.0002, 15.48, 7.51699, 3.99883, 15.48, 10.5177, -0.00137043)
+[sub_resource type="BoxShape3D" id="BoxShape3D_7r23u"]
+size = Vector3(15.975, 13.6666, 12.0507)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ptb2i"]
+size = Vector3(7.0797, 10.4847, 8.03759)
 
 [node name="house2" instance=ExtResource("1_53rr4")]
 script = ExtResource("2_rmpui")
@@ -21,10 +24,15 @@ text = "Ул. 1 железнодорожнаааая д1"
 font = ExtResource("3_eka0t")
 horizontal_alignment = 0
 
-[node name="StaticBody3D" type="StaticBody3D" parent="." index="2"]
+[node name="colliders" type="StaticBody3D" parent="." index="2"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
-shape = SubResource("ConvexPolygonShape3D_so3cp")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="colliders" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00808716, 6.85106, 0.0135803)
+shape = SubResource("BoxShape3D_7r23u")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="colliders" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5115, 5.26009, 0.00599289)
+shape = SubResource("BoxShape3D_ptb2i")
 
 [node name="Cube" parent="." index="3"]
 lod_bias = 0.047

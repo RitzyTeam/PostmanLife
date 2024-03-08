@@ -75,11 +75,8 @@ func data_exists() -> bool:
 
 # VALUE CHANGERS
 
-func value_add_money(money_to_add: int) -> bool:
-	if data_load():
-		WORLD_DATA['money'] += money_to_add
-		return true
-	return false
+func value_add_money(money_to_add: int) -> void:
+	WORLD_DATA['money'] += money_to_add
 
 func value_tod_changed(new_tod: int):
 	WORLD_DATA['tod'] = new_tod

@@ -13,7 +13,6 @@ func _ready():
 func _on_btn_continue_pressed():
 	goto = 'continue'
 	$anim.play('hide')
-	
 
 
 func _on_btn_new_game_pressed():
