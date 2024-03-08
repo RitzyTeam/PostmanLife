@@ -79,6 +79,9 @@ var gravity : float = ProjectSettings.get_setting("physics/3d/default_gravity") 
 
 
 func _ready():
+	# SET CAMERA FAR FROM SETTINGS
+	$Head/Camera.far = SIN_SETTINGS.SETTINGS['GRAPHICS']['far']
+	# EVERYTHING ELSE
 	set_slot_selected(1)
 	inventory_loader.load_hand_visual(1)
 	inventory_loader.load_inventory_visual()

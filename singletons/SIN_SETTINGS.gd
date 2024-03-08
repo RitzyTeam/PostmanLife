@@ -17,6 +17,7 @@ var SETTINGS : Dictionary = {
 		'ssao': 'no', # USED IN ENV NODE
 		'shadows': 'no', # USED IN ENV NODE dir_light.light.directional_shadow_mode = 
 		'frequency': 60,
+		'far': 60, # USED BY ALL CAMERAS
 	},
 	'MISC': {
 		

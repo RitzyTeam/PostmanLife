@@ -421,6 +421,7 @@ size_flags_vertical = 3
 theme_override_constants/separation = 20
 
 [node name="item_aliasing" type="HBoxContainer" parent="UI/bg/visibility_changer/panel_graphics/margin/smoother/gr_box"]
+visible = false
 layout_mode = 2
 
 [node name="title" type="Label" parent="UI/bg/visibility_changer/panel_graphics/margin/smoother/gr_box/item_aliasing"]
@@ -492,6 +493,7 @@ text = "x8"
 metadata/_edit_use_anchors_ = true
 
 [node name="item_glow" type="HBoxContainer" parent="UI/bg/visibility_changer/panel_graphics/margin/smoother/gr_box"]
+visible = false
 layout_mode = 2
 
 [node name="title" type="Label" parent="UI/bg/visibility_changer/panel_graphics/margin/smoother/gr_box/item_glow"]
@@ -535,6 +537,7 @@ text = "Да"
 metadata/_edit_use_anchors_ = true
 
 [node name="item_vsync" type="HBoxContainer" parent="UI/bg/visibility_changer/panel_graphics/margin/smoother/gr_box"]
+visible = false
 layout_mode = 2
 
 [node name="title" type="Label" parent="UI/bg/visibility_changer/panel_graphics/margin/smoother/gr_box/item_vsync"]
@@ -862,6 +865,49 @@ text = "60Гц"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="item_far" type="HBoxContainer" parent="UI/bg/visibility_changer/panel_graphics/margin/smoother/gr_box"]
+layout_mode = 2
+
+[node name="title" type="Label" parent="UI/bg/visibility_changer/panel_graphics/margin/smoother/gr_box/item_far"]
+layout_mode = 2
+mouse_filter = 1
+theme_override_font_sizes/font_size = 45
+text = "Дальность отрисовки"
+
+[node name="options" type="HBoxContainer" parent="UI/bg/visibility_changer/panel_graphics/margin/smoother/gr_box/item_far"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 15
+alignment = 2
+
+[node name="margin" type="Control" parent="UI/bg/visibility_changer/panel_graphics/margin/smoother/gr_box/item_far/options"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+mouse_filter = 1
+
+[node name="far" type="HSlider" parent="UI/bg/visibility_changer/panel_graphics/margin/smoother/gr_box/item_far/options"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+mouse_filter = 1
+theme_override_styles/grabber_area = SubResource("StyleBoxEmpty_70o84")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxEmpty_d34vn")
+min_value = 100.0
+max_value = 10000.0
+step = 50.0
+value = 2000.0
+rounded = true
+
+[node name="value" type="Label" parent="UI/bg/visibility_changer/panel_graphics/margin/smoother/gr_box/item_far/options"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_vertical = 1
+mouse_filter = 1
+theme_override_font_sizes/font_size = 43
+text = "9000м"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="panel_additional" type="Panel" parent="UI/bg/visibility_changer"]
 visible = false
 layout_mode = 1
@@ -908,4 +954,5 @@ libraries = {
 [connection signal="pressed" from="UI/bg/visibility_changer/panel_graphics/margin/smoother/gr_box/item_shadows/options/mid_shadows" to="." method="_on_mid_shadows_pressed"]
 [connection signal="pressed" from="UI/bg/visibility_changer/panel_graphics/margin/smoother/gr_box/item_shadows/options/good_shadows" to="." method="_on_good_shadows_pressed"]
 [connection signal="value_changed" from="UI/bg/visibility_changer/panel_graphics/margin/smoother/gr_box/item_frequency/options/frequency" to="." method="_on_frequency_value_changed"]
+[connection signal="value_changed" from="UI/bg/visibility_changer/panel_graphics/margin/smoother/gr_box/item_far/options/far" to="." method="_on_far_value_changed"]
 [connection signal="animation_finished" from="anim" to="." method="_on_anim_animation_finished"]

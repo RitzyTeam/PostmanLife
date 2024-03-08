@@ -38,6 +38,8 @@ var wheel_travel_distance: float = 0.1
 
 
 func _ready():
+	# SET CAMERA FAR FROM SETTINGS
+	$CAMERA.far = SIN_SETTINGS.SETTINGS['GRAPHICS']['far']
 	# SET STIFFNESS
 	wheel_1.suspension_stiffness = wheel_stiffness
 	wheel_2.suspension_stiffness = wheel_stiffness

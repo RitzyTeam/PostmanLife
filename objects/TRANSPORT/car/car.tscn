@@ -1334,7 +1334,6 @@ spot_range = 50.0
 
 [node name="CAMERA" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.262, 2.31116, -1.047)
-far = 20000.0
 
 [node name="Cube" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.0753665, 0, 0, 0, 0.0753665, 0, 0, 0, 0.0753665, -1.27893, 1.5428, 0.00271427)

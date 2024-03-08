@@ -41,6 +41,9 @@ extends Node
 # FREQ
 @onready var freq_slider = $UI/bg/visibility_changer/panel_graphics/margin/smoother/gr_box/item_frequency/options/frequency
 @onready var freq_value = $UI/bg/visibility_changer/panel_graphics/margin/smoother/gr_box/item_frequency/options/value
+# FAR
+@onready var far_slider = $UI/bg/visibility_changer/panel_graphics/margin/smoother/gr_box/item_far/options/far
+@onready var far_value = $UI/bg/visibility_changer/panel_graphics/margin/smoother/gr_box/item_far/options/value
 
 # AUDIO SETTINGS UI
 @onready var db_sounds = $UI/bg/visibility_changer/panel_audio/margin/smoother/au_box/item_sounds/options/db_sounds
@@ -109,7 +112,10 @@ func load_settings():
 	
 	# LOAD GRAPHICAL SETTINGS
 	freq_slider.value = SIN_SETTINGS.SETTINGS['GRAPHICS']['frequency']
-	freq_value.text = str(SIN_SETTINGS.SETTINGS['GRAPHICS']['frequency']) +' Гц'
+	freq_value.text = str(SIN_SETTINGS.SETTINGS['GRAPHICS']['frequency']) +'Гц'
+	
+	far_slider.value = SIN_SETTINGS.SETTINGS['GRAPHICS']['far']
+	far_value.text = str(SIN_SETTINGS.SETTINGS['GRAPHICS']['far']) +'м'
 	
 	match SIN_SETTINGS.SETTINGS['GRAPHICS']['antialiasing']:
 		'no':
@@ -322,8 +328,14 @@ func _on_good_shadows_pressed():
 # GRAPHICS - FREQUENCY PICK
 
 func _on_frequency_value_changed(value):
-	freq_value.text = str(value) + ' Гц'
+	freq_value.text = str(value) + 'Гц'
 	SIN_SETTINGS.SETTINGS['GRAPHICS']['frequency'] = value
+
+# GRAPHICS - FAR PICK
+
+func _on_far_value_changed(value):
+	far_value.text = str(value) + 'м'
+	SIN_SETTINGS.SETTINGS['GRAPHICS']['far'] = value
 
 # AUDIO - SOUND DB PICK
 
@@ -343,6 +355,8 @@ func _on_db_music_value_changed(value):
 	else:
 		db_music_value.text = str(value)
 		
+
+
 
 
 
