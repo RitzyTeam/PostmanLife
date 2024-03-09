@@ -421,7 +421,6 @@ size_flags_vertical = 3
 theme_override_constants/separation = 20
 
 [node name="item_aliasing" type="HBoxContainer" parent="UI/bg/visibility_changer/panel_graphics/margin/smoother/gr_box"]
-visible = false
 layout_mode = 2
 
 [node name="title" type="Label" parent="UI/bg/visibility_changer/panel_graphics/margin/smoother/gr_box/item_aliasing"]
@@ -493,7 +492,6 @@ text = "x8"
 metadata/_edit_use_anchors_ = true
 
 [node name="item_glow" type="HBoxContainer" parent="UI/bg/visibility_changer/panel_graphics/margin/smoother/gr_box"]
-visible = false
 layout_mode = 2
 
 [node name="title" type="Label" parent="UI/bg/visibility_changer/panel_graphics/margin/smoother/gr_box/item_glow"]
@@ -537,7 +535,6 @@ text = "Да"
 metadata/_edit_use_anchors_ = true
 
 [node name="item_vsync" type="HBoxContainer" parent="UI/bg/visibility_changer/panel_graphics/margin/smoother/gr_box"]
-visible = false
 layout_mode = 2
 
 [node name="title" type="Label" parent="UI/bg/visibility_changer/panel_graphics/margin/smoother/gr_box/item_vsync"]

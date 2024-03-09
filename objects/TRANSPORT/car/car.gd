@@ -78,7 +78,6 @@ func _input(event):
 		if event.is_action_pressed('key_e'):
 			leave()
 
-
 func _physics_process(delta):
 	if not current_tank == null:
 		if res_fuel < max_fuel:
