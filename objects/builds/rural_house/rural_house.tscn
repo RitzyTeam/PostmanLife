@@ -86,6 +86,7 @@ shape = SubResource("BoxShape3D_njkyd")
 
 [node name="street_name_label" type="Label3D" parent="." index="5"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -5.0594, 3.56055, -4.86069)
+shaded = true
 outline_modulate = Color(0, 0, 0, 0)
 text = "Ул. 1 железнодорожная д1"
 font = ExtResource("4_ync78")

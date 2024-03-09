@@ -1,0 +1,150 @@
+[gd_scene load_steps=7 format=3 uid="uid://w2f8eaoe1cqg"]
+
+[ext_resource type="Script" path="res://scenes/DEATHS/death_ghost_girl/death_ghost_girl.gd" id="1_nc04f"]
+[ext_resource type="AudioStream" uid="uid://d0o12m27tk12x" path="res://assets/sounds/ghost_girl/neck_crack.mp3" id="1_rs2fl"]
+[ext_resource type="FontFile" uid="uid://dv8jijr0th27a" path="res://assets/fonts/SubdexBold.ttf" id="1_usaso"]
+
+[sub_resource type="Animation" id="Animation_j4nnp"]
+resource_name = "play"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("UI/bg/title:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("UI/bg/reason:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 3, 4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("neck_crack:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_t5fm3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("UI/bg/title:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("UI/bg/reason:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("neck_crack:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sgwfe"]
+_data = {
+"RESET": SubResource("Animation_t5fm3"),
+"play": SubResource("Animation_j4nnp")
+}
+
+[node name="death_ghost_girl" type="Node"]
+script = ExtResource("1_nc04f")
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="bg" type="ColorRect" parent="UI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="title" type="Label" parent="UI/bg"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.363426
+anchor_right = 1.0
+anchor_bottom = 0.510648
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_usaso")
+theme_override_font_sizes/font_size = 151
+text = "Вы умерли"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="reason" type="Label" parent="UI/bg"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.458796
+anchor_right = 1.0
+anchor_bottom = 0.606019
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_usaso")
+theme_override_font_sizes/font_size = 60
+text = "Вам не стоило злить её"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="neck_crack" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_rs2fl")
+
+[node name="anim" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_sgwfe")
+}

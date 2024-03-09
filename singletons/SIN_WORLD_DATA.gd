@@ -14,6 +14,8 @@ var WORLD_DATA_EMPTY: Dictionary = {
 	'tod': 540, # TIME OF DAY IN SECONDS
 	'day_num': 1, # NUM OF DAYS PASSED
 	'daily_quota': 10, # AMOUNT OF PACKAGES TO DELIVER
+	# BUFFS & DEBUFFS
+	'player_insane': false,
 }
 
 var WORLD_DATA: Dictionary = {
@@ -27,6 +29,7 @@ var WORLD_DATA: Dictionary = {
 	'tod': 540,
 	'day_num': 1,
 	'daily_quota': 10,
+	'player_insane': false,
 }
 
 func _ready():
@@ -35,6 +38,7 @@ func _ready():
 	else:
 		data_reset()
 	WORLD_DATA['money'] = 999999
+	WORLD_DATA['tod'] = 1290
 	data_save()
 # MAIN FUNCS
 

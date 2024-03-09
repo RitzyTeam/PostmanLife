@@ -58,18 +58,32 @@ func launch_tod():
 func _on_timer_daycycle_timeout():
 	if SIN_WORLD_DATA.WORLD_DATA['tod'] < 1439:
 		SIN_WORLD_DATA.WORLD_DATA['tod'] += 1
+		
 	else:
 		SIN_WORLD_DATA.WORLD_DATA['day_num'] += 1
 		SIN_WORLD_DATA.WORLD_DATA['tod'] = 0
 	time_hours = int(SIN_WORLD_DATA.WORLD_DATA['tod']/60)
 	time_minutes = int(SIN_WORLD_DATA.WORLD_DATA['tod']%60)
-	spawnUFO()
+	match_tod()
+
+# ВСЕ ДЕЙСТВИЯ С ВРЕМЕНЕМ
+func match_tod():
+	# УПРАВЛЕНИЕ ФОНАРЯМИ
+	if SIN_WORLD_DATA.WORLD_DATA['tod'] == 1300:
+		SIN_WORLD_SIGNALS.emit_signal('LIGHTS_ON')
+	if SIN_WORLD_DATA.WORLD_DATA['tod'] == 120:
+		SIN_WORLD_SIGNALS.emit_signal('LIGHTS_OFF')
+	# НОВЫЙ РАБОЧИЙ ДЕНЬ
+	if SIN_WORLD_DATA.WORLD_DATA['tod'] == 540:
+		SIN_WORLD_SIGNALS.emit_signal('NEW_WORK_DAY')
+	spawnMOBS()
 
 # РАБОЧАЯ СМЕНА. ПРОВЕРКА. С 9-18.
 func isItTimeOfWork():
 	return time_hours >= 9 and time_hours < 18
 
-func spawnUFO():
+func spawnMOBS():
+	# UFO
 	if SIN_WORLD_DATA.WORLD_DATA['tod'] >= 1300 or SIN_WORLD_DATA.WORLD_DATA['tod'] <= 120:
 		ufo.visible = true
 	else:

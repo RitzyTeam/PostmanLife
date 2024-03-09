@@ -19,6 +19,7 @@ lod_bias = 0.046
 
 [node name="street_name_text" type="Label3D" parent="." index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.8806, 3.39698, 4.06355)
+shaded = true
 outline_modulate = Color(0, 0, 0, 0)
 text = "Ул. 1 железнодорожнаааая д1"
 font = ExtResource("3_eka0t")

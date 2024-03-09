@@ -77,8 +77,9 @@ var was_on_floor : bool = true
 # Get the gravity from the project settings to be synced with RigidBody nodes
 var gravity : float = ProjectSettings.get_setting("physics/3d/default_gravity") # Don't set this as a const, see the gravity section in _physics_process
 
-
 func _ready():
+	# CONNECT ALL SIGNALS NEEDED
+	SIN_WORLD_SIGNALS.GHOST_GIRL_ANGRY.connect(_go_insane)
 	# SET CAMERA FAR FROM SETTINGS
 	$Head/Camera.far = SIN_SETTINGS.SETTINGS['GRAPHICS']['far']
 	# EVERYTHING ELSE
@@ -414,21 +415,28 @@ func _unhandled_input(event):
 	
 	# PICKUP/INTERACT WITH ITEMS/PROPS
 	if event.is_action_pressed("key_e"):
-		if $Head/Camera/raycast_hand.is_colliding():
-			if not $Head/Camera/raycast_hand.get_collider() == null:
-				# BUY PETROL FROM GAS STATION
-				if $Head/Camera/raycast_hand.get_collider().has_method('buy_petrol'):
-					$Head/Camera/raycast_hand.get_collider().buy_petrol()
-				# GRAB PACKAGES
-				if $Head/Camera/raycast_hand.get_collider().has_method('grab'):
-					if add_item_to_inv($Head/Camera/raycast_hand.get_collider().grab()):
-						$Head/Camera/raycast_hand.get_collider().queue_free()
-				# PUT PACKAGE IN A BOX
-				if $Head/Camera/raycast_hand.get_collider().has_method('try_put_package'):
-					if $Head/Camera/raycast_hand.get_collider().try_put_package(SIN_WORLD_DATA.WORLD_DATA['player_inv']['slot_' + str(current_slot_selected)]):
-						SIN_WORLD_DATA.WORLD_DATA['player_inv']['slot_' + str(current_slot_selected)] = {'id': 'void'}
-						inventory_loader.load_inventory_visual()
-						inventory_loader.load_hand_visual(current_slot_selected)
-				# DRIVE A CAR
-				if $Head/Camera/raycast_hand.get_collider().has_method('enter'):
-					$Head/Camera/raycast_hand.get_collider().enter(self)
+		if not SIN_WORLD_DATA.WORLD_DATA['player_insane']:
+			if $Head/Camera/raycast_hand.is_colliding():
+				if not $Head/Camera/raycast_hand.get_collider() == null:
+					# BUY PETROL FROM GAS STATION
+					if $Head/Camera/raycast_hand.get_collider().has_method('buy_petrol'):
+						$Head/Camera/raycast_hand.get_collider().buy_petrol()
+					# GRAB PACKAGES
+					if $Head/Camera/raycast_hand.get_collider().has_method('grab'):
+						if add_item_to_inv($Head/Camera/raycast_hand.get_collider().grab()):
+							$Head/Camera/raycast_hand.get_collider().queue_free()
+					# PUT PACKAGE IN A BOX
+					if $Head/Camera/raycast_hand.get_collider().has_method('try_put_package'):
+						if $Head/Camera/raycast_hand.get_collider().try_put_package(SIN_WORLD_DATA.WORLD_DATA['player_inv']['slot_' + str(current_slot_selected)]):
+							SIN_WORLD_DATA.WORLD_DATA['player_inv']['slot_' + str(current_slot_selected)] = {'id': 'void'}
+							inventory_loader.load_inventory_visual()
+							inventory_loader.load_hand_visual(current_slot_selected)
+					# DRIVE A CAR
+					if $Head/Camera/raycast_hand.get_collider().has_method('enter'):
+						$Head/Camera/raycast_hand.get_collider().enter(self)
+
+func _go_insane():
+	SIN_WORLD_DATA.WORLD_DATA['player_insane'] = true
+
+func die_from_ghost():
+	pass

@@ -65,6 +65,7 @@ skeleton = NodePath("")
 
 [node name="street_name_text" type="Label3D" parent="." index="3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.02584, 3.45245, 3.09212)
+shaded = true
 outline_modulate = Color(0, 0, 0, 0)
 text = "Ул. 1 железнодорожнаааая д1"
 font = ExtResource("2_lkfc0")
