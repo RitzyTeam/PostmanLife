@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=3 uid="uid://c66dar30xo83l"]
+[gd_scene load_steps=65 format=3 uid="uid://c66dar30xo83l"]
 
 [ext_resource type="Script" path="res://scenes/world/World.gd" id="1_xxt06"]
 [ext_resource type="Script" path="res://addons/zylann.hterrain/hterrain.gd" id="2_j3jfb"]
@@ -38,6 +38,7 @@
 [ext_resource type="PackedScene" uid="uid://cpat5kv2ue7yo" path="res://objects/TRANSPORT/car/car.tscn" id="27_vrtll"]
 [ext_resource type="PackedScene" uid="uid://bv2m3okskq3c5" path="res://objects/PROPS/environment/fence/concrete_fence.tscn" id="32_juf3g"]
 [ext_resource type="MeshLibrary" path="res://resources/mesh_libs/nature_meshlib.meshlib" id="32_n7ywf"]
+[ext_resource type="PackedScene" uid="uid://bqkmogmsrvqdr" path="res://objects/MOBS/ghost_girl/ghost_girl.tscn" id="37_wavva"]
 [ext_resource type="PackedScene" uid="uid://ckml344muac8j" path="res://objects/builds/gas_station.tscn" id="38_b6cnr"]
 
 [sub_resource type="Resource" id="Resource_hxkjo"]
@@ -98,7 +99,7 @@ shader_parameter/texture_normal2 = SubResource("NoiseTexture2D_npkdg")
 material = SubResource("ShaderMaterial_divvh")
 size = Vector2(2000, 450)
 
-[sub_resource type="Resource" id="Resource_2g51m"]
+[sub_resource type="Resource" id="Resource_lii52"]
 script = ExtResource("19_6qlp7")
 amount = 1000
 enabled = true
@@ -107,7 +108,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 1
 
-[sub_resource type="Resource" id="Resource_o6nau"]
+[sub_resource type="Resource" id="Resource_4ss7m"]
 script = ExtResource("20_xv4po")
 position = Vector3(0.15, 0.15, 0.15)
 rotation = Vector3(0, 360, 0)
@@ -118,7 +119,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 2
 
-[sub_resource type="Resource" id="Resource_vffqx"]
+[sub_resource type="Resource" id="Resource_1dt3c"]
 script = ExtResource("21_ai286")
 iterations = 3
 offset_step = 0.2
@@ -130,7 +131,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_u3oaq"]
+[sub_resource type="Resource" id="Resource_vjeqy"]
 script = ExtResource("22_k8kdo")
 ray_direction = Vector3(0, -1, 0)
 ray_length = 5.0
@@ -146,9 +147,9 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_i3npp"]
+[sub_resource type="Resource" id="Resource_cyj3f"]
 script = ExtResource("18_1fwha")
-stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_2g51m"), SubResource("Resource_o6nau"), SubResource("Resource_vffqx"), SubResource("Resource_u3oaq")])
+stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_lii52"), SubResource("Resource_4ss7m"), SubResource("Resource_1dt3c"), SubResource("Resource_vjeqy")])
 
 [sub_resource type="Curve3D" id="Curve3D_2u2vc"]
 _data = {
@@ -163,7 +164,7 @@ closed = true
 thickness = 0.0
 curve = SubResource("Curve3D_2u2vc")
 
-[sub_resource type="Resource" id="Resource_5uurk"]
+[sub_resource type="Resource" id="Resource_7ooku"]
 script = ExtResource("19_6qlp7")
 amount = 2000
 enabled = true
@@ -172,7 +173,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 1
 
-[sub_resource type="Resource" id="Resource_q7ctb"]
+[sub_resource type="Resource" id="Resource_uvgq4"]
 script = ExtResource("20_xv4po")
 position = Vector3(0.15, 0.15, 0.15)
 rotation = Vector3(1, 360, 1)
@@ -183,7 +184,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 2
 
-[sub_resource type="Resource" id="Resource_8o38q"]
+[sub_resource type="Resource" id="Resource_bj4fg"]
 script = ExtResource("21_ai286")
 iterations = 1
 offset_step = 0.1
@@ -195,7 +196,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_4fbjv"]
+[sub_resource type="Resource" id="Resource_4yaln"]
 script = ExtResource("22_k8kdo")
 ray_direction = Vector3(0, -1, 0)
 ray_length = 5.0
@@ -211,9 +212,9 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_0oyqs"]
+[sub_resource type="Resource" id="Resource_338f2"]
 script = ExtResource("18_1fwha")
-stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_5uurk"), SubResource("Resource_q7ctb"), SubResource("Resource_8o38q"), SubResource("Resource_4fbjv")])
+stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_7ooku"), SubResource("Resource_uvgq4"), SubResource("Resource_bj4fg"), SubResource("Resource_4yaln")])
 
 [sub_resource type="Curve3D" id="Curve3D_ulu54"]
 _data = {
@@ -227,6 +228,9 @@ script = ExtResource("25_4ndlv")
 closed = true
 thickness = 0.0
 curve = SubResource("Curve3D_ulu54")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ux2ak"]
+size = Vector3(2000, 2000, 2000)
 
 [node name="World" type="Node"]
 script = ExtResource("1_xxt06")
@@ -2189,7 +2193,7 @@ metadata/_editor_floor_ = Vector3(0, 0, 0)
 script = ExtResource("17_0tutk")
 global_seed = 20
 render_mode = 1
-modifier_stack = SubResource("Resource_i3npp")
+modifier_stack = SubResource("Resource_cyj3f")
 Performance/use_chunks = true
 Performance/chunk_dimensions = Vector3(15, 15, 15)
 
@@ -2217,7 +2221,7 @@ shape = SubResource("Resource_e18i2")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2032, 0, 1595)
 script = ExtResource("17_0tutk")
 render_mode = 1
-modifier_stack = SubResource("Resource_0oyqs")
+modifier_stack = SubResource("Resource_338f2")
 Performance/use_chunks = true
 Performance/chunk_dimensions = Vector3(15, 15, 15)
 
@@ -2262,6 +2266,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 712.282, 0, 1131.96)
 [node name="ufo" parent="MOBS" instance=ExtResource("27_mbv02")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1000, 200, 1000)
 
+[node name="ghost_girl" parent="MOBS" instance=ExtResource("37_wavva")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 50.0763, 0.0516966, 1177.51)
+
+[node name="WORLD_LIMITER" type="Node" parent="."]
+
+[node name="world_limiter" type="Area3D" parent="WORLD_LIMITER"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WORLD_LIMITER/world_limiter"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1000, 0, 1000)
+shape = SubResource("BoxShape3D_ux2ak")
+
 [node name="Player" parent="." instance=ExtResource("5_6o1kf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 925.426, 1.08938, 1192.5)
 wall_min_slide_angle = 0.47822
@@ -2275,3 +2290,4 @@ consumption_energy = 0.001
 transform = Transform3D(0.34202, 0, -0.939693, 0, 1, 0, 0.939693, 0, 0.34202, 1426.1, 0, 1269.7)
 
 [connection signal="timeout" from="SERVERS/timer_daycycle" to="." method="_on_timer_daycycle_timeout"]
+[connection signal="body_exited" from="WORLD_LIMITER/world_limiter" to="." method="_on_world_limiter_body_exited"]

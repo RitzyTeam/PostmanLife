@@ -10,12 +10,13 @@ func _physics_process(delta):
 		
 
 func _on_appearance_trigger_body_entered(body):
-	if body is CharacterBody3D and 'inv' in body and body.has_method('handle_movement'):
-		# if it is player
-		isTargettingPlayer = true
-		mesh.visible = true
-		obj_targetting = body
-		$AnimationPlayer.play('show')
+	if SIN_WORLD_DATA.WORLD_DATA['tod'] > 1300 or SIN_WORLD_DATA.WORLD_DATA['tod'] < 120:
+		if body is CharacterBody3D and 'inv' in body and body.has_method('handle_movement'):
+			# if it is player
+			isTargettingPlayer = true
+			mesh.visible = true
+			obj_targetting = body
+			$AnimationPlayer.play('show')
 
 
 func _on_appearance_trigger_body_exited(body):
