@@ -1,8 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://w2f8eaoe1cqg"]
+[gd_scene load_steps=7 format=3 uid="uid://bbdi16aappix4"]
 
-[ext_resource type="Script" path="res://scenes/DEATHS/death_ghost_girl/death_ghost_girl.gd" id="1_nc04f"]
-[ext_resource type="AudioStream" uid="uid://d0o12m27tk12x" path="res://assets/sounds/ghost_girl/neck_crack.mp3" id="1_rs2fl"]
-[ext_resource type="FontFile" uid="uid://dv8jijr0th27a" path="res://assets/fonts/SubdexBold.ttf" id="1_usaso"]
+[ext_resource type="Script" path="res://scenes/DEATHS/death_ghost_girl/death_ghost_girl.gd" id="1_bdk1t"]
+[ext_resource type="FontFile" uid="uid://dv8jijr0th27a" path="res://assets/fonts/SubdexBold.ttf" id="2_7w257"]
+[ext_resource type="AudioStream" uid="uid://c72ipclwrm84e" path="res://assets/sounds/mine/mine_blow.mp3" id="3_jfd46"]
 
 [sub_resource type="Animation" id="Animation_t5fm3"]
 length = 0.001
@@ -33,7 +33,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("neck_crack:playing")
+tracks/2/path = NodePath("mine_blow:playing")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -73,7 +73,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("neck_crack:playing")
+tracks/2/path = NodePath("mine_blow:playing")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -90,7 +90,7 @@ _data = {
 }
 
 [node name="death_ghost_girl" type="Node"]
-script = ExtResource("1_nc04f")
+script = ExtResource("1_bdk1t")
 
 [node name="UI" type="Control" parent="."]
 layout_mode = 3
@@ -118,7 +118,7 @@ anchor_right = 1.0
 anchor_bottom = 0.510648
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("1_usaso")
+theme_override_fonts/font = ExtResource("2_7w257")
 theme_override_font_sizes/font_size = 151
 text = "Вы умерли"
 horizontal_alignment = 1
@@ -134,15 +134,15 @@ anchor_right = 1.0
 anchor_bottom = 0.606019
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("1_usaso")
+theme_override_fonts/font = ExtResource("2_7w257")
 theme_override_font_sizes/font_size = 60
-text = "Вам не стоило злить её"
+text = "Не стоит наступать на мины"
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="neck_crack" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("1_rs2fl")
+[node name="mine_blow" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_jfd46")
 
 [node name="anim" type="AnimationPlayer" parent="."]
 libraries = {

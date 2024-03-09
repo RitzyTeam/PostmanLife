@@ -17,6 +17,7 @@ shape = SubResource("ConcavePolygonShape3D_up0ki")
 
 [node name="street_name_text" type="Label3D" parent="." index="3"]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 5.67745, 2.3648, -4.06706)
+shaded = true
 outline_modulate = Color(1, 1, 1, 0)
 text = "Ул. 1 железнодорожнаааая д1"
 font = ExtResource("3_3a8wd")

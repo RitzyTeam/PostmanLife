@@ -61,10 +61,8 @@ func play_random_screamer():
 
 func _on_death_area_body_entered(body):
 	if body.is_in_group('player'):
-		kill_player()
-		
-func kill_player():
-	get_tree().change_scene_to_file("res://scenes/DEATHS/death_ghost_girl/death_ghost_girl.tscn")
+		body.queue_free()
+		get_tree().change_scene_to_file.bind("res://scenes/DEATHS/death_ghost_girl/death_ghost_girl.tscn").call_deferred()
 
 func _reset_girl():
 	isAgro = false

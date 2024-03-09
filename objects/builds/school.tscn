@@ -16,10 +16,7 @@ size = Vector3(8.57674, 7.98579, 10.4574)
 
 [node name="school" instance=ExtResource("1_icb4y")]
 
-[node name="Text_001" parent="." index="1"]
-transform = Transform3D(5.39464e-08, -0.90507, 0, 8.09196e-08, 0, -0.90507, 0.90507, 8.09196e-08, 5.39464e-08, -29.4717, 7.28502, -1.17765)
-
-[node name="StaticBody3D" type="StaticBody3D" parent="." index="3"]
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="2"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0355568, 6.0079, -19.8491)

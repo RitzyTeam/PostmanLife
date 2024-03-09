@@ -2,10 +2,7 @@ extends Node3D
 
 
 func blow():
-	var blow_effect = load('res://objects/EFFECTS/blow/blow.tscn').instantiate()
-	get_tree().get_root().add_child(blow_effect)
-	blow_effect.global_position = global_position
-	queue_free()
+	get_tree().change_scene_to_file('res://scenes/DEATHS/death_mine/death_mine.tscn')
 
 
 func _on_trigger_body_exited(body):

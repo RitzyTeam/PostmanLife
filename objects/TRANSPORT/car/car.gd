@@ -21,8 +21,8 @@ var isPlayerInside: bool = false
 var max_fuel: float = 20.0
 var res_fuel: float = 20.0
 var res_energy: float = 100.0
-@export var consumption_fuel: float = 0.0005 ## FUEL CONSUMPTION PER FRAME (DRIVING CAR)
-@export var consumption_energy: float = 0.0005 ## ENERGY CONSUMPTION PER FRAME (LIGHTS AND ALERTS)
+@export var consumption_fuel: float = 0.002 ## FUEL CONSUMPTION PER FRAME (DRIVING CAR)
+@export var consumption_energy: float = 0.001 ## ENERGY CONSUMPTION PER FRAME (LIGHTS AND ALERTS)
 # RUL ANIMATION
 var steer_points: float = 0.0
 var max_steer_points: float = 720.0

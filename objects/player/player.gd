@@ -438,5 +438,3 @@ func _unhandled_input(event):
 func _go_insane():
 	SIN_WORLD_DATA.WORLD_DATA['player_insane'] = true
 
-func die_from_ghost():
-	pass
