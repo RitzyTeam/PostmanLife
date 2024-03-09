@@ -18,7 +18,8 @@ var isFlashlightsOn: bool = false
 # PLAYER-RELATED
 var isPlayerInside: bool = false
 # RESOURCES
-var res_fuel: float = 100.0
+var max_fuel: float = 20.0
+var res_fuel: float = 20.0
 var res_energy: float = 100.0
 @export var consumption_fuel: float = 0.0005 ## FUEL CONSUMPTION PER FRAME (DRIVING CAR)
 @export var consumption_energy: float = 0.0005 ## ENERGY CONSUMPTION PER FRAME (LIGHTS AND ALERTS)
@@ -80,12 +81,12 @@ func _input(event):
 
 func _physics_process(delta):
 	if not current_tank == null:
-		if res_fuel < 100.0:
-			if current_tank.item['litres'] >= 0.1:
-				res_fuel += 0.1
-				current_tank.item['litres'] -= 0.1
+		if res_fuel < max_fuel:
+			if current_tank.item['litres'] >= 0.01:
+				res_fuel += 0.01
+				current_tank.item['litres'] -= 0.01
 				if int(res_energy) > 0:
-					$stat_fuel/value.text = str(int(res_fuel)) + '%'
+					$stat_fuel/value.text = str(int(res_fuel)) + 'л.'
 			else:
 				current_tank.freeze = false
 				current_tank = null
@@ -122,12 +123,12 @@ func _physics_process(delta):
 			if res_fuel >= consumption_fuel:
 				res_fuel -= consumption_fuel
 			if int(res_energy) > 0:
-				$stat_fuel/value.text = str(int(res_fuel)) + '%'
+				$stat_fuel/value.text = str(int(res_fuel)) + 'л.'
 		if Input.is_action_pressed('move_backward'):
 			if res_fuel >= consumption_fuel:
 				res_fuel -= consumption_fuel
 			if int(res_energy) > 0:
-				$stat_fuel/value.text = str(int(res_fuel)) + '%'
+				$stat_fuel/value.text = str(int(res_fuel)) + 'л.'
 		# STEERING BY RUL
 		if Input.is_action_pressed('move_left'):
 			if steer_points < max_steer_points:
@@ -153,7 +154,7 @@ func leave():
 		steering = 0
 		engine_force = 0
 		var player_obj = player.instantiate()
-		SIN_WORLD_DATA.WORLD_NODE.add_child(player_obj)
+		get_tree().get_root().add_child(player_obj)
 		player_obj.inventory_loader.load_inventory_visual()
 		player_obj.inventory_loader.load_hand_visual(1)
 		player_obj.set_slot_selected(1)
@@ -189,7 +190,7 @@ func _on_area_body_entered(body):
 			if body.has_method('grab'):
 				if not body.item['litres'] == null:
 					if body.item['litres'] > 0:
-						if res_fuel < 100:
+						if res_fuel < max_fuel:
 							if current_tank == null:
 								linear_velocity.x = 0
 								linear_velocity.z = 0

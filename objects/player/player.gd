@@ -94,7 +94,6 @@ func _ready():
 	HEADBOB_ANIMATION.play("RESET")
 	JUMP_ANIMATION.play("RESET")
 
-
 func _physics_process(delta):
 #region СТАМИНА
 	if stamina < 100 and state == 'normal':
@@ -144,7 +143,6 @@ func _physics_process(delta):
 		
 		was_on_floor = is_on_floor() # This must always be at the end of physics_process
 
-
 func handle_jumping():
 	if jumping_enabled:
 		if continuous_jumping:
@@ -157,7 +155,6 @@ func handle_jumping():
 				if jump_animation:
 					JUMP_ANIMATION.play("jump")
 				velocity.y += jump_velocity
-
 
 func handle_movement(delta, input_dir):
 	var direction = input_dir.rotated(-HEAD.rotation.y)
@@ -179,7 +176,6 @@ func handle_movement(delta, input_dir):
 		else:
 			velocity.x = direction.x * speed
 			velocity.z = direction.z * speed
-
 
 func handle_state(moving):
 	if sprint_enabled:
@@ -320,7 +316,7 @@ func drop_item_slot(slot_id: int):
 			pass
 		'box':
 			var obj = load('res://objects/PROPS/package_box/package_box.tscn').instantiate()
-			SIN_WORLD_DATA.WORLD_NODE.add_child(obj)
+			get_tree().get_root().add_child(obj)
 			obj.item = SIN_WORLD_DATA.WORLD_DATA['player_inv']['slot_' + str(slot_id)]
 			obj.global_position = $Head/Camera/item_display/box.global_position
 			obj.global_rotation = $Head/Camera/item_display/box.global_rotation
@@ -328,7 +324,7 @@ func drop_item_slot(slot_id: int):
 			SIN_WORLD_DATA.WORLD_DATA['player_inv']['slot_' + str(slot_id)] = {'id': 'void'}
 		'letter':
 			var obj = load('res://objects/PROPS/package_letter/package_letter.tscn').instantiate()
-			SIN_WORLD_DATA.WORLD_NODE.add_child(obj)
+			get_tree().get_root().add_child(obj)
 			obj.item = SIN_WORLD_DATA.WORLD_DATA['player_inv']['slot_' + str(slot_id)]
 			obj.global_position = $Head/Camera/item_display/letter.global_position
 			obj.global_rotation = $Head/Camera/item_display/letter.global_rotation
@@ -336,7 +332,7 @@ func drop_item_slot(slot_id: int):
 			SIN_WORLD_DATA.WORLD_DATA['player_inv']['slot_' + str(slot_id)] = {'id': 'void'}
 		'ball':
 			var obj = load('res://objects/PROPS/ball/ball.tscn').instantiate()
-			SIN_WORLD_DATA.WORLD_NODE.add_child(obj)
+			get_tree().get_root().add_child(obj)
 			obj.item = SIN_WORLD_DATA.WORLD_DATA['player_inv']['slot_' + str(slot_id)]
 			obj.global_position = $Head/Camera/item_display/ball.global_position
 			obj.global_rotation = $Head/Camera/item_display/ball.global_rotation
@@ -344,7 +340,7 @@ func drop_item_slot(slot_id: int):
 			SIN_WORLD_DATA.WORLD_DATA['player_inv']['slot_' + str(slot_id)] = {'id': 'void'}
 		'fuel_tank':
 			var obj = load('res://objects/PROPS/fuel_tank/fuel_tank.tscn').instantiate()
-			SIN_WORLD_DATA.WORLD_NODE.add_child(obj)
+			get_tree().get_root().add_child(obj)
 			obj.item = SIN_WORLD_DATA.WORLD_DATA['player_inv']['slot_' + str(slot_id)]
 			obj.global_position = $Head/Camera/item_display/fuel_tank.global_position
 			obj.global_rotation = $Head/Camera/item_display/fuel_tank.global_rotation
@@ -383,7 +379,6 @@ func set_slot_selected(slot_id: int):
 			slot_3.modulate.a = 0.4
 			slot_4.modulate.a = 1
 			inventory_loader.load_hand_visual(current_slot_selected)
-	
 
 func _unhandled_input(event):
 	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
@@ -421,6 +416,9 @@ func _unhandled_input(event):
 	if event.is_action_pressed("key_e"):
 		if $Head/Camera/raycast_hand.is_colliding():
 			if not $Head/Camera/raycast_hand.get_collider() == null:
+				# BUY PETROL FROM GAS STATION
+				if $Head/Camera/raycast_hand.get_collider().has_method('buy_petrol'):
+					$Head/Camera/raycast_hand.get_collider().buy_petrol()
 				# GRAB PACKAGES
 				if $Head/Camera/raycast_hand.get_collider().has_method('grab'):
 					if add_item_to_inv($Head/Camera/raycast_hand.get_collider().grab()):

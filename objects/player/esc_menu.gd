@@ -3,10 +3,6 @@ extends Control
 var isEscMenuOpened: bool = false
 @onready var anim_esc_menu = $anim_esc_menu
 
-
-func _ready():
-	pass # Replace with function body.
-
 func _input(event):
 	if event.is_action_pressed('key_esc'):
 		if not anim_esc_menu.is_playing():
@@ -33,14 +29,4 @@ func _on_btn_exit_pressed():
 	anim_esc_menu.play("exit")
 	await anim_esc_menu.animation_finished
 	get_tree().change_scene_to_file('res://scenes/main/main.tscn')
-
-
-func _on_anim_esc_menu_animation_finished(anim_name):
-	match anim_name:
-		'show':
-			pass
-		'hide':
-			pass
-		'exit':
-			pass
 	

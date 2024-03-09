@@ -66,7 +66,7 @@ func try_drop_item():
 		match current_slot_item.id:
 			'box':
 				var obj = load('res://objects/PROPS/package_box/package_box.tscn').instantiate()
-				SIN_WORLD_DATA.WORLD_NODE.add_child(obj)
+				get_tree().get_root().add_child(obj)
 				trigger_cooldown = 20
 				obj.global_position = $hand.global_position
 				obj.global_rotation = $hand.global_rotation
@@ -75,7 +75,7 @@ func try_drop_item():
 				drop_success = true
 			'letter':
 				var obj = load('res://objects/PROPS/package_letter/package_letter.tscn').instantiate()
-				SIN_WORLD_DATA.WORLD_NODE.add_child(obj)
+				get_tree().get_root().add_child(obj)
 				trigger_cooldown = 20
 				obj.global_position = $hand.global_position
 				obj.global_rotation = $hand.global_rotation

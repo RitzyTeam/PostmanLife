@@ -1388,7 +1388,7 @@ skeleton = NodePath("")
 [node name="value" type="Label3D" parent="stat_fuel"]
 transform = Transform3D(1, 0, 0, 0, -4.37113e-08, 0.999999, 0, -1, -4.37114e-08, 0.0222443, 1.01768, 0.623489)
 pixel_size = 0.001
-text = "100%"
+text = "100л."
 font_size = 400
 outline_size = 0
 
