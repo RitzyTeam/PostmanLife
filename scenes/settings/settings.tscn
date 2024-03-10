@@ -1,6 +1,7 @@
-[gd_scene load_steps=34 format=3 uid="uid://cosi6kxvm7qxp"]
+[gd_scene load_steps=35 format=3 uid="uid://cosi6kxvm7qxp"]
 
 [ext_resource type="Script" path="res://scenes/settings/settings.gd" id="1_brffx"]
+[ext_resource type="Theme" uid="uid://bwqpp28mqjpgu" path="res://theme.tres" id="2_24fkq"]
 [ext_resource type="Script" path="res://addons/SmoothScroll/SmoothScrollContainer.gd" id="2_ko3px"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vkhqg"]
@@ -150,6 +151,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("2_24fkq")
 
 [node name="bg" type="ColorRect" parent="UI"]
 layout_mode = 1

@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://c65iqx1wq30oe"]
+[gd_scene load_steps=10 format=3 uid="uid://c65iqx1wq30oe"]
 
 [ext_resource type="Script" path="res://scenes/main/main.gd" id="1_4aq84"]
+[ext_resource type="Theme" uid="uid://bwqpp28mqjpgu" path="res://theme.tres" id="2_2h5xy"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ktw4k"]
 bg_color = Color(0.280657, 0.091383, 1, 1)
@@ -86,6 +87,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("2_2h5xy")
 
 [node name="bg" type="ColorRect" parent="UI"]
 layout_mode = 1

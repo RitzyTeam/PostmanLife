@@ -1,0 +1,7 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://bwqpp28mqjpgu"]
+
+[ext_resource type="FontFile" uid="uid://dv8jijr0th27a" path="res://assets/fonts/SubdexBold.ttf" id="1_us4gk"]
+
+[resource]
+Button/fonts/font = ExtResource("1_us4gk")
+Label/fonts/font = ExtResource("1_us4gk")
