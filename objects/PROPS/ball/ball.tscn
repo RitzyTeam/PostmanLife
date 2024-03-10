@@ -85,6 +85,7 @@ script = ExtResource("1_x33n2")
 
 [node name="Sphere" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.178266, 0, 0, 0, 0.178266, 0, 0, 0, 0.178266, 0, 0, 0)
+lod_bias = 0.1
 mesh = SubResource("ArrayMesh_hianq")
 skeleton = NodePath("")
 

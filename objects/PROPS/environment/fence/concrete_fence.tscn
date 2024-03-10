@@ -1,5 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://bv2m3okskq3c5"]
-
-[ext_resource type="PackedScene" uid="uid://clqkpc7qh2p1c" path="res://assets/models/urban_elements/fence/fence_group_2/concrete fence.blend" id="1_jiilw"]
-
-[node name="concrete fence" instance=ExtResource("1_jiilw")]

@@ -74,15 +74,14 @@ shadow_mesh = SubResource("ArrayMesh_xjli4")
 height = 35.6
 radius = 3.4
 
-[node name="tree_log1" type="Node3D"]
+[node name="tree_log1" type="StaticBody3D"]
 
 [node name="mesh" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.0831582, 0, 0, 0, 0, -0.0831582, 0, 0.0831582, 0, 0.970664, 0.223879, -0.159473)
+lod_bias = 0.1
 mesh = SubResource("ArrayMesh_mydtu")
 skeleton = NodePath("")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="mesh"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="mesh/StaticBody3D"]
-transform = Transform3D(-4.37113e-08, -0.999998, 0, 0.999998, -4.37113e-08, 0, 0, 0, 0.999998, -11.9369, 2.08441, 0)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(-3.63495e-09, -0.083158, 0, 0, 0, -0.083158, 0.083158, -3.63495e-09, 0, -0.0219871, 0.223879, 0.0138628)
 shape = SubResource("CylinderShape3D_ofey1")

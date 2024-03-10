@@ -126,5 +126,6 @@ shadow_mesh = SubResource("ArrayMesh_lnmiv")
 
 [node name="flower2" type="MeshInstance3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0, 0)
+lod_bias = 0.1
 mesh = SubResource("ArrayMesh_43gou")
 skeleton = NodePath("")

@@ -1,5 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://cpj8kv6cybj3g"]
 
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_ufk5t"]
+height = 8.6604
+radius = 0.733154
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fespy"]
 resource_name = "tree_1"
 cull_mode = 2
@@ -68,18 +72,13 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_jf5bc")
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_ufk5t"]
-height = 8.6604
-radius = 0.733154
+[node name="forest_tree1" type="StaticBody3D"]
 
-[node name="forest_tree1" type="Node3D"]
-
-[node name="main" type="MeshInstance3D" parent="."]
-mesh = SubResource("ArrayMesh_cw1o6")
-skeleton = NodePath("")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="main"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="main/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.35, 0)
 shape = SubResource("CylinderShape3D_ufk5t")
+
+[node name="main" type="MeshInstance3D" parent="."]
+lod_bias = 0.001
+mesh = SubResource("ArrayMesh_cw1o6")
+skeleton = NodePath("")

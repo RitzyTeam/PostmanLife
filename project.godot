@@ -45,7 +45,9 @@ folder_colors={
 "res://objects/ENVIRONMENT/": "purple",
 "res://objects/MOBS/": "red",
 "res://objects/PROPS/": "teal",
-"res://objects/builds/": "pink"
+"res://objects/builds/": "pink",
+"res://objects/builds/GATES/": "yellow",
+"res://objects/builds/HOUSES/": "yellow"
 }
 
 [filesystem]

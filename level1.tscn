@@ -1,15 +1,15 @@
 [gd_scene load_steps=17 format=3]
 
 [ext_resource type="Script" path="res://scenes/world/World.gd" id="1_1gor8"]
-[ext_resource type="PackedScene" path="res://objects/TRANSPORT/car/car.tscn" id="2_msjkr"]
-[ext_resource type="Sky" path="res://resources/sky/evening.tres" id="3_n1tcl"]
+[ext_resource type="PackedScene" uid="uid://cpat5kv2ue7yo" path="res://objects/TRANSPORT/car/car.tscn" id="2_msjkr"]
+[ext_resource type="Sky" uid="uid://bruk0nywbg66g" path="res://resources/sky/evening.tres" id="3_n1tcl"]
 [ext_resource type="Script" path="res://addons/zylann.hterrain/hterrain.gd" id="4_jkmq2"]
 [ext_resource type="Resource" path="res://scenes/world/terrain_data/data.hterrain" id="5_jndwu"]
 [ext_resource type="Script" path="res://addons/zylann.hterrain/hterrain_texture_set.gd" id="6_so5bk"]
-[ext_resource type="PackedScene" path="res://objects/PROPS/environment/roads/road.tscn" id="7_bcjsy"]
-[ext_resource type="PackedScene" path="res://objects/player/player.tscn" id="8_51253"]
+[ext_resource type="PackedScene" uid="uid://cjsj70ofmvnx2" path="res://objects/builds/roads/road.tscn" id="7_bcjsy"]
+[ext_resource type="PackedScene" uid="uid://cc1m2a1obsyn4" path="res://objects/player/player.tscn" id="8_51253"]
 [ext_resource type="Script" path="res://objects/player/player.gd" id="9_hoolb"]
-[ext_resource type="PackedScene" path="res://assets/models/builds/house1.blend" id="10_tmxv2"]
+[ext_resource type="PackedScene" uid="uid://l8c5m4h132nv" path="res://assets/models/builds/house1.blend" id="10_tmxv2"]
 
 [sub_resource type="Environment" id="Environment_kqe7o"]
 background_mode = 2

@@ -40,9 +40,6 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_d68o5")
 
-[node name="stone1" type="Node3D"]
-
-[node name="mesh" type="MeshInstance3D" parent="."]
-transform = Transform3D(1.47558, -0.0995641, 0, 0.0995641, 1.47558, 0, 0, 0, 1.47894, 0, 0, 0)
+[node name="stone1" type="MeshInstance3D"]
+lod_bias = 0.2
 mesh = SubResource("ArrayMesh_dixdv")
-skeleton = NodePath("")

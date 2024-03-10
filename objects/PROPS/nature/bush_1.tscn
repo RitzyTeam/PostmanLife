@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://s0ufjsnuwkps"]
+[gd_scene load_steps=4 format=3 uid="uid://s0ufjsnuwkps"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_elw07"]
 resource_name = "1"
@@ -38,19 +38,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_gj6s8")
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_vels8"]
-height = 1.5
-radius = 1.5
-
-[node name="bush1" type="Node3D"]
-
-[node name="mesh" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.00278501, 0)
+[node name="bush1" type="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0511684, -0.00716019, 0.066494)
+lod_bias = 0.01
 mesh = SubResource("ArrayMesh_s5n74")
-skeleton = NodePath("")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="mesh"]
-
-[node name="collider" type="CollisionShape3D" parent="mesh/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.742841, 0)
-shape = SubResource("CylinderShape3D_vels8")
