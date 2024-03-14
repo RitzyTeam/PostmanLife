@@ -1,0 +1,199 @@
+[gd_scene load_steps=8 format=3 uid="uid://t0yxbxco4m46"]
+
+[ext_resource type="FontFile" uid="uid://dv8jijr0th27a" path="res://assets/fonts/SubdexBold.ttf" id="1_o3wch"]
+[ext_resource type="Script" path="res://objects/PROPS/quota_laptop/quota_laptop.gd" id="1_t23lf"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_osef0"]
+albedo_color = Color(0.145098, 0.145098, 0.145098, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_lrs0a"]
+material = SubResource("StandardMaterial3D_osef0")
+size = Vector3(0.4, 0.025, 0.81)
+
+[sub_resource type="BoxMesh" id="BoxMesh_nyr2i"]
+size = Vector3(0.05, 0.02, 0.05)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2u1n8"]
+albedo_color = Color(0, 0, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_o4cbr"]
+material = SubResource("StandardMaterial3D_2u1n8")
+size = Vector3(0.01, 0.4, 0.8)
+
+[node name="laptop" type="Node3D"]
+script = ExtResource("1_t23lf")
+
+[node name="keyboard" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.197035, 0.000691429, 0)
+mesh = SubResource("BoxMesh_lrs0a")
+
+[node name="key_1" type="MeshInstance3D" parent="keyboard"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.104629, 0.0103437, 0)
+mesh = SubResource("BoxMesh_nyr2i")
+skeleton = NodePath("../..")
+
+[node name="key_2" type="MeshInstance3D" parent="keyboard"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0291728, 0.0103437, 0)
+mesh = SubResource("BoxMesh_nyr2i")
+skeleton = NodePath("../..")
+
+[node name="key_3" type="MeshInstance3D" parent="keyboard"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0480902, 0.0103437, 0)
+mesh = SubResource("BoxMesh_nyr2i")
+skeleton = NodePath("../..")
+
+[node name="key_4" type="MeshInstance3D" parent="keyboard"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.12445, 0.0103437, 0)
+mesh = SubResource("BoxMesh_nyr2i")
+skeleton = NodePath("../..")
+
+[node name="key_29" type="MeshInstance3D" parent="keyboard"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.104629, 0.0103437, 0.140674)
+mesh = SubResource("BoxMesh_nyr2i")
+skeleton = NodePath("../..")
+
+[node name="key_30" type="MeshInstance3D" parent="keyboard"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0291728, 0.0103437, 0.140674)
+mesh = SubResource("BoxMesh_nyr2i")
+skeleton = NodePath("../..")
+
+[node name="key_31" type="MeshInstance3D" parent="keyboard"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0480902, 0.0103437, 0.140674)
+mesh = SubResource("BoxMesh_nyr2i")
+skeleton = NodePath("../..")
+
+[node name="key_32" type="MeshInstance3D" parent="keyboard"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.12445, 0.0103437, 0.140674)
+mesh = SubResource("BoxMesh_nyr2i")
+skeleton = NodePath("../..")
+
+[node name="key_33" type="MeshInstance3D" parent="keyboard"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.104629, 0.0103437, 0.06901)
+mesh = SubResource("BoxMesh_nyr2i")
+skeleton = NodePath("../..")
+
+[node name="key_34" type="MeshInstance3D" parent="keyboard"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0291728, 0.0103437, 0.06901)
+mesh = SubResource("BoxMesh_nyr2i")
+skeleton = NodePath("../..")
+
+[node name="key_35" type="MeshInstance3D" parent="keyboard"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0480902, 0.0103437, 0.06901)
+mesh = SubResource("BoxMesh_nyr2i")
+skeleton = NodePath("../..")
+
+[node name="key_36" type="MeshInstance3D" parent="keyboard"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.12445, 0.0103437, 0.06901)
+mesh = SubResource("BoxMesh_nyr2i")
+skeleton = NodePath("../..")
+
+[node name="key_37" type="MeshInstance3D" parent="keyboard"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.104629, 0.0103437, 0.278694)
+mesh = SubResource("BoxMesh_nyr2i")
+skeleton = NodePath("../..")
+
+[node name="key_38" type="MeshInstance3D" parent="keyboard"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0291728, 0.0103437, 0.278694)
+mesh = SubResource("BoxMesh_nyr2i")
+skeleton = NodePath("../..")
+
+[node name="key_39" type="MeshInstance3D" parent="keyboard"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0480902, 0.0103437, 0.278694)
+mesh = SubResource("BoxMesh_nyr2i")
+skeleton = NodePath("../..")
+
+[node name="key_41" type="MeshInstance3D" parent="keyboard"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.104629, 0.0103437, 0.20703)
+mesh = SubResource("BoxMesh_nyr2i")
+skeleton = NodePath("../..")
+
+[node name="key_42" type="MeshInstance3D" parent="keyboard"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0291728, 0.0103437, 0.20703)
+mesh = SubResource("BoxMesh_nyr2i")
+skeleton = NodePath("../..")
+
+[node name="key_43" type="MeshInstance3D" parent="keyboard"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0480902, 0.0103437, 0.20703)
+mesh = SubResource("BoxMesh_nyr2i")
+skeleton = NodePath("../..")
+
+[node name="key_49" type="MeshInstance3D" parent="keyboard"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.104629, 0.0103437, 0.350755)
+mesh = SubResource("BoxMesh_nyr2i")
+skeleton = NodePath("../..")
+
+[node name="key_50" type="MeshInstance3D" parent="keyboard"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0291728, 0.0103437, 0.350755)
+mesh = SubResource("BoxMesh_nyr2i")
+skeleton = NodePath("../..")
+
+[node name="key_51" type="MeshInstance3D" parent="keyboard"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0480902, 0.0103437, 0.350755)
+mesh = SubResource("BoxMesh_nyr2i")
+skeleton = NodePath("../..")
+
+[node name="key_12" type="MeshInstance3D" parent="keyboard"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.12445, 0.0103437, -0.144656)
+mesh = SubResource("BoxMesh_nyr2i")
+skeleton = NodePath("../..")
+
+[node name="key_15" type="MeshInstance3D" parent="keyboard"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0480902, 0.0103437, -0.21632)
+mesh = SubResource("BoxMesh_nyr2i")
+skeleton = NodePath("../..")
+
+[node name="key_16" type="MeshInstance3D" parent="keyboard"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.12445, 0.0103437, -0.21632)
+mesh = SubResource("BoxMesh_nyr2i")
+skeleton = NodePath("../..")
+
+[node name="key_20" type="MeshInstance3D" parent="keyboard"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.12445, 0.0103437, -0.289113)
+mesh = SubResource("BoxMesh_nyr2i")
+skeleton = NodePath("../..")
+
+[node name="key_21" type="MeshInstance3D" parent="keyboard"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.104629, 0.0103437, -0.360777)
+mesh = SubResource("BoxMesh_nyr2i")
+skeleton = NodePath("../..")
+
+[node name="key_22" type="MeshInstance3D" parent="keyboard"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0291728, 0.0103437, -0.360777)
+mesh = SubResource("BoxMesh_nyr2i")
+skeleton = NodePath("../..")
+
+[node name="monitor" type="Node3D" parent="."]
+transform = Transform3D(0.845085, -0.534633, 0, 0.534633, 0.845085, 0, 0, 0, 1, -0.0805272, 0.124739, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="monitor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0491032, 0)
+mesh = SubResource("BoxMesh_o4cbr")
+
+[node name="quota" type="Label3D" parent="monitor"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.00557807, 0.12987, 0.392432)
+pixel_size = 0.001
+modulate = Color(0, 1, 0.0156863, 1)
+text = "Квота: 0/1"
+font = ExtResource("1_o3wch")
+font_size = 70
+outline_size = 0
+horizontal_alignment = 0
+
+[node name="tasks_available" type="Label3D" parent="monitor"]
+transform = Transform3D(-4.37114e-08, 0, 1, -7.10543e-15, 1, 0, -1, 0, -4.37114e-08, 0.00557807, 0.0481822, 0.392432)
+pixel_size = 0.001
+modulate = Color(0, 1, 0.0156863, 1)
+text = "Заказов доступно: 0"
+font = ExtResource("1_o3wch")
+font_size = 70
+outline_size = 0
+horizontal_alignment = 0
+
+[node name="time" type="Label3D" parent="monitor"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.006, 0.217, 0)
+pixel_size = 0.001
+modulate = Color(0, 1, 0.0156863, 1)
+text = "Почтовый терминал"
+font = ExtResource("1_o3wch")
+font_size = 58
+outline_size = 0

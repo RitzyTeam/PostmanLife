@@ -1,4 +1,4 @@
-[gd_scene load_steps=75 format=3 uid="uid://cpat5kv2ue7yo"]
+[gd_scene load_steps=76 format=3 uid="uid://cpat5kv2ue7yo"]
 
 [ext_resource type="Script" path="res://objects/TRANSPORT/car/car.gd" id="1_qyjyp"]
 [ext_resource type="PackedScene" uid="uid://cc1m2a1obsyn4" path="res://objects/player/player.tscn" id="2_vq0iw"]
@@ -6,6 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://dx0fnivlqgsrc" path="res://assets/images/res_fuel.png" id="3_nlv6y"]
 [ext_resource type="AudioStream" uid="uid://t788nusgr7rc" path="res://assets/sounds/car_beep.mp3" id="5_8ws1p"]
 [ext_resource type="Texture2D" uid="uid://cmo2nbgj5nbvj" path="res://assets/images/res_flashlight.png" id="5_lgrf1"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pj65t"]
+size = Vector3(2.5, 1, 0.498962)
 
 [sub_resource type="Animation" id="Animation_i7n8v"]
 length = 0.001
@@ -1282,6 +1285,13 @@ center_of_mass_mode = 1
 script = ExtResource("1_qyjyp")
 player = ExtResource("2_vq0iw")
 
+[node name="bump_area" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -3.23263)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="bump_area"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.073822)
+shape = SubResource("BoxShape3D_pj65t")
+
 [node name="anim_flashlights" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_0kqqq")
@@ -1541,5 +1551,6 @@ stream = ExtResource("5_8ws1p")
 max_distance = 50.0
 emission_angle_filter_attenuation_db = 0.0
 
+[connection signal="body_entered" from="bump_area" to="." method="_on_bump_area_body_entered"]
 [connection signal="body_entered" from="fuel_hole/area" to="." method="_on_area_body_entered"]
 [connection signal="body_exited" from="fuel_hole/area" to="." method="_on_area_body_exited"]

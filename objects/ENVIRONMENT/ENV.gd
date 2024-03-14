@@ -21,10 +21,10 @@ func load_graphic_settings():
 		'no':
 			sun.shadow_enabled = false
 		'bad':
-			sun.light.directional_shadow_mode = DirectionalLight3D.SHADOW_ORTHOGONAL
+			sun.directional_shadow_mode = DirectionalLight3D.SHADOW_ORTHOGONAL
 			sun.shadow_enabled = true
 		'mid':
-			sun.light.directional_shadow_mode = DirectionalLight3D.SHADOW_PARALLEL_2_SPLITS
+			sun.directional_shadow_mode = DirectionalLight3D.SHADOW_PARALLEL_2_SPLITS
 			sun.shadow_enabled = true
 		'good':
 			sun.directional_shadow_mode = DirectionalLight3D.SHADOW_PARALLEL_4_SPLITS
@@ -69,13 +69,18 @@ func _on_timer_daycycle_timeout():
 # ВСЕ ДЕЙСТВИЯ С ВРЕМЕНЕМ
 func match_tod():
 	# УПРАВЛЕНИЕ ФОНАРЯМИ
-	if SIN_WORLD_DATA.WORLD_DATA['tod'] == 1300:
-		SIN_WORLD_SIGNALS.emit_signal('LIGHTS_ON')
-	if SIN_WORLD_DATA.WORLD_DATA['tod'] == 120:
-		SIN_WORLD_SIGNALS.emit_signal('LIGHTS_OFF')
-	# НОВЫЙ РАБОЧИЙ ДЕНЬ
-	if SIN_WORLD_DATA.WORLD_DATA['tod'] == 540:
-		SIN_WORLD_SIGNALS.emit_signal('NEW_WORK_DAY')
+	match SIN_WORLD_DATA.WORLD_DATA['tod']:
+		1300:
+			SIN_WORLD_SIGNALS.emit_signal('LIGHTS_ON')
+		120:
+			SIN_WORLD_SIGNALS.emit_signal('LIGHTS_OFF')
+		# НОВЫЙ РАБОЧИЙ ДЕНЬ
+		540:
+			SIN_WORLD_DATA.new_quota()
+			SIN_WORLD_SIGNALS.emit_signal('WORK_DAY_START')
+		# РАБОЧИЙ ДЕНЬ КОНЧИЛСЯ
+		1080:
+			SIN_WORLD_SIGNALS.emit_signal('WORK_DAY_END')
 	spawnMOBS()
 
 # РАБОЧАЯ СМЕНА. ПРОВЕРКА. С 9-18.

@@ -13,7 +13,8 @@ var WORLD_DATA_EMPTY: Dictionary = {
 		}, # INVENTORY
 	'tod': 540, # TIME OF DAY IN SECONDS
 	'day_num': 1, # NUM OF DAYS PASSED
-	'daily_quota': 10, # AMOUNT OF PACKAGES TO DELIVER
+	'daily_quota': 1, # AMOUNT OF PACKAGES TO DELIVER
+	'daily_quota_delivered': 0,
 	# BUFFS & DEBUFFS
 	'player_insane': false,
 }
@@ -28,7 +29,8 @@ var WORLD_DATA: Dictionary = {
 		},
 	'tod': 540,
 	'day_num': 1,
-	'daily_quota': 10,
+	'daily_quota': 1,
+	'daily_quota_delivered': 0,
 	'player_insane': false,
 }
 
@@ -37,9 +39,7 @@ func _ready():
 		data_load()
 	else:
 		data_reset()
-	WORLD_DATA['money'] = 999999
-	WORLD_DATA['tod'] = 1290
-	data_save()
+
 # MAIN FUNCS
 
 func data_reset():
@@ -86,3 +86,13 @@ func value_tod_changed(new_tod: int):
 func value_day_passed():
 	WORLD_DATA['day_num'] += 1
 
+func new_quota():
+	randomize()
+	WORLD_DATA['daily_quota'] += randi_range(1, 3)
+
+func add_delivered_to_quota_counter():
+	if SIN_WORLD_DATA.WORLD_DATA['tod'] >= 540 and SIN_WORLD_DATA.WORLD_DATA['tod'] <= 1080:
+		SIN_WORLD_DATA.WORLD_DATA['daily_quota_delivered'] += 1
+	
+func isQuotaReached():
+	return WORLD_DATA['daily_quota'] == WORLD_DATA['daily_quota_delivered']

@@ -159,7 +159,7 @@ func leave():
 		player_obj.set_slot_selected(1)
 		player_obj.global_position = pos_of_exit.global_position
 		$CAMERA.current = false
-	
+
 func lights_on():
 	anim_flashlights.play("on")
 
@@ -211,3 +211,8 @@ func _on_area_body_exited(body):
 			if body.has_method('grab'):
 				if not body.item['litres'] == null:
 					body.freeze = false
+
+func _on_bump_area_body_entered(body):
+	var velo = float(abs(linear_velocity.x + linear_velocity.y + linear_velocity.z))
+	if velo > 90.0:
+		get_tree().change_scene_to_file.bind("res://scenes/DEATHS/death_car/death_car.tscn").call_deferred()

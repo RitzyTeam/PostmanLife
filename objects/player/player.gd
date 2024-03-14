@@ -1,5 +1,10 @@
 extends CharacterBody3D
 
+# Money UI
+@onready var money = $UI/UI/money
+
+# FPS Counter
+@onready var fps_counter = $UI/UI/fps_counter
 
 # ESC MENU
 var isEscMenuOpened: bool = false
@@ -10,10 +15,10 @@ var isEscMenuOpened: bool = false
 @onready var inventory_loader = $INVENTORY_LOADER
 @export var throw_item_power: float = 10.0
 var current_slot_selected: int = 1
-@onready var slot_1 = $UI/UserInterface/inventory/slot_1
-@onready var slot_2 = $UI/UserInterface/inventory/slot_2
-@onready var slot_3 = $UI/UserInterface/inventory/slot_3
-@onready var slot_4 = $UI/UserInterface/inventory/slot_4
+@onready var slot_1 = $UI/UI/inventory/slot_1
+@onready var slot_2 = $UI/UI/inventory/slot_2
+@onready var slot_3 = $UI/UI/inventory/slot_3
+@onready var slot_4 = $UI/UI/inventory/slot_4
 
 
 @export_category("Character")
@@ -82,6 +87,8 @@ func _ready():
 	SIN_WORLD_SIGNALS.GHOST_GIRL_ANGRY.connect(_go_insane)
 	# SET CAMERA FAR FROM SETTINGS
 	$Head/Camera.far = SIN_SETTINGS.SETTINGS['GRAPHICS']['far']
+	# SET VISIBLE FPS COUNTER
+	fps_counter.visible = SIN_SETTINGS.SETTINGS['ADDITIONAL']['fps_counter']
 	# EVERYTHING ELSE
 	set_slot_selected(1)
 	inventory_loader.load_hand_visual(1)
@@ -97,6 +104,7 @@ func _ready():
 
 func _physics_process(delta):
 #region СТАМИНА
+	
 	if stamina < 100 and state == 'normal':
 		stamina += 0.1
 	if Input.is_action_pressed(SPRINT):
@@ -105,20 +113,14 @@ func _physics_process(delta):
 			stamina -= 0.2
 #endregion
 	current_speed = Vector3.ZERO.distance_to(get_real_velocity())
-	$UI/UserInterface/DebugPanel.add_property("Speed", snappedf(current_speed, 0.001), 1)
-	$UI/UserInterface/DebugPanel.add_property("Target speed", speed, 2)
 	var cv : Vector3 = get_real_velocity()
 	var vd : Array[float] = [
 		snappedf(cv.x, 0.001),
 		snappedf(cv.y, 0.001),
 		snappedf(cv.z, 0.001)
 	]
-	var readable_velocity : String = "X: " + str(vd[0]) + " Y: " + str(vd[1]) + " Z: " + str(vd[2])
-	$UI/UserInterface/DebugPanel.add_property("Velocity", readable_velocity, 3)
-	$UI/UserInterface/DebugPanel.add_property("Stamina", stamina, 4)
 	
 	# Gravity
-	#gravity = ProjectSettings.get_setting("physics/3d/default_gravity") # If the gravity changes during your game, uncomment this code
 	if not is_on_floor():
 		velocity.y -= gravity * delta
 	
@@ -141,7 +143,6 @@ func _physics_process(delta):
 	if jump_animation:
 		if !was_on_floor and is_on_floor(): # Just landed
 			JUMP_ANIMATION.play("land")
-		
 		was_on_floor = is_on_floor() # This must always be at the end of physics_process
 
 func handle_jumping():
@@ -268,11 +269,10 @@ func headbob_animation(moving):
 		HEADBOB_ANIMATION.speed_scale = 1
 
 func _process(delta):
-	$UI/UserInterface/DebugPanel.add_property("FPS", Performance.get_monitor(Performance.TIME_FPS), 0)
+	fps_counter.text = 'FPS: ' + str(Performance.get_monitor(Performance.TIME_FPS))
 	var status : String = state
 	if !is_on_floor():
 		status += " in the air"
-	$UI/UserInterface/DebugPanel.add_property("State", status, 4)
 	
 	if Input.is_action_just_pressed(PAUSE):
 		if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:

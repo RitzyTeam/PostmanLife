@@ -1,6 +1,7 @@
-[gd_scene load_steps=35 format=3 uid="uid://cj1ydvi2t3bot"]
+[gd_scene load_steps=36 format=3 uid="uid://cj1ydvi2t3bot"]
 
 [ext_resource type="Script" path="res://objects/builds/post_office_build/post_office_build.gd" id="2_qoyn2"]
+[ext_resource type="PackedScene" uid="uid://t0yxbxco4m46" path="res://objects/PROPS/quota_laptop/quota_laptop.tscn" id="2_vkukj"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v2vpn"]
 resource_name = "1"
@@ -457,6 +458,10 @@ radius = 0.61
 
 [node name="postOfficeBulild" type="StaticBody3D"]
 script = ExtResource("2_qoyn2")
+
+[node name="INTERIOR" type="Node3D" parent="."]
+
+[node name="laptop" parent="INTERIOR" instance=ExtResource("2_vkukj")]
 
 [node name="multimesh" type="MultiMeshInstance3D" parent="."]
 

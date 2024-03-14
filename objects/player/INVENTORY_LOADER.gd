@@ -1,9 +1,9 @@
 extends Node
 
-@onready var item_1_icon = $"../UI/UserInterface/inventory/slot_1/item_icon"
-@onready var item_2_icon = $"../UI/UserInterface/inventory/slot_2/item_icon"
-@onready var item_3_icon = $"../UI/UserInterface/inventory/slot_3/item_icon"
-@onready var item_4_icon = $"../UI/UserInterface/inventory/slot_4/item_icon"
+@onready var item_1_icon = $"../UI/UI/inventory/slot_1/item_icon"
+@onready var item_2_icon = $"../UI/UI/inventory/slot_2/item_icon"
+@onready var item_3_icon = $"../UI/UI/inventory/slot_3/item_icon"
+@onready var item_4_icon = $"../UI/UI/inventory/slot_4/item_icon"
 
 
 
@@ -63,7 +63,7 @@ func load_inventory_visual():
 			item_4_icon.texture = load('res://assets/images/item_fuel_tank.png')
 
 func load_hand_visual(slot_id):
-	$"../UI/UserInterface/item_name".text = ''
+	$"../UI/UI/item_name".text = ''
 	var inv: Dictionary = SIN_WORLD_DATA.WORLD_DATA['player_inv']
 	var item = inv['slot_' + str(slot_id)]
 	match item.id:
@@ -72,28 +72,28 @@ func load_hand_visual(slot_id):
 			$"../Head/Camera/item_display/box".visible = false
 			$"../Head/Camera/item_display/ball".visible = false
 			$"../Head/Camera/item_display/fuel_tank".visible = false
-			$"../UI/UserInterface/item_name".text = ''
+			$"../UI/UI/item_name".text = ''
 		'letter':
 			$"../Head/Camera/item_display/letter".visible = true
 			$"../Head/Camera/item_display/box".visible = false
 			$"../Head/Camera/item_display/ball".visible = false
 			$"../Head/Camera/item_display/fuel_tank".visible = false
-			$"../UI/UserInterface/item_name".text = item['name']
+			$"../UI/UI/item_name".text = item['name']
 		'box':
 			$"../Head/Camera/item_display/letter".visible = false
 			$"../Head/Camera/item_display/box".visible = true
 			$"../Head/Camera/item_display/ball".visible = false
 			$"../Head/Camera/item_display/fuel_tank".visible = false
-			$"../UI/UserInterface/item_name".text = item['name']
+			$"../UI/UI/item_name".text = item['name']
 		'ball':
 			$"../Head/Camera/item_display/letter".visible = false
 			$"../Head/Camera/item_display/box".visible = false
 			$"../Head/Camera/item_display/ball".visible = true
 			$"../Head/Camera/item_display/fuel_tank".visible = false
-			$"../UI/UserInterface/item_name".text = item['name']
+			$"../UI/UI/item_name".text = item['name']
 		'fuel_tank':
 			$"../Head/Camera/item_display/letter".visible = false
 			$"../Head/Camera/item_display/box".visible = false
 			$"../Head/Camera/item_display/ball".visible = false
 			$"../Head/Camera/item_display/fuel_tank".visible = true
-			$"../UI/UserInterface/item_name".text = item['name']
+			$"../UI/UI/item_name".text = item['name']

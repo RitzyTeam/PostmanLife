@@ -51,6 +51,11 @@ extends Node
 @onready var db_music = $UI/bg/visibility_changer/panel_audio/margin/smoother/au_box/item_music/options/db_music
 @onready var db_music_value = $UI/bg/visibility_changer/panel_audio/margin/smoother/au_box/item_music/options/db_music_value
 
+# ADDITIONAL SETTINGS UI
+# FPS COUNTER
+@onready var counter_no = $UI/bg/visibility_changer/panel_additional/margin/smoother/ad_box/item_fps_counter/options/counter_no
+@onready var counter_yes = $UI/bg/visibility_changer/panel_additional/margin/smoother/ad_box/item_fps_counter/options/counter_yes
+
 
 
 func _ready():
@@ -202,6 +207,14 @@ func load_settings():
 			mid_shadows.button_pressed = false
 			good_shadows.button_pressed = true
 	
+	# LOAD ADDITIONAL SETTINGS
+	match SIN_SETTINGS.SETTINGS['ADDITIONAL']['fps_counter']:
+		true:
+			counter_no.button_pressed = false
+			counter_yes.button_pressed = true
+		false:
+			counter_no.button_pressed = true
+			counter_yes.button_pressed = false
 	
 	# LOAD MISC SETTINGS
 	
@@ -355,6 +368,18 @@ func _on_db_music_value_changed(value):
 	else:
 		db_music_value.text = str(value)
 		
+# ADDITIONAL - FPS COUNTER
+
+func _on_counter_no_pressed():
+	SIN_SETTINGS.SETTINGS['ADDITIONAL']['fps_counter'] = false
+	counter_no.button_pressed = true
+	counter_yes.button_pressed = false
+
+func _on_counter_yes_pressed():
+	SIN_SETTINGS.SETTINGS['ADDITIONAL']['fps_counter'] = true
+	counter_no.button_pressed = false
+	counter_yes.button_pressed = true
+
 
 
 

@@ -7,7 +7,7 @@ var agro_meter: int = 0
 var isAgro: bool = false
 
 func _ready():
-	SIN_WORLD_SIGNALS.NEW_WORK_DAY.connect(_reset_girl)
+	SIN_WORLD_SIGNALS.WORK_DAY_START.connect(_reset_girl)
 
 func _physics_process(delta):
 	if isTargettingPlayer:

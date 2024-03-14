@@ -69,9 +69,14 @@ func generate_word(length):
 
 # SIGNAL HANDLE
 func _package_delivered(task_id: String):
-	SIN_TASK_SYSTEM.remove_task(task_id)
 	randomize()
+	# ЗАКРЫТЬ ЗАДАНИЕ НА ДОСТАВКУ
+	SIN_TASK_SYSTEM.remove_task(task_id)
+	# ДОБАВИТЬ ДЕНЕГ ЗА ДОСТАВКУ
 	SIN_WORLD_DATA.value_add_money(randi_range(10,50))
+	# ДОБАВИТЬ В СЧЕТЧИК КВОТЫ ОДНУ ДОСТАВЛЕННУЮ ПОСЫЛКУ
+	if not SIN_WORLD_DATA.isQuotaReached():
+		SIN_WORLD_DATA.add_delivered_to_quota_counter()
 
 func _package_failed(task_id: String):
 	SIN_TASK_SYSTEM.remove_task(task_id)

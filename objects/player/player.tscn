@@ -1,10 +1,8 @@
-[gd_scene load_steps=47 format=3 uid="uid://cc1m2a1obsyn4"]
+[gd_scene load_steps=44 format=3 uid="uid://cc1m2a1obsyn4"]
 
 [ext_resource type="Script" path="res://objects/player/player.gd" id="1_w4mcw"]
 [ext_resource type="Script" path="res://objects/player/INVENTORY_LOADER.gd" id="2_lldw2"]
-[ext_resource type="PackedScene" uid="uid://3mij3cjhkwsm" path="res://objects/player/reticle_1.tscn" id="2_tuo1v"]
-[ext_resource type="Script" path="res://objects/player/debug.gd" id="3_qtvqh"]
-[ext_resource type="Shader" path="res://shaders/player.gdshader" id="4_qn28d"]
+[ext_resource type="Theme" uid="uid://bwqpp28mqjpgu" path="res://theme.tres" id="3_im6de"]
 [ext_resource type="Texture2D" uid="uid://d6xs006qy5ib" path="res://assets/images/item_slot.png" id="4_vcdfw"]
 [ext_resource type="Script" path="res://objects/player/esc_menu.gd" id="7_alls3"]
 
@@ -527,21 +525,12 @@ _data = {
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_k4wwl"]
 
-[sub_resource type="Theme" id="Theme_wdf0f"]
-MarginContainer/constants/margin_bottom = 10
-MarginContainer/constants/margin_left = 10
-MarginContainer/constants/margin_right = 10
-MarginContainer/constants/margin_top = 10
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_elq50"]
-shader = ExtResource("4_qn28d")
-shader_parameter/line_color = null
-shader_parameter/line_count = 2.0
-shader_parameter/line_density = 0.56
-shader_parameter/line_faloff = 0.0
-shader_parameter/mask_size = 0.333
-shader_parameter/mask_edge = 0.372
-shader_parameter/animation_speed = 20.0
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h0qrc"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 90
+corner_radius_top_right = 90
+corner_radius_bottom_right = 90
+corner_radius_bottom_left = 90
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pdxl4"]
 bg_color = Color(0.280657, 0.091383, 1, 1)
@@ -910,7 +899,7 @@ target_position = Vector3(0, 0.5, 0)
 
 [node name="UI" type="CanvasLayer" parent="."]
 
-[node name="UserInterface" type="Control" parent="UI"]
+[node name="UI" type="Control" parent="UI"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -918,29 +907,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
+theme = ExtResource("3_im6de")
 metadata/_edit_lock_ = true
 
-[node name="Reticle_1" parent="UI/UserInterface" node_paths=PackedStringArray("reticle_lines", "character") instance=ExtResource("2_tuo1v")]
-layout_mode = 1
-reticle_lines = [NodePath("top"), NodePath("left"), NodePath("right"), NodePath("bottom")]
-character = NodePath("../../..")
-
-[node name="DebugPanel" type="PanelContainer" parent="UI/UserInterface"]
-layout_mode = 0
-offset_left = 10.0
-offset_top = 10.0
-offset_right = 453.0
-offset_bottom = 50.0
-theme = SubResource("Theme_wdf0f")
-script = ExtResource("3_qtvqh")
-
-[node name="MarginContainer" type="MarginContainer" parent="UI/UserInterface/DebugPanel"]
-layout_mode = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/UserInterface/DebugPanel/MarginContainer"]
-layout_mode = 2
-
-[node name="inventory" type="HBoxContainer" parent="UI/UserInterface"]
+[node name="inventory" type="HBoxContainer" parent="UI/UI"]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.856481
@@ -953,14 +923,14 @@ alignment = 1
 metadata/_edit_use_anchors_ = true
 metadata/_edit_lock_ = true
 
-[node name="slot_1" type="TextureRect" parent="UI/UserInterface/inventory"]
+[node name="slot_1" type="TextureRect" parent="UI/UI/inventory"]
 custom_minimum_size = Vector2(130, 130)
 layout_mode = 2
 texture = ExtResource("4_vcdfw")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="item_icon" type="TextureRect" parent="UI/UserInterface/inventory/slot_1"]
+[node name="item_icon" type="TextureRect" parent="UI/UI/inventory/slot_1"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -970,14 +940,14 @@ grow_vertical = 2
 expand_mode = 1
 metadata/_edit_lock_ = true
 
-[node name="slot_2" type="TextureRect" parent="UI/UserInterface/inventory"]
+[node name="slot_2" type="TextureRect" parent="UI/UI/inventory"]
 custom_minimum_size = Vector2(130, 130)
 layout_mode = 2
 texture = ExtResource("4_vcdfw")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="item_icon" type="TextureRect" parent="UI/UserInterface/inventory/slot_2"]
+[node name="item_icon" type="TextureRect" parent="UI/UI/inventory/slot_2"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -987,14 +957,14 @@ grow_vertical = 2
 expand_mode = 1
 metadata/_edit_lock_ = true
 
-[node name="slot_3" type="TextureRect" parent="UI/UserInterface/inventory"]
+[node name="slot_3" type="TextureRect" parent="UI/UI/inventory"]
 custom_minimum_size = Vector2(130, 130)
 layout_mode = 2
 texture = ExtResource("4_vcdfw")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="item_icon" type="TextureRect" parent="UI/UserInterface/inventory/slot_3"]
+[node name="item_icon" type="TextureRect" parent="UI/UI/inventory/slot_3"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1004,14 +974,14 @@ grow_vertical = 2
 expand_mode = 1
 metadata/_edit_lock_ = true
 
-[node name="slot_4" type="TextureRect" parent="UI/UserInterface/inventory"]
+[node name="slot_4" type="TextureRect" parent="UI/UI/inventory"]
 custom_minimum_size = Vector2(130, 130)
 layout_mode = 2
 texture = ExtResource("4_vcdfw")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="item_icon" type="TextureRect" parent="UI/UserInterface/inventory/slot_4"]
+[node name="item_icon" type="TextureRect" parent="UI/UI/inventory/slot_4"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1021,7 +991,7 @@ grow_vertical = 2
 expand_mode = 1
 metadata/_edit_lock_ = true
 
-[node name="item_name" type="Label" parent="UI/UserInterface"]
+[node name="item_name" type="Label" parent="UI/UI"]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.819444
@@ -1037,17 +1007,51 @@ vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 metadata/_edit_lock_ = true
 
-[node name="ColorRect" type="ColorRect" parent="UI"]
-visible = false
-material = SubResource("ShaderMaterial_elq50")
-anchors_preset = 15
+[node name="fps_counter" type="Label" parent="UI/UI"]
+layout_mode = 0
+anchor_left = 0.00364583
+anchor_top = 0.00277778
+anchor_right = 0.0385417
+anchor_bottom = 0.0388889
+offset_right = -4.0
+theme_override_font_sizes/font_size = 36
+text = "FPS: "
+metadata/_edit_use_anchors_ = true
+
+[node name="money" type="Label" parent="UI/UI"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -74.0
+offset_top = -46.0
+offset_right = -7.0
+offset_bottom = -7.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 36
+text = "0`"
+horizontal_alignment = 2
+
+[node name="aim" type="Panel" parent="UI/UI"]
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -2.0
+offset_top = -2.0
+offset_right = 2.0
+offset_bottom = 2.0
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset = Vector2(2, 2)
 mouse_filter = 2
-color = Color(1, 1, 1, 0)
-metadata/_edit_use_anchors_ = true
+theme_override_styles/panel = SubResource("StyleBoxFlat_h0qrc")
 
 [node name="esc_menu" type="Control" parent="UI"]
 process_mode = 3
@@ -1059,6 +1063,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("7_alls3")
+metadata/_edit_lock_ = true
 
 [node name="bg" type="ColorRect" parent="UI/esc_menu"]
 visible = false
@@ -1129,5 +1134,3 @@ libraries = {
 
 [connection signal="pressed" from="UI/esc_menu/bg/btn_return" to="UI/esc_menu" method="_on_btn_return_pressed"]
 [connection signal="pressed" from="UI/esc_menu/bg/btn_exit" to="UI/esc_menu" method="_on_btn_exit_pressed"]
-
-[editable path="UI/UserInterface/Reticle_1"]

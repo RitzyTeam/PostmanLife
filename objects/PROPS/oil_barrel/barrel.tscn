@@ -76,7 +76,7 @@ shadow_mesh = SubResource("ArrayMesh_ix68q")
 height = 20.4
 radius = 8.2
 
-[node name="barrel" type="Node3D"]
+[node name="barrel" type="StaticBody3D"]
 
 [node name="mesh" type="MeshInstance3D" parent="."]
 transform = Transform3D(-0.0634649, 0, 0, 0, -0.0634649, 0, 0, 0, -0.0634649, 0, 1.24217, 0.316215)
@@ -90,8 +90,6 @@ texture_albedo = ExtResource("1_exao0")
 upper_fade = 0.356762
 lower_fade = 0.204906
 
-[node name="StaticBody3D" type="StaticBody3D" parent="mesh"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="mesh/StaticBody3D"]
-transform = Transform3D(0.999999, 0, 0, 0, 0.999999, 0, 0, 0, 0.999999, 0, 9.45405, 4.72702)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(-0.0634648, 0, 0, 0, -0.0634648, 0, 0, 0, -0.0634648, 0, 0.64217, 0.0162151)
 shape = SubResource("CylinderShape3D_skxcg")

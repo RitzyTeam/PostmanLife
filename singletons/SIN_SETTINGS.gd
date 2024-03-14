@@ -19,12 +19,13 @@ var SETTINGS : Dictionary = {
 		'frequency': 60,
 		'far': 60, # USED BY ALL CAMERAS
 	},
-	'MISC': {
-		
+	'ADDITIONAL': {
+		'fps_counter': false,
 	}
 }
 
 func _ready():
+	
 	if settings_exists():
 		settings_load()
 		settings_consume()
