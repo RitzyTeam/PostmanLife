@@ -179,28 +179,32 @@ transform = Transform3D(0.845085, -0.534633, 0, 0.534633, 0.845085, 0, 0, 0, 1, 
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0491032, 0)
 mesh = SubResource("BoxMesh_o4cbr")
 
-[node name="quota" type="Label3D" parent="monitor"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.00557807, 0.12987, 0.392432)
+[node name="warn" type="Label3D" parent="monitor"]
+transform = Transform3D(-4.37114e-08, 0, 1, -1.77636e-15, 1, 0, -1, 0, -4.37114e-08, 0.00527899, 0.0853474, -2.71201e-06)
 pixel_size = 0.001
-text = "Квота: 0/1"
+text = "Доставленных посылок:"
 font = ExtResource("1_o3wch")
-font_size = 70
+font_size = 76
 outline_size = 0
-horizontal_alignment = 0
 
-[node name="tasks_available" type="Label3D" parent="monitor"]
-transform = Transform3D(-4.37114e-08, 0, 1, -7.10543e-15, 1, 0, -1, 0, -4.37114e-08, 0.00557807, 0.0481822, 0.392432)
+[node name="quota" type="Label3D" parent="monitor"]
+transform = Transform3D(-4.37114e-08, 0, 1, -1.77636e-15, 1, 0, -1, 0, -4.37114e-08, 0.00540162, 0.0156085, -2.71201e-06)
 pixel_size = 0.001
-text = "Заказов доступно: 0"
+text = "000/000"
 font = ExtResource("1_o3wch")
-font_size = 70
+font_size = 76
 outline_size = 0
-horizontal_alignment = 0
 
 [node name="time" type="Label3D" parent="monitor"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.006, 0.217, 0)
 pixel_size = 0.001
-text = "Почтовый терминал"
+text = "Дневная квота доставок"
 font = ExtResource("1_o3wch")
-font_size = 58
+font_size = 46
 outline_size = 0
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

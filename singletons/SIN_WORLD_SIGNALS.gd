@@ -8,4 +8,4 @@ signal LIGHTS_OFF
 signal WORK_DAY_START
 signal WORK_DAY_END
 signal GHOST_GIRL_ANGRY
-signal PLAYER_UI_CASH_UPDATE
+signal PLAYER_UI_CASH_UPDATE(value_change)

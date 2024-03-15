@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://objects/PROPS/package_letter/package_letter.gd" id="1_8rpvx"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kwxbf"]
-size = Vector3(0.372421, 0.0344544, 0.235721)
+size = Vector3(0.372421, 0.0491409, 0.227448)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2jayv"]
 resource_name = "body"
@@ -78,7 +78,7 @@ continuous_cd = true
 script = ExtResource("1_8rpvx")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00113674, 4.56874e-05, 0.00119963)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00113674, -0.000110721, 0.000878786)
 shape = SubResource("BoxShape3D_kwxbf")
 
 [node name="delivery_timer" type="Timer" parent="."]

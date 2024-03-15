@@ -13,7 +13,7 @@ func buy_petrol():
 		var petrol_price: int = buy_amount * gas_station.petrol_price_station_3
 		if SIN_WORLD_DATA.WORLD_DATA['money'] >= petrol_price:
 			SIN_WORLD_DATA.WORLD_DATA['money'] -= petrol_price
-			SIN_WORLD_SIGNALS.emit_signal('PLAYER_UI_CASH_UPDATE')
+			SIN_WORLD_SIGNALS.emit_signal('PLAYER_UI_CASH_UPDATE', -petrol_price)
 			isSuccess = true
 			amountBought = buy_amount
 			gas_station.petrol_station_3 -= buy_amount
@@ -24,7 +24,7 @@ func buy_petrol():
 				isSuccess = true
 				amountBought = gas_station.petrol_station_3
 				SIN_WORLD_DATA.WORLD_DATA['money'] -= petrol_price
-				SIN_WORLD_SIGNALS.emit_signal('PLAYER_UI_CASH_UPDATE')
+				SIN_WORLD_SIGNALS.emit_signal('PLAYER_UI_CASH_UPDATE', -petrol_price)
 				gas_station.petrol_station_3 = 0
 	if isSuccess:
 		var petrol_canister = gas_station.petrol_canister.instantiate()

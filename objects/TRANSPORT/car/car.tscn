@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cmo2nbgj5nbvj" path="res://assets/images/res_flashlight.png" id="5_lgrf1"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_pj65t"]
-size = Vector3(2.5, 1, 0.498962)
+size = Vector3(2.5, 1, 0.910614)
 
 [sub_resource type="Animation" id="Animation_i7n8v"]
 length = 0.001
@@ -1289,7 +1289,7 @@ player = ExtResource("2_vq0iw")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -3.23263)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="bump_area"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.073822)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.279648)
 shape = SubResource("BoxShape3D_pj65t")
 
 [node name="anim_flashlights" type="AnimationPlayer" parent="."]

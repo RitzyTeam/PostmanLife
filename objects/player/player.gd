@@ -91,6 +91,7 @@ func _ready():
 	# SET VISIBLE FPS COUNTER
 	fps_counter.visible = SIN_SETTINGS.SETTINGS['ADDITIONAL']['fps_counter']
 	# EVERYTHING ELSE
+	$UI/UI/money.text = str(SIN_WORLD_DATA.WORLD_DATA['money']) + '₽'
 	set_slot_selected(1)
 	inventory_loader.load_hand_visual(1)
 	inventory_loader.load_inventory_visual()
@@ -436,13 +437,19 @@ func _unhandled_input(event):
 					# DRIVE A CAR
 					if $Head/Camera/raycast_hand.get_collider().has_method('enter'):
 						$Head/Camera/raycast_hand.get_collider().enter(self)
+					# INTERRACT WITH ITEM
+					if $Head/Camera/raycast_hand.get_collider().has_method('interract'):
+						$Head/Camera/raycast_hand.get_collider().interract()
 
 func _go_insane():
 	SIN_WORLD_DATA.WORLD_DATA['player_insane'] = true
 
-func _update_money_ui():
+func _update_money_ui(value_changed):
+	var notif_money_change = load("res://objects/UI/money_change_notification/money_change_notification.tscn").instantiate()
+	$UI/UI/money_change_notifications.add_child(notif_money_change)
+	notif_money_change.set_content(value_changed)
 	$UI/UI/money.text = str(SIN_WORLD_DATA.WORLD_DATA['money']) + '₽'
-
+	
 func _update_time_ui():
 	var time_hours = int(SIN_WORLD_DATA.WORLD_DATA['tod']/60)
 	var time_minutes = int(SIN_WORLD_DATA.WORLD_DATA['tod']%60)

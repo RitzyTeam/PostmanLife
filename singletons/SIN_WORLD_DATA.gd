@@ -79,9 +79,9 @@ func data_exists() -> bool:
 
 # VALUE CHANGERS
 
-func value_add_money(money_to_add: int) -> void:
+func value_change_money(money_to_add: int) -> void:
 	WORLD_DATA['money'] += money_to_add
-	SIN_WORLD_SIGNALS.emit_signal('PLAYER_UI_CASH_UPDATE')
+	SIN_WORLD_SIGNALS.emit_signal('PLAYER_UI_CASH_UPDATE', money_to_add)
 
 func value_tod_changed(new_tod: int):
 	WORLD_DATA['tod'] = new_tod

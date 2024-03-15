@@ -885,7 +885,7 @@ skeleton = NodePath("")
 libraries = {
 "": SubResource("AnimationLibrary_o0unb")
 }
-blend_times = [&"headbob", &"RESET", 0.5, &"RESET", &"headbob", 0.5, &"RESET", &"RESET", 0.5]
+blend_times = [&"RESET", &"RESET", 0.5, &"RESET", &"headbob", 0.5, &"headbob", &"RESET", 0.5]
 
 [node name="JumpAnimation" type="AnimationPlayer" parent="Head"]
 libraries = {
@@ -1033,7 +1033,6 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 8
 theme_override_fonts/font = ExtResource("5_1vneb")
 theme_override_font_sizes/font_size = 36
-text = "100₽"
 horizontal_alignment = 2
 metadata/_edit_use_anchors_ = true
 
@@ -1072,6 +1071,17 @@ grow_vertical = 2
 pivot_offset = Vector2(2, 2)
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_h0qrc")
+
+[node name="money_change_notifications" type="VBoxContainer" parent="UI/UI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.914063
+anchor_top = 0.0611111
+anchor_right = 0.994792
+anchor_bottom = 0.997222
+grow_horizontal = 0
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="esc_menu" type="Control" parent="UI"]
 process_mode = 3

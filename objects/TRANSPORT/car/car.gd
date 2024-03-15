@@ -102,7 +102,7 @@ func _physics_process(delta):
 			lights_off()
 	if isPlayerInside:
 		# UPDATE UI
-		var speed: float = abs(int(linear_velocity.x + linear_velocity.z))
+		var speed = int(abs(linear_velocity.x) + abs(linear_velocity.y) + abs(linear_velocity.z))
 		if int(res_energy) > 0:
 			$speedometer/speed.text = str(speed) + ' км/ч'
 		# ANIMATE LEVER
@@ -213,6 +213,7 @@ func _on_area_body_exited(body):
 					body.freeze = false
 
 func _on_bump_area_body_entered(body):
-	var velo = float(abs(linear_velocity.x + linear_velocity.y + linear_velocity.z))
+	var velo = float(abs(linear_velocity.x) + abs(linear_velocity.y) + abs(linear_velocity.z))
 	if velo > 90.0:
-		get_tree().change_scene_to_file.bind("res://scenes/DEATHS/death_car/death_car.tscn").call_deferred()
+		if isPlayerInside:
+			get_tree().change_scene_to_file.bind("res://scenes/DEATHS/death_car/death_car.tscn").call_deferred()

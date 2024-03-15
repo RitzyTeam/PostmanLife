@@ -106,10 +106,16 @@ func _package_delivered(task_id: String):
 	# ЗАКРЫТЬ ЗАДАНИЕ НА ДОСТАВКУ
 	SIN_TASK_SYSTEM.remove_task(task_id)
 	# ДОБАВИТЬ ДЕНЕГ ЗА ДОСТАВКУ
-	SIN_WORLD_DATA.value_add_money(randi_range(10,50))
+	var value_reward: int = randi_range(10,50)
+	SIN_WORLD_DATA.value_change_money(value_reward)
 	# ДОБАВИТЬ В СЧЕТЧИК КВОТЫ ОДНУ ДОСТАВЛЕННУЮ ПОСЫЛКУ
 	if not SIN_WORLD_DATA.isQuotaReached():
 		SIN_WORLD_DATA.add_delivered_to_quota_counter()
 
 func _package_failed(task_id: String):
+	randomize()
+	# ЗАКРЫТЬ ЗАДАНИЕ НА ДОСТАВКУ
 	SIN_TASK_SYSTEM.remove_task(task_id)
+	# ОТНЯТЬ ДЕНЕГ ЗА ХУЁВУЮ ДОСТАВКУ
+	var value_to_pay: int = randi_range(10,50)
+	SIN_WORLD_DATA.value_change_money(-value_to_pay)
