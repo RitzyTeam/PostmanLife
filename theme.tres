@@ -19,6 +19,7 @@ corner_radius_bottom_right = 50
 corner_radius_bottom_left = 50
 
 [resource]
+Button/font_sizes/font_size = 42
 Button/fonts/font = ExtResource("1_us4gk")
 Button/styles/disabled = SubResource("StyleBoxFlat_53fgy")
 Button/styles/focus = SubResource("StyleBoxFlat_53fgy")
@@ -34,4 +35,9 @@ HSlider/icons/grabber_disabled = ExtResource("2_igw4t")
 HSlider/icons/grabber_highlight = ExtResource("2_igw4t")
 HSlider/styles/grabber_area = SubResource("StyleBoxFlat_3kmpb")
 HSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_3kmpb")
+Label/font_sizes/font_size = 48
 Label/fonts/font = ExtResource("1_us4gk")
+LineEdit/font_sizes/font_size = 36
+LineEdit/fonts/font = ExtResource("1_us4gk")
+TextEdit/font_sizes/font_size = 42
+TextEdit/fonts/font = ExtResource("1_us4gk")

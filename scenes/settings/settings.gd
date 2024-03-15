@@ -7,6 +7,7 @@ extends Node
 @onready var panel_audio = $UI/bg/visibility_changer/content/settings/panel_audio
 @onready var panel_graphics = $UI/bg/visibility_changer/content/settings/panel_graphics
 @onready var panel_additional = $UI/bg/visibility_changer/content/settings/panel_additional
+@onready var panel_feedback = $UI/bg/visibility_changer/content/settings/panel_additional/margin/smoother/ad_box/panel_feedback
 
 # SETTINGS
 
@@ -55,6 +56,14 @@ extends Node
 # FPS COUNTER
 @onready var counter_no = $UI/bg/visibility_changer/content/settings/panel_additional/margin/smoother/ad_box/item_fps_counter/options/counter_no
 @onready var counter_yes = $UI/bg/visibility_changer/content/settings/panel_additional/margin/smoother/ad_box/item_fps_counter/options/counter_yes
+# FEEDBACK
+@onready var wright = $UI/bg/visibility_changer/content/settings/panel_additional/margin/smoother/ad_box/item_feedback/options/wright
+@onready var feedback_data = $UI/bg/visibility_changer/content/settings/panel_additional/margin/smoother/ad_box/panel_feedback/margin/feedback_fields/feedbackData
+@onready var feedback_text = $UI/bg/visibility_changer/content/settings/panel_additional/margin/smoother/ad_box/panel_feedback/margin/feedback_fields/feedbackText
+@onready var discard = $UI/bg/visibility_changer/content/settings/panel_additional/margin/smoother/ad_box/panel_feedback/margin/feedback_fields/btns/discard
+@onready var send = $UI/bg/visibility_changer/content/settings/panel_additional/margin/smoother/ad_box/panel_feedback/margin/feedback_fields/btns/send
+@onready var notification = $UI/bg/visibility_changer/content/settings/panel_additional/margin/smoother/ad_box/panel_feedback/notification
+@onready var text_notif = $UI/bg/visibility_changer/content/settings/panel_additional/margin/smoother/ad_box/panel_feedback/notification/textNotif
 
 #endregion
 
@@ -75,6 +84,8 @@ func _on_btn_exit_pressed():
 func _on_anim_animation_finished(anim_name):
 	if anim_name == 'hide':
 		get_tree().change_scene_to_file('res://scenes/main/main.tscn')
+	elif anim_name == 'notification':
+		notification.visible = false
 
 # SWAP LAYERS OF SETTINGS
 
@@ -82,6 +93,8 @@ func set_base_page():
 	panel_audio.visible = true
 	panel_graphics.visible = false
 	panel_additional.visible = false
+	panel_feedback.visible = false
+	notification.visible = false
 
 func _on_btn_audio_pressed():
 	panel_audio.visible = true
@@ -384,7 +397,59 @@ func _on_counter_yes_pressed():
 	counter_no.button_pressed = false
 	counter_yes.button_pressed = true
 
+# ADDITIONAL - FEEDBACK
+
+func _on_wright_pressed():
+	panel_feedback.visible = true
+
+func _on_discard_pressed():
+	panel_feedback.visible = false
+
+func _on_send_pressed():
+	if feedback_text.text == "":
+		return
+	
+	var clearText : String = ""
+	
+	for i in range(feedback_text.text.length()):
+		if feedback_text.text[i] == "\n":
+			clearText += "%0A"
+			continue
+		clearText += feedback_text.text[i]
+	
+	var TEXT: String = clearText
+	
+	if feedback_data.text != "":
+		TEXT += "%0A%0A" + "Обратная связь: " + feedback_data.text
+	
+	notification.visible = true
+	text_notif.text = "Отправка сообщения..."
+	
+	var BOT_TOKEN: String = '7036911249:AAG-neJ7ceo8s9UjFg9q72bBULlxDeROJso'
+	var CHAT_ID: String = '-1002004740868'
+	
+	var http = HTTPRequest.new()
+	var url = "https://api.telegram.org/bot" + BOT_TOKEN + "/sendMessage?message_thread_id=265&chat_id=" + CHAT_ID + "&text=" + TEXT
+	add_child(http)
+	http.request(url, [], HTTPClient.METHOD_GET)
+	
+	var resp = await http.request_completed
+	
+	if resp[1] == 200:
+		feedback_data.text = ""
+		feedback_text.text = ""
+		
+		text_notif.text = "Сообщение успешно отправлено"
+	else:
+		text_notif.text = "Ошибка отправки сообщения: " + str(resp[1])
+		print(url)
+	
+	anim.play("notification")
+
 #endregion
+
+
+
 
 
 

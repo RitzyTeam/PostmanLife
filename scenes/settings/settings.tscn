@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://cosi6kxvm7qxp"]
+[gd_scene load_steps=34 format=3 uid="uid://cosi6kxvm7qxp"]
 
 [ext_resource type="Script" path="res://scenes/settings/settings.gd" id="1_brffx"]
 [ext_resource type="Theme" uid="uid://bwqpp28mqjpgu" path="res://theme.tres" id="2_24fkq"]
@@ -88,6 +88,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 0)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("UI/bg/visibility_changer/content/settings/panel_additional/margin/smoother/ad_box/panel_feedback/notification:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_gmxbm"]
 resource_name = "hide"
@@ -120,10 +132,27 @@ tracks/0/keys = {
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_dnmlk"]
+resource_name = "notification"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("UI/bg/visibility_changer/content/settings/panel_additional/margin/smoother/ad_box/panel_feedback/notification:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_djxko"]
 _data = {
 "RESET": SubResource("Animation_42k0r"),
 "hide": SubResource("Animation_gmxbm"),
+"notification": SubResource("Animation_dnmlk"),
 "show": SubResource("Animation_atg5s")
 }
 
@@ -929,6 +958,116 @@ toggle_mode = true
 text = "Да"
 metadata/_edit_use_anchors_ = true
 
+[node name="item_feedback" type="HBoxContainer" parent="UI/bg/visibility_changer/content/settings/panel_additional/margin/smoother/ad_box"]
+layout_mode = 2
+
+[node name="title" type="Label" parent="UI/bg/visibility_changer/content/settings/panel_additional/margin/smoother/ad_box/item_feedback"]
+layout_mode = 2
+size_flags_horizontal = 2
+mouse_filter = 1
+theme_override_font_sizes/font_size = 45
+text = "Ошибка/Предложение"
+
+[node name="options" type="HBoxContainer" parent="UI/bg/visibility_changer/content/settings/panel_additional/margin/smoother/ad_box/item_feedback"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_constants/separation = 15
+alignment = 2
+
+[node name="wright" type="Button" parent="UI/bg/visibility_changer/content/settings/panel_additional/margin/smoother/ad_box/item_feedback/options"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+mouse_filter = 1
+theme_override_font_sizes/font_size = 41
+theme_override_styles/normal = SubResource("StyleBoxFlat_mv1m3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_4pe7t")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_w5dho")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_mv1m3")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_gr3lo")
+toggle_mode = true
+text = "Написать"
+metadata/_edit_use_anchors_ = true
+
+[node name="panel_feedback" type="Panel" parent="UI/bg/visibility_changer/content/settings/panel_additional/margin/smoother/ad_box"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_vkhqg")
+
+[node name="margin" type="MarginContainer" parent="UI/bg/visibility_changer/content/settings/panel_additional/margin/smoother/ad_box/panel_feedback"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 40
+
+[node name="feedback_fields" type="VBoxContainer" parent="UI/bg/visibility_changer/content/settings/panel_additional/margin/smoother/ad_box/panel_feedback/margin"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="feedbackData" type="LineEdit" parent="UI/bg/visibility_changer/content/settings/panel_additional/margin/smoother/ad_box/panel_feedback/margin/feedback_fields"]
+layout_mode = 2
+mouse_filter = 1
+theme = ExtResource("2_24fkq")
+placeholder_text = "Данные для обратной связи, например почта или телеграм (не обязательно)"
+
+[node name="feedbackText" type="TextEdit" parent="UI/bg/visibility_changer/content/settings/panel_additional/margin/smoother/ad_box/panel_feedback/margin/feedback_fields"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 1
+theme = ExtResource("2_24fkq")
+placeholder_text = "Опишите проблему"
+
+[node name="btns" type="HBoxContainer" parent="UI/bg/visibility_changer/content/settings/panel_additional/margin/smoother/ad_box/panel_feedback/margin/feedback_fields"]
+layout_mode = 2
+
+[node name="discard" type="Button" parent="UI/bg/visibility_changer/content/settings/panel_additional/margin/smoother/ad_box/panel_feedback/margin/feedback_fields/btns"]
+custom_minimum_size = Vector2(200, 75)
+layout_mode = 2
+size_flags_horizontal = 2
+mouse_filter = 1
+theme = ExtResource("2_24fkq")
+text = "Отмена"
+
+[node name="send" type="Button" parent="UI/bg/visibility_changer/content/settings/panel_additional/margin/smoother/ad_box/panel_feedback/margin/feedback_fields/btns"]
+custom_minimum_size = Vector2(200, 75)
+layout_mode = 2
+size_flags_horizontal = 10
+mouse_filter = 1
+theme = ExtResource("2_24fkq")
+text = "Отправить"
+
+[node name="notification" type="Panel" parent="UI/bg/visibility_changer/content/settings/panel_additional/margin/smoother/ad_box/panel_feedback"]
+custom_minimum_size = Vector2(100, 75)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 1
+
+[node name="textNotif" type="Label" parent="UI/bg/visibility_changer/content/settings/panel_additional/margin/smoother/ad_box/panel_feedback/notification"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme = ExtResource("2_24fkq")
+text = "Уведомление"
+
 [node name="anim" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_djxko")
@@ -963,4 +1102,7 @@ libraries = {
 [connection signal="value_changed" from="UI/bg/visibility_changer/content/settings/panel_graphics/margin/smoother/gr_box/item_far/options/far" to="." method="_on_far_value_changed"]
 [connection signal="pressed" from="UI/bg/visibility_changer/content/settings/panel_additional/margin/smoother/ad_box/item_fps_counter/options/counter_no" to="." method="_on_counter_no_pressed"]
 [connection signal="pressed" from="UI/bg/visibility_changer/content/settings/panel_additional/margin/smoother/ad_box/item_fps_counter/options/counter_yes" to="." method="_on_counter_yes_pressed"]
+[connection signal="pressed" from="UI/bg/visibility_changer/content/settings/panel_additional/margin/smoother/ad_box/item_feedback/options/wright" to="." method="_on_wright_pressed"]
+[connection signal="pressed" from="UI/bg/visibility_changer/content/settings/panel_additional/margin/smoother/ad_box/panel_feedback/margin/feedback_fields/btns/discard" to="." method="_on_discard_pressed"]
+[connection signal="pressed" from="UI/bg/visibility_changer/content/settings/panel_additional/margin/smoother/ad_box/panel_feedback/margin/feedback_fields/btns/send" to="." method="_on_send_pressed"]
 [connection signal="animation_finished" from="anim" to="." method="_on_anim_animation_finished"]
