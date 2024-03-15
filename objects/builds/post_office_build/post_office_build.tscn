@@ -1,9 +1,10 @@
-[gd_scene load_steps=38 format=3 uid="uid://cj1ydvi2t3bot"]
+[gd_scene load_steps=39 format=3 uid="uid://cj1ydvi2t3bot"]
 
 [ext_resource type="Script" path="res://objects/builds/post_office_build/post_office_build.gd" id="2_qoyn2"]
 [ext_resource type="PackedScene" uid="uid://t0yxbxco4m46" path="res://objects/PROPS/quota_laptop/quota_laptop.tscn" id="2_vkukj"]
 [ext_resource type="PackedScene" uid="uid://feb3pavcl8uh" path="res://objects/PROPS/task_panel/task_panel.tscn" id="3_5giss"]
 [ext_resource type="PackedScene" uid="uid://bxqlakvx775oc" path="res://objects/PROPS/task_getter/task_getter.tscn" id="4_dl1us"]
+[ext_resource type="PackedScene" uid="uid://q1fdbd6b4l3t" path="res://objects/PROPS/calendar/calendar.tscn" id="4_hxmt3"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v2vpn"]
 resource_name = "1"
@@ -468,6 +469,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.1921, 4.76837e-07, -2.580
 
 [node name="task_panel" parent="INTERIOR" instance=ExtResource("3_5giss")]
 transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, -16.5232, 1.4281, 0)
+
+[node name="calendar" parent="INTERIOR/task_panel" instance=ExtResource("4_hxmt3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.36461, 0, 0)
 
 [node name="task_getter" parent="INTERIOR" instance=ExtResource("4_dl1us")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.0509, 0, -1.59135)

@@ -92,6 +92,7 @@ func value_day_passed():
 func new_quota():
 	randomize()
 	WORLD_DATA['daily_quota'] += randi_range(1, 3)
+	WORLD_DATA['daily_quota_delivered'] = 0
 
 func add_delivered_to_quota_counter():
 	if SIN_WORLD_DATA.WORLD_DATA['tod'] >= 540 and SIN_WORLD_DATA.WORLD_DATA['tod'] <= 1080:
