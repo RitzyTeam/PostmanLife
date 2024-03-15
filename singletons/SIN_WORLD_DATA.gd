@@ -1,7 +1,6 @@
 extends Node
 
 var work_path: String = 'user://save.dat'
-var world_path: String = 'user://world.tscn'
 
 var WORLD_DATA_EMPTY: Dictionary = {
 	'money': 0, # MONEY OF PLAYER
@@ -12,6 +11,7 @@ var WORLD_DATA_EMPTY: Dictionary = {
 		'slot_4': {'id': 'void'}
 		}, # INVENTORY
 	'tod': 540, # TIME OF DAY IN SECONDS
+	'world': [],
 	'day_num': 1, # NUM OF DAYS PASSED
 	'daily_quota': 1, # AMOUNT OF PACKAGES TO DELIVER
 	'daily_quota_delivered': 0,
@@ -29,6 +29,7 @@ var WORLD_DATA: Dictionary = {
 		'slot_4': {'id': 'void'}
 		},
 	'tod': 540,
+	'world': [],
 	'day_num': 1,
 	'daily_quota': 1,
 	'daily_quota_delivered': 0,

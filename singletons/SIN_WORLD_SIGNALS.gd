@@ -10,3 +10,4 @@ signal WORK_DAY_END
 signal TOD_DAY_ENDED
 signal GHOST_GIRL_ANGRY
 signal PLAYER_UI_CASH_UPDATE(value_change)
+signal WORLD_SAVE

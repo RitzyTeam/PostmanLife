@@ -91,7 +91,7 @@ func _ready():
 	# SET VISIBLE FPS COUNTER
 	fps_counter.visible = SIN_SETTINGS.SETTINGS['ADDITIONAL']['fps_counter']
 	# EVERYTHING ELSE
-	$UI/UI/money.text = str(SIN_WORLD_DATA.WORLD_DATA['money']) + '₽'
+	set_money_value_ui()
 	set_slot_selected(1)
 	inventory_loader.load_hand_visual(1)
 	inventory_loader.load_inventory_visual()
@@ -448,7 +448,15 @@ func _update_money_ui(value_changed):
 	var notif_money_change = load("res://objects/UI/money_change_notification/money_change_notification.tscn").instantiate()
 	$UI/UI/money_change_notifications.add_child(notif_money_change)
 	notif_money_change.set_content(value_changed)
-	$UI/UI/money.text = str(SIN_WORLD_DATA.WORLD_DATA['money']) + '₽'
+	set_money_value_ui()
+	
+func set_money_value_ui():
+	if SIN_WORLD_DATA.WORLD_DATA['money'] >= 0:
+		$UI/UI/money.add_theme_color_override('font_color', Color('00ff00'))
+		$UI/UI/money.text = str(SIN_WORLD_DATA.WORLD_DATA['money']) + '₽'
+	else:
+		$UI/UI/money.add_theme_color_override('font_color', Color('ff0000'))
+		$UI/UI/money.text = '0(' + str(SIN_WORLD_DATA.WORLD_DATA['money']) + ')₽'
 	
 func _update_time_ui():
 	var time_hours = int(SIN_WORLD_DATA.WORLD_DATA['tod']/60)

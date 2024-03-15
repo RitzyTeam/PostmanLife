@@ -6,7 +6,6 @@ var seconds_to_deliver: int = 90
 @onready var delivery_timer = $delivery_timer
 @onready var timer = $timer
 
-
 var item = {}
 
 func set_fill_type():

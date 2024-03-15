@@ -196,7 +196,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_57aln")
 
-[node name="package_box" type="RigidBody3D"]
+[node name="package_box" type="RigidBody3D" groups=["save_this"]]
 mass = 3.0
 can_sleep = false
 continuous_cd = true

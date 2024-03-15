@@ -81,7 +81,7 @@ size = Vector3(0.250015, 0.130791, 0.314453)
 [sub_resource type="BoxShape3D" id="BoxShape3D_e67m0"]
 size = Vector3(0.192879, 0.231367, 0.0427246)
 
-[node name="fuel_tank" type="RigidBody3D"]
+[node name="fuel_tank" type="RigidBody3D" groups=["save_this"]]
 script = ExtResource("1_qmef1")
 
 [node name="tank" type="MeshInstance3D" parent="."]
