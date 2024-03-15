@@ -5,10 +5,10 @@ func _ready():
 	
 func set_content(amount: int):
 	if amount < 0:
-		text = str(amount)
+		text = str(amount) + '₽'
 		add_theme_color_override('font_color', Color('ff0000'))
 	else:
-		text = '+' + str(amount)
+		text = '+' + str(amount) + '₽'
 		add_theme_color_override('font_color', Color('00ff00'))
 		
 

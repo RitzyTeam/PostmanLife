@@ -92,8 +92,8 @@ func state_machine():
 		'idle':
 			pass
 		'agro':
-			look_at(Vector3(current_target.global_position.x, global_position.y, current_target.global_position.z), Vector3.UP)
 			if not current_target == null:
+				look_at(Vector3(current_target.global_position.x, global_position.y, current_target.global_position.z), Vector3.UP)
 				global_position = lerp(global_position, current_target.global_position, bird_speed)
 			else:
 				state = 'stealed'

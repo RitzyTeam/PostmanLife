@@ -60,8 +60,9 @@ func _on_timer_daycycle_timeout():
 		SIN_WORLD_DATA.WORLD_DATA['tod'] += 1
 		
 	else:
-		SIN_WORLD_DATA.WORLD_DATA['day_num'] += 1
+		SIN_WORLD_DATA.value_day_passed()
 		SIN_WORLD_DATA.WORLD_DATA['tod'] = 0
+		SIN_WORLD_SIGNALS.emit_signal('TOD_DAY_ENDED')
 	time_hours = int(SIN_WORLD_DATA.WORLD_DATA['tod']/60)
 	time_minutes = int(SIN_WORLD_DATA.WORLD_DATA['tod']%60)
 	match_tod()

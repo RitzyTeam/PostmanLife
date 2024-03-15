@@ -196,7 +196,7 @@ shape = SubResource("BoxShape3D_3w1d6")
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -25.0025, 7.55142, 0)
 pixel_size = 0.001
 shaded = true
-text = "Торковичская школа 
+text = "Торковическая школа 
 среднего общего образования №1"
 font = ExtResource("1_01u1d")
 font_size = 427

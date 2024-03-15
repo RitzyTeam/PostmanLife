@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://q1fdbd6b4l3t"]
+
+[ext_resource type="Script" path="res://objects/PROPS/calendar/calendar.gd" id="1_ousbh"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1sj17"]
+albedo_color = Color(0, 0, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_5wf2p"]
+material = SubResource("StandardMaterial3D_1sj17")
+size = Vector3(0.885, 0.605, 0.01)
+
+[node name="calendar" type="MeshInstance3D"]
+mesh = SubResource("BoxMesh_5wf2p")
+script = ExtResource("1_ousbh")
+
+[node name="title" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.227494, 0.01)
+pixel_size = 0.001
+text = "Дней на работе"
+font_size = 107
+outline_size = 0
+
+[node name="day" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00683391, -0.0492047, 0.01)
+pixel_size = 0.001
+text = "1"
+font_size = 317
+outline_size = 0
