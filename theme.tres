@@ -1,7 +1,37 @@
-[gd_resource type="Theme" load_steps=2 format=3 uid="uid://bwqpp28mqjpgu"]
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://bwqpp28mqjpgu"]
 
 [ext_resource type="FontFile" uid="uid://dv8jijr0th27a" path="res://assets/fonts/SubdexBold.ttf" id="1_us4gk"]
+[ext_resource type="Texture2D" uid="uid://xg744vmsb4wp" path="res://assets/images/UI/buttonOn.png" id="2_dyjbd"]
+[ext_resource type="Texture2D" uid="uid://716u34rjych2" path="res://assets/images/UI/sliderPoint.png" id="2_igw4t"]
+[ext_resource type="Texture2D" uid="uid://bqop6lkw8tyug" path="res://assets/images/UI/buttonOff.png" id="3_itgcq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_53fgy"]
+bg_color = Color(0, 0, 0, 0.862745)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dfqme"]
+bg_color = Color(0, 0, 0, 0.705882)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3kmpb"]
+bg_color = Color(0.933333, 0.933333, 0.933333, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
 
 [resource]
 Button/fonts/font = ExtResource("1_us4gk")
+Button/styles/disabled = SubResource("StyleBoxFlat_53fgy")
+Button/styles/focus = SubResource("StyleBoxFlat_53fgy")
+Button/styles/hover = SubResource("StyleBoxFlat_53fgy")
+Button/styles/normal = SubResource("StyleBoxFlat_dfqme")
+Button/styles/pressed = SubResource("StyleBoxFlat_53fgy")
+CheckButton/font_sizes/font_size = 42
+CheckButton/fonts/font = ExtResource("1_us4gk")
+CheckButton/icons/checked = ExtResource("2_dyjbd")
+CheckButton/icons/unchecked = ExtResource("3_itgcq")
+HSlider/icons/grabber = ExtResource("2_igw4t")
+HSlider/icons/grabber_disabled = ExtResource("2_igw4t")
+HSlider/icons/grabber_highlight = ExtResource("2_igw4t")
+HSlider/styles/grabber_area = SubResource("StyleBoxFlat_3kmpb")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_3kmpb")
 Label/fonts/font = ExtResource("1_us4gk")

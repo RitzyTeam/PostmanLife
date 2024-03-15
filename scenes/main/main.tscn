@@ -1,28 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://c65iqx1wq30oe"]
+[gd_scene load_steps=8 format=3 uid="uid://c65iqx1wq30oe"]
 
 [ext_resource type="Script" path="res://scenes/main/main.gd" id="1_4aq84"]
 [ext_resource type="Theme" uid="uid://bwqpp28mqjpgu" path="res://theme.tres" id="2_2h5xy"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ktw4k"]
-bg_color = Color(0.280657, 0.091383, 1, 1)
-corner_radius_top_left = 90
-corner_radius_top_right = 90
-corner_radius_bottom_right = 90
-corner_radius_bottom_left = 90
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ycoon"]
-bg_color = Color(0.219608, 0, 0.819608, 1)
-corner_radius_top_left = 90
-corner_radius_top_right = 90
-corner_radius_bottom_right = 90
-corner_radius_bottom_left = 90
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8welf"]
-bg_color = Color(0.219608, 0, 0.819608, 1)
-corner_radius_top_left = 90
-corner_radius_top_right = 90
-corner_radius_bottom_right = 90
-corner_radius_bottom_left = 90
+[ext_resource type="Texture2D" uid="uid://boevop5x3y51o" path="res://assets/images/UI/bg.png" id="3_3rijh"]
 
 [sub_resource type="Animation" id="Animation_36qgh"]
 length = 0.001
@@ -89,23 +69,25 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_2h5xy")
 
-[node name="bg" type="ColorRect" parent="UI"]
+[node name="bg" type="TextureRect" parent="UI"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.435294, 0.482353, 1, 1)
+texture = ExtResource("3_3rijh")
 
 [node name="visibility_toggler" type="Control" parent="UI/bg"]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_left = 0.0208333
+anchor_top = 0.037037
+anchor_right = 0.979167
+anchor_bottom = 0.962963
 grow_horizontal = 2
 grow_vertical = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="title" type="Label" parent="UI/bg/visibility_toggler"]
 layout_mode = 1
@@ -123,60 +105,48 @@ metadata/_edit_use_anchors_ = true
 [node name="button_list" type="VBoxContainer" parent="UI/bg/visibility_toggler"]
 custom_minimum_size = Vector2(500, 500)
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.369792
-anchor_top = 0.522222
-anchor_right = 0.630208
-anchor_bottom = 0.985185
-grow_horizontal = 2
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -500.0
+offset_top = -500.0
+grow_horizontal = 0
 grow_vertical = 0
 pivot_offset = Vector2(250, 250)
 theme_override_constants/separation = 20
 alignment = 2
-metadata/_edit_use_anchors_ = true
 
 [node name="btn_continue" type="Button" parent="UI/bg/visibility_toggler/button_list"]
-visible = false
+custom_minimum_size = Vector2(0, 75)
 layout_mode = 2
+theme = ExtResource("2_2h5xy")
 theme_override_font_sizes/font_size = 60
-theme_override_styles/normal = SubResource("StyleBoxFlat_ktw4k")
-theme_override_styles/hover = SubResource("StyleBoxFlat_ycoon")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_ktw4k")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_ktw4k")
-theme_override_styles/focus = SubResource("StyleBoxFlat_ktw4k")
 text = "Продолжить"
 
 [node name="btn_new_game" type="Button" parent="UI/bg/visibility_toggler/button_list"]
+custom_minimum_size = Vector2(0, 75)
 layout_mode = 2
+theme = ExtResource("2_2h5xy")
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 60
-theme_override_styles/normal = SubResource("StyleBoxFlat_ktw4k")
-theme_override_styles/hover = SubResource("StyleBoxFlat_ycoon")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_ktw4k")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_ktw4k")
-theme_override_styles/focus = SubResource("StyleBoxFlat_ktw4k")
 text = "Новая игра"
 
 [node name="btn_settings" type="Button" parent="UI/bg/visibility_toggler/button_list"]
+custom_minimum_size = Vector2(0, 75)
 layout_mode = 2
+theme = ExtResource("2_2h5xy")
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 60
-theme_override_styles/normal = SubResource("StyleBoxFlat_ktw4k")
-theme_override_styles/hover = SubResource("StyleBoxFlat_8welf")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_ktw4k")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_ktw4k")
-theme_override_styles/focus = SubResource("StyleBoxFlat_ktw4k")
 text = "Настройки"
 
 [node name="btn_exit" type="Button" parent="UI/bg/visibility_toggler/button_list"]
+custom_minimum_size = Vector2(0, 75)
 layout_mode = 2
+theme = ExtResource("2_2h5xy")
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 60
-theme_override_styles/normal = SubResource("StyleBoxFlat_ktw4k")
-theme_override_styles/hover = SubResource("StyleBoxFlat_ycoon")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_ktw4k")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_ktw4k")
-theme_override_styles/focus = SubResource("StyleBoxFlat_ktw4k")
 text = "Выход"
 
 [node name="anim" type="AnimationPlayer" parent="."]
