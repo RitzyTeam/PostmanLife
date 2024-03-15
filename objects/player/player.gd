@@ -1,5 +1,9 @@
 extends CharacterBody3D
 
+var item: Dictionary = {
+	'id': 'player'
+}
+
 # Money UI
 @onready var money = $UI/UI/money
 

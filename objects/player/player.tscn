@@ -810,7 +810,7 @@ _data = {
 "show": SubResource("Animation_8deee")
 }
 
-[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("HEAD", "CAMERA", "HEADBOB_ANIMATION", "JUMP_ANIMATION", "CROUCH_ANIMATION", "COLLISION_MESH") groups=["player"]]
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("HEAD", "CAMERA", "HEADBOB_ANIMATION", "JUMP_ANIMATION", "CROUCH_ANIMATION", "COLLISION_MESH") groups=["player", "save_this"]]
 wall_min_slide_angle = 0.349066
 floor_max_angle = 1.39626
 script = ExtResource("1_w4mcw")
