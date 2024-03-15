@@ -76,7 +76,7 @@ shadow_mesh = SubResource("ArrayMesh_ix68q")
 height = 20.4
 radius = 8.2
 
-[node name="barrel" type="StaticBody3D"]
+[node name="barrel" type="RigidBody3D"]
 
 [node name="mesh" type="MeshInstance3D" parent="."]
 transform = Transform3D(-0.0634649, 0, 0, 0, -0.0634649, 0, 0, 0, -0.0634649, 0, 1.24217, 0.316215)

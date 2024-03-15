@@ -24,7 +24,7 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_q2rt7"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_fl0ad"]
 resource_name = "ruralHouse_Cube_002"
 _surfaces = [{
 "aabb": AABB(-1, 0, -1, 2, 2, 2.00001),
@@ -398,8 +398,8 @@ script = ExtResource("1_7kym2")
 [node name="multimesh" type="MultiMeshInstance3D" parent="."]
 
 [node name="street_name" type="MeshInstance3D" parent="multimesh"]
-transform = Transform3D(2.33649e-07, 0, 0.07, 0, 0.142, 0, -1.2, 0, 1.36295e-08, -4.9875, 3.42327, -3.70489)
-mesh = SubResource("ArrayMesh_q2rt7")
+transform = Transform3D(2.33649e-07, 0, 0.07, 0, 0.142, 0, -1.2, 0, 1.36295e-08, -4.9875, 3.42327, -3.67823)
+mesh = SubResource("ArrayMesh_fl0ad")
 skeleton = NodePath("")
 
 [node name="handle" type="MeshInstance3D" parent="multimesh"]

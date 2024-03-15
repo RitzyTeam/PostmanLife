@@ -1,9 +1,10 @@
-[gd_scene load_steps=44 format=3 uid="uid://cc1m2a1obsyn4"]
+[gd_scene load_steps=45 format=3 uid="uid://cc1m2a1obsyn4"]
 
 [ext_resource type="Script" path="res://objects/player/player.gd" id="1_w4mcw"]
 [ext_resource type="Script" path="res://objects/player/INVENTORY_LOADER.gd" id="2_lldw2"]
 [ext_resource type="Theme" uid="uid://bwqpp28mqjpgu" path="res://theme.tres" id="3_im6de"]
 [ext_resource type="Texture2D" uid="uid://d6xs006qy5ib" path="res://assets/images/item_slot.png" id="4_vcdfw"]
+[ext_resource type="FontFile" uid="uid://dv8jijr0th27a" path="res://assets/fonts/SubdexBold.ttf" id="5_1vneb"]
 [ext_resource type="Script" path="res://objects/player/esc_menu.gd" id="7_alls3"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kp17n"]
@@ -884,7 +885,7 @@ skeleton = NodePath("")
 libraries = {
 "": SubResource("AnimationLibrary_o0unb")
 }
-blend_times = [&"RESET", &"RESET", 0.5, &"RESET", &"headbob", 0.5, &"headbob", &"RESET", 0.5]
+blend_times = [&"headbob", &"RESET", 0.5, &"RESET", &"headbob", 0.5, &"RESET", &"RESET", 0.5]
 
 [node name="JumpAnimation" type="AnimationPlayer" parent="Head"]
 libraries = {
@@ -1020,20 +1021,39 @@ metadata/_edit_use_anchors_ = true
 
 [node name="money" type="Label" parent="UI/UI"]
 layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -74.0
-offset_top = -46.0
-offset_right = -7.0
-offset_bottom = -7.0
+anchors_preset = -1
+anchor_left = 0.932292
+anchor_top = 0.0305556
+anchor_right = 0.996354
+anchor_bottom = 0.0666667
 grow_horizontal = 0
 grow_vertical = 0
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("5_1vneb")
 theme_override_font_sizes/font_size = 36
-text = "0 руб."
+text = "100₽"
 horizontal_alignment = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="time" type="Label" parent="UI/UI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.932292
+anchor_top = 0.00185185
+anchor_right = 0.996354
+anchor_bottom = 0.037963
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("5_1vneb")
+theme_override_font_sizes/font_size = 36
+text = "10:02"
+horizontal_alignment = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="aim" type="Panel" parent="UI/UI"]
 custom_minimum_size = Vector2(4, 4)

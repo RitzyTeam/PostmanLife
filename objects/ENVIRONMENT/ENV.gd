@@ -74,11 +74,11 @@ func match_tod():
 			SIN_WORLD_SIGNALS.emit_signal('LIGHTS_ON')
 		120:
 			SIN_WORLD_SIGNALS.emit_signal('LIGHTS_OFF')
-		# НОВЫЙ РАБОЧИЙ ДЕНЬ
+		# НОВЫЙ РАБОЧИЙ ДЕНЬ НАЧАЛО В 9 УТРА
 		540:
 			SIN_WORLD_DATA.new_quota()
 			SIN_WORLD_SIGNALS.emit_signal('WORK_DAY_START')
-		# РАБОЧИЙ ДЕНЬ КОНЧИЛСЯ
+		# РАБОЧИЙ ДЕНЬ КОНЧИЛСЯ В 6 ВЕЧЕРА
 		1080:
 			SIN_WORLD_SIGNALS.emit_signal('WORK_DAY_END')
 	spawnMOBS()

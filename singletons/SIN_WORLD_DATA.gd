@@ -15,6 +15,7 @@ var WORLD_DATA_EMPTY: Dictionary = {
 	'day_num': 1, # NUM OF DAYS PASSED
 	'daily_quota': 1, # AMOUNT OF PACKAGES TO DELIVER
 	'daily_quota_delivered': 0,
+	'firing_warns': 0,
 	# BUFFS & DEBUFFS
 	'player_insane': false,
 }
@@ -31,6 +32,7 @@ var WORLD_DATA: Dictionary = {
 	'day_num': 1,
 	'daily_quota': 1,
 	'daily_quota_delivered': 0,
+	'firing_warns': 0,
 	'player_insane': false,
 }
 

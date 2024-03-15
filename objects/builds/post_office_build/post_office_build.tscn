@@ -1,7 +1,8 @@
-[gd_scene load_steps=36 format=3 uid="uid://cj1ydvi2t3bot"]
+[gd_scene load_steps=37 format=3 uid="uid://cj1ydvi2t3bot"]
 
 [ext_resource type="Script" path="res://objects/builds/post_office_build/post_office_build.gd" id="2_qoyn2"]
 [ext_resource type="PackedScene" uid="uid://t0yxbxco4m46" path="res://objects/PROPS/quota_laptop/quota_laptop.tscn" id="2_vkukj"]
+[ext_resource type="PackedScene" uid="uid://feb3pavcl8uh" path="res://objects/PROPS/task_panel/task_panel.tscn" id="3_5giss"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v2vpn"]
 resource_name = "1"
@@ -462,6 +463,9 @@ script = ExtResource("2_qoyn2")
 [node name="INTERIOR" type="Node3D" parent="."]
 
 [node name="laptop" parent="INTERIOR" instance=ExtResource("2_vkukj")]
+
+[node name="task_panel" parent="INTERIOR" instance=ExtResource("3_5giss")]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, -16.5232, 1.4281, 0)
 
 [node name="multimesh" type="MultiMeshInstance3D" parent="."]
 

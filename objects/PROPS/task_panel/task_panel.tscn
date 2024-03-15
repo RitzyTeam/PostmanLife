@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://feb3pavcl8uh"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1sj17"]
+albedo_color = Color(0, 0, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_68gk1"]
+material = SubResource("StandardMaterial3D_1sj17")
+size = Vector3(1, 1, 0.01)
+
+[node name="task_panel" type="MeshInstance3D"]
+mesh = SubResource("BoxMesh_68gk1")
+
+[node name="title" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.428, 0.00985286)
+pixel_size = 0.001
+text = "Доска задач"
+font_size = 107
+outline_size = 0

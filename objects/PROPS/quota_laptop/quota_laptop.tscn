@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://t0yxbxco4m46"]
+[gd_scene load_steps=11 format=3 uid="uid://t0yxbxco4m46"]
 
 [ext_resource type="FontFile" uid="uid://dv8jijr0th27a" path="res://assets/fonts/SubdexBold.ttf" id="1_o3wch"]
 [ext_resource type="Script" path="res://objects/PROPS/quota_laptop/quota_laptop.gd" id="1_t23lf"]
@@ -10,7 +10,17 @@ albedo_color = Color(0.145098, 0.145098, 0.145098, 1)
 material = SubResource("StandardMaterial3D_osef0")
 size = Vector3(0.4, 0.025, 0.81)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wuqhs"]
+
 [sub_resource type="BoxMesh" id="BoxMesh_nyr2i"]
+material = SubResource("StandardMaterial3D_wuqhs")
+size = Vector3(0.05, 0.02, 0.05)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u0cjj"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_eyvqq"]
+material = SubResource("StandardMaterial3D_u0cjj")
 size = Vector3(0.05, 0.02, 0.05)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2u1n8"]
@@ -119,7 +129,7 @@ skeleton = NodePath("../..")
 
 [node name="key_49" type="MeshInstance3D" parent="keyboard"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.104629, 0.0103437, 0.350755)
-mesh = SubResource("BoxMesh_nyr2i")
+mesh = SubResource("BoxMesh_eyvqq")
 skeleton = NodePath("../..")
 
 [node name="key_50" type="MeshInstance3D" parent="keyboard"]

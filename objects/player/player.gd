@@ -270,6 +270,7 @@ func headbob_animation(moving):
 		HEADBOB_ANIMATION.speed_scale = 1
 
 func _process(delta):
+	_update_time_ui()
 	fps_counter.text = 'FPS: ' + str(Performance.get_monitor(Performance.TIME_FPS))
 	var status : String = state
 	if !is_on_floor():
@@ -440,4 +441,21 @@ func _go_insane():
 	SIN_WORLD_DATA.WORLD_DATA['player_insane'] = true
 
 func _update_money_ui():
-	$UI/UI/money.text = str(SIN_WORLD_DATA.WORLD_DATA['money']) + ' руб.'
+	$UI/UI/money.text = str(SIN_WORLD_DATA.WORLD_DATA['money']) + '₽'
+
+func _update_time_ui():
+	var time_hours = int(SIN_WORLD_DATA.WORLD_DATA['tod']/60)
+	var time_minutes = int(SIN_WORLD_DATA.WORLD_DATA['tod']%60)
+	var time_h_str: String = ''
+	var time_m_str: String = ''
+	if time_hours < 10:
+		time_h_str = '0' + str(time_hours)
+	else:
+		time_h_str = str(time_hours)
+	if time_minutes < 10:
+		time_m_str = '0' + str(time_minutes)
+	else:
+		time_m_str = str(time_minutes)
+	$UI/UI/time.text = str(time_h_str) + ':' + str(time_m_str)
+
+
