@@ -1279,7 +1279,7 @@ shadow_mesh = SubResource("ArrayMesh_8sl3d")
 [sub_resource type="BoxShape3D" id="BoxShape3D_oao0j"]
 size = Vector3(0.147124, 0.197372, 0.110062)
 
-[node name="car" type="VehicleBody3D" groups=["car"]]
+[node name="car" type="VehicleBody3D" groups=["car", "save_this"]]
 mass = 3000.0
 center_of_mass_mode = 1
 script = ExtResource("1_qyjyp")

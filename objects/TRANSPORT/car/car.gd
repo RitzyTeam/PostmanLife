@@ -3,6 +3,13 @@ extends VehicleBody3D
 @export var player: PackedScene
 var current_tank: Object = null
 
+var item: Dictionary = {
+	'id': 'car',
+	'res_fuel': 20.0,
+	'res_energy': 100.0,
+	'isPlayerInside': false
+}
+
 @onready var wheel_1 = $wheel_1
 @onready var wheel_2 = $wheel_2
 @onready var wheel_3 = $wheel_3
@@ -16,11 +23,8 @@ var current_tank: Object = null
 # CAR SYSTEMS
 var isFlashlightsOn: bool = false
 # PLAYER-RELATED
-var isPlayerInside: bool = false
 # RESOURCES
 var max_fuel: float = 20.0
-var res_fuel: float = 20.0
-var res_energy: float = 100.0
 @export var consumption_fuel: float = 0.002 ## FUEL CONSUMPTION PER FRAME (DRIVING CAR)
 @export var consumption_energy: float = 0.001 ## ENERGY CONSUMPTION PER FRAME (LIGHTS AND ALERTS)
 # RUL ANIMATION
@@ -58,9 +62,9 @@ func _ready():
 	wheel_4.suspension_travel = wheel_travel_distance
 
 func _input(event):
-	if isPlayerInside:
+	if item.isPlayerInside:
 		if event.is_action_pressed('key_f'):
-			if int(res_energy) > 0:
+			if int(item.res_energy) > 0:
 				if not anim_flashlights.is_playing():
 					isFlashlightsOn = not isFlashlightsOn
 					if isFlashlightsOn:
@@ -70,22 +74,22 @@ func _input(event):
 						lights_off()
 						$stat_flashlight/icon.texture = load('res://assets/images/res_flashlight.png')
 		if event.is_action_pressed('rmb'):
-			if int(res_energy) > 0:
+			if int(item.res_energy) > 0:
 				if not $beep.playing:
 					$beep.play()
-					res_energy -= consumption_energy
-					$stat_energy/value.text = str(int(res_energy)) + '%'
+					item.res_energy -= consumption_energy
+					$stat_energy/value.text = str(int(item.res_energy)) + '%'
 		if event.is_action_pressed('key_e'):
 			leave()
 
 func _physics_process(delta):
 	if not current_tank == null:
-		if res_fuel < max_fuel:
+		if item.res_fuel < max_fuel:
 			if current_tank.item['litres'] >= 0.01:
-				res_fuel += 0.01
+				item.res_fuel += 0.01
 				current_tank.item['litres'] -= 0.01
-				if int(res_energy) > 0:
-					$stat_fuel/value.text = str(int(res_fuel)) + 'л.'
+				if int(item.res_energy) > 0:
+					$stat_fuel/value.text = str(int(item.res_fuel)) + 'л.'
 			else:
 				current_tank.freeze = false
 				current_tank = null
@@ -93,23 +97,23 @@ func _physics_process(delta):
 			current_tank.freeze = false
 			current_tank = null
 	if isFlashlightsOn:
-		res_energy -= consumption_energy
-		if int(res_energy) > 0:
-			$stat_energy/value.text = str(int(res_energy)) + '%'
+		item.res_energy -= consumption_energy
+		if int(item.res_energy) > 0:
+			$stat_energy/value.text = str(int(item.res_energy)) + '%'
 		else:
 			$stat_energy/value.text = '0%'
 			$stat_flashlight/icon.texture = load('res://assets/images/res_flashlight.png')
 			lights_off()
-	if isPlayerInside:
+	if item.isPlayerInside:
 		# UPDATE UI
 		var speed = int(abs(linear_velocity.x) + abs(linear_velocity.y) + abs(linear_velocity.z))
-		if int(res_energy) > 0:
+		if int(item.res_energy) > 0:
 			$speedometer/speed.text = str(speed) + ' км/ч'
 		# ANIMATE LEVER
-		if int(res_energy) > 0:
+		if int(item.res_energy) > 0:
 			set_lever(speed)
 		# DRIVING FUNCTION
-		if int(res_fuel) > 0:
+		if int(item.res_fuel) > 0:
 			var accel = Input.get_axis("move_backward", "move_foward")
 			var rpm_wheel_2 = $wheel_2.get_rpm()
 			wheel_2.engine_force =  accel * MAX_TORQUE * (1 - rpm_wheel_2 / MAX_RPM)
@@ -119,15 +123,15 @@ func _physics_process(delta):
 			engine_force = 0
 		# CONTROLS
 		if Input.is_action_pressed('move_foward'):
-			if res_fuel >= consumption_fuel:
-				res_fuel -= consumption_fuel
-			if int(res_energy) > 0:
-				$stat_fuel/value.text = str(int(res_fuel)) + 'л.'
+			if item.res_fuel >= consumption_fuel:
+				item.res_fuel -= consumption_fuel
+			if int(item.res_energy) > 0:
+				$stat_fuel/value.text = str(int(item.res_fuel)) + 'л.'
 		if Input.is_action_pressed('move_backward'):
-			if res_fuel >= consumption_fuel:
-				res_fuel -= consumption_fuel
-			if int(res_energy) > 0:
-				$stat_fuel/value.text = str(int(res_fuel)) + 'л.'
+			if item.res_fuel >= consumption_fuel:
+				item.res_fuel -= consumption_fuel
+			if int(item.res_energy) > 0:
+				$stat_fuel/value.text = str(int(item.res_fuel)) + 'л.'
 		# STEERING BY RUL
 		if Input.is_action_pressed('move_left'):
 			if steer_points < max_steer_points:
@@ -142,14 +146,14 @@ func _physics_process(delta):
 		rul.rotation.y = lerp(rul.rotation.y, deg_to_rad(steer_points), 0.05)
 	
 func enter(player_obj: Object):
-	if not isPlayerInside:
-		isPlayerInside = true
+	if not item.isPlayerInside:
+		item.isPlayerInside = true
 		player_obj.queue_free()
 		$CAMERA.current = true
 
 func leave():
-	if isPlayerInside:
-		isPlayerInside = false
+	if item.isPlayerInside:
+		item.isPlayerInside = false
 		steering = 0
 		engine_force = 0
 		var player_obj = player.instantiate()
@@ -189,7 +193,7 @@ func _on_area_body_entered(body):
 			if body.has_method('grab'):
 				if not body.item['litres'] == null:
 					if body.item['litres'] > 0:
-						if res_fuel < max_fuel:
+						if item.res_fuel < max_fuel:
 							if current_tank == null:
 								linear_velocity.x = 0
 								linear_velocity.z = 0
@@ -215,5 +219,5 @@ func _on_area_body_exited(body):
 func _on_bump_area_body_entered(body):
 	var velo = float(abs(linear_velocity.x) + abs(linear_velocity.y) + abs(linear_velocity.z))
 	if velo > 90.0:
-		if isPlayerInside:
+		if item.isPlayerInside:
 			get_tree().change_scene_to_file.bind("res://scenes/DEATHS/death_car/death_car.tscn").call_deferred()
