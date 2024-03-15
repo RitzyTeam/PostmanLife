@@ -884,7 +884,7 @@ skeleton = NodePath("")
 libraries = {
 "": SubResource("AnimationLibrary_o0unb")
 }
-blend_times = [&"headbob", &"RESET", 0.5, &"RESET", &"headbob", 0.5, &"RESET", &"RESET", 0.5]
+blend_times = [&"RESET", &"RESET", 0.5, &"RESET", &"headbob", 0.5, &"headbob", &"RESET", 0.5]
 
 [node name="JumpAnimation" type="AnimationPlayer" parent="Head"]
 libraries = {
@@ -1032,7 +1032,7 @@ offset_bottom = -7.0
 grow_horizontal = 0
 grow_vertical = 0
 theme_override_font_sizes/font_size = 36
-text = "0`"
+text = "0 руб."
 horizontal_alignment = 2
 
 [node name="aim" type="Panel" parent="UI/UI"]

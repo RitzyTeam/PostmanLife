@@ -85,6 +85,7 @@ var gravity : float = ProjectSettings.get_setting("physics/3d/default_gravity") 
 func _ready():
 	# CONNECT ALL SIGNALS NEEDED
 	SIN_WORLD_SIGNALS.GHOST_GIRL_ANGRY.connect(_go_insane)
+	SIN_WORLD_SIGNALS.PLAYER_UI_CASH_UPDATE.connect(_update_money_ui)
 	# SET CAMERA FAR FROM SETTINGS
 	$Head/Camera.far = SIN_SETTINGS.SETTINGS['GRAPHICS']['far']
 	# SET VISIBLE FPS COUNTER
@@ -438,3 +439,5 @@ func _unhandled_input(event):
 func _go_insane():
 	SIN_WORLD_DATA.WORLD_DATA['player_insane'] = true
 
+func _update_money_ui():
+	$UI/UI/money.text = str(SIN_WORLD_DATA.WORLD_DATA['money']) + ' руб.'
