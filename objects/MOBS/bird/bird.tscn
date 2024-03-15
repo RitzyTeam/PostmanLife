@@ -47,7 +47,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_234px")
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_nwvrk"]
-radius = 30.0
+radius = 60.0
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_wq3k0"]
 radius = 0.370371
