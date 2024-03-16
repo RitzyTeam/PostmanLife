@@ -18,22 +18,17 @@ extends Node
 @onready var alias_x_4 = $UI/bg/visibility_changer/content/settings/panel_graphics/margin/smoother/gr_box/item_aliasing/options/alias_x4
 @onready var alias_x_8 = $UI/bg/visibility_changer/content/settings/panel_graphics/margin/smoother/gr_box/item_aliasing/options/alias_x8
 # GLOW
-@onready var glow_btn = $UI/bg/visibility_changer/content/settings/panel_graphics/margin/smoother/gr_box/item_glow/options/glowBtn
+@onready var glow_btn = $UI/bg/visibility_changer/content/settings/panel_graphics/margin/smoother/gr_box/item_glow/glowBtn
 # VSYNC
-@onready var vsync_no = $UI/bg/visibility_changer/content/settings/panel_graphics/margin/smoother/gr_box/item_vsync/options/vsync_no
-@onready var vsync_yes = $UI/bg/visibility_changer/content/settings/panel_graphics/margin/smoother/gr_box/item_vsync/options/vsync_yes
+@onready var vsync_btn = $UI/bg/visibility_changer/content/settings/panel_graphics/margin/smoother/gr_box/item_vsync/vsyncBtn
 # FXAA
-@onready var fxaa_no = $UI/bg/visibility_changer/content/settings/panel_graphics/margin/smoother/gr_box/item_fxaa/options/fxaa_no
-@onready var fxaa_yes = $UI/bg/visibility_changer/content/settings/panel_graphics/margin/smoother/gr_box/item_fxaa/options/fxaa_yes
+@onready var fxaa_btn = $UI/bg/visibility_changer/content/settings/panel_graphics/margin/smoother/gr_box/item_fxaa/fxaaBtn
 # TAA
-@onready var taa_no = $UI/bg/visibility_changer/content/settings/panel_graphics/margin/smoother/gr_box/item_taa/options/taa_no
-@onready var taa_yes = $UI/bg/visibility_changer/content/settings/panel_graphics/margin/smoother/gr_box/item_taa/options/taa_yes
+@onready var taa_btn = $UI/bg/visibility_changer/content/settings/panel_graphics/margin/smoother/gr_box/item_taa/taaBtn
 # SDFGI
-@onready var sdfgi_no = $UI/bg/visibility_changer/content/settings/panel_graphics/margin/smoother/gr_box/item_sdfgi/options/sdfgi_no
-@onready var sdfgi_yes = $UI/bg/visibility_changer/content/settings/panel_graphics/margin/smoother/gr_box/item_sdfgi/options/sdfgi_yes
+@onready var sdfgi_btn = $UI/bg/visibility_changer/content/settings/panel_graphics/margin/smoother/gr_box/item_sdfgi/sdfgiBtn
 #SSAO
-@onready var ssao_no = $UI/bg/visibility_changer/content/settings/panel_graphics/margin/smoother/gr_box/item_ssao/options/ssao_no
-@onready var ssao_yes = $UI/bg/visibility_changer/content/settings/panel_graphics/margin/smoother/gr_box/item_ssao/options/ssao_yes
+@onready var ssao_btn = $UI/bg/visibility_changer/content/settings/panel_graphics/margin/smoother/gr_box/item_ssao/ssaoBtn
 # SHADOWS
 @onready var no_shadows = $UI/bg/visibility_changer/content/settings/panel_graphics/margin/smoother/gr_box/item_shadows/options/no_shadows
 @onready var bad_shadows = $UI/bg/visibility_changer/content/settings/panel_graphics/margin/smoother/gr_box/item_shadows/options/bad_shadows
@@ -54,17 +49,15 @@ extends Node
 
 # ADDITIONAL SETTINGS UI
 # FPS COUNTER
-@onready var counter_no = $UI/bg/visibility_changer/content/settings/panel_additional/margin/smoother/ad_box/item_fps_counter/options/counter_no
-@onready var counter_yes = $UI/bg/visibility_changer/content/settings/panel_additional/margin/smoother/ad_box/item_fps_counter/options/counter_yes
+@onready var counter_btn = $UI/bg/visibility_changer/content/settings/panel_additional/margin/smoother/ad_box/item_fps_counter/counterBtn
 # FEEDBACK
-@onready var wright = $UI/bg/visibility_changer/content/settings/panel_additional/margin/smoother/ad_box/item_feedback/options/wright
+@onready var wright = $UI/bg/visibility_changer/content/settings/panel_additional/margin/smoother/ad_box/item_feedback/wright
 @onready var feedback_data = $UI/bg/visibility_changer/content/settings/panel_additional/margin/smoother/ad_box/panel_feedback/margin/feedback_fields/feedbackData
 @onready var feedback_text = $UI/bg/visibility_changer/content/settings/panel_additional/margin/smoother/ad_box/panel_feedback/margin/feedback_fields/feedbackText
 @onready var discard = $UI/bg/visibility_changer/content/settings/panel_additional/margin/smoother/ad_box/panel_feedback/margin/feedback_fields/btns/discard
 @onready var send = $UI/bg/visibility_changer/content/settings/panel_additional/margin/smoother/ad_box/panel_feedback/margin/feedback_fields/btns/send
 @onready var notification = $UI/bg/visibility_changer/content/settings/panel_additional/margin/smoother/ad_box/panel_feedback/notification
 @onready var text_notif = $UI/bg/visibility_changer/content/settings/panel_additional/margin/smoother/ad_box/panel_feedback/notification/textNotif
-
 #endregion
 
 
@@ -100,16 +93,19 @@ func _on_btn_audio_pressed():
 	panel_audio.visible = true
 	panel_graphics.visible = false
 	panel_additional.visible = false
+	panel_feedback.visible = false
 
 func _on_btn_graphics_pressed():
 	panel_audio.visible = false
 	panel_graphics.visible = true
 	panel_additional.visible = false
+	panel_feedback.visible = false
 
 func _on_btn_additional_pressed():
 	panel_audio.visible = false
 	panel_graphics.visible = false
 	panel_additional.visible = true
+	panel_feedback.visible = false
 
 # LOAD SETTINGS VISUALLY FROM FILE
 
@@ -163,39 +159,29 @@ func load_settings():
 			glow_btn.button_pressed = true
 	match SIN_SETTINGS.SETTINGS['GRAPHICS']['vsync']:
 		'no':
-			vsync_no.button_pressed = true
-			vsync_yes.button_pressed = false
+			vsync_btn.button_pressed = false
 		'yes':
-			vsync_no.button_pressed = false
-			vsync_yes.button_pressed = true
+			vsync_btn.button_pressed = true
 	match SIN_SETTINGS.SETTINGS['GRAPHICS']['fxaa']:
 		'no':
-			fxaa_no.button_pressed = true
-			fxaa_yes.button_pressed = false
+			fxaa_btn.button_pressed = false
 		'yes':
-			fxaa_no.button_pressed = false
-			fxaa_yes.button_pressed = true
+			fxaa_btn.button_pressed = true
 	match SIN_SETTINGS.SETTINGS['GRAPHICS']['taa']:
 		'no':
-			taa_no.button_pressed = true
-			taa_yes.button_pressed = false
+			taa_btn.button_pressed = false
 		'yes':
-			taa_no.button_pressed = false
-			taa_yes.button_pressed = true
+			taa_btn.button_pressed = true
 	match SIN_SETTINGS.SETTINGS['GRAPHICS']['sdfgi']:
 		'no':
-			sdfgi_no.button_pressed = true
-			sdfgi_yes.button_pressed = false
+			sdfgi_btn.button_pressed = false
 		'yes':
-			sdfgi_no.button_pressed = false
-			sdfgi_yes.button_pressed = true
+			sdfgi_btn.button_pressed = true
 	match SIN_SETTINGS.SETTINGS['GRAPHICS']['ssao']:
 		'no':
-			ssao_no.button_pressed = true
-			ssao_yes.button_pressed = false
+			ssao_btn.button_pressed = false
 		'yes':
-			ssao_no.button_pressed = false
-			ssao_yes.button_pressed = true
+			ssao_btn.button_pressed = true
 	match SIN_SETTINGS.SETTINGS['GRAPHICS']['shadows']:
 		'no':
 			no_shadows.button_pressed = true
@@ -221,11 +207,9 @@ func load_settings():
 	# LOAD ADDITIONAL SETTINGS
 	match SIN_SETTINGS.SETTINGS['ADDITIONAL']['fps_counter']:
 		true:
-			counter_no.button_pressed = false
-			counter_yes.button_pressed = true
+			counter_btn.button_pressed = true
 		false:
-			counter_no.button_pressed = true
-			counter_yes.button_pressed = false
+			counter_btn.button_pressed = false
 	
 	# LOAD MISC SETTINGS
 
@@ -262,65 +246,48 @@ func _on_alias_x_8_pressed():
 func _on_glow_btn_pressed():
 	if glow_btn.button_pressed:
 		SIN_SETTINGS.SETTINGS['GRAPHICS']['glow'] = 'yes'
-		glow_btn.text = "Вкл."
 	else:
 		SIN_SETTINGS.SETTINGS['GRAPHICS']['glow'] = 'no'
-		glow_btn.text = "Выкл."
 
 # GRAPHICS - VSYNC PICK
 
-func _on_vsync_no_pressed():
-	vsync_no.button_pressed = true
-	vsync_yes.button_pressed = false
-	SIN_SETTINGS.SETTINGS['GRAPHICS']['vsync'] = 'no'
-func _on_vsync_yes_pressed():
-	vsync_no.button_pressed = false
-	vsync_yes.button_pressed = true
-	SIN_SETTINGS.SETTINGS['GRAPHICS']['vsync'] = 'yes'
+func _on_vsync_btn_pressed():
+	if vsync_btn.button_pressed:
+		SIN_SETTINGS.SETTINGS['GRAPHICS']['vsync'] = 'yes'
+	else:
+		SIN_SETTINGS.SETTINGS['GRAPHICS']['vsync'] = 'no'
 
 # GRAPHICS - FXAA PICK
 
-func _on_fxaa_no_pressed():
-	fxaa_no.button_pressed = true
-	fxaa_yes.button_pressed = false
-	SIN_SETTINGS.SETTINGS['GRAPHICS']['fxaa'] = 'no'
-func _on_fxaa_yes_pressed():
-	fxaa_no.button_pressed = false
-	fxaa_yes.button_pressed = true
-	SIN_SETTINGS.SETTINGS['GRAPHICS']['fxaa'] = 'yes'
+func _on_fxaa_btn_pressed():
+	if fxaa_btn.button_pressed:
+		SIN_SETTINGS.SETTINGS['GRAPHICS']['fxaa'] = 'yes'
+	else:
+		SIN_SETTINGS.SETTINGS['GRAPHICS']['fxaa'] = 'no'
 
 # GRAPHICS - TAA PICK
 
-func _on_taa_no_pressed():
-	taa_no.button_pressed = true
-	taa_yes.button_pressed = false
-	SIN_SETTINGS.SETTINGS['GRAPHICS']['taa'] = 'no'
-func _on_taa_yes_pressed():
-	taa_no.button_pressed = false
-	taa_yes.button_pressed = true
-	SIN_SETTINGS.SETTINGS['GRAPHICS']['taa'] = 'yes'
+func _on_taa_btn_pressed():
+	if taa_btn.button_pressed:
+		SIN_SETTINGS.SETTINGS['GRAPHICS']['taa'] = 'yes'
+	else:
+		SIN_SETTINGS.SETTINGS['GRAPHICS']['taa'] = 'no'
 
 # GRAPHICS - SDFGI PICK
 
-func _on_sdfgi_no_pressed():
-	sdfgi_no.button_pressed = true
-	sdfgi_yes.button_pressed = false
-	SIN_SETTINGS.SETTINGS['GRAPHICS']['sdfgi'] = 'no'
-func _on_sdfgi_yes_pressed():
-	sdfgi_no.button_pressed = false
-	sdfgi_yes.button_pressed = true
-	SIN_SETTINGS.SETTINGS['GRAPHICS']['sdfgi'] = 'yes'
+func _on_sdfgi_btn_pressed():
+	if sdfgi_btn.button_pressed:
+		SIN_SETTINGS.SETTINGS['GRAPHICS']['sdfgi'] = 'yes'
+	else:
+		SIN_SETTINGS.SETTINGS['GRAPHICS']['sdfgi'] = 'no'
 
 # GRAPHICS - SSAO PICK
 
-func _on_ssao_no_pressed():
-	ssao_no.button_pressed = true
-	ssao_yes.button_pressed = false
-	SIN_SETTINGS.SETTINGS['GRAPHICS']['ssao'] = 'no'
-func _on_ssao_yes_pressed():
-	ssao_no.button_pressed = false
-	ssao_yes.button_pressed = true
-	SIN_SETTINGS.SETTINGS['GRAPHICS']['ssao'] = 'yes'
+func _on_ssao_btn_pressed():
+	if ssao_btn.button_pressed:
+		SIN_SETTINGS.SETTINGS['GRAPHICS']['ssao'] = 'yes'
+	else:
+		SIN_SETTINGS.SETTINGS['GRAPHICS']['ssao'] = 'no'
 
 # GRAPHICS - SHADOWS PICK
 
@@ -387,15 +354,11 @@ func _on_db_music_value_changed(value):
 #region Дополнительно
 # ADDITIONAL - FPS COUNTER
 
-func _on_counter_no_pressed():
-	SIN_SETTINGS.SETTINGS['ADDITIONAL']['fps_counter'] = false
-	counter_no.button_pressed = true
-	counter_yes.button_pressed = false
-
-func _on_counter_yes_pressed():
-	SIN_SETTINGS.SETTINGS['ADDITIONAL']['fps_counter'] = true
-	counter_no.button_pressed = false
-	counter_yes.button_pressed = true
+func _on_counter_btn_pressed():
+	if counter_btn.button_pressed:
+		SIN_SETTINGS.SETTINGS['ADDITIONAL']['fps_counter'] = true
+	else:
+		SIN_SETTINGS.SETTINGS['ADDITIONAL']['fps_counter'] = false
 
 # ADDITIONAL - FEEDBACK
 
@@ -404,9 +367,14 @@ func _on_wright_pressed():
 
 func _on_discard_pressed():
 	panel_feedback.visible = false
+	feedback_data.text = ""
+	feedback_text.text = ""
 
 func _on_send_pressed():
 	if feedback_text.text == "":
+		notification.visible = true
+		text_notif.text = "Для отправки введите сообщение"
+		anim.play("notification")
 		return
 	
 	var clearText : String = ""
@@ -449,7 +417,5 @@ func _on_send_pressed():
 #endregion
 
 
-
-
-
+# -------------------- ПРИСОЕДИНЕННЫЕ --------------------
 
