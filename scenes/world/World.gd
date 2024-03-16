@@ -17,6 +17,8 @@ func _work_day_ended():
 func _work_day_started():
 	SIN_WORLD_DATA.new_quota()
 
+# WORLD SAVING/LOADING FEAUTURES
+
 func world_save():
 	var converted_data: Array = []
 	var important_objs: Array = get_tree().get_nodes_in_group('save_this')
