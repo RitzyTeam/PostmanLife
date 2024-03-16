@@ -144,7 +144,7 @@ func _physics_process(delta):
 		var target_steer = move_toward(steering, Input.get_axis("move_right", "move_left") * MAX_STEER, delta * 2.5)
 		steering = lerp(steering, deg_to_rad(steer_points/5), 0.05)
 		rul.rotation.y = lerp(rul.rotation.y, deg_to_rad(steer_points), 0.05)
-	
+
 func enter(player_obj: Object):
 	if not item.isPlayerInside:
 		item.isPlayerInside = true

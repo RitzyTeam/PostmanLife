@@ -2,7 +2,7 @@
 
 [ext_resource type="FontFile" uid="uid://dv8jijr0th27a" path="res://assets/fonts/SubdexBold.ttf" id="1_064rh"]
 [ext_resource type="Script" path="res://objects/UI/money_change_notification/money_change_notification.gd" id="2_82k76"]
-[ext_resource type="AudioStream" uid="uid://c0mcndsp4nyfk" path="res://assets/sounds/notifications/money.mp3" id="3_tpijy"]
+[ext_resource type="AudioStream" uid="uid://c0mcndsp4nyfk" path="res://assets/sounds/death_sounds/notifications/money.mp3" id="3_tpijy"]
 
 [sub_resource type="Animation" id="Animation_ejah2"]
 length = 0.001

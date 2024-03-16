@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cc1m2a1obsyn4" path="res://objects/player/player.tscn" id="2_vq0iw"]
 [ext_resource type="Texture2D" uid="uid://b016404e1u47g" path="res://assets/images/res_energy.png" id="3_ee150"]
 [ext_resource type="Texture2D" uid="uid://dx0fnivlqgsrc" path="res://assets/images/res_fuel.png" id="3_nlv6y"]
-[ext_resource type="AudioStream" uid="uid://t788nusgr7rc" path="res://assets/sounds/car_beep.mp3" id="5_8ws1p"]
+[ext_resource type="AudioStream" uid="uid://t788nusgr7rc" path="res://assets/sounds/props/car_beep.mp3" id="5_8ws1p"]
 [ext_resource type="Texture2D" uid="uid://cmo2nbgj5nbvj" path="res://assets/images/res_flashlight.png" id="5_lgrf1"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_pj65t"]
