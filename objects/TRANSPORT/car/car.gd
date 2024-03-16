@@ -220,4 +220,5 @@ func _on_bump_area_body_entered(body):
 	var velo = float(abs(linear_velocity.x) + abs(linear_velocity.y) + abs(linear_velocity.z))
 	if velo > 90.0:
 		if item.isPlayerInside:
-			get_tree().change_scene_to_file.bind("res://scenes/DEATHS/death_car/death_car.tscn").call_deferred()
+			SIN_WORLD_DATA.last_death_reason = 'car'
+			get_tree().change_scene_to_file.bind("res://scenes/death/death.tscn").call_deferred()

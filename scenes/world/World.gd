@@ -12,7 +12,8 @@ func _work_day_ended():
 	if SIN_WORLD_DATA.WORLD_DATA['daily_quota_delivered'] < SIN_WORLD_DATA.WORLD_DATA['daily_quota']:
 		SIN_WORLD_DATA.WORLD_DATA['firing_warns'] += 1
 		if SIN_WORLD_DATA.WORLD_DATA['firing_warns'] > 3:
-			get_tree().change_scene_to_file('res://scenes/DEATHS/death_fired/death_fired.tscn')
+			SIN_WORLD_DATA.last_death_reason = 'fired'
+			get_tree().change_scene_to_file.bind("res://scenes/death/death.tscn").call_deferred()
 
 func _work_day_started():
 	SIN_WORLD_DATA.new_quota()
