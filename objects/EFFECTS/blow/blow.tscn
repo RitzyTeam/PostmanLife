@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://sknunk064xvp"]
 
 [ext_resource type="Script" path="res://objects/EFFECTS/blow/blow.gd" id="1_dmcbo"]
-[ext_resource type="AudioStream" uid="uid://c72ipclwrm84e" path="res://assets/sounds/mine/mine_blow.mp3" id="2_6txxc"]
+[ext_resource type="AudioStream" uid="uid://c72ipclwrm84e" path="res://assets/sounds/death_sounds/mine/mine_blow.mp3" id="2_6txxc"]
 
 [sub_resource type="Curve" id="Curve_5jxiu"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.815315, 0), -2.14681, 0.0, 0, 0]

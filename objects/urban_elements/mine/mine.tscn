@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://cow7imj1k0b0w"]
 
 [ext_resource type="Script" path="res://objects/urban_elements/mine/mine.gd" id="1_sn5jf"]
-[ext_resource type="AudioStream" uid="uid://dvwsf0avd14fo" path="res://assets/sounds/mine/mine_stand.mp3" id="2_rllxo"]
+[ext_resource type="AudioStream" uid="uid://dvwsf0avd14fo" path="res://assets/sounds/death_sounds/mine/mine_stand.mp3" id="2_rllxo"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0qbkb"]
 resource_name = "body"
