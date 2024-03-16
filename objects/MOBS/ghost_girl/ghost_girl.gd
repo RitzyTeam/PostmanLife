@@ -63,7 +63,8 @@ func _on_death_area_body_entered(body):
 	if SIN_WORLD_DATA.WORLD_DATA['tod'] > 1300 or SIN_WORLD_DATA.WORLD_DATA['tod'] < 120:
 		if body.is_in_group('player'):
 			body.queue_free()
-			get_tree().change_scene_to_file.bind("res://scenes/DEATHS/death_ghost/death_ghost.tscn").call_deferred()
+			SIN_WORLD_DATA.last_death_reason = 'ghost'
+			get_tree().change_scene_to_file.bind("res://scenes/death/death.tscn").call_deferred()
 
 func _reset_girl():
 	isAgro = false

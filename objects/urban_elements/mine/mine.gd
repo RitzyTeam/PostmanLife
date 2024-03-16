@@ -2,7 +2,8 @@ extends Node3D
 
 
 func blow():
-	get_tree().change_scene_to_file.bind("res://scenes/DEATHS/death_mine/death_mine.tscn").call_deferred()
+	SIN_WORLD_DATA.last_death_reason = 'mine'
+	get_tree().change_scene_to_file.bind("res://scenes/death/death.tscn").call_deferred()
 
 
 func _on_trigger_body_exited(body):

@@ -37,6 +37,8 @@ var WORLD_DATA: Dictionary = {
 	'player_insane': false,
 }
 
+var last_death_reason: String = ''
+
 func _ready():
 	if data_exists():
 		data_load()
