@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bxtje260w1cim" path="res://assets/models/urban_elements/griffin_statue/griffin_statue_0.jpg" id="1_8lin5"]
 [ext_resource type="Script" path="res://objects/urban_elements/griffin_statue/griffin_statue.gd" id="1_f1pyy"]
-[ext_resource type="AudioStream" uid="uid://ic2uabvndcs4" path="res://assets/sounds/mob_sounds/griffin_statue_roar.mp3" id="3_0fwij"]
+[ext_resource type="AudioStream" uid="uid://ic2uabvndcs4" path="res://assets/sounds/MOBS/griffin_statue_roar.mp3" id="3_0fwij"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5i8g5"]
 resource_name = "Scene_-_Root"

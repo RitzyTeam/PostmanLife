@@ -31,7 +31,7 @@ func _on_btn_exit_to_menu_pressed():
 func _on_anim_overlapper_animation_finished(anim_name):
 	match anim_name:
 		'go_to_world':
-			get_tree().change_scene_to_file('res://scenes/world/World.tscn')
+			get_tree().change_scene_to_file("res://scenes/world_loader/WORLD_LOADER.tscn")
 		'go_to_main':
 			get_tree().change_scene_to_file('res://scenes/main/main.tscn')
 			
