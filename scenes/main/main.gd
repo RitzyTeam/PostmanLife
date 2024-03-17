@@ -2,6 +2,7 @@ extends Node
 
 var goto: String = ''
 
+# FIXED IN PREVIOUS COMMITS
 
 func _ready():
 	if SIN_WORLD_DATA.data_is_empty():
