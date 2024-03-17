@@ -30,6 +30,7 @@ func buy_petrol():
 		var petrol_canister = gas_station.petrol_canister.instantiate()
 		get_tree().get_root().add_child(petrol_canister)
 		petrol_canister.item.litres = amountBought
+		petrol_canister.item.weight = amountBought
 		petrol_canister.global_position = place_to_spawn.global_position
 		petrol_canister.global_rotation = place_to_spawn.global_rotation
 		gas_station.update_petrol_info()

@@ -11,6 +11,7 @@ func _ready():
 # Deliver ID должен выбираться из списка доступных Deliver ID.
 # Deliver ID должен совпадать с Deliver ID для конкретного дома (Зоны приема посылки)
 func add_random_task() -> void:
+	var package_weight: int = 0
 	var package_fill_type: int = randi_range(0,10)
 	var package_fill: String = 'void'
 	if package_fill_type >= 0 and package_fill_type < 6:
@@ -27,8 +28,10 @@ func add_random_task() -> void:
 	match package_type:
 		0:
 			package_type_id = 'box'
+			package_weight = randi_range(2, 20)
 		1:
 			package_type_id = 'letter'
+			package_weight = randi_range(1, 3)
 	var address_lib = ClassAddresses.new()
 	var deliver_id = address_lib.get_random_delivery_id()
 	var target_address = address_lib.addresses[str(deliver_id)]
@@ -39,7 +42,7 @@ func add_random_task() -> void:
 		'deliver_id': deliver_id,
 		'target_address': target_address,
 		'fill_type': package_fill,
-		'weight': randi_range(2, 20)
+		'weight': package_weight
 	}
 	ACTIVE_TASKS.append(task_data)
 	SIN_WORLD_SIGNALS.emit_signal('PACKAGE_CREATED', task_data)

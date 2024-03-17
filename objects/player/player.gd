@@ -1,5 +1,10 @@
 extends CharacterBody3D
 
+# HOW MUCH KILOGRAMMS
+var payload: int = 0
+var payload_multiplier: float = 10.0
+
+# MUST BE HERE IN ORDER TO SAVE PLAYER
 var item: Dictionary = {
 	'id': 'player'
 }
@@ -97,6 +102,7 @@ func _ready():
 	# EVERYTHING ELSE
 	set_money_value_ui()
 	set_slot_selected(1)
+	calculate_speed()
 	inventory_loader.load_hand_visual(1)
 	inventory_loader.load_inventory_visual()
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
@@ -109,8 +115,8 @@ func _ready():
 	JUMP_ANIMATION.play("RESET")
 
 func _physics_process(delta):
-#region СТАМИНА
 	
+#region СТАМИНА
 	if stamina < 100 and state == 'normal':
 		stamina += 0.1
 	if Input.is_action_pressed(SPRINT):
@@ -229,27 +235,34 @@ func handle_state(moving):
 
 # Any enter state function should only be called once when you want to enter that state, not every frame.
 func enter_normal_state():
-	#print("entering normal state")
 	var prev_state = state
 	if prev_state == "crouching":
 		CROUCH_ANIMATION.play_backwards("crouch")
 	state = "normal"
-	speed = base_speed
+	if base_speed - (payload/payload_multiplier) > 0:
+		speed = base_speed - (payload/payload_multiplier)
+	else:
+		speed = 0
 
 func enter_crouch_state():
-	#print("entering crouch state")
 	var prev_state = state
 	state = "crouching"
-	speed = crouch_speed
 	CROUCH_ANIMATION.play("crouch")
+	
+	if crouch_speed - (payload/payload_multiplier) > 0:
+		speed = crouch_speed - (payload/payload_multiplier)
+	else:
+		speed = 0
 
 func enter_sprint_state():
-	#print("entering sprint state")
 	var prev_state = state
 	if prev_state == "crouching":
 		CROUCH_ANIMATION.play_backwards("crouch")
 	state = "sprinting"
-	speed = sprint_speed
+	if sprint_speed  - (payload/payload_multiplier) > 0:
+		speed = sprint_speed  - (payload/payload_multiplier)
+	else:
+		speed = 0
 
 func update_camera_fov():
 	if state == "sprinting":
@@ -314,6 +327,7 @@ func add_item_to_inv(item_data: Dictionary) -> bool:
 		inventory_loader.load_inventory_visual()
 		inventory_loader.load_hand_visual(target_slot)
 		set_slot_selected(target_slot)
+		calculate_speed()
 		return true
 	return false
 
@@ -326,6 +340,7 @@ func drop_item_slot(slot_id: int):
 			var obj = load('res://objects/PROPS/package_box/package_box.tscn').instantiate()
 			get_tree().get_root().add_child(obj)
 			obj.item = SIN_WORLD_DATA.WORLD_DATA['player_inv']['slot_' + str(slot_id)]
+			obj.set_labels()
 			obj.global_position = $Head/Camera/item_display/box.global_position
 			obj.global_rotation = $Head/Camera/item_display/box.global_rotation
 			obj.apply_central_impulse($Head/Camera/item_display/box.global_transform.basis.z * -throw_item_power)
@@ -355,6 +370,7 @@ func drop_item_slot(slot_id: int):
 			obj.apply_central_impulse($Head/Camera/item_display/fuel_tank.global_transform.basis.x * throw_item_power)
 			SIN_WORLD_DATA.WORLD_DATA['player_inv']['slot_' + str(slot_id)] = {'id': 'void'}
 	inventory_loader.load_hand_visual(current_slot_selected)
+	calculate_speed()
 	inventory_loader.load_inventory_visual()
 
 func set_slot_selected(slot_id: int):
@@ -477,4 +493,20 @@ func _update_time_ui():
 		time_m_str = str(time_minutes)
 	$UI/UI/time.text = str(time_h_str) + ':' + str(time_m_str)
 
-
+func calculate_speed():
+	payload = 0
+	for i in range(SIN_WORLD_DATA.WORLD_DATA['player_inv'].size()):
+		if not SIN_WORLD_DATA.WORLD_DATA['player_inv']['slot_' + str(i+1)] == {}:
+			if SIN_WORLD_DATA.WORLD_DATA['player_inv']['slot_' + str(i+1)].has('weight'):
+				payload += SIN_WORLD_DATA.WORLD_DATA['player_inv']['slot_' + str(i+1)]['weight']
+	$UI/UI/weight.text = str(payload) + 'кг'
+	set_speed_by_payload()
+	
+func set_speed_by_payload():
+	match state:
+		'crouching':
+			enter_crouch_state()
+		'normal':
+			enter_normal_state()
+		'sprinting':
+			enter_sprint_state()
