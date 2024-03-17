@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://cbl2egjk1deb"
-path="res://.godot/imported/calendar_new_day.mp3-acc74eb47c2cf8503337b09646fa62fe.mp3str"
+path="res://.godot/imported/calendar_new_day.mp3-5f4d056da52c648d3e5376439f7ee575.mp3str"
 
 [deps]
 
-source_file="res://assets/sounds/props/calendar/calendar_new_day.mp3"
-dest_files=["res://.godot/imported/calendar_new_day.mp3-acc74eb47c2cf8503337b09646fa62fe.mp3str"]
+source_file="res://assets/sounds/PROPS/calendar/calendar_new_day.mp3"
+dest_files=["res://.godot/imported/calendar_new_day.mp3-5f4d056da52c648d3e5376439f7ee575.mp3str"]
 
 [params]
 

@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://b016404e1u47g" path="res://assets/images/res_energy.png" id="3_ee150"]
 [ext_resource type="AudioStream" uid="uid://bwhddyjclvjd0" path="res://assets/sounds/TRANSPORT/truck/engine_on.mp3" id="3_nlpgw"]
 [ext_resource type="Texture2D" uid="uid://dx0fnivlqgsrc" path="res://assets/images/res_fuel.png" id="3_nlv6y"]
-[ext_resource type="AudioStream" uid="uid://t788nusgr7rc" path="res://assets/sounds/props/car_beep.mp3" id="5_8ws1p"]
+[ext_resource type="AudioStream" uid="uid://t788nusgr7rc" path="res://assets/sounds/PROPS/car_beep.mp3" id="5_8ws1p"]
 [ext_resource type="Texture2D" uid="uid://cmo2nbgj5nbvj" path="res://assets/images/res_flashlight.png" id="5_lgrf1"]
 [ext_resource type="Texture2D" uid="uid://cst6dgp3lox4" path="res://assets/images/res_engine.png" id="7_7sfgg"]
 

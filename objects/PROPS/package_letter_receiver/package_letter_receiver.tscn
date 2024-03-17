@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://dkj4ku0wve5y6"]
+[gd_scene load_steps=12 format=3 uid="uid://dkj4ku0wve5y6"]
 
 [ext_resource type="Script" path="res://objects/PROPS/package_letter_receiver/package_letter_receiver.gd" id="1_o3at6"]
+[ext_resource type="AudioStream" uid="uid://daa2l2e2kvqvl" path="res://assets/sounds/PROPS/reveiver_letter/delivered_letter.mp3" id="2_cte60"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8wgig"]
 size = Vector3(0.365112, 0.455322, 0.15155)
@@ -187,3 +188,8 @@ font_size = 317
 libraries = {
 "": SubResource("AnimationLibrary_616k3")
 }
+
+[node name="audio_delivered" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("2_cte60")
+volume_db = -20.0
+max_distance = 5.0
