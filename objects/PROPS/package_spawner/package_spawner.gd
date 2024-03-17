@@ -12,7 +12,7 @@ func _package_created(task_data: Dictionary) -> void:
 			var package = package_box.instantiate()
 			add_child(package)
 			package.item = task_data
-			package.set_fill_type()
+			package.set_labels()
 		'letter':
 			var package = package_letter.instantiate()
 			add_child(package)

@@ -8,7 +8,11 @@ var seconds_to_deliver: int = 90
 
 var item = {}
 
-func set_fill_type():
+func set_labels():
+	# SET LABELS
+	$street_name.text = item.target_address
+	$weight.text = str(item.weight) + 'кг'
+	# FILL TYPES
 	if item['fill_type'] == 'based':
 		$package_type_glass.visible = false
 		$package_type_eco.visible = false

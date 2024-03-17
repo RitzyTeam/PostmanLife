@@ -88,6 +88,7 @@ func _physics_process(delta):
 			if current_tank.item['litres'] >= 0.01:
 				item.res_fuel += 0.01
 				current_tank.item['litres'] -= 0.01
+				current_tank.item['weight'] = int(current_tank.item['litres'])
 				if int(item.res_energy) > 0:
 					$stat_fuel/value.text = str(int(item.res_fuel)) + 'л.'
 			else:
@@ -216,6 +217,7 @@ func _on_area_body_exited(body):
 				if not body.item['litres'] == null:
 					body.freeze = false
 
+# DEATH BY CAR BUMP INTO OBJECT
 func _on_bump_area_body_entered(body):
 	var velo = float(abs(linear_velocity.x) + abs(linear_velocity.y) + abs(linear_velocity.z))
 	if velo > 90.0:

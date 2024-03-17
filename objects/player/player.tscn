@@ -885,7 +885,7 @@ skeleton = NodePath("")
 libraries = {
 "": SubResource("AnimationLibrary_o0unb")
 }
-blend_times = [&"headbob", &"RESET", 0.5, &"RESET", &"headbob", 0.5, &"RESET", &"RESET", 0.5]
+blend_times = [&"RESET", &"RESET", 0.5, &"RESET", &"headbob", 0.5, &"headbob", &"RESET", 0.5]
 
 [node name="JumpAnimation" type="AnimationPlayer" parent="Head"]
 libraries = {
@@ -1010,11 +1010,14 @@ metadata/_edit_lock_ = true
 
 [node name="fps_counter" type="Label" parent="UI/UI"]
 layout_mode = 0
-anchor_left = 0.00364583
-anchor_top = 0.00277778
-anchor_right = 0.0385417
-anchor_bottom = 0.0388889
-offset_right = -4.0
+anchor_left = 0.00729167
+anchor_top = 0.012963
+anchor_right = 0.0421875
+anchor_bottom = 0.0490741
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("5_1vneb")
 theme_override_font_sizes/font_size = 36
 text = "FPS: "
 metadata/_edit_use_anchors_ = true
@@ -1023,9 +1026,9 @@ metadata/_edit_use_anchors_ = true
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.928125
-anchor_top = 0.0416667
+anchor_top = 0.0833334
 anchor_right = 0.992187
-anchor_bottom = 0.0777778
+anchor_bottom = 0.119444
 grow_horizontal = 0
 grow_vertical = 0
 theme_override_colors/font_color = Color(0, 1, 0, 1)
@@ -1033,6 +1036,7 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 8
 theme_override_fonts/font = ExtResource("5_1vneb")
 theme_override_font_sizes/font_size = 36
+text = "0₽"
 horizontal_alignment = 2
 metadata/_edit_use_anchors_ = true
 
@@ -1051,6 +1055,24 @@ theme_override_constants/outline_size = 8
 theme_override_fonts/font = ExtResource("5_1vneb")
 theme_override_font_sizes/font_size = 36
 text = "10:02"
+horizontal_alignment = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="weight" type="Label" parent="UI/UI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.928125
+anchor_top = 0.0462963
+anchor_right = 0.992187
+anchor_bottom = 0.0824074
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("5_1vneb")
+theme_override_font_sizes/font_size = 36
+text = "0кг"
 horizontal_alignment = 2
 metadata/_edit_use_anchors_ = true
 
@@ -1076,9 +1098,9 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_h0qrc")
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.914063
-anchor_top = 0.0611111
+anchor_top = 0.112037
 anchor_right = 0.994792
-anchor_bottom = 0.997222
+anchor_bottom = 0.986111
 grow_horizontal = 0
 mouse_filter = 2
 metadata/_edit_use_anchors_ = true
