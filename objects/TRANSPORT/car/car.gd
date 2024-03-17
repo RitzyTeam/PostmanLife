@@ -92,6 +92,9 @@ func _input(event):
 				$engine_on.stop()
 				$driving.stop()
 				$stat_engine/icon.modulate = Color('ff0000')
+				if isFlashlightsOn:
+					$stat_flashlight/icon.texture = load('res://assets/images/res_flashlight.png')
+					lights_off()
 
 func _physics_process(delta):
 	if not current_tank == null:
