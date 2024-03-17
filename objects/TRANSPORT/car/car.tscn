@@ -1412,7 +1412,7 @@ mesh = SubResource("ArrayMesh_ij6tj")
 skeleton = NodePath("")
 
 [node name="icon" type="Sprite3D" parent="stat_flashlight"]
-transform = Transform3D(0.195, 0, 0, 0, 0, 0.195, 0, -0.195, -1.49012e-08, 0, 1.00189, -0.0411034)
+transform = Transform3D(0.195, 0, 0, 0, 0, 0.195, 0, -0.195, -1.49012e-08, 0, 1.01049, -0.0334167)
 texture = ExtResource("5_lgrf1")
 
 [node name="speedometer" type="MeshInstance3D" parent="."]
@@ -1421,12 +1421,18 @@ mesh = SubResource("ArrayMesh_j7e0d")
 skeleton = NodePath("")
 
 [node name="speed" type="Label3D" parent="speedometer"]
-transform = Transform3D(1, 0, 0, 0, -1.19209e-07, 1, 0, -1, -8.9407e-08, -0.85, 1.009, -0.022)
+transform = Transform3D(1, 0, 0, 0, -1.78814e-07, 1, 0, -1, -8.9407e-08, -0.0608687, 1.00227, -0.449802)
 pixel_size = 0.001
-text = "0 км/ч"
-font_size = 442
+text = "100"
+font_size = 877
 outline_size = 0
-horizontal_alignment = 0
+
+[node name="hint" type="Label3D" parent="speedometer"]
+transform = Transform3D(1, 0, 0, 0, -1.78814e-07, 1, 0, -1, -8.9407e-08, -0.0129623, 1.01702, 0.34304)
+pixel_size = 0.001
+text = "км/ч"
+font_size = 492
+outline_size = 0
 
 [node name="automat" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.0682721, 0, 0, 0, 0.0482757, -0.102491, 0, 0.0482757, 0.102491, 0.257, 1.62716, -2.168)

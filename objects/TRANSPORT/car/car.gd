@@ -109,7 +109,7 @@ func _physics_process(delta):
 		# UPDATE UI
 		var speed = int(abs(linear_velocity.x) + abs(linear_velocity.y) + abs(linear_velocity.z))
 		if int(item.res_energy) > 0:
-			$speedometer/speed.text = str(speed) + ' км/ч'
+			$speedometer/speed.text = str(speed)
 		# ANIMATE LEVER
 		if int(item.res_energy) > 0:
 			set_lever(speed)
