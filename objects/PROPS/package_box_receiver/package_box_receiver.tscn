@@ -1,6 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://d3k3mjiras3di"]
+[gd_scene load_steps=13 format=3 uid="uid://d3k3mjiras3di"]
 
 [ext_resource type="Script" path="res://objects/PROPS/package_box_receiver/package_box_receiver.gd" id="1_bt83f"]
+[ext_resource type="AudioStream" uid="uid://co16pwuxb0pvp" path="res://assets/sounds/PROPS/receiver_box/delivered_box.mp3" id="2_11ba3"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fyr6v"]
 resource_name = "main"
@@ -215,3 +216,8 @@ font_size = 317
 libraries = {
 "": SubResource("AnimationLibrary_lby7u")
 }
+
+[node name="audio_delivered" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("2_11ba3")
+volume_db = -20.0
+max_distance = 5.0

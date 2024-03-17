@@ -8,6 +8,7 @@ func try_put_package(item_data: Dictionary):
 		if item_data.id == 'letter':
 			if deliver_code == item_data['deliver_id']:
 				SIN_WORLD_SIGNALS.emit_signal('PACKAGE_DELIVERED', item_data['task_id'])
+				$audio_delivered.play()
 				return true
 	$anim_warn.play('warn')
 	return false
