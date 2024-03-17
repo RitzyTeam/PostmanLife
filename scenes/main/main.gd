@@ -2,6 +2,7 @@ extends Node
 
 var goto: String = ''
 
+
 func _ready():
 	if SIN_WORLD_DATA.data_is_empty():
 		$UI/bg/visibility_toggler/button_list/btn_continue.visible = false

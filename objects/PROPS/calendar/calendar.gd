@@ -5,3 +5,4 @@ func _ready():
 
 func update_calendar():
 	$day.text = str(SIN_WORLD_DATA.WORLD_DATA['day_num'])
+	$calendar_new_day.play()

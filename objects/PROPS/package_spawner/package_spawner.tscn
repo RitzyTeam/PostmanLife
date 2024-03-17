@@ -1,10 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://din700dmcsdr4"]
+[gd_scene load_steps=5 format=3 uid="uid://din700dmcsdr4"]
 
 [ext_resource type="Script" path="res://objects/PROPS/package_spawner/package_spawner.gd" id="1_6mm5c"]
 [ext_resource type="PackedScene" uid="uid://58hl61px281c" path="res://objects/PROPS/package_box/package_box.tscn" id="2_38ar5"]
 [ext_resource type="PackedScene" uid="uid://c6bwnc0jpf1ae" path="res://objects/PROPS/package_letter/package_letter.tscn" id="3_37sr3"]
+[ext_resource type="AudioStream" uid="uid://1mx6dcvwrosl" path="res://assets/sounds/POST/new_delivery_task.mp3" id="4_g117i"]
 
 [node name="package_spawner" type="Marker3D"]
 script = ExtResource("1_6mm5c")
 package_box = ExtResource("2_38ar5")
 package_letter = ExtResource("3_37sr3")
+
+[node name="new_task_sound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("4_g117i")
+max_distance = 50.0
