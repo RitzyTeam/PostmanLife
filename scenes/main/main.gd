@@ -34,10 +34,10 @@ func _on_anim_animation_finished(anim_name):
 	if anim_name == 'hide':
 		match goto:
 			'continue':
-				get_tree().change_scene_to_file('res://scenes/world/World.tscn')
+				get_tree().change_scene_to_file("res://scenes/world_loader/WORLD_LOADER.tscn")
 			'new_game':
 				SIN_WORLD_DATA.data_reset()
-				get_tree().change_scene_to_file('res://scenes/world/World.tscn')
+				get_tree().change_scene_to_file("res://scenes/world_loader/WORLD_LOADER.tscn")
 			'settings':
 				get_tree().change_scene_to_file('res://scenes/settings/settings.tscn')
 			'exit':

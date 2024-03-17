@@ -1,0 +1,132 @@
+[gd_scene load_steps=8 format=3 uid="uid://wt8pl44vbtx3"]
+
+[ext_resource type="Texture2D" uid="uid://dcdwnlegik3" path="res://assets/images/UI/bg_2.png" id="1_hwik0"]
+[ext_resource type="Script" path="res://scenes/world_loader/WORLD_LOADER.gd" id="1_p855e"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2ss72"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yi0ee"]
+bg_color = Color(0.360784, 0.180392, 1, 0.678431)
+border_color = Color(0.8, 0.8, 0.8, 0)
+
+[sub_resource type="Animation" id="Animation_2lgal"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("overlapper:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_lg0u8"]
+resource_name = "go_world"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("overlapper:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_smc0a"]
+_data = {
+"RESET": SubResource("Animation_2lgal"),
+"go_world": SubResource("Animation_lg0u8")
+}
+
+[node name="WORLD_LOADER" type="Node"]
+script = ExtResource("1_p855e")
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="bg" type="TextureRect" parent="UI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_hwik0")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="loading_progress" type="ProgressBar" parent="UI/bg"]
+custom_minimum_size = Vector2(700, 50)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.317708
+anchor_top = 0.942593
+anchor_right = 0.682292
+anchor_bottom = 0.989815
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 37
+theme_override_styles/background = SubResource("StyleBoxFlat_2ss72")
+theme_override_styles/fill = SubResource("StyleBoxFlat_yi0ee")
+rounded = true
+show_percentage = false
+metadata/_edit_use_anchors_ = true
+
+[node name="title" type="Label" parent="UI/bg"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.012037
+anchor_right = 1.0
+anchor_bottom = 0.127778
+offset_bottom = -1.52588e-05
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 91
+text = "Загрузка"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="loading_phrase" type="Label" parent="UI/bg"]
+custom_minimum_size = Vector2(750, 125)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.304688
+anchor_top = 0.822222
+anchor_right = 0.695313
+anchor_bottom = 0.937963
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 30
+text = "Если вокруг темно - попробуйте открыть глаза"
+horizontal_alignment = 1
+vertical_alignment = 2
+autowrap_mode = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="overlapper" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0)
+
+[node name="anim" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_smc0a")
+}
+
+[connection signal="animation_finished" from="anim" to="." method="_on_anim_animation_finished"]
