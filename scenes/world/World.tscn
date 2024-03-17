@@ -39,7 +39,7 @@
 [ext_resource type="MeshLibrary" uid="uid://cc4o7n1xlohu" path="res://resources/mesh_libs/nature_meshlib.meshlib" id="32_n7ywf"]
 [ext_resource type="PackedScene" uid="uid://d2pxxt0trjk42" path="res://objects/PROPS/oil_barrel/barrel.tscn" id="35_bhpn8"]
 [ext_resource type="PackedScene" uid="uid://cow7imj1k0b0w" path="res://objects/urban_elements/mine/mine.tscn" id="36_8jew2"]
-[ext_resource type="PackedScene" uid="uid://bfrej20pfi3lj" path="res://objects/SOUND_ZONES/ZONE_FOREST.tscn" id="36_uq1yy"]
+[ext_resource type="PackedScene" uid="uid://bfrej20pfi3lj" path="res://objects/SOUND_ZONES/ZONE_FOREST/ZONE_FOREST.tscn" id="36_uq1yy"]
 [ext_resource type="PackedScene" uid="uid://bmkhu84ik76nl" path="res://objects/SOUND_ZONES/ZONE_CRICKETS/ZONE_CRICKETS.tscn" id="37_pwyfn"]
 [ext_resource type="PackedScene" uid="uid://cmnf52pg6wgif" path="res://objects/urban_elements/mine_sign/mine_sign.tscn" id="37_sekee"]
 [ext_resource type="PackedScene" uid="uid://bqkmogmsrvqdr" path="res://objects/MOBS/ghost_girl/ghost_girl.tscn" id="37_wavva"]
