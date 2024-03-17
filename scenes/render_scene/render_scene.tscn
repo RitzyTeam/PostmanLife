@@ -1,6 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://cfl6vt4pjnbo6"]
-
-[ext_resource type="PackedScene" uid="uid://d2u05eq2jgkhv" path="res://assets/models/fuel_tank.blend" id="1_v4452"]
+[gd_scene load_steps=2 format=3 uid="uid://cfl6vt4pjnbo6"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_61ug0"]
 size = Vector2(2000, 2000)
@@ -18,5 +16,3 @@ fov = 31.5
 
 [node name="origin" type="Marker3D" parent="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.555, 0)
-
-[node name="fuel_tank" parent="Node3D/origin" instance=ExtResource("1_v4452")]
