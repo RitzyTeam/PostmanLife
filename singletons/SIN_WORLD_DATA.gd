@@ -44,7 +44,8 @@ func _ready():
 		data_load()
 	else:
 		data_reset()
-
+	WORLD_DATA['money'] = 999999
+	
 # MAIN FUNCS
 
 func data_reset():
