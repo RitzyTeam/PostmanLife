@@ -50,7 +50,7 @@ func world_load():
 				'player':
 					obj = load("res://objects/player/player.tscn").instantiate()
 				'car':
-					obj = load("res://objects/TRANSPORT/car/car.tscn").instantiate()
+					obj = load("res://objects/TRANSPORT/truck/truck.tscn").instantiate()
 			call_deferred_thread_group('set_object', obj, converted_data[i])
 
 func set_object(obj: Object, converted_data: Dictionary):

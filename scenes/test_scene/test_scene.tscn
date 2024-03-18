@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://d3k3mjiras3di" path="res://objects/PROPS/package_box_receiver/package_box_receiver.tscn" id="3_gkgb8"]
 [ext_resource type="PackedScene" uid="uid://dkj4ku0wve5y6" path="res://objects/PROPS/package_letter_receiver/package_letter_receiver.tscn" id="4_xh0xn"]
 [ext_resource type="PackedScene" uid="uid://biogoa42trr1k" path="res://objects/PROPS/ball/ball.tscn" id="5_85iv5"]
-[ext_resource type="PackedScene" uid="uid://cpat5kv2ue7yo" path="res://objects/TRANSPORT/car/car.tscn" id="6_mbphw"]
+[ext_resource type="PackedScene" uid="uid://cpat5kv2ue7yo" path="res://objects/TRANSPORT/truck/truck.tscn" id="6_mbphw"]
 [ext_resource type="PackedScene" uid="uid://d1dfxl3goj7rx" path="res://objects/PROPS/fuel_tank/fuel_tank.tscn" id="7_8rym3"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_mtor7"]
