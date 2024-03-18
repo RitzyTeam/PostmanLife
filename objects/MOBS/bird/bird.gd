@@ -137,6 +137,10 @@ func kar():
 	$kar_interval.wait_time = randf_range(5, 20)
 	$kar_interval.start()
 
-
 func _on_kar_interval_timeout():
 	kar()
+
+func hurt():
+	try_drop_item()
+	state = 'stealed'
+	$hurt.play()

@@ -1,0 +1,44 @@
+[gd_scene load_steps=7 format=3 uid="uid://myuxgdmd824e"]
+
+[ext_resource type="Script" path="res://objects/PROPS/shell/shell.gd" id="1_83cpm"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_xrrv2"]
+height = 0.102202
+radius = 0.0222849
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2qwfv"]
+albedo_color = Color(1, 0.211765, 0.211765, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_i4nmd"]
+material = SubResource("StandardMaterial3D_2qwfv")
+top_radius = 0.02
+bottom_radius = 0.02
+height = 0.1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7uu8y"]
+albedo_color = Color(1, 0.835294, 0.211765, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_gd50y"]
+material = SubResource("StandardMaterial3D_7uu8y")
+top_radius = 0.022
+bottom_radius = 0.022
+height = 0.01
+
+[node name="shell" type="RigidBody3D" groups=["save_this"]]
+script = ExtResource("1_83cpm")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("CylinderShape3D_xrrv2")
+
+[node name="multimesh" type="MultiMeshInstance3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="multimesh"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("CylinderMesh_i4nmd")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="multimesh"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0.0457694, 0, 0)
+mesh = SubResource("CylinderMesh_gd50y")
+skeleton = NodePath("../..")

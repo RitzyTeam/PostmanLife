@@ -53,6 +53,7 @@ func data_reset():
 	filer.store_var(WORLD_DATA_EMPTY)
 	filer.close()
 	data_save()
+	data_load()
 
 func data_load() -> bool:
 	if data_exists():

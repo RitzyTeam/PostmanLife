@@ -369,6 +369,15 @@ func drop_item_slot(slot_id: int):
 			obj.global_rotation = $Head/Camera/item_display/fuel_tank.global_rotation
 			obj.apply_central_impulse($Head/Camera/item_display/fuel_tank.global_transform.basis.x * throw_item_power)
 			SIN_WORLD_DATA.WORLD_DATA['player_inv']['slot_' + str(slot_id)] = {'id': 'void'}
+		'shotgun':
+			var obj = load("res://objects/PROPS/shotgun/shotgun.tscn").instantiate()
+			get_tree().get_root().add_child(obj)
+			obj.item = SIN_WORLD_DATA.WORLD_DATA['player_inv']['slot_' + str(slot_id)]
+			obj.global_position = $Head/Camera/item_display/fuel_tank.global_position
+			obj.global_rotation = $Head/Camera/item_display/fuel_tank.global_rotation
+			obj.global_rotation.y += deg_to_rad(90)
+			obj.apply_central_impulse($Head/Camera/item_display/fuel_tank.global_transform.basis.x * throw_item_power)
+			SIN_WORLD_DATA.WORLD_DATA['player_inv']['slot_' + str(slot_id)] = {'id': 'void'}
 	inventory_loader.load_hand_visual(current_slot_selected)
 	calculate_speed()
 	inventory_loader.load_inventory_visual()
@@ -420,6 +429,12 @@ func _unhandled_input(event):
 			current_slot_selected -= 1
 		else:
 			current_slot_selected = 4
+	if event.is_action_pressed('lmb'):
+		if $Head/Camera/item_display/shotgun.visible:
+			shotgun_shoot()
+	if event.is_action_pressed('key_r'):
+		if $Head/Camera/item_display/shotgun.visible:
+			shotgun_try_reload()
 	set_slot_selected(current_slot_selected)
 	
 	# INVENTORY BY KEYS
@@ -469,7 +484,7 @@ func _update_money_ui(value_changed):
 	$UI/UI/money_change_notifications.add_child(notif_money_change)
 	notif_money_change.set_content(value_changed)
 	set_money_value_ui()
-	
+
 func set_money_value_ui():
 	if SIN_WORLD_DATA.WORLD_DATA['money'] >= 0:
 		$UI/UI/money.add_theme_color_override('font_color', Color('00ff00'))
@@ -477,7 +492,7 @@ func set_money_value_ui():
 	else:
 		$UI/UI/money.add_theme_color_override('font_color', Color('ff0000'))
 		$UI/UI/money.text = '0(' + str(SIN_WORLD_DATA.WORLD_DATA['money']) + ')₽'
-	
+
 func _update_time_ui():
 	var time_hours = int(SIN_WORLD_DATA.WORLD_DATA['tod']/60)
 	var time_minutes = int(SIN_WORLD_DATA.WORLD_DATA['tod']%60)
@@ -501,7 +516,7 @@ func calculate_speed():
 				payload += SIN_WORLD_DATA.WORLD_DATA['player_inv']['slot_' + str(i+1)]['weight']
 	$UI/UI/weight.text = str(payload) + 'кг'
 	set_speed_by_payload()
-	
+
 func set_speed_by_payload():
 	match state:
 		'crouching':
@@ -511,4 +526,37 @@ func set_speed_by_payload():
 		'sprinting':
 			enter_sprint_state()
 
+func shotgun_shoot():
+	if $Head/Camera/item_display/shotgun.visible:
+		if not $Head/Camera/item_display/shotgun/shot.is_playing():
+			if SIN_WORLD_DATA.WORLD_DATA['player_inv']['slot_'+str(current_slot_selected)]['ammo_inside'] > 0:
+				SIN_WORLD_DATA.WORLD_DATA['player_inv']['slot_'+str(current_slot_selected)]['ammo_inside'] -= 1
+				$Head/Camera/item_display/shotgun/shot.play('shot')
+				var sound_id: int = randi_range(1,5)
+				get_node("Head/Camera/item_display/shotgun/fire_" + str(sound_id)).play()
+				if $Head/Camera/raycast_shotfun.is_colliding():
+					if not $Head/Camera/raycast_shotfun.get_collider() == null:
+						if $Head/Camera/raycast_shotfun.get_collider().has_method('hurt'):
+							$Head/Camera/raycast_shotfun.get_collider().hurt()
+			else:
+				$Head/Camera/item_display/shotgun/no_ammo.play()
 
+func shotgun_try_reload():
+	var isSuccessReload: bool = false
+	if SIN_WORLD_DATA.WORLD_DATA['player_inv']['slot_'+str(current_slot_selected)]['ammo_inside'] < 5:
+		if SIN_WORLD_DATA.WORLD_DATA['player_inv']['slot_1']['id'] == 'shell':
+			SIN_WORLD_DATA.WORLD_DATA['player_inv']['slot_1'] = {'id': 'void'}
+			isSuccessReload = true
+		elif SIN_WORLD_DATA.WORLD_DATA['player_inv']['slot_2']['id'] == 'shell':
+			SIN_WORLD_DATA.WORLD_DATA['player_inv']['slot_2'] = {'id': 'void'}
+			isSuccessReload = true
+		elif SIN_WORLD_DATA.WORLD_DATA['player_inv']['slot_3']['id'] == 'shell':
+			SIN_WORLD_DATA.WORLD_DATA['player_inv']['slot_3'] = {'id': 'void'}
+			isSuccessReload = true
+		elif SIN_WORLD_DATA.WORLD_DATA['player_inv']['slot_4']['id'] == 'shell':
+			SIN_WORLD_DATA.WORLD_DATA['player_inv']['slot_4'] = {'id': 'void'}
+			isSuccessReload = true
+		if isSuccessReload:
+			SIN_WORLD_DATA.WORLD_DATA['player_inv']['slot_'+str(current_slot_selected)]['ammo_inside'] += 1
+			inventory_loader.load_inventory_visual()
+			$Head/Camera/item_display/shotgun/reload.play()
