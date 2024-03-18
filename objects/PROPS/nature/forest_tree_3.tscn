@@ -68,9 +68,9 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_scd88")
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_qaem4"]
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_5krt2"]
 height = 2.8
-radius = 0.9
+radius = 0.711302
 
 [node name="forest_tree3" type="Node3D"]
 
@@ -83,4 +83,4 @@ skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="mesh/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.347237, 0)
-shape = SubResource("CylinderShape3D_qaem4")
+shape = SubResource("CylinderShape3D_5krt2")
