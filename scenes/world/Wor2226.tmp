@@ -1,0 +1,2863 @@
+[gd_scene load_steps=75 format=3 uid="uid://c66dar30xo83l"]
+
+[ext_resource type="Script" path="res://scenes/world/World.gd" id="1_xxt06"]
+[ext_resource type="PackedScene" uid="uid://b6xb3m0mq55td" path="res://objects/ENVIRONMENT/ENV.tscn" id="3_7t5e4"]
+[ext_resource type="Terrain3DStorage" uid="uid://dnhs27dsadplu" path="res://scenes/world/world_data/terrain_storage.res" id="3_gvvxl"]
+[ext_resource type="Terrain3DMaterial" uid="uid://cde8a6xoleq2s" path="res://scenes/world/world_data/terrain_material.res" id="4_eae2c"]
+[ext_resource type="PackedScene" uid="uid://cc1m2a1obsyn4" path="res://objects/player/player.tscn" id="5_6o1kf"]
+[ext_resource type="Terrain3DTextureList" uid="uid://c8pa5ggksl8p4" path="res://scenes/world/world_data/terrain_tex_list.res" id="5_ekkgx"]
+[ext_resource type="PackedScene" uid="uid://cjsj70ofmvnx2" path="res://objects/builds/roads/road.tscn" id="6_j5vhd"]
+[ext_resource type="PackedScene" uid="uid://bskp62bdkhqpp" path="res://objects/builds/street_lamp/street_lamp.tscn" id="7_6dfov"]
+[ext_resource type="PackedScene" uid="uid://dkfbfrrjn8o18" path="res://objects/builds/HOUSES/house_5/house_5.tscn" id="7_t74fg"]
+[ext_resource type="PackedScene" uid="uid://jxlhyaaw08ri" path="res://objects/builds/HOUSES/house_2/house_2.tscn" id="8_7t2yj"]
+[ext_resource type="PackedScene" uid="uid://c4uetwurks8ly" path="res://objects/builds/HOUSES/house_1/house_1.tscn" id="10_qyej0"]
+[ext_resource type="PackedScene" uid="uid://cmorp412pryek" path="res://objects/builds/HOUSES/house_3/house_3.tscn" id="11_4a5py"]
+[ext_resource type="PackedScene" uid="uid://dp80ffcw30b84" path="res://objects/builds/HOUSES/house_6/house_6.tscn" id="11_cxx1a"]
+[ext_resource type="PackedScene" uid="uid://dkj4ku0wve5y6" path="res://objects/PROPS/package_letter_receiver/package_letter_receiver.tscn" id="12_1elkd"]
+[ext_resource type="PackedScene" uid="uid://btwke8875ebcq" path="res://objects/builds/HOUSES/house_4/house_4.tscn" id="12_2pvwt"]
+[ext_resource type="Shader" path="res://shaders/lake_water.gdshader" id="12_jiaus"]
+[ext_resource type="PackedScene" uid="uid://d3k3mjiras3di" path="res://objects/PROPS/package_box_receiver/package_box_receiver.tscn" id="13_5msbq"]
+[ext_resource type="PackedScene" uid="uid://mmnbj1v5yjkb" path="res://objects/builds/school/school.tscn" id="14_6dguf"]
+[ext_resource type="PackedScene" uid="uid://cj1ydvi2t3bot" path="res://objects/builds/post_office_build/post_office_build.tscn" id="15_hcqwq"]
+[ext_resource type="PackedScene" uid="uid://c6776lt6vo53g" path="res://objects/builds/hospital/hospital.tscn" id="16_st33v"]
+[ext_resource type="Script" path="res://addons/proton_scatter/src/scatter.gd" id="17_0tutk"]
+[ext_resource type="Script" path="res://addons/proton_scatter/src/stack/modifier_stack.gd" id="18_1fwha"]
+[ext_resource type="PackedScene" uid="uid://din700dmcsdr4" path="res://objects/PROPS/package_spawner/package_spawner.tscn" id="18_viama"]
+[ext_resource type="Script" path="res://addons/proton_scatter/src/modifiers/create_inside_random.gd" id="19_6qlp7"]
+[ext_resource type="Script" path="res://addons/proton_scatter/src/modifiers/randomize_transforms.gd" id="20_xv4po"]
+[ext_resource type="Script" path="res://addons/proton_scatter/src/modifiers/relax.gd" id="21_ai286"]
+[ext_resource type="PackedScene" uid="uid://bqakwjktvavp5" path="res://objects/builds/factory/factory.tscn" id="21_h3s7q"]
+[ext_resource type="Script" path="res://addons/proton_scatter/src/modifiers/project_on_geometry.gd" id="22_k8kdo"]
+[ext_resource type="PackedScene" uid="uid://dykx8t3kgk81m" path="res://objects/builds/water_tower/water_tower.tscn" id="22_umta2"]
+[ext_resource type="PackedScene" uid="uid://buo5wtbbijrhs" path="res://objects/urban_elements/griffin_statue/griffin_statue.tscn" id="22_wb4fs"]
+[ext_resource type="Script" path="res://addons/proton_scatter/src/scatter_item.gd" id="23_kpixf"]
+[ext_resource type="MeshLibrary" path="res://resources/mesh_libs/prop_builds.meshlib" id="23_q1m3v"]
+[ext_resource type="Script" path="res://addons/proton_scatter/src/scatter_shape.gd" id="24_g5fqv"]
+[ext_resource type="Script" path="res://addons/proton_scatter/src/shapes/path_shape.gd" id="25_4ndlv"]
+[ext_resource type="PackedScene" uid="uid://b2dspemfb0g23" path="res://objects/MOBS/ufo/ufo.tscn" id="27_mbv02"]
+[ext_resource type="PackedScene" uid="uid://cpat5kv2ue7yo" path="res://objects/TRANSPORT/truck/truck.tscn" id="27_vrtll"]
+[ext_resource type="MeshLibrary" uid="uid://cc4o7n1xlohu" path="res://resources/mesh_libs/nature_meshlib.meshlib" id="32_n7ywf"]
+[ext_resource type="PackedScene" uid="uid://d2pxxt0trjk42" path="res://objects/PROPS/oil_barrel/barrel.tscn" id="35_bhpn8"]
+[ext_resource type="PackedScene" uid="uid://cow7imj1k0b0w" path="res://objects/PROPS/mine/mine.tscn" id="36_8jew2"]
+[ext_resource type="PackedScene" uid="uid://bfrej20pfi3lj" path="res://objects/SOUND_ZONES/ZONE_FOREST/ZONE_FOREST.tscn" id="36_uq1yy"]
+[ext_resource type="PackedScene" uid="uid://bmkhu84ik76nl" path="res://objects/SOUND_ZONES/ZONE_CRICKETS/ZONE_CRICKETS.tscn" id="37_pwyfn"]
+[ext_resource type="PackedScene" uid="uid://cmnf52pg6wgif" path="res://objects/urban_elements/mine_sign/mine_sign.tscn" id="37_sekee"]
+[ext_resource type="PackedScene" uid="uid://bqkmogmsrvqdr" path="res://objects/MOBS/ghost_girl/ghost_girl.tscn" id="37_wavva"]
+[ext_resource type="PackedScene" uid="uid://ckml344muac8j" path="res://objects/builds/gas_station/gas_station.tscn" id="38_b6cnr"]
+[ext_resource type="PackedScene" uid="uid://chspevxyt4l2o" path="res://objects/ENVIRONMENT/world_limiter/world_limiter.tscn" id="38_wj0qi"]
+[ext_resource type="PackedScene" uid="uid://cfw050vcnfw5o" path="res://objects/MOBS/bird/bird.tscn" id="41_myaqo"]
+[ext_resource type="PackedScene" uid="uid://dk7h0364v60bg" path="res://objects/MOBS/ufo_giant/ufo_giant.tscn" id="44_cxhy8"]
+[ext_resource type="PackedScene" uid="uid://myuxgdmd824e" path="res://objects/PROPS/shell/shell.tscn" id="46_7idbo"]
+[ext_resource type="PackedScene" uid="uid://dit3ypm30lxlf" path="res://objects/TRANSPORT/racecar/racecar.tscn" id="46_tlmci"]
+[ext_resource type="PackedScene" uid="uid://bplsofcftc4et" path="res://objects/PROPS/shotgun/shotgun.tscn" id="47_44jpd"]
+[ext_resource type="PackedScene" uid="uid://u0bq7g7v36eb" path="res://objects/PROPS/FOOD/milk/milk.tscn" id="48_ffds6"]
+[ext_resource type="PackedScene" uid="uid://dff23eg6q6d2" path="res://objects/PROPS/spray_orange/spray_orange.tscn" id="48_ui000"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_1gdrn"]
+noise_type = 3
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_hemwg"]
+width = 256
+height = 256
+seamless = true
+as_normal_map = true
+noise = SubResource("FastNoiseLite_1gdrn")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_qqcrm"]
+fractal_octaves = 1
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_npkdg"]
+seamless = true
+as_normal_map = true
+noise = SubResource("FastNoiseLite_qqcrm")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_kt21m"]
+frequency = 0.0002
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_nv46i"]
+seamless = true
+noise = SubResource("FastNoiseLite_kt21m")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_divvh"]
+render_priority = 0
+shader = ExtResource("12_jiaus")
+shader_parameter/albedo = Color(0.00392157, 0, 0.462745, 1)
+shader_parameter/albedo2 = Color(0.631373, 0.556863, 0.803922, 1)
+shader_parameter/metallic = 0.0
+shader_parameter/roughness = 0.031
+shader_parameter/wave_direction = Vector2(2, 0)
+shader_parameter/wave_direction2 = Vector2(0, 1)
+shader_parameter/time_scale = 0.025
+shader_parameter/noise_scale = 10.0
+shader_parameter/height_scale = 0.15
+shader_parameter/color_deep = Color(0, 0, 0, 1)
+shader_parameter/color_shallow = null
+shader_parameter/beers_law = 2.0
+shader_parameter/depth_offset = -0.75
+shader_parameter/edge_scale = 0.1
+shader_parameter/near = 1.0
+shader_parameter/far = 100.0
+shader_parameter/edge_color = Color(0.811765, 0.811765, 0.811765, 1)
+shader_parameter/wave = SubResource("NoiseTexture2D_nv46i")
+shader_parameter/texture_normal = SubResource("NoiseTexture2D_hemwg")
+shader_parameter/texture_normal2 = SubResource("NoiseTexture2D_npkdg")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_gc26u"]
+material = SubResource("ShaderMaterial_divvh")
+size = Vector2(2000, 600)
+
+[sub_resource type="Resource" id="Resource_iawec"]
+script = ExtResource("19_6qlp7")
+amount = 500
+enabled = true
+override_global_seed = false
+custom_seed = 0
+restrict_height = true
+reference_frame = 1
+
+[sub_resource type="Resource" id="Resource_wi0h4"]
+script = ExtResource("20_xv4po")
+position = Vector3(0.15, 0.15, 0.15)
+rotation = Vector3(0, 360, 0)
+scale = Vector3(0.1, 0.5, 0.1)
+enabled = true
+override_global_seed = false
+custom_seed = 0
+restrict_height = false
+reference_frame = 2
+
+[sub_resource type="Resource" id="Resource_06nsj"]
+script = ExtResource("21_ai286")
+iterations = 3
+offset_step = 0.2
+consecutive_step_multiplier = 0.75
+use_computeshader = true
+enabled = true
+override_global_seed = false
+custom_seed = 0
+restrict_height = true
+reference_frame = 0
+
+[sub_resource type="Resource" id="Resource_qlgtf"]
+script = ExtResource("22_k8kdo")
+ray_direction = Vector3(0, -1, 0)
+ray_length = 5.0
+ray_offset = 5.0
+remove_points_on_miss = false
+align_with_collision_normal = false
+max_slope = 90.0
+collision_mask = 1
+exclude_mask = 0
+enabled = true
+override_global_seed = false
+custom_seed = 0
+restrict_height = false
+reference_frame = 0
+
+[sub_resource type="Resource" id="Resource_px8t0"]
+script = ExtResource("18_1fwha")
+stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_iawec"), SubResource("Resource_wi0h4"), SubResource("Resource_06nsj"), SubResource("Resource_qlgtf")])
+
+[sub_resource type="Curve3D" id="Curve3D_2u2vc"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -0.729141, 0, 1554.43, 0, 0, 0, 0, 0, 0, 214.226, 0, 1346.41, 0, 0, 0, 0, 0, 0, 235.028, 0, 923.429, 0, 0, 0, 0, 0, 0, 135.64, 0, 787.06, 0, 0, 0, 0, 0, 0, 315.926, 0, 599.841, 0, 0, 0, 0, 0, 0, 433.804, 0, 387.197, 0, 0, 0, 0, 0, 0, 334.416, 0, 220.779, 0, 0, 0, 0, 0, 0, 831.356, 0, 324.79, 0, 0, 0, 0, 0, 0, 1138.77, 0, 167.618, 0, 0, 0, 0, 0, 0, 1397.64, 0, 218.468, 0, 0, 0, 0, 0, 0, 1679.62, 0, 255.45, 0, 0, 0, 0, 0, 0, 1760.52, 0, 562.859, 0, 0, 0, 0, 0, 0, 1797.5, 0, 934.986, 0, 0, 0, 0, 0, 0, 1896.89, 0, 1078.29, 0, 0, 0, 0, 0, 0, 2042.5, 0, 1057.49, 0, 0, 0, 0, 0, 0, 2044.81, 0, 22.0034, 0, 0, 0, 0, 0, 0, -7.66327, 0, 10.4467),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 17
+
+[sub_resource type="Resource" id="Resource_e18i2"]
+script = ExtResource("25_4ndlv")
+closed = true
+thickness = 0.0
+curve = SubResource("Curve3D_2u2vc")
+
+[sub_resource type="Resource" id="Resource_24won"]
+script = ExtResource("19_6qlp7")
+amount = 2000
+enabled = true
+override_global_seed = false
+custom_seed = 0
+restrict_height = true
+reference_frame = 1
+
+[sub_resource type="Resource" id="Resource_ycya3"]
+script = ExtResource("20_xv4po")
+position = Vector3(0.15, 0.15, 0.15)
+rotation = Vector3(1, 360, 1)
+scale = Vector3(0.1, 1, 0.1)
+enabled = true
+override_global_seed = false
+custom_seed = 0
+restrict_height = false
+reference_frame = 2
+
+[sub_resource type="Resource" id="Resource_s3ypa"]
+script = ExtResource("21_ai286")
+iterations = 1
+offset_step = 0.1
+consecutive_step_multiplier = 1.0
+use_computeshader = true
+enabled = true
+override_global_seed = false
+custom_seed = 0
+restrict_height = true
+reference_frame = 0
+
+[sub_resource type="Resource" id="Resource_f4xlt"]
+script = ExtResource("22_k8kdo")
+ray_direction = Vector3(0, -1, 0)
+ray_length = 5.0
+ray_offset = 5.0
+remove_points_on_miss = false
+align_with_collision_normal = false
+max_slope = 90.0
+collision_mask = 1
+exclude_mask = 0
+enabled = true
+override_global_seed = false
+custom_seed = 0
+restrict_height = false
+reference_frame = 0
+
+[sub_resource type="Resource" id="Resource_vd30h"]
+script = ExtResource("18_1fwha")
+stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_24won"), SubResource("Resource_ycya3"), SubResource("Resource_s3ypa"), SubResource("Resource_f4xlt")])
+
+[sub_resource type="Curve3D" id="Curve3D_b4q5a"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -49.6322, 0, 136.373, 0, 0, 0, 0, 0, 0, -105.641, 0, 118.828, 0, 0, 0, 0, 0, 0, -155.576, 0, 109.381, 0, 0, 0, 0, 0, 0, -246.887, 0, 121.704, 0, 0, 0, 0, 0, 0, -302.782, 0, 148.832, 0, 0, 0, 0, 0, 0, -407.376, 0, 173.125, 0, 0, 0, 0, 0, 0, -557.799, 0, 190.664, 0, 0, 0, 0, 0, 0, -689.604, 0, 196.228, 0, 0, 0, 0, 0, 0, -791.499, 0, 210.399, 0, 0, 0, 0, 0, 0, -923.086, 0, 211.748, 0, 0, 0, 0, 0, 0, -1023.01, 0, 207.789, 0, 0, 0, 0, 0, 0, -1142.45, 0, 205.765, 0, 0, 0, 0, 0, 0, -1269.98, 0, 201.716, 0, 0, 0, 0, 0, 0, -1406.97, 0, 202.391, 0, 0, 0, 0, 0, 0, -1493.18, 0, 211.235, 0, 0, 0, 0, 0, 0, -1570.79, 0, 246.325, 0, 0, 0, 0, 0, 0, -1618.02, 0, 280.065, 0, 0, 0, 0, 0, 0, -1706.42, 0, 276.691, 0, 0, 0, 0, 0, 0, -1808.99, 0, 324.602, 0, 0, 0, 0, 0, 0, -1863.02, 0, 415.622, 0, 0, 0, 0, 0, 0, -1866.39, 0, 483.102, 0, 0, 0, 0, 0, 0, -1844.12, 0, 547.208, 0, 0, 0, 0, 0, 0, -1798.24, 0, 599.168, 0, 0, 0, 0, 0, 0, -1823.2, 0, 614.013, 0, 0, 0, 0, 0, 0, -1867.07, 0, 562.054, 0, 0, 0, 0, 0, 0, -1890.01, 0, 490.525, 0, 0, 0, 0, 0, 0, -1879.89, 0, 412.248, 0, 0, 0, 0, 0, 0, -1822.5, 0, 312.818, 0, 0, 0, 0, 0, 0, -1713.33, 0, 252.444, 0, 0, 0, 0, 0, 0, -1620.89, 0, 255.143, 0, 0, 0, 0, 0, 0, -1549.36, 0, 202.508, 0, 0, 0, 0, 0, 0, -1405.94, 0, 184.215, 0, 0, 0, 0, 0, 0, -1266.18, 0, 179.592, 0, 0, 0, 0, 0, 0, -1138.64, 0, 187.69, 0, 0, 0, 0, 0, 0, -981.416, 0, 187.015, 0, 0, 0, 0, 0, 0, -770.056, 0, 181.542, 0, 0, 0, 0, 0, 0, -581.786, 0, 168.046, 0, 0, 0, 0, 0, 0, -393.857, 0, 135.855, 0, 0, 0, 0, 0, 0, -235.278, 0, 96.7166, 0, 0, 0, 0, 0, 0, -78.7241, 0, 83.8953),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 40
+
+[sub_resource type="Resource" id="Resource_o2ocv"]
+script = ExtResource("25_4ndlv")
+closed = true
+thickness = 0.0
+curve = SubResource("Curve3D_b4q5a")
+
+[node name="World" type="Node"]
+script = ExtResource("1_xxt06")
+
+[node name="SERVERS" type="Node" parent="."]
+
+[node name="timer_daycycle" type="Timer" parent="SERVERS"]
+autostart = true
+
+[node name="WorldEnv" type="Node" parent="."]
+
+[node name="ENV" parent="WorldEnv" instance=ExtResource("3_7t5e4")]
+
+[node name="Levels" type="Node" parent="."]
+
+[node name="terrain" type="Node" parent="Levels"]
+
+[node name="Terrain3D" type="Terrain3D" parent="Levels/terrain"]
+storage = ExtResource("3_gvvxl")
+material = ExtResource("4_eae2c")
+texture_list = ExtResource("5_ekkgx")
+
+[node name="road" type="Node" parent="Levels"]
+
+[node name="road" parent="Levels/road" instance=ExtResource("6_j5vhd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 964.54, 0, 1047.9)
+
+[node name="lampposts" type="Node" parent="Levels/road"]
+
+[node name="lamppost" parent="Levels/road/lampposts" instance=ExtResource("7_6dfov")]
+transform = Transform3D(0.982238, 0, 0.187638, 0, 1, 0, -0.187638, 0, 0.982238, 2028, 0, 1121.15)
+
+[node name="lamppost2" parent="Levels/road/lampposts" instance=ExtResource("7_6dfov")]
+transform = Transform3D(-0.968791, 0, -0.247878, 0, 1, 0, 0.247878, 0, -0.968791, 2013.03, 0, 1140.15)
+
+[node name="lamppost3" parent="Levels/road/lampposts" instance=ExtResource("7_6dfov")]
+transform = Transform3D(0.868632, 0, 0.495459, 0, 1, 0, -0.495459, 0, 0.868632, 1977.13, 0, 1138.95)
+
+[node name="lamppost4" parent="Levels/road/lampposts" instance=ExtResource("7_6dfov")]
+transform = Transform3D(-0.881254, 0, -0.472643, 0, 1, 0, 0.472643, 0, -0.881254, 1956.32, 0, 1167.42)
+
+[node name="lamppost5" parent="Levels/road/lampposts" instance=ExtResource("7_6dfov")]
+transform = Transform3D(0.84863, 0, 0.528986, 0, 1, 0, -0.528986, 0, 0.84863, 1910.82, 0, 1175.29)
+
+[node name="lamppost6" parent="Levels/road/lampposts" instance=ExtResource("7_6dfov")]
+transform = Transform3D(-0.932002, 0, -0.362454, 0, 1, 0, 0.362454, 0, -0.932002, 1878.39, 0, 1208.49)
+
+[node name="lamppost7" parent="Levels/road/lampposts" instance=ExtResource("7_6dfov")]
+transform = Transform3D(0.938554, 0, 0.345134, 0, 1, 0, -0.345134, 0, 0.938554, 1821.58, 0, 1212.66)
+
+[node name="lamppost8" parent="Levels/road/lampposts" instance=ExtResource("7_6dfov")]
+transform = Transform3D(-0.997956, 0, 0.0639053, 0, 1, 0, -0.0639053, 0, -0.997956, 1773.6, 0, 1234.55)
+
+[node name="lamppost9" parent="Levels/road/lampposts" instance=ExtResource("7_6dfov")]
+transform = Transform3D(0.953001, 0, -0.302969, 0, 1, 0, 0.302969, 0, 0.953001, 1712.32, 0, 1210.03)
+
+[node name="lamppost10" parent="Levels/road/lampposts" instance=ExtResource("7_6dfov")]
+transform = Transform3D(-0.981607, 0, 0.190912, 0, 1, 0, -0.190912, 0, -0.981607, 1646.22, 0, 1208.83)
+
+[node name="lamppost11" parent="Levels/road/lampposts" instance=ExtResource("7_6dfov")]
+transform = Transform3D(0.996554, 0, 0.0829476, 0, 1, 0, -0.0829476, 0, 0.996554, 1564.93, 0, 1189.87)
+
+[node name="lamppost12" parent="Levels/road/lampposts" instance=ExtResource("7_6dfov")]
+transform = Transform3D(-0.940916, 0, -0.33864, 0, 1, 0, 0.33864, 0, -0.940916, 1510.4, 0, 1222.65)
+
+[node name="lamppost13" parent="Levels/road/lampposts" instance=ExtResource("7_6dfov")]
+transform = Transform3D(-0.940916, 0, -0.33864, 0, 1, 0, 0.33864, 0, -0.940916, 1449.67, 0, 1249.25)
+
+[node name="lamppost14" parent="Levels/road/lampposts" instance=ExtResource("7_6dfov")]
+transform = Transform3D(0.818331, 0, -0.574748, 0, 1, 0, 0.574748, 0, 0.818331, 1374.88, 0, 1255.79)
+
+[node name="lamppost15" parent="Levels/road/lampposts" instance=ExtResource("7_6dfov")]
+transform = Transform3D(-0.78496, 0, -0.619546, 0, 1, 0, 0.619546, 0, -0.78496, 1319.42, 0, 1279.78)
+
+[node name="lamppost16" parent="Levels/road/lampposts" instance=ExtResource("7_6dfov")]
+transform = Transform3D(-0.999353, 0, 0.0359634, 0, 1, 0, -0.0359634, 0, -0.999353, 1255.62, 0, 1276.75)
+
+[node name="lamppost17" parent="Levels/road/lampposts" instance=ExtResource("7_6dfov")]
+transform = Transform3D(0.928122, 0, -0.372275, 0, 1, 0, 0.372275, 0, 0.928122, 1194.62, 0, 1241.71)
+
+[node name="lamppost18" parent="Levels/road/lampposts" instance=ExtResource("7_6dfov")]
+transform = Transform3D(0.959447, 0, 0.281889, 0, 1, 0, -0.281889, 0, 0.959447, 1137.57, 0, 1212.49)
+
+[node name="lamppost19" parent="Levels/road/lampposts" instance=ExtResource("7_6dfov")]
+transform = Transform3D(-0.968653, 0, -0.248419, 0, 1, 0, 0.248419, 0, -0.968653, 1046.53, 0, 1173.47)
+
+[node name="lamppost20" parent="Levels/road/lampposts" instance=ExtResource("7_6dfov")]
+transform = Transform3D(-0.847872, 0, 0.530201, 0, 1, 0, -0.530201, 0, -0.847872, 976.128, 0, 1123.33)
+
+[node name="lamppost21" parent="Levels/road/lampposts" instance=ExtResource("7_6dfov")]
+transform = Transform3D(0.592758, 0, -0.80538, 0, 1, 0, 0.80538, 0, 0.592758, 911.497, 0, 1058.86)
+
+[node name="lamppost99" parent="Levels/road/lampposts" instance=ExtResource("7_6dfov")]
+transform = Transform3D(-0.150346, 0, -0.988633, 0, 1, 0, 0.988633, 0, -0.150346, 916.62, 2.38419e-06, 1201.9)
+
+[node name="lamppost100" parent="Levels/road/lampposts" instance=ExtResource("7_6dfov")]
+transform = Transform3D(0.100709, 0, -0.994916, 0, 1, 0, 0.994916, 0, 0.100709, 916.777, 4.29153e-06, 1135.48)
+
+[node name="lamppost22" parent="Levels/road/lampposts" instance=ExtResource("7_6dfov")]
+transform = Transform3D(0.148724, 0, -0.988879, 0, 1, 0, 0.988879, 0, 0.148724, 849.002, 0, 1021.15)
+
+[node name="lamppost23" parent="Levels/road/lampposts" instance=ExtResource("7_6dfov")]
+transform = Transform3D(0.378584, 0, -0.925567, 0, 1, 0, 0.925567, 0, 0.378584, 771.227, 0, 990.895)
+
+[node name="lamppost24" parent="Levels/road/lampposts" instance=ExtResource("7_6dfov")]
+transform = Transform3D(0.744952, 0, 0.667118, 0, 1, 0, -0.667118, 0, 0.744952, 706.065, 0, 986.83)
+
+[node name="lamppost25" parent="Levels/road/lampposts" instance=ExtResource("7_6dfov")]
+transform = Transform3D(0.680056, 0, 0.73316, 0, 1, 0, -0.73316, 0, 0.680056, 649.695, 0, 997.741)
+
+[node name="lamppost26" parent="Levels/road/lampposts" instance=ExtResource("7_6dfov")]
+transform = Transform3D(-0.412151, 0, -0.911116, 0, 1, 0, 0.911116, 0, -0.412151, 554.83, 0, 1047.52)
+
+[node name="lamppost27" parent="Levels/road/lampposts" instance=ExtResource("7_6dfov")]
+transform = Transform3D(-0.162775, 0, 0.986663, 0, 1, 0, -0.986663, 0, -0.162775, 524.777, 0, 992.19)
+
+[node name="lamppost28" parent="Levels/road/lampposts" instance=ExtResource("7_6dfov")]
+transform = Transform3D(0.245392, 0, -0.969424, 0, 1, 0, 0.969424, 0, 0.245392, 514.47, 0, 903.948)
+
+[node name="lamppost29" parent="Levels/road/lampposts" instance=ExtResource("7_6dfov")]
+transform = Transform3D(-0.99814, 0, -0.0609615, 0, 1, 0, 0.0609615, 0, -0.99814, 368.877, 0, 879.643)
+
+[node name="lamppost30" parent="Levels/road/lampposts" instance=ExtResource("7_6dfov")]
+transform = Transform3D(0.991558, 0, 0.129661, 0, 1, 0, -0.129661, 0, 0.991558, 479.337, 0, 858.884)
+
+[node name="lamppost31" parent="Levels/road/lampposts" instance=ExtResource("7_6dfov")]
+transform = Transform3D(-0.979088, 0, -0.203437, 0, 1, 0, 0.203437, 0, -0.979088, 587.866, 0, 853.623)
+
+[node name="lamppost32" parent="Levels/road/lampposts" instance=ExtResource("7_6dfov")]
+transform = Transform3D(-0.994911, 0, -0.100761, 0, 1, 0, 0.100761, 0, -0.994911, 671.785, 0, 848.151)
+
+[node name="lamppost33" parent="Levels/road/lampposts" instance=ExtResource("7_6dfov")]
+transform = Transform3D(-0.999773, 0, 0.0212912, 0, 1, 0, -0.0212912, 0, -0.999773, 753.258, 0, 856.633)
+
+[node name="lamppost34" parent="Levels/road/lampposts" instance=ExtResource("7_6dfov")]
+transform = Transform3D(-0.362698, 0, 0.931907, 0, 1, 0, -0.931907, 0, -0.362698, 868.992, 0, 882.567)
+
+[node name="lamppost35" parent="Levels/road/lampposts" instance=ExtResource("7_6dfov")]
+transform = Transform3D(-0.362698, 0, 0.931907, 0, 1, 0, -0.931907, 0, -0.362698, 912.039, 0, 722.321)
+
+[node name="lamppost36" parent="Levels/road/lampposts" instance=ExtResource("7_6dfov")]
+transform = Transform3D(-0.25499, 0, -0.966944, 0, 1, 0, 0.966944, 0, -0.25499, 910.779, 0, 804.321)
+
+[node name="lamppost37" parent="Levels/road/lampposts" instance=ExtResource("7_6dfov")]
+transform = Transform3D(-0.25499, 0, -0.966944, 0, 1, 0, 0.966944, 0, -0.25499, 960.853, 0, 596.744)
+
+[node name="lamppost38" parent="Levels/road/lampposts" instance=ExtResource("7_6dfov")]
+transform = Transform3D(0.196117, 0, 0.980581, 0, 1, 0, -0.980581, 0, 0.196117, 981.273, 0, 441.982)
+
+[node name="lamppost39" parent="Levels/road/lampposts" instance=ExtResource("7_6dfov")]
+transform = Transform3D(-0.326112, 0, -0.945331, 0, 1, 0, 0.945331, 0, -0.326112, 1024.03, 0, 334.689)
+
+[node name="lamppost40" parent="Levels/road/lampposts" instance=ExtResource("7_6dfov")]
+transform = Transform3D(-0.598926, 0, 0.800804, 0, 1, 0, -0.800804, 0, -0.598926, 789.494, 0, 676.94)
+
+[node name="lamppost41" parent="Levels/road/lampposts" instance=ExtResource("7_6dfov")]
+transform = Transform3D(-0.598926, 0, 0.800804, 0, 1, 0, -0.800804, 0, -0.598926, 724.07, 0, 657.356)
+
+[node name="lamppost42" parent="Levels/road/lampposts" instance=ExtResource("7_6dfov")]
+transform = Transform3D(0.426063, 0, 0.904693, 0, 1, 0, -0.904693, 0, 0.426063, 637.944, 0, 621.611)
+
+[node name="lamppost43" parent="Levels/road/lampposts" instance=ExtResource("7_6dfov")]
+transform = Transform3D(-0.18889, 0, -0.981998, 0, 1, 0, 0.981998, 0, -0.18889, 753.022, 0, 553.907)
+
+[node name="lamppost44" parent="Levels/road/lampposts" instance=ExtResource("7_6dfov")]
+transform = Transform3D(-0.18889, 0, -0.981998, 0, 1, 0, 0.981998, 0, -0.18889, 826.357, 0, 513.925)
+
+[node name="lamppost45" parent="Levels/road/lampposts" instance=ExtResource("7_6dfov")]
+transform = Transform3D(-0.269844, 0, -0.962904, 0, 1, 0, 0.962904, 0, -0.269844, 908.412, 0, 513.925)
+
+[node name="lamppost46" parent="Levels/road/lampposts" instance=ExtResource("7_6dfov")]
+transform = Transform3D(-0.0559784, 0, 0.998432, 0, 1, 0, -0.998432, 0, -0.0559784, 866.453, 0, 650.925)
+
+[node name="lamppost47" parent="Levels/road/lampposts" instance=ExtResource("7_6dfov")]
+transform = Transform3D(0.343332, 0, 0.939214, 0, 1, 0, -0.939214, 0, 0.343332, 929.933, 0, 922.427)
+
+[node name="lamppost48" parent="Levels/road/lampposts" instance=ExtResource("7_6dfov")]
+transform = Transform3D(0.775727, 0, 0.631069, 0, 1, 0, -0.631069, 0, 0.775727, 969.704, 0, 786.713)
+
+[node name="lamppost49" parent="Levels/road/lampposts" instance=ExtResource("7_6dfov")]
+transform = Transform3D(0.95308, 0, -0.302719, 0, 1, 0, 0.302719, 0, 0.95308, 1034.2, 0, 977.969)
+
+[node name="lamppost50" parent="Levels/road/lampposts" instance=ExtResource("7_6dfov")]
+transform = Transform3D(0.983099, 0, -0.183076, 0, 1, 0, 0.183076, 0, 0.983099, 1129.26, 0, 999.081)
+
+[node name="lamppost51" parent="Levels/road/lampposts" instance=ExtResource("7_6dfov")]
+transform = Transform3D(0.529623, 0, 0.848233, 0, 1, 0, -0.848233, 0, 0.529623, 1109.64, 0, 848.676)
+
+[node name="lamppost52" parent="Levels/road/lampposts" instance=ExtResource("7_6dfov")]
+transform = Transform3D(-0.135473, 0, -0.990781, 0, 1, 0, 0.990781, 0, -0.135473, 1199.13, 0, 848.676)
+
+[node name="lamppost53" parent="Levels/road/lampposts" instance=ExtResource("7_6dfov")]
+transform = Transform3D(0.178236, 0, 0.983988, 0, 1, 0, -0.983988, 0, 0.178236, 1201.18, 0, 699.924)
+
+[node name="lamppost54" parent="Levels/road/lampposts" instance=ExtResource("7_6dfov")]
+transform = Transform3D(-0.550189, 0, 0.83504, 0, 1, 0, -0.83504, 0, -0.550189, 1253.34, 0, 1056.34)
+
+[node name="lamppost55" parent="Levels/road/lampposts" instance=ExtResource("7_6dfov")]
+transform = Transform3D(0.506651, 0, -0.862151, 0, 1, 0, 0.862151, 0, 0.506651, 1337.15, 0, 1056.34)
+
+[node name="lamppost56" parent="Levels/road/lampposts" instance=ExtResource("7_6dfov")]
+transform = Transform3D(0.577373, 0, -0.81648, 0, 1, 0, 0.81648, 0, 0.577373, 1379.33, 0, 1143.86)
+
+[node name="lamppost57" parent="Levels/road/lampposts" instance=ExtResource("7_6dfov")]
+transform = Transform3D(-0.962436, 0, -0.271508, 0, 1, 0, 0.271508, 0, -0.962436, 1517.15, 0, 1132.1)
+
+[node name="lamppost58" parent="Levels/road/lampposts" instance=ExtResource("7_6dfov")]
+transform = Transform3D(-0.806837, 0, 0.590775, 0, 1, 0, -0.590775, 0, -0.806837, 1682.4, 0, 1109.89)
+
+[node name="lamppost59" parent="Levels/road/lampposts" instance=ExtResource("7_6dfov")]
+transform = Transform3D(-0.0677716, 0, -0.997701, 0, 1, 0, 0.997701, 0, -0.0677716, 1669.46, 0, 1386.78)
+
+[node name="lamppost60" parent="Levels/road/lampposts" instance=ExtResource("7_6dfov")]
+transform = Transform3D(-0.0134736, 0, 0.999909, 0, 1, 0, -0.999909, 0, -0.0134736, 1659.09, 0, 1301.68)
+
+[node name="lamppost61" parent="Levels/road/lampposts" instance=ExtResource("7_6dfov")]
+transform = Transform3D(-0.0134736, 0, 0.999909, 0, 1, 0, -0.999909, 0, -0.0134736, 1533.85, 0, 1320.72)
+
+[node name="lamppost62" parent="Levels/road/lampposts" instance=ExtResource("7_6dfov")]
+transform = Transform3D(0.169177, 0, 0.985586, 0, 1, 0, -0.985586, 0, 0.169177, 1492.31, 0, 1278.84)
+
+[node name="lamppost63" parent="Levels/road/lampposts" instance=ExtResource("7_6dfov")]
+transform = Transform3D(-0.0544448, 0, -0.998517, 0, 1, 0, 0.998517, 0, -0.0544448, 1491.71, 0, 1382.79)
+
+[node name="lamppost64" parent="Levels/road/lampposts" instance=ExtResource("7_6dfov")]
+transform = Transform3D(0.142905, 0, 0.989736, 0, 1, 0, -0.989736, 0, 0.142905, 1495.63, 0, 1529.18)
+
+[node name="lamppost65" parent="Levels/road/lampposts" instance=ExtResource("7_6dfov")]
+transform = Transform3D(-0.986615, 0, 0.163068, 0, 1, 0, -0.163068, 0, -0.986615, 1630.42, 0, 1529.18)
+
+[node name="lamppost66" parent="Levels/road/lampposts" instance=ExtResource("7_6dfov")]
+transform = Transform3D(0.851361, 0, 0.52458, 0, 1, 0, -0.52458, 0, 0.851361, 1345.42, 0, 1566.22)
+
+[node name="lamppost67" parent="Levels/road/lampposts" instance=ExtResource("7_6dfov")]
+transform = Transform3D(-0.959176, 0, -0.28281, 0, 1, 0, 0.28281, 0, -0.959176, 1345.42, 0, 1461.75)
+
+[node name="lamppost68" parent="Levels/road/lampposts" instance=ExtResource("7_6dfov")]
+transform = Transform3D(0.591014, 0, -0.806661, 0, 1, 0, 0.806661, 0, 0.591014, 1282.83, 0, 1369.59)
+
+[node name="lamppost69" parent="Levels/road/lampposts" instance=ExtResource("7_6dfov")]
+transform = Transform3D(-0.850536, 0, -0.525917, 0, 1, 0, 0.525917, 0, -0.850536, 1157.76, 0, 1395.5)
+
+[node name="lamppost70" parent="Levels/road/lampposts" instance=ExtResource("7_6dfov")]
+transform = Transform3D(0.971763, 0, 0.235956, 0, 1, 0, -0.235956, 0, 0.971763, 969.761, 0, 1462.65)
+
+[node name="lamppost71" parent="Levels/road/lampposts" instance=ExtResource("7_6dfov")]
+transform = Transform3D(-0.964234, 0, -0.265051, 0, 1, 0, 0.265051, 0, -0.964234, 1110.78, 0, 1454.29)
+
+[node name="lamppost72" parent="Levels/road/lampposts" instance=ExtResource("7_6dfov")]
+transform = Transform3D(0.812022, 0, -0.583626, 0, 1, 0, 0.583626, 0, 0.812022, 1089.4, 0, 1363.29)
+
+[node name="lamppost73" parent="Levels/road/lampposts" instance=ExtResource("7_6dfov")]
+transform = Transform3D(-0.958013, 0, 0.286725, 0, 1, 0, -0.286725, 0, -0.958013, 968.606, 0, 1321.97)
+
+[node name="lamppost74" parent="Levels/road/lampposts" instance=ExtResource("7_6dfov")]
+transform = Transform3D(0.637061, 0, -0.770814, 0, 1, 0, 0.770814, 0, 0.637061, 912.008, 0, 1290.93)
+
+[node name="lamppost75" parent="Levels/road/lampposts" instance=ExtResource("7_6dfov")]
+transform = Transform3D(-0.911576, 0, -0.411133, 0, 1, 0, 0.411133, 0, -0.911576, 748.309, 0, 1297.21)
+
+[node name="lamppost76" parent="Levels/road/lampposts" instance=ExtResource("7_6dfov")]
+transform = Transform3D(0.953948, 0, 0.299973, 0, 1, 0, -0.299973, 0, 0.953948, 660.876, 0, 1301.23)
+
+[node name="lamppost77" parent="Levels/road/lampposts" instance=ExtResource("7_6dfov")]
+transform = Transform3D(0.948263, 0, 0.317487, 0, 1, 0, -0.317487, 0, 0.948263, 670.92, 0, 1555.64)
+
+[node name="lamppost78" parent="Levels/road/lampposts" instance=ExtResource("7_6dfov")]
+transform = Transform3D(0.285839, 0, -0.958278, 0, 1, 0, 0.958278, 0, 0.285839, 679.325, 0, 1424.77)
+
+[node name="lamppost79" parent="Levels/road/lampposts" instance=ExtResource("7_6dfov")]
+transform = Transform3D(0.0726636, 0, 0.997357, 0, 1, 0, -0.997357, 0, 0.0726636, 602.325, 0, 1424.77)
+
+[node name="lamppost80" parent="Levels/road/lampposts" instance=ExtResource("7_6dfov")]
+transform = Transform3D(0.945006, 0, -0.327053, 0, 1, 0, 0.327053, 0, 0.945006, 530.325, 0, 1533.52)
+
+[node name="lamppost81" parent="Levels/road/lampposts" instance=ExtResource("7_6dfov")]
+transform = Transform3D(0.495656, 0, 0.868519, 0, 1, 0, -0.868519, 0, 0.495656, 513.676, 0, 1123.25)
+
+[node name="lamppost82" parent="Levels/road/lampposts" instance=ExtResource("7_6dfov")]
+transform = Transform3D(0.21228, 0, -0.977209, 0, 1, 0, 0.977209, 0, 0.21228, 480.022, 0, 1266.7)
+
+[node name="lamppost83" parent="Levels/road/lampposts" instance=ExtResource("7_6dfov")]
+transform = Transform3D(0.0276077, 0, 0.999619, 0, 1, 0, -0.999619, 0, 0.0276077, 457.232, 0, 1353.99)
+
+[node name="lamppost84" parent="Levels/road/lampposts" instance=ExtResource("7_6dfov")]
+transform = Transform3D(-0.729637, 0, -0.683834, 0, 1, 0, 0.683834, 0, -0.729637, 415.894, 0, 1497.99)
+
+[node name="lamppost85" parent="Levels/road/lampposts" instance=ExtResource("7_6dfov")]
+transform = Transform3D(0.813141, 0, 0.582066, 0, 1, 0, -0.582066, 0, 0.813141, 276.772, 0, 1586.3)
+
+[node name="lamppost86" parent="Levels/road/lampposts" instance=ExtResource("7_6dfov")]
+transform = Transform3D(0.407231, 0, 0.913325, 0, 1, 0, -0.913325, 0, 0.407231, 226.605, 0, 1605.81)
+
+[node name="lamppost87" parent="Levels/road/lampposts" instance=ExtResource("7_6dfov")]
+transform = Transform3D(-0.380635, 0, -0.924726, 0, 1, 0, 0.924726, 0, -0.380635, 197.397, 0, 1718.81)
+
+[node name="lamppost88" parent="Levels/road/lampposts" instance=ExtResource("7_6dfov")]
+transform = Transform3D(0.532093, 0, 0.846686, 0, 1, 0, -0.846686, 0, 0.532093, 137.508, 0, 1788.27)
+
+[node name="lamppost89" parent="Levels/road/lampposts" instance=ExtResource("7_6dfov")]
+transform = Transform3D(0.408235, 0, 0.912877, 0, 1, 0, -0.912877, 0, 0.408235, 74.786, 0, 1788.27)
+
+[node name="lamppost90" parent="Levels/road/lampposts" instance=ExtResource("7_6dfov")]
+transform = Transform3D(-0.196442, 0, -0.980515, 0, 1, 0, 0.980515, 0, -0.196442, 119.543, 0, 1692.98)
+
+[node name="lamppost91" parent="Levels/road/lampposts" instance=ExtResource("7_6dfov")]
+transform = Transform3D(-0.939016, 0, 0.343873, 0, 1, 0, -0.343873, 0, -0.939016, 114.498, 0, 1562.82)
+
+[node name="lamppost92" parent="Levels/road/lampposts" instance=ExtResource("7_6dfov")]
+transform = Transform3D(-0.9463, 0, -0.32329, 0, 1, 0, 0.32329, 0, -0.9463, 193.356, 0, 1503.26)
+
+[node name="lamppost93" parent="Levels/road/lampposts" instance=ExtResource("7_6dfov")]
+transform = Transform3D(0.0848431, 0, 0.996394, 0, 1, 0, -0.996394, 0, 0.0848431, 212.189, 0, 1411.53)
+
+[node name="lamppost94" parent="Levels/road/lampposts" instance=ExtResource("7_6dfov")]
+transform = Transform3D(-0.423662, 0, -0.90582, 0, 1, 0, 0.90582, 0, -0.423662, 265.322, 0, 1297.53)
+
+[node name="lamppost95" parent="Levels/road/lampposts" instance=ExtResource("7_6dfov")]
+transform = Transform3D(0.27661, 0, 0.960982, 0, 1, 0, -0.960982, 0, 0.27661, 280.996, 0, 1166.53)
+
+[node name="lamppost96" parent="Levels/road/lampposts" instance=ExtResource("7_6dfov")]
+transform = Transform3D(-0.845029, 0, -0.534721, 0, 1, 0, 0.534721, 0, -0.845029, 344.088, 0, 1096.43)
+
+[node name="lamppost97" parent="Levels/road/lampposts" instance=ExtResource("7_6dfov")]
+transform = Transform3D(0.999763, 0, 0.0217628, 0, 1, 0, -0.0217628, 0, 0.999763, 431.896, 0, 1051.69)
+
+[node name="lamppost98" parent="Levels/road/lampposts" instance=ExtResource("7_6dfov")]
+transform = Transform3D(-0.999322, 0, -0.0368184, 0, 1, 0, 0.0368184, 0, -0.999322, 499.896, 0, 1061.7)
+
+[node name="streets" type="Node" parent="Levels"]
+
+[node name="pobedi_2" parent="Levels/streets" instance=ExtResource("7_t74fg")]
+transform = Transform3D(-0.953512, 0, 0.301355, 0, 1, 0, -0.301355, 0, -0.953512, 1026.37, 0, 817.73)
+street_name = "ул Победы, 2"
+
+[node name="package_box_receiver" parent="Levels/streets/pobedi_2" instance=ExtResource("13_5msbq")]
+transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 0, 0, 0.999999, -18.5083, 0.268274, 5.2251)
+deliver_code = "00056"
+
+[node name="package_letter_receiver" parent="Levels/streets/pobedi_2" instance=ExtResource("12_1elkd")]
+transform = Transform3D(0.999999, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 0.999999, -21.4915, 1.05542, 5.05249)
+deliver_code = "00056"
+
+[node name="package_box_receiver2" parent="Levels/streets/pobedi_2" instance=ExtResource("13_5msbq")]
+transform = Transform3D(0.999999, 0, 5.96046e-08, 0, 1, 0, -5.96046e-08, 0, 0.999999, 1.50122, 0.268274, 5.22961)
+deliver_code = "00057"
+
+[node name="package_letter_receiver2" parent="Levels/streets/pobedi_2" instance=ExtResource("12_1elkd")]
+transform = Transform3D(0.999998, 0, 1.49012e-08, 0, 1, 0, -1.49012e-08, 0, 0.999998, -1.48212, 1.05542, 5.05676)
+deliver_code = "00057"
+
+[node name="package_box_receiver3" parent="Levels/streets/pobedi_2" instance=ExtResource("13_5msbq")]
+transform = Transform3D(0.999998, 0, 1.49012e-08, 0, 1, 0, -1.49012e-08, 0, 0.999998, 21.5818, 0.268274, 5.22717)
+deliver_code = "00058"
+
+[node name="package_letter_receiver3" parent="Levels/streets/pobedi_2" instance=ExtResource("12_1elkd")]
+transform = Transform3D(0.999997, 0, 1.49012e-08, 0, 1, 0, -1.49012e-08, 0, 0.999997, 18.5986, 1.05542, 5.05493)
+deliver_code = "00058"
+
+[node name="visotnaya_1" parent="Levels/streets" instance=ExtResource("7_t74fg")]
+transform = Transform3D(-0.258819, 0, -0.965926, 0, 1, 0, 0.965926, 0, -0.258819, 973.47, 0, 863)
+street_name = "ул Высотная, 1"
+
+[node name="package_box_receiver" parent="Levels/streets/visotnaya_1" instance=ExtResource("13_5msbq")]
+transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 0, 0, 0.999999, -18.5083, 0.268274, 5.2251)
+deliver_code = "00053"
+
+[node name="package_letter_receiver" parent="Levels/streets/visotnaya_1" instance=ExtResource("12_1elkd")]
+transform = Transform3D(0.999999, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 0.999999, -21.4915, 1.05542, 5.05249)
+deliver_code = "00053"
+
+[node name="package_box_receiver2" parent="Levels/streets/visotnaya_1" instance=ExtResource("13_5msbq")]
+transform = Transform3D(0.999999, 0, 5.96046e-08, 0, 1, 0, -5.96046e-08, 0, 0.999999, 1.50122, 0.268274, 5.22961)
+deliver_code = "00054"
+
+[node name="package_letter_receiver2" parent="Levels/streets/visotnaya_1" instance=ExtResource("12_1elkd")]
+transform = Transform3D(0.999998, 0, 1.49012e-08, 0, 1, 0, -1.49012e-08, 0, 0.999998, -1.48212, 1.05542, 5.05676)
+deliver_code = "00054"
+
+[node name="package_box_receiver3" parent="Levels/streets/visotnaya_1" instance=ExtResource("13_5msbq")]
+transform = Transform3D(0.999998, 0, 1.49012e-08, 0, 1, 0, -1.49012e-08, 0, 0.999998, 21.5818, 0.268274, 5.22717)
+deliver_code = "00055"
+
+[node name="package_letter_receiver3" parent="Levels/streets/visotnaya_1" instance=ExtResource("12_1elkd")]
+transform = Transform3D(0.999997, 0, 1.49012e-08, 0, 1, 0, -1.49012e-08, 0, 0.999997, 18.5986, 1.05542, 5.05493)
+deliver_code = "00055"
+
+[node name="visotnaya_2" parent="Levels/streets" instance=ExtResource("7_t74fg")]
+transform = Transform3D(-0.258819, 0, -0.965926, 0, 1, 0, 0.965926, 0, -0.258819, 1000, 0, 926)
+street_name = "ул Высотная, 2"
+
+[node name="package_box_receiver" parent="Levels/streets/visotnaya_2" instance=ExtResource("13_5msbq")]
+transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 0, 0, 0.999999, -18.5083, 0.268274, 5.2251)
+deliver_code = "00059"
+
+[node name="package_letter_receiver" parent="Levels/streets/visotnaya_2" instance=ExtResource("12_1elkd")]
+transform = Transform3D(0.999999, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 0.999999, -21.4915, 1.05542, 5.05249)
+deliver_code = "00059"
+
+[node name="package_box_receiver2" parent="Levels/streets/visotnaya_2" instance=ExtResource("13_5msbq")]
+transform = Transform3D(0.999999, 0, 5.96046e-08, 0, 1, 0, -5.96046e-08, 0, 0.999999, 1.50122, 0.268274, 5.22961)
+deliver_code = "00060"
+
+[node name="package_letter_receiver2" parent="Levels/streets/visotnaya_2" instance=ExtResource("12_1elkd")]
+transform = Transform3D(0.999998, 0, 1.49012e-08, 0, 1, 0, -1.49012e-08, 0, 0.999998, -1.48212, 1.05542, 5.05676)
+deliver_code = "00060"
+
+[node name="package_box_receiver3" parent="Levels/streets/visotnaya_2" instance=ExtResource("13_5msbq")]
+transform = Transform3D(0.999998, 0, 1.49012e-08, 0, 1, 0, -1.49012e-08, 0, 0.999998, 21.5818, 0.268274, 5.22717)
+deliver_code = "00061"
+
+[node name="package_letter_receiver3" parent="Levels/streets/visotnaya_2" instance=ExtResource("12_1elkd")]
+transform = Transform3D(0.999997, 0, 1.49012e-08, 0, 1, 0, -1.49012e-08, 0, 0.999997, 18.5986, 1.05542, 5.05493)
+deliver_code = "00061"
+
+[node name="podgorniy_pereulok_1" parent="Levels/streets" instance=ExtResource("11_cxx1a")]
+transform = Transform3D(1, 0, -4.47035e-08, 0, 1, 0, 4.47035e-08, 0, 1, 1564.89, 0, 1252)
+street_name = "пер. Подгорный, 1"
+
+[node name="package_box_receiver" parent="Levels/streets/podgorniy_pereulok_1" instance=ExtResource("13_5msbq")]
+transform = Transform3D(-7.45058e-08, 0, -1, 0, 1, 0, 1, 0, -7.45058e-08, -5.30151, 0.275626, 2.49475)
+deliver_code = "00125"
+
+[node name="package_letter_receiver" parent="Levels/streets/podgorniy_pereulok_1" instance=ExtResource("12_1elkd")]
+transform = Transform3D(-7.45058e-08, 0, -1, 0, 1, 0, 1, 0, -7.45058e-08, -5.17261, 2.79797, 1.38417)
+deliver_code = "00125"
+
+[node name="podgorniy_pereulok_2" parent="Levels/streets" instance=ExtResource("11_cxx1a")]
+transform = Transform3D(-1, 0, 1.3411e-07, 0, 1, 0, -1.3411e-07, 0, -1, 1520, 0, 1299)
+street_name = "пер. Подгорный, 2"
+
+[node name="package_box_receiver" parent="Levels/streets/podgorniy_pereulok_2" instance=ExtResource("13_5msbq")]
+transform = Transform3D(-7.45058e-08, 0, -1, 0, 1, 0, 1, 0, -7.45058e-08, -5.30151, 0.275626, 2.49475)
+deliver_code = "00126"
+
+[node name="package_letter_receiver" parent="Levels/streets/podgorniy_pereulok_2" instance=ExtResource("12_1elkd")]
+transform = Transform3D(-7.45058e-08, 0, -1, 0, 1, 0, 1, 0, -7.45058e-08, -5.17261, 2.79797, 1.38417)
+deliver_code = "00126"
+
+[node name="podgorniy_pereulok_3" parent="Levels/streets" instance=ExtResource("10_qyej0")]
+transform = Transform3D(4.47035e-08, 0, 1, 0, 1, 0, -1, 0, 4.47035e-08, 1566.54, 0, 1290.9)
+street_name = "пер. Подгорный, 3"
+
+[node name="package_box_receiver" parent="Levels/streets/podgorniy_pereulok_3" instance=ExtResource("13_5msbq")]
+transform = Transform3D(1, 0, 1.49012e-08, 0, 1, 0, -1.49012e-08, 0, 1, -0.131226, 0.272772, 3.38135)
+deliver_code = "00127"
+
+[node name="package_letter_receiver" parent="Levels/streets/podgorniy_pereulok_3" instance=ExtResource("12_1elkd")]
+transform = Transform3D(1, 0, 1.49012e-08, 0, 1, 0, -1.49012e-08, 0, 1, 0.432861, 1.06838, 3.07153)
+deliver_code = "00127"
+
+[node name="podgorniy_pereulok_4" parent="Levels/streets" instance=ExtResource("10_qyej0")]
+transform = Transform3D(0.0204558, -0.00284723, -0.999787, 0.0194859, 0.999807, -0.00244863, 0.999601, -0.0194317, 0.0205074, 1518.97, 0, 1341)
+street_name = "пер. Подгорный, 4"
+
+[node name="package_box_receiver" parent="Levels/streets/podgorniy_pereulok_4" instance=ExtResource("13_5msbq")]
+transform = Transform3D(1, 0, 1.49012e-08, 0, 1, 0, -1.49012e-08, 0, 1, -0.131226, 0.272772, 3.38135)
+deliver_code = "00128"
+
+[node name="package_letter_receiver" parent="Levels/streets/podgorniy_pereulok_4" instance=ExtResource("12_1elkd")]
+transform = Transform3D(1, 0, 1.49012e-08, 0, 1, 0, -1.49012e-08, 0, 1, 0.432861, 1.06838, 3.07153)
+deliver_code = "00128"
+
+[node name="podgorniy_pereulok_5" parent="Levels/streets" instance=ExtResource("8_7t2yj")]
+transform = Transform3D(2.98023e-08, 0, -1, 0, 1, 0, 1, 0, 2.98023e-08, 1568.7, 0, 1337.43)
+street_name = "пер. Подгорный, 5"
+
+[node name="package_letter_receiver" parent="Levels/streets/podgorniy_pereulok_5" instance=ExtResource("12_1elkd")]
+transform = Transform3D(0.999997, 0, 1.49012e-08, 0, 1, 0, -1.49012e-08, 0, 0.999997, -3.54675, 2.05833, 6.04932)
+deliver_code = "00129"
+
+[node name="package_box_receiver" parent="Levels/streets/podgorniy_pereulok_5" instance=ExtResource("13_5msbq")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -2.78589, 0.269888, 6.38306)
+deliver_code = "00129"
+
+[node name="sadovaya_1" parent="Levels/streets" instance=ExtResource("8_7t2yj")]
+transform = Transform3D(-2.98023e-08, 0, 1, 0, 1, 0, -1, 0, -2.98023e-08, 1638.69, 0, 1259)
+street_name = "ул Садовая, 1"
+
+[node name="package_letter_receiver" parent="Levels/streets/sadovaya_1" instance=ExtResource("12_1elkd")]
+transform = Transform3D(0.999997, 0, 1.49012e-08, 0, 1, 0, -1.49012e-08, 0, 0.999997, -3.54675, 2.05833, 6.04932)
+deliver_code = "00130"
+
+[node name="package_box_receiver" parent="Levels/streets/sadovaya_1" instance=ExtResource("13_5msbq")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -2.78589, 0.269888, 6.38306)
+deliver_code = "00130"
+
+[node name="sadovaya_2" parent="Levels/streets" instance=ExtResource("10_qyej0")]
+transform = Transform3D(-2.98023e-08, 0, 1, 0, 1, 0, -1, 0, -2.98023e-08, 1694.42, 0, 1261.53)
+street_name = "ул Садовая, 2"
+
+[node name="package_box_receiver" parent="Levels/streets/sadovaya_2" instance=ExtResource("13_5msbq")]
+transform = Transform3D(1, 0, 1.49012e-08, 0, 1, 0, -1.49012e-08, 0, 1, -0.131226, 0.272772, 3.38135)
+deliver_code = "00131"
+
+[node name="package_letter_receiver" parent="Levels/streets/sadovaya_2" instance=ExtResource("12_1elkd")]
+transform = Transform3D(1, 0, 1.49012e-08, 0, 1, 0, -1.49012e-08, 0, 1, 0.432861, 1.06838, 3.07153)
+deliver_code = "00131"
+
+[node name="sadovaya_3" parent="Levels/streets" instance=ExtResource("11_cxx1a")]
+transform = Transform3D(-1, 0, -5.96046e-08, 0, 1, 0, 5.96046e-08, 0, -1, 1639.08, 0, 1310.65)
+street_name = "ул Садовая, 3"
+
+[node name="package_box_receiver" parent="Levels/streets/sadovaya_3" instance=ExtResource("13_5msbq")]
+transform = Transform3D(-7.45058e-08, 0, -1, 0, 1, 0, 1, 0, -7.45058e-08, -5.30151, 0.275626, 2.49475)
+deliver_code = "00132"
+
+[node name="package_letter_receiver" parent="Levels/streets/sadovaya_3" instance=ExtResource("12_1elkd")]
+transform = Transform3D(-7.45058e-08, 0, -1, 0, 1, 0, 1, 0, -7.45058e-08, -5.17261, 2.79797, 1.38417)
+deliver_code = "00132"
+
+[node name="sadovaya_4" parent="Levels/streets" instance=ExtResource("11_cxx1a")]
+transform = Transform3D(1, 0, 4.47035e-08, 0, 1, 0, -4.47035e-08, 0, 1, 1690.81, 0, 1310.29)
+street_name = "ул Садовая, 4"
+
+[node name="package_box_receiver" parent="Levels/streets/sadovaya_4" instance=ExtResource("13_5msbq")]
+transform = Transform3D(-7.45058e-08, 0, -1, 0, 1, 0, 1, 0, -7.45058e-08, -5.30151, 0.275626, 2.49475)
+deliver_code = "00133"
+
+[node name="package_letter_receiver" parent="Levels/streets/sadovaya_4" instance=ExtResource("12_1elkd")]
+transform = Transform3D(-7.45058e-08, 0, -1, 0, 1, 0, 1, 0, -7.45058e-08, -5.17261, 2.79797, 1.38417)
+deliver_code = "00133"
+
+[node name="sadovaya_5" parent="Levels/streets" instance=ExtResource("10_qyej0")]
+transform = Transform3D(1.17225e-07, 0, -1, 0, 1, 0, 1, 0, 1.17225e-07, 1636.69, 0, 1366.89)
+street_name = "ул Садовая, 5"
+
+[node name="package_box_receiver" parent="Levels/streets/sadovaya_5" instance=ExtResource("13_5msbq")]
+transform = Transform3D(1, 0, 1.49012e-08, 0, 1, 0, -1.49012e-08, 0, 1, -0.131226, 0.272772, 3.38135)
+deliver_code = "00134"
+
+[node name="package_letter_receiver" parent="Levels/streets/sadovaya_5" instance=ExtResource("12_1elkd")]
+transform = Transform3D(1, 0, 1.49012e-08, 0, 1, 0, -1.49012e-08, 0, 1, 0.432861, 1.06838, 3.07153)
+deliver_code = "00134"
+
+[node name="sadovaya_6" parent="Levels/streets" instance=ExtResource("8_7t2yj")]
+transform = Transform3D(4.47035e-08, 0, -1, 0, 1, 0, 1, 0, 4.47035e-08, 1692.47, 0, 1363.64)
+street_name = "ул Садовая, 6"
+
+[node name="package_letter_receiver" parent="Levels/streets/sadovaya_6" instance=ExtResource("12_1elkd")]
+transform = Transform3D(0.999997, 0, 1.49012e-08, 0, 1, 0, -1.49012e-08, 0, 0.999997, -3.54675, 2.05833, 6.04932)
+deliver_code = "00135"
+
+[node name="package_box_receiver" parent="Levels/streets/sadovaya_6" instance=ExtResource("13_5msbq")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -2.78589, 0.269888, 6.38306)
+deliver_code = "00135"
+
+[node name="first_railway_1" parent="Levels/streets" instance=ExtResource("11_4a5py")]
+transform = Transform3D(0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, 0.258819, 1061.8, 0, 284.2)
+street_name = "Первая Железнодорожная, 1"
+
+[node name="package_letter_receiver" parent="Levels/streets/first_railway_1" instance=ExtResource("12_1elkd")]
+transform = Transform3D(-0.999999, 0, -1.49012e-08, 0, 1, 0, 1.49012e-08, 0, -0.999999, -1.47104, 1.3021, -8.052)
+deliver_code = "00001"
+
+[node name="package_box_receiver" parent="Levels/streets/first_railway_1" instance=ExtResource("13_5msbq")]
+transform = Transform3D(-0.999999, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, -0.999999, -2.21927, 0.309786, -8.28284)
+deliver_code = "00001"
+
+[node name="first_railway_2" parent="Levels/streets" instance=ExtResource("11_cxx1a")]
+transform = Transform3D(-0.984808, 0, 0.173648, 0, 1, 0, -0.173648, 0, -0.984808, 986.59, 0, 314.66)
+street_name = "Первая Железнодорожная, 2"
+
+[node name="package_box_receiver" parent="Levels/streets/first_railway_2" instance=ExtResource("13_5msbq")]
+transform = Transform3D(-7.45058e-08, 0, -1, 0, 1, 0, 1, 0, -7.45058e-08, -5.30151, 0.275626, 2.49475)
+deliver_code = "00002"
+
+[node name="package_letter_receiver" parent="Levels/streets/first_railway_2" instance=ExtResource("12_1elkd")]
+transform = Transform3D(-7.45058e-08, 0, -1, 0, 1, 0, 1, 0, -7.45058e-08, -5.17261, 2.79797, 1.38417)
+deliver_code = "00002"
+
+[node name="first_railway_3" parent="Levels/streets" instance=ExtResource("8_7t2yj")]
+transform = Transform3D(-0.258819, 0, -0.965926, 0, 1, 0, 0.965926, 0, -0.258819, 1031.31, 0, 387.128)
+street_name = "Первая Железнодорожная, 3"
+
+[node name="package_letter_receiver" parent="Levels/streets/first_railway_3" instance=ExtResource("12_1elkd")]
+transform = Transform3D(0.999997, 0, 1.49012e-08, 0, 1, 0, -1.49012e-08, 0, 0.999997, -3.54675, 2.05833, 6.04932)
+deliver_code = "00003"
+
+[node name="package_box_receiver" parent="Levels/streets/first_railway_3" instance=ExtResource("13_5msbq")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -2.78589, 0.269888, 6.38306)
+deliver_code = "00003"
+
+[node name="first_railway_4" parent="Levels/streets" instance=ExtResource("11_cxx1a")]
+transform = Transform3D(0.984808, 0, -0.173648, 0, 1, 0, 0.173648, 0, 0.984808, 1008.59, 0, 485.66)
+street_name = "Первая Железнодорожная, 4"
+
+[node name="package_box_receiver" parent="Levels/streets/first_railway_4" instance=ExtResource("13_5msbq")]
+transform = Transform3D(-7.45058e-08, 0, -1, 0, 1, 0, 1, 0, -7.45058e-08, -5.30151, 0.275626, 2.49475)
+deliver_code = "00004"
+
+[node name="package_letter_receiver" parent="Levels/streets/first_railway_4" instance=ExtResource("12_1elkd")]
+transform = Transform3D(-7.45058e-08, 0, -1, 0, 1, 0, 1, 0, -7.45058e-08, -5.17261, 2.79797, 1.38417)
+deliver_code = "00004"
+
+[node name="first_railway_5" parent="Levels/streets" instance=ExtResource("11_4a5py")]
+transform = Transform3D(-0.258819, 0, -0.965926, 0, 1, 0, 0.965926, 0, -0.258819, 843.416, 0, 939.823)
+street_name = "Первая Железнодорожная, 5"
+
+[node name="package_letter_receiver" parent="Levels/streets/first_railway_5" instance=ExtResource("12_1elkd")]
+transform = Transform3D(-0.999999, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, -0.999999, -0.0942993, 1.82908, -8.1073)
+deliver_code = "00005"
+
+[node name="package_box_receiver" parent="Levels/streets/first_railway_5" instance=ExtResource("13_5msbq")]
+transform = Transform3D(-0.999999, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, -0.999999, 0.393677, 0.315426, -8.23755)
+deliver_code = "00005"
+
+[node name="shkolnaya_2" parent="Levels/streets" instance=ExtResource("11_4a5py")]
+transform = Transform3D(1, 0, -2.08616e-07, 0, 1, 0, 2.08616e-07, 0, 1, 1053, 0, 1489.2)
+street_name = "ул Школьная, 2"
+
+[node name="package_letter_receiver" parent="Levels/streets/shkolnaya_2" instance=ExtResource("12_1elkd")]
+transform = Transform3D(-0.999999, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, -0.999999, -0.0942993, 1.82908, -8.1073)
+deliver_code = "00074"
+
+[node name="package_box_receiver" parent="Levels/streets/shkolnaya_2" instance=ExtResource("13_5msbq")]
+transform = Transform3D(-0.999999, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, -0.999999, 0.393677, 0.315426, -8.23755)
+deliver_code = "00074"
+
+[node name="torgovaya_1" parent="Levels/streets" instance=ExtResource("8_7t2yj")]
+transform = Transform3D(0.819152, 0, -0.573576, 0, 1, 0, 0.573576, 0, 0.819152, 1020.81, 0, 1112.53)
+street_name = "ул Торговая, 1"
+
+[node name="package_letter_receiver" parent="Levels/streets/torgovaya_1" instance=ExtResource("12_1elkd")]
+transform = Transform3D(0.999997, 0, 1.49012e-08, 0, 1, 0, -1.49012e-08, 0, 0.999997, -3.54675, 2.05833, 6.04932)
+deliver_code = "00077"
+
+[node name="package_box_receiver" parent="Levels/streets/torgovaya_1" instance=ExtResource("13_5msbq")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -2.78589, 0.269888, 6.38306)
+deliver_code = "00077"
+
+[node name="torgovaya_2" parent="Levels/streets" instance=ExtResource("11_4a5py")]
+transform = Transform3D(0.866026, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866026, 1065.61, 0, 1208.71)
+street_name = "ул Торговая, 2"
+
+[node name="package_letter_receiver" parent="Levels/streets/torgovaya_2" instance=ExtResource("12_1elkd")]
+transform = Transform3D(-0.999999, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, -0.999999, -0.0942993, 1.82908, -8.1073)
+deliver_code = "00078"
+
+[node name="package_box_receiver" parent="Levels/streets/torgovaya_2" instance=ExtResource("13_5msbq")]
+transform = Transform3D(-0.999999, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, -0.999999, 0.393677, 0.315426, -8.23755)
+deliver_code = "00078"
+
+[node name="torgovaya_3" parent="Levels/streets" instance=ExtResource("10_qyej0")]
+transform = Transform3D(0.866026, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866026, 1103.61, 0, 1232.01)
+street_name = "ул Торговая, 3"
+
+[node name="package_box_receiver" parent="Levels/streets/torgovaya_3" instance=ExtResource("13_5msbq")]
+transform = Transform3D(-1, 0, -1.19209e-07, 0, 1, 0, 1.19209e-07, 0, -1, -1.63989, 0.786101, -4.37494)
+deliver_code = "00079"
+
+[node name="package_letter_receiver" parent="Levels/streets/torgovaya_3" instance=ExtResource("12_1elkd")]
+transform = Transform3D(-1, 0, -1.19209e-07, 0, 1, 0, 1.19209e-07, 0, -1, 1.56934, 1.58171, -4.05695)
+deliver_code = "00079"
+
+[node name="torgovaya_4" parent="Levels/streets" instance=ExtResource("11_cxx1a")]
+transform = Transform3D(-0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, -0.5, 1144.2, 0, 1253.27)
+street_name = "ул Торговая, 4"
+
+[node name="package_box_receiver" parent="Levels/streets/torgovaya_4" instance=ExtResource("13_5msbq")]
+transform = Transform3D(-7.45058e-08, 0, -1, 0, 1, 0, 1, 0, -7.45058e-08, -5.30151, 0.275626, 2.49475)
+deliver_code = "00080"
+
+[node name="package_letter_receiver" parent="Levels/streets/torgovaya_4" instance=ExtResource("12_1elkd")]
+transform = Transform3D(-7.45058e-08, 0, -1, 0, 1, 0, 1, 0, -7.45058e-08, -5.17261, 2.79797, 1.38417)
+deliver_code = "00080"
+
+[node name="torgovaya_5" parent="Levels/streets" instance=ExtResource("10_qyej0")]
+transform = Transform3D(0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, 1194.51, -3.8147e-06, 1273.34)
+street_name = "ул Торговая, 5"
+
+[node name="package_box_receiver" parent="Levels/streets/torgovaya_5" instance=ExtResource("13_5msbq")]
+transform = Transform3D(-1, 0, -1.19209e-07, 0, 1, 0, 1.19209e-07, 0, -1, -1.63989, 0.786101, -4.37494)
+deliver_code = "00081"
+
+[node name="package_letter_receiver" parent="Levels/streets/torgovaya_5" instance=ExtResource("12_1elkd")]
+transform = Transform3D(-1, 0, -1.19209e-07, 0, 1, 0, 1.19209e-07, 0, -1, 1.56934, 1.58171, -4.05695)
+deliver_code = "00081"
+
+[node name="torgovaya_6" parent="Levels/streets" instance=ExtResource("8_7t2yj")]
+transform = Transform3D(-1, 0, 1.39091e-08, 0, 1, 0, -1.39091e-08, 0, -1, 1274.77, 0, 1292.66)
+street_name = "ул Торговая, 6"
+
+[node name="package_letter_receiver" parent="Levels/streets/torgovaya_6" instance=ExtResource("12_1elkd")]
+transform = Transform3D(0.999997, 0, 1.49012e-08, 0, 1, 0, -1.49012e-08, 0, 0.999997, -3.54675, 2.05833, 6.04932)
+deliver_code = "00081"
+
+[node name="package_box_receiver" parent="Levels/streets/torgovaya_6" instance=ExtResource("13_5msbq")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -2.78589, 0.269888, 6.38306)
+deliver_code = "00081"
+
+[node name="torgovaya_7" parent="Levels/streets" instance=ExtResource("8_7t2yj")]
+transform = Transform3D(1, 0, -2.38419e-07, 0, 1, 0, 2.38419e-07, 0, 1, 1410.31, 0, 1222.43)
+street_name = "ул Торговая, 7"
+
+[node name="package_letter_receiver" parent="Levels/streets/torgovaya_7" instance=ExtResource("12_1elkd")]
+transform = Transform3D(0.999997, 0, 1.49012e-08, 0, 1, 0, -1.49012e-08, 0, 0.999997, -3.54675, 2.05833, 6.04932)
+deliver_code = "00083"
+
+[node name="package_box_receiver" parent="Levels/streets/torgovaya_7" instance=ExtResource("13_5msbq")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -2.78589, 0.269888, 6.38306)
+deliver_code = "00083"
+
+[node name="torgovaya_8" parent="Levels/streets" instance=ExtResource("11_cxx1a")]
+transform = Transform3D(-4.47035e-08, 0, -1, 0, 1, 0, 1, 0, -4.47035e-08, 1584.39, 0, 1221.76)
+street_name = "ул Торговая, 8"
+
+[node name="package_box_receiver" parent="Levels/streets/torgovaya_8" instance=ExtResource("13_5msbq")]
+transform = Transform3D(-7.45058e-08, 0, -1, 0, 1, 0, 1, 0, -7.45058e-08, -5.30151, 0.275626, 2.49475)
+deliver_code = "00084"
+
+[node name="package_letter_receiver" parent="Levels/streets/torgovaya_8" instance=ExtResource("12_1elkd")]
+transform = Transform3D(-7.45058e-08, 0, -1, 0, 1, 0, 1, 0, -7.45058e-08, -5.17261, 2.79797, 1.38417)
+deliver_code = "00084"
+
+[node name="torgovaya_9" parent="Levels/streets" instance=ExtResource("10_qyej0")]
+transform = Transform3D(1, 0, 4.47035e-08, 0, 1, 0, -4.47035e-08, 0, 1, 1614.09, 0, 1220.49)
+street_name = "ул Торговая, 9"
+
+[node name="package_box_receiver" parent="Levels/streets/torgovaya_9" instance=ExtResource("13_5msbq")]
+transform = Transform3D(1, 0, 1.49012e-08, 0, 1, 0, -1.49012e-08, 0, 1, -0.131226, 0.272772, 3.38135)
+deliver_code = "00085"
+
+[node name="package_letter_receiver" parent="Levels/streets/torgovaya_9" instance=ExtResource("12_1elkd")]
+transform = Transform3D(1, 0, 1.49012e-08, 0, 1, 0, -1.49012e-08, 0, 1, 0.432861, 1.06838, 3.07153)
+deliver_code = "00085"
+
+[node name="krugovaya_1" parent="Levels/streets" instance=ExtResource("11_cxx1a")]
+transform = Transform3D(-1, 0, -4.47035e-08, 0, 1, 0, 4.47035e-08, 0, -1, 890.89, 0, 447.76)
+street_name = "Круговая, 1"
+
+[node name="package_box_receiver" parent="Levels/streets/krugovaya_1" instance=ExtResource("13_5msbq")]
+transform = Transform3D(-7.45058e-08, 0, -1, 0, 1, 0, 1, 0, -7.45058e-08, -5.30151, 0.275626, 2.49475)
+deliver_code = "00006"
+
+[node name="package_letter_receiver" parent="Levels/streets/krugovaya_1" instance=ExtResource("12_1elkd")]
+transform = Transform3D(-7.45058e-08, 0, -1, 0, 1, 0, 1, 0, -7.45058e-08, -5.17261, 2.79797, 1.38417)
+deliver_code = "00006"
+
+[node name="krugovaya_2" parent="Levels/streets" instance=ExtResource("10_qyej0")]
+transform = Transform3D(4.47035e-08, 0, -1, 0, 1, 0, 1, 0, 4.47035e-08, 874.1, 0, 514)
+street_name = "Круговая, 2"
+
+[node name="package_letter_receiver" parent="Levels/streets/krugovaya_2" instance=ExtResource("12_1elkd")]
+transform = Transform3D(-0.999999, 0, 0, 0, 1, 0, 0, 0, -0.999999, -1.51823, 2.14378, -4.05347)
+deliver_code = "00012"
+
+[node name="package_box_receiver" parent="Levels/streets/krugovaya_2" instance=ExtResource("13_5msbq")]
+transform = Transform3D(-0.999999, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, -0.999999, -1.56429, 0.792224, -4.22534)
+deliver_code = "00012"
+
+[node name="krugovaya_3" parent="Levels/streets" instance=ExtResource("11_cxx1a")]
+transform = Transform3D(1, 0, 4.47035e-08, 0, 1, 0, -4.47035e-08, 0, 1, 910.89, 0, 572.76)
+street_name = "Круговая, 3"
+
+[node name="package_box_receiver" parent="Levels/streets/krugovaya_3" instance=ExtResource("13_5msbq")]
+transform = Transform3D(-7.45058e-08, 0, -1, 0, 1, 0, 1, 0, -7.45058e-08, -5.30151, 0.275626, 2.49475)
+deliver_code = "00008"
+
+[node name="package_letter_receiver" parent="Levels/streets/krugovaya_3" instance=ExtResource("12_1elkd")]
+transform = Transform3D(-7.45058e-08, 0, -1, 0, 1, 0, 1, 0, -7.45058e-08, -5.17261, 2.79797, 1.38417)
+deliver_code = "00008"
+
+[node name="krugovaya_4" parent="Levels/streets" instance=ExtResource("11_cxx1a")]
+transform = Transform3D(1, 0, 4.47035e-08, 0, 1, 0, -4.47035e-08, 0, 1, 896.89, 0, 658.76)
+street_name = "Круговая, 4"
+
+[node name="package_box_receiver" parent="Levels/streets/krugovaya_4" instance=ExtResource("13_5msbq")]
+transform = Transform3D(-7.45058e-08, 0, -1, 0, 1, 0, 1, 0, -7.45058e-08, -5.30151, 0.275626, 2.49475)
+deliver_code = "00009"
+
+[node name="package_letter_receiver" parent="Levels/streets/krugovaya_4" instance=ExtResource("12_1elkd")]
+transform = Transform3D(-7.45058e-08, 0, -1, 0, 1, 0, 1, 0, -7.45058e-08, -5.17261, 2.79797, 1.38417)
+deliver_code = "00009"
+
+[node name="krugovaya_5" parent="Levels/streets" instance=ExtResource("11_4a5py")]
+transform = Transform3D(0.939693, 0, -0.34202, 0, 1, 0, 0.34202, 0, 0.939693, 886.8, 0, 731.2)
+
+[node name="package_letter_receiver" parent="Levels/streets/krugovaya_5" instance=ExtResource("12_1elkd")]
+transform = Transform3D(-0.999999, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, -0.999999, -0.0942993, 1.82908, -8.1073)
+deliver_code = "00010"
+
+[node name="package_box_receiver" parent="Levels/streets/krugovaya_5" instance=ExtResource("13_5msbq")]
+transform = Transform3D(-0.999999, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, -0.999999, 0.393677, 0.315426, -8.23755)
+deliver_code = "00010"
+
+[node name="sec_railway_1" parent="Levels/streets" instance=ExtResource("8_7t2yj")]
+transform = Transform3D(-2.08616e-07, 0, 1, 0, 1, 0, -1, 0, -2.08616e-07, 794.306, 0, 461.128)
+street_name = "Вторая Железнодорожная, 1"
+
+[node name="package_letter_receiver" parent="Levels/streets/sec_railway_1" instance=ExtResource("12_1elkd")]
+transform = Transform3D(0.999997, 0, 1.49012e-08, 0, 1, 0, -1.49012e-08, 0, 0.999997, -3.54675, 2.05833, 6.04932)
+deliver_code = "00011"
+
+[node name="package_box_receiver" parent="Levels/streets/sec_railway_1" instance=ExtResource("13_5msbq")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -2.78589, 0.269888, 6.38306)
+deliver_code = "00011"
+
+[node name="sec_railway_2" parent="Levels/streets" instance=ExtResource("11_cxx1a")]
+transform = Transform3D(1, 0, 2.08616e-07, 0, 1, 0, -2.08616e-07, 0, 1, 850.69, 0, 470.26)
+street_name = "Вторая Железнодорожная, 2"
+
+[node name="package_box_receiver" parent="Levels/streets/sec_railway_2" instance=ExtResource("13_5msbq")]
+transform = Transform3D(-7.45058e-08, 0, -1, 0, 1, 0, 1, 0, -7.45058e-08, -5.30151, 0.275626, 2.49475)
+deliver_code = "00012"
+
+[node name="package_letter_receiver" parent="Levels/streets/sec_railway_2" instance=ExtResource("12_1elkd")]
+transform = Transform3D(-7.45058e-08, 0, -1, 0, 1, 0, 1, 0, -7.45058e-08, -5.17261, 2.79797, 1.38417)
+deliver_code = "00012"
+
+[node name="sec_railway_3" parent="Levels/streets" instance=ExtResource("8_7t2yj")]
+transform = Transform3D(2.08616e-07, 0, -1, 0, 1, 0, 1, 0, 2.08616e-07, 839.306, 0, 551.128)
+street_name = "Вторая Железнодорожная, 3"
+
+[node name="package_letter_receiver" parent="Levels/streets/sec_railway_3" instance=ExtResource("12_1elkd")]
+transform = Transform3D(0.999997, 0, 1.49012e-08, 0, 1, 0, -1.49012e-08, 0, 0.999997, -3.54675, 2.05833, 6.04932)
+deliver_code = "00013"
+
+[node name="package_box_receiver" parent="Levels/streets/sec_railway_3" instance=ExtResource("13_5msbq")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -2.78589, 0.269888, 6.38306)
+deliver_code = "00013"
+
+[node name="sec_railway_4" parent="Levels/streets" instance=ExtResource("11_cxx1a")]
+transform = Transform3D(-1, 0, 1.3411e-07, 0, 1, 0, -1.3411e-07, 0, -1, 785.89, 0, 556.76)
+street_name = "Вторая Железнодорожная, 4"
+
+[node name="package_box_receiver" parent="Levels/streets/sec_railway_4" instance=ExtResource("13_5msbq")]
+transform = Transform3D(-7.45058e-08, 0, -1, 0, 1, 0, 1, 0, -7.45058e-08, -5.30151, 0.275626, 2.49475)
+deliver_code = "00014"
+
+[node name="package_letter_receiver" parent="Levels/streets/sec_railway_4" instance=ExtResource("12_1elkd")]
+transform = Transform3D(-7.45058e-08, 0, -1, 0, 1, 0, 1, 0, -7.45058e-08, -5.17261, 2.79797, 1.38417)
+deliver_code = "00014"
+
+[node name="sec_railway_5" parent="Levels/streets" instance=ExtResource("8_7t2yj")]
+transform = Transform3D(-1.93715e-07, 0, 1, 0, 1, 0, -1, 0, -1.93715e-07, 777.306, 0, 624.128)
+street_name = "Вторая Железнодорожная, 5"
+
+[node name="package_letter_receiver" parent="Levels/streets/sec_railway_5" instance=ExtResource("12_1elkd")]
+transform = Transform3D(0.999997, 0, 1.49012e-08, 0, 1, 0, -1.49012e-08, 0, 0.999997, -3.54675, 2.05833, 6.04932)
+deliver_code = "00015"
+
+[node name="package_box_receiver" parent="Levels/streets/sec_railway_5" instance=ExtResource("13_5msbq")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -2.78589, 0.269888, 6.38306)
+deliver_code = "00015"
+
+[node name="sec_railway_6" parent="Levels/streets" instance=ExtResource("10_qyej0")]
+transform = Transform3D(-2.08616e-07, 0, 1, 0, 1, 0, -1, 0, -2.08616e-07, 830.1, 0, 632)
+street_name = "Вторая Железнодорожная, 6"
+
+[node name="package_letter_receiver" parent="Levels/streets/sec_railway_6" instance=ExtResource("12_1elkd")]
+transform = Transform3D(-0.999999, 0, 0, 0, 1, 0, 0, 0, -0.999999, -1.51823, 2.14378, -4.05347)
+deliver_code = "00016"
+
+[node name="package_box_receiver" parent="Levels/streets/sec_railway_6" instance=ExtResource("13_5msbq")]
+transform = Transform3D(-0.999999, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, -0.999999, -1.56429, 0.792224, -4.22534)
+deliver_code = "00016"
+
+[node name="sec_railway_7" parent="Levels/streets" instance=ExtResource("11_4a5py")]
+transform = Transform3D(-0.0871556, 0, -0.996195, 0, 1, 0, 0.996195, 0, -0.0871556, 762.9, 0, 788)
+street_name = "Вторая Железнодорожная, 7"
+
+[node name="package_letter_receiver" parent="Levels/streets/sec_railway_7" instance=ExtResource("12_1elkd")]
+transform = Transform3D(-0.999999, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, -0.999999, -0.0942993, 1.82908, -8.1073)
+deliver_code = "00017"
+
+[node name="package_box_receiver" parent="Levels/streets/sec_railway_7" instance=ExtResource("13_5msbq")]
+transform = Transform3D(-0.999999, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, -0.999999, 0.393677, 0.315426, -8.23755)
+deliver_code = "00017"
+
+[node name="sec_railway_8" parent="Levels/streets" instance=ExtResource("8_7t2yj")]
+transform = Transform3D(-0.0871558, 0, -0.996195, 0, 1, 0, 0.996195, 0, -0.0871558, 796.026, 0, 887.204)
+street_name = "Вторая Железнодорожная, 8"
+
+[node name="package_letter_receiver" parent="Levels/streets/sec_railway_8" instance=ExtResource("12_1elkd")]
+transform = Transform3D(0.999997, 0, 1.49012e-08, 0, 1, 0, -1.49012e-08, 0, 0.999997, -3.54675, 2.05833, 6.04932)
+deliver_code = "00018"
+
+[node name="package_box_receiver" parent="Levels/streets/sec_railway_8" instance=ExtResource("13_5msbq")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -2.78589, 0.269888, 6.38306)
+deliver_code = "00018"
+
+[node name="third_railway_1" parent="Levels/streets" instance=ExtResource("11_cxx1a")]
+transform = Transform3D(-1, 0, -2.08616e-07, 0, 1, 0, 2.08616e-07, 0, -1, 720.993, 0, 497.26)
+street_name = "Третья Железнодорожная, 1"
+
+[node name="package_box_receiver" parent="Levels/streets/third_railway_1" instance=ExtResource("13_5msbq")]
+transform = Transform3D(-7.45058e-08, 0, -1, 0, 1, 0, 1, 0, -7.45058e-08, -5.30151, 0.275626, 2.49475)
+deliver_code = "00019"
+
+[node name="package_letter_receiver" parent="Levels/streets/third_railway_1" instance=ExtResource("12_1elkd")]
+transform = Transform3D(-7.45058e-08, 0, -1, 0, 1, 0, 1, 0, -7.45058e-08, -5.17261, 2.79797, 1.38417)
+deliver_code = "00019"
+
+[node name="third_railway_2" parent="Levels/streets" instance=ExtResource("10_qyej0")]
+transform = Transform3D(-2.75671e-07, 0, 1, 0, 1, 0, -1, 0, -2.75671e-07, 779.6, 0, 510.5)
+street_name = "Третья Железнодорожная, 2"
+
+[node name="package_letter_receiver" parent="Levels/streets/third_railway_2" instance=ExtResource("12_1elkd")]
+transform = Transform3D(-0.999999, 0, 0, 0, 1, 0, 0, 0, -0.999999, -1.51823, 2.14378, -4.05347)
+deliver_code = "00020"
+
+[node name="package_box_receiver" parent="Levels/streets/third_railway_2" instance=ExtResource("13_5msbq")]
+transform = Transform3D(-0.999999, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, -0.999999, -1.56429, 0.792224, -4.22534)
+deliver_code = "00020"
+
+[node name="third_railway_3" parent="Levels/streets" instance=ExtResource("10_qyej0")]
+transform = Transform3D(1.71363e-07, 0, -1, 0, 1, 0, 1, 0, 1.71363e-07, 716.3, 0, 552.9)
+street_name = "Третья Железнодорожная, 3"
+
+[node name="package_letter_receiver" parent="Levels/streets/third_railway_3" instance=ExtResource("12_1elkd")]
+transform = Transform3D(-0.999999, 0, 0, 0, 1, 0, 0, 0, -0.999999, -1.51823, 2.14378, -4.05347)
+deliver_code = "00021"
+
+[node name="package_box_receiver" parent="Levels/streets/third_railway_3" instance=ExtResource("13_5msbq")]
+transform = Transform3D(-0.999999, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, -0.999999, -1.56429, 0.792224, -4.22534)
+deliver_code = "00021"
+
+[node name="third_railway_4" parent="Levels/streets" instance=ExtResource("11_cxx1a")]
+transform = Transform3D(-1, 0, 1.3411e-07, 0, 1, 0, -1.3411e-07, 0, -1, 709.69, 0, 595.26)
+street_name = "Третья Железнодорожная, 4"
+
+[node name="package_box_receiver" parent="Levels/streets/third_railway_4" instance=ExtResource("13_5msbq")]
+transform = Transform3D(-7.45058e-08, 0, -1, 0, 1, 0, 1, 0, -7.45058e-08, -5.30151, 0.275626, 2.49475)
+deliver_code = "00022"
+
+[node name="package_letter_receiver" parent="Levels/streets/third_railway_4" instance=ExtResource("12_1elkd")]
+transform = Transform3D(-7.45058e-08, 0, -1, 0, 1, 0, 1, 0, -7.45058e-08, -5.17261, 2.79797, 1.38417)
+deliver_code = "00022"
+
+[node name="third_railway_5" parent="Levels/streets" instance=ExtResource("11_cxx1a")]
+transform = Transform3D(-1, 0, 1.02324e-07, 0, 1, 0, -1.02324e-07, 0, -1, 691.59, 0, 875.26)
+street_name = "Третья Железнодорожная, 5"
+
+[node name="package_box_receiver" parent="Levels/streets/third_railway_5" instance=ExtResource("13_5msbq")]
+transform = Transform3D(-7.45058e-08, 0, -1, 0, 1, 0, 1, 0, -7.45058e-08, -5.30151, 0.275626, 2.49475)
+deliver_code = "00023"
+
+[node name="package_letter_receiver" parent="Levels/streets/third_railway_5" instance=ExtResource("12_1elkd")]
+transform = Transform3D(-7.45058e-08, 0, -1, 0, 1, 0, 1, 0, -7.45058e-08, -5.17261, 2.79797, 1.38417)
+deliver_code = "00023"
+
+[node name="third_railway_6" parent="Levels/streets" instance=ExtResource("11_cxx1a")]
+transform = Transform3D(1, 0, -1.49012e-08, 0, 1, 0, 1.49012e-08, 0, 1, 732.59, 0, 952.26)
+street_name = "Третья Железнодорожная, 6"
+
+[node name="package_box_receiver" parent="Levels/streets/third_railway_6" instance=ExtResource("13_5msbq")]
+transform = Transform3D(-7.45058e-08, 0, -1, 0, 1, 0, 1, 0, -7.45058e-08, -5.30151, 0.275626, 2.49475)
+deliver_code = "00024"
+
+[node name="package_letter_receiver" parent="Levels/streets/third_railway_6" instance=ExtResource("12_1elkd")]
+transform = Transform3D(-7.45058e-08, 0, -1, 0, 1, 0, 1, 0, -7.45058e-08, -5.17261, 2.79797, 1.38417)
+deliver_code = "00024"
+
+[node name="first_krestyanskaya_1" parent="Levels/streets" instance=ExtResource("10_qyej0")]
+transform = Transform3D(-5.96046e-08, 0, -1, 0, 1, 0, 1, 0, -5.96046e-08, 1346, 0, 1293)
+street_name = "ул Первая Крестьянская, 1"
+
+[node name="package_box_receiver" parent="Levels/streets/first_krestyanskaya_1" instance=ExtResource("13_5msbq")]
+transform = Transform3D(-1, 0, -1.19209e-07, 0, 1, 0, 1.19209e-07, 0, -1, -1.63989, 0.786101, -4.37494)
+deliver_code = "00093"
+
+[node name="package_letter_receiver" parent="Levels/streets/first_krestyanskaya_1" instance=ExtResource("12_1elkd")]
+transform = Transform3D(-1, 0, -1.19209e-07, 0, 1, 0, 1.19209e-07, 0, -1, 1.56934, 1.58171, -4.05695)
+deliver_code = "00093"
+
+[node name="first_krestyanskaya_2" parent="Levels/streets" instance=ExtResource("11_cxx1a")]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 1387.95, 0, 1323.2)
+street_name = "ул Первая Крестьянская, 2"
+
+[node name="package_box_receiver" parent="Levels/streets/first_krestyanskaya_2" instance=ExtResource("13_5msbq")]
+transform = Transform3D(-7.45058e-08, 0, -1, 0, 1, 0, 1, 0, -7.45058e-08, -5.30151, 0.275626, 2.49475)
+deliver_code = "00094"
+
+[node name="package_letter_receiver" parent="Levels/streets/first_krestyanskaya_2" instance=ExtResource("12_1elkd")]
+transform = Transform3D(-7.45058e-08, 0, -1, 0, 1, 0, 1, 0, -7.45058e-08, -5.17261, 2.79797, 1.38417)
+deliver_code = "00094"
+
+[node name="first_krestyanskaya_3" parent="Levels/streets" instance=ExtResource("10_qyej0")]
+transform = Transform3D(-2.08616e-07, 0, -1, 0, 1, 0, 1, 0, -2.08616e-07, 1354.26, 0, 1412.65)
+street_name = "ул Первая Крестьянская, 3"
+
+[node name="package_box_receiver" parent="Levels/streets/first_krestyanskaya_3" instance=ExtResource("13_5msbq")]
+transform = Transform3D(-1, 0, -1.19209e-07, 0, 1, 0, 1.19209e-07, 0, -1, -1.63989, 0.786101, -4.37494)
+deliver_code = "00095"
+
+[node name="package_letter_receiver" parent="Levels/streets/first_krestyanskaya_3" instance=ExtResource("12_1elkd")]
+transform = Transform3D(-1, 0, -1.19209e-07, 0, 1, 0, 1.19209e-07, 0, -1, 1.56934, 1.58171, -4.05695)
+deliver_code = "00095"
+
+[node name="first_krestyanskaya_4" parent="Levels/streets" instance=ExtResource("10_qyej0")]
+transform = Transform3D(-2.08616e-07, 0, -1, 0, 1, 0, 1, 0, -2.08616e-07, 1370.7, 0, 1482)
+street_name = "ул Первая Крестьянская, 3"
+
+[node name="package_box_receiver" parent="Levels/streets/first_krestyanskaya_4" instance=ExtResource("13_5msbq")]
+transform = Transform3D(-1, 0, -1.19209e-07, 0, 1, 0, 1.19209e-07, 0, -1, -1.63989, 0.786101, -4.37494)
+deliver_code = "00096"
+
+[node name="package_letter_receiver" parent="Levels/streets/first_krestyanskaya_4" instance=ExtResource("12_1elkd")]
+transform = Transform3D(-1, 0, -1.19209e-07, 0, 1, 0, 1.19209e-07, 0, -1, 1.56934, 1.58171, -4.05695)
+deliver_code = "00096"
+
+[node name="sec_krestyanskaya_1" parent="Levels/streets" instance=ExtResource("8_7t2yj")]
+transform = Transform3D(-1.04308e-07, 0, -1, 0, 1, 0, 1, 0, -1.04308e-07, 1353.93, 0, 961.425)
+street_name = "Вторая Крестьянская, 1"
+
+[node name="package_letter_receiver" parent="Levels/streets/sec_krestyanskaya_1" instance=ExtResource("12_1elkd")]
+transform = Transform3D(0.999997, 0, 1.49012e-08, 0, 1, 0, -1.49012e-08, 0, 0.999997, -3.54675, 2.05833, 6.04932)
+deliver_code = "00101"
+
+[node name="package_box_receiver" parent="Levels/streets/sec_krestyanskaya_1" instance=ExtResource("13_5msbq")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -2.78589, 0.269888, 6.38306)
+deliver_code = "00101"
+
+[node name="sec_krestyanskaya_2" parent="Levels/streets" instance=ExtResource("11_4a5py")]
+transform = Transform3D(1.86265e-07, 0, -1, 0, 1, 0, 1, 0, 1.86265e-07, 1297.9, 0, 1145.7)
+street_name = "Вторая Крестьянская, 2"
+
+[node name="package_letter_receiver" parent="Levels/streets/sec_krestyanskaya_2" instance=ExtResource("12_1elkd")]
+transform = Transform3D(-0.999999, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, -0.999999, -0.0942993, 1.82908, -8.1073)
+deliver_code = "00102"
+
+[node name="package_box_receiver" parent="Levels/streets/sec_krestyanskaya_2" instance=ExtResource("13_5msbq")]
+transform = Transform3D(-0.999999, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, -0.999999, 0.393677, 0.315426, -8.23755)
+deliver_code = "00102"
+
+[node name="sec_krestyanskaya_3" parent="Levels/streets" instance=ExtResource("11_cxx1a")]
+transform = Transform3D(0.999997, 0, 0.00237362, 0, 1, 0, -0.00237362, 0, 0.999997, 1346.39, 0, 1109.76)
+street_name = "Вторая Крестьянская, 3"
+
+[node name="package_box_receiver" parent="Levels/streets/sec_krestyanskaya_3" instance=ExtResource("13_5msbq")]
+transform = Transform3D(-7.45058e-08, 0, -1, 0, 1, 0, 1, 0, -7.45058e-08, -5.30151, 0.275626, 2.49475)
+deliver_code = "00103"
+
+[node name="package_letter_receiver" parent="Levels/streets/sec_krestyanskaya_3" instance=ExtResource("12_1elkd")]
+transform = Transform3D(-7.45058e-08, 0, -1, 0, 1, 0, 1, 0, -7.45058e-08, -5.17261, 2.79797, 1.38417)
+deliver_code = "00103"
+
+[node name="sec_krestyanskaya_4" parent="Levels/streets" instance=ExtResource("10_qyej0")]
+transform = Transform3D(1.19209e-07, 0, 1, 0, 1, 0, -1, 0, 1.19209e-07, 1343.1, 0, 1172.2)
+street_name = "Вторая Крестьянская, 4"
+
+[node name="package_box_receiver" parent="Levels/streets/sec_krestyanskaya_4" instance=ExtResource("13_5msbq")]
+transform = Transform3D(-1, 0, -1.19209e-07, 0, 1, 0, 1.19209e-07, 0, -1, -1.63989, 0.786101, -4.37494)
+deliver_code = "00104"
+
+[node name="package_letter_receiver" parent="Levels/streets/sec_krestyanskaya_4" instance=ExtResource("12_1elkd")]
+transform = Transform3D(-1, 0, -1.19209e-07, 0, 1, 0, 1.19209e-07, 0, -1, 1.56934, 1.58171, -4.05695)
+deliver_code = "00104"
+
+[node name="sec_krestyanskaya_5" parent="Levels/streets" instance=ExtResource("11_cxx1a")]
+transform = Transform3D(1, 0, -2.23517e-08, 0, 1, 0, 2.23517e-08, 0, 1, 1340.69, 0, 1232.76)
+street_name = "Вторая Крестьянская, 5"
+
+[node name="package_box_receiver" parent="Levels/streets/sec_krestyanskaya_5" instance=ExtResource("13_5msbq")]
+transform = Transform3D(-7.45058e-08, 0, -1, 0, 1, 0, 1, 0, -7.45058e-08, -5.30151, 0.275626, 2.49475)
+deliver_code = "00105"
+
+[node name="package_letter_receiver" parent="Levels/streets/sec_krestyanskaya_5" instance=ExtResource("12_1elkd")]
+transform = Transform3D(-7.45058e-08, 0, -1, 0, 1, 0, 1, 0, -7.45058e-08, -5.17261, 2.79797, 1.38417)
+deliver_code = "00105"
+
+[node name="naberejnaya_1" parent="Levels/streets" instance=ExtResource("10_qyej0")]
+transform = Transform3D(-0.999596, 0, 0.0284104, 0, 1, 0, -0.0284104, 0, -0.999596, 1323.2, 0, 1559.85)
+street_name = "ул Набережная, 1"
+
+[node name="package_box_receiver" parent="Levels/streets/naberejnaya_1" instance=ExtResource("13_5msbq")]
+transform = Transform3D(-1, 0, -1.19209e-07, 0, 1, 0, 1.19209e-07, 0, -1, -1.63989, 0.786101, -4.37494)
+deliver_code = "00110"
+
+[node name="package_letter_receiver" parent="Levels/streets/naberejnaya_1" instance=ExtResource("12_1elkd")]
+transform = Transform3D(-1, 0, -1.19209e-07, 0, 1, 0, 1.19209e-07, 0, -1, 1.56934, 1.58171, -4.05695)
+deliver_code = "00110"
+
+[node name="naberejnaya_2" parent="Levels/streets" instance=ExtResource("11_4a5py")]
+transform = Transform3D(1, 0, -4.47035e-08, 0, 1, 0, 4.47035e-08, 0, 1, 1323, 0, 1625.2)
+street_name = "ул Набережная, 2"
+
+[node name="package_letter_receiver" parent="Levels/streets/naberejnaya_2" instance=ExtResource("12_1elkd")]
+transform = Transform3D(-0.999999, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, -0.999999, -0.0942993, 1.82908, -8.1073)
+deliver_code = "00111"
+
+[node name="package_box_receiver" parent="Levels/streets/naberejnaya_2" instance=ExtResource("13_5msbq")]
+transform = Transform3D(-0.999999, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, -0.999999, 0.393677, 0.315426, -8.23755)
+deliver_code = "00111"
+
+[node name="naberejnaya_3" parent="Levels/streets" instance=ExtResource("11_cxx1a")]
+transform = Transform3D(-0.0102448, 0, 0.999948, 0, 1, 0, -0.999948, 0, -0.0102448, 1382.29, 0, 1542.26)
+street_name = "ул Набережная, 3"
+
+[node name="package_box_receiver" parent="Levels/streets/naberejnaya_3" instance=ExtResource("13_5msbq")]
+transform = Transform3D(-7.45058e-08, 0, -1, 0, 1, 0, 1, 0, -7.45058e-08, -5.30151, 0.275626, 2.49475)
+deliver_code = "00112"
+
+[node name="package_letter_receiver" parent="Levels/streets/naberejnaya_3" instance=ExtResource("12_1elkd")]
+transform = Transform3D(-7.45058e-08, 0, -1, 0, 1, 0, 1, 0, -7.45058e-08, -5.17261, 2.79797, 1.38417)
+deliver_code = "00112"
+
+[node name="naberejnaya_4" parent="Levels/streets" instance=ExtResource("10_qyej0")]
+transform = Transform3D(0.999987, 0, -0.00513133, 0, 1, 0, 0.00513133, 0, 0.999987, 1390, 0, 1605)
+street_name = "ул Набережная, 4"
+
+[node name="package_box_receiver" parent="Levels/streets/naberejnaya_4" instance=ExtResource("13_5msbq")]
+transform = Transform3D(-1, 0, -1.19209e-07, 0, 1, 0, 1.19209e-07, 0, -1, -1.63989, 0.786101, -4.37494)
+deliver_code = "00113"
+
+[node name="package_letter_receiver" parent="Levels/streets/naberejnaya_4" instance=ExtResource("12_1elkd")]
+transform = Transform3D(-1, 0, -1.19209e-07, 0, 1, 0, 1.19209e-07, 0, -1, 1.56934, 1.58171, -4.05695)
+deliver_code = "00113"
+
+[node name="naberejnaya_5" parent="Levels/streets" instance=ExtResource("11_cxx1a")]
+transform = Transform3D(-0.0384231, 0, -0.999261, 0, 1, 0, 0.999261, 0, -0.0384231, 1443.53, 0, 1588.97)
+street_name = "ул Набережная, 5"
+
+[node name="package_box_receiver" parent="Levels/streets/naberejnaya_5" instance=ExtResource("13_5msbq")]
+transform = Transform3D(-7.45058e-08, 0, -1, 0, 1, 0, 1, 0, -7.45058e-08, -5.30151, 0.275626, 2.49475)
+deliver_code = "00114"
+
+[node name="package_letter_receiver" parent="Levels/streets/naberejnaya_5" instance=ExtResource("12_1elkd")]
+transform = Transform3D(-7.45058e-08, 0, -1, 0, 1, 0, 1, 0, -7.45058e-08, -5.17261, 2.79797, 1.38417)
+deliver_code = "00114"
+
+[node name="naberejnaya_6" parent="Levels/streets" instance=ExtResource("10_qyej0")]
+transform = Transform3D(-1, 0, 4.47035e-08, 0, 1, 0, -4.47035e-08, 0, -1, 1541.48, 0, 1489.24)
+street_name = "ул Набережная, 6"
+
+[node name="package_box_receiver" parent="Levels/streets/naberejnaya_6" instance=ExtResource("13_5msbq")]
+transform = Transform3D(-1, 0, -1.19209e-07, 0, 1, 0, 1.19209e-07, 0, -1, -1.63989, 0.786101, -4.37494)
+deliver_code = "00115"
+
+[node name="package_letter_receiver" parent="Levels/streets/naberejnaya_6" instance=ExtResource("12_1elkd")]
+transform = Transform3D(-1, 0, -1.19209e-07, 0, 1, 0, 1.19209e-07, 0, -1, 1.56934, 1.58171, -4.05695)
+deliver_code = "00115"
+
+[node name="naberejnaya_7" parent="Levels/streets" instance=ExtResource("11_cxx1a")]
+transform = Transform3D(-4.47035e-08, 0, -1, 0, 1, 0, 1, 0, -4.47035e-08, 1553.5, 0, 1545.38)
+street_name = "ул Набережная, 7"
+
+[node name="package_box_receiver" parent="Levels/streets/naberejnaya_7" instance=ExtResource("13_5msbq")]
+transform = Transform3D(-7.45058e-08, 0, -1, 0, 1, 0, 1, 0, -7.45058e-08, -5.30151, 0.275626, 2.49475)
+deliver_code = "00116"
+
+[node name="package_letter_receiver" parent="Levels/streets/naberejnaya_7" instance=ExtResource("12_1elkd")]
+transform = Transform3D(-7.45058e-08, 0, -1, 0, 1, 0, 1, 0, -7.45058e-08, -5.17261, 2.79797, 1.38417)
+deliver_code = "00116"
+
+[node name="naberejnaya_8" parent="Levels/streets" instance=ExtResource("11_4a5py")]
+transform = Transform3D(-0.998288, 0, 0.0584875, 0, 1, 0, -0.0584875, 0, -0.998288, 1652.71, 0, 1478.98)
+street_name = "ул Набережная, 8"
+
+[node name="package_letter_receiver" parent="Levels/streets/naberejnaya_8" instance=ExtResource("12_1elkd")]
+transform = Transform3D(-0.999999, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, -0.999999, -0.0942993, 1.82908, -8.1073)
+deliver_code = "00117"
+
+[node name="package_box_receiver" parent="Levels/streets/naberejnaya_8" instance=ExtResource("13_5msbq")]
+transform = Transform3D(-0.999999, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, -0.999999, 0.393677, 0.315426, -8.23755)
+deliver_code = "00117"
+
+[node name="naberejnaya_9" parent="Levels/streets" instance=ExtResource("10_qyej0")]
+transform = Transform3D(0.999994, 0, 0.0032815, 0, 1, 0, -0.0032815, 0, 0.999994, 1699.14, 0, 1529.26)
+street_name = "ул Набережная, 9"
+
+[node name="package_box_receiver" parent="Levels/streets/naberejnaya_9" instance=ExtResource("13_5msbq")]
+transform = Transform3D(-1, 0, -1.19209e-07, 0, 1, 0, 1.19209e-07, 0, -1, -1.63989, 0.786101, -4.37494)
+deliver_code = "00118"
+
+[node name="package_letter_receiver" parent="Levels/streets/naberejnaya_9" instance=ExtResource("12_1elkd")]
+transform = Transform3D(-1, 0, -1.19209e-07, 0, 1, 0, 1.19209e-07, 0, -1, 1.56934, 1.58171, -4.05695)
+deliver_code = "00118"
+
+[node name="first_grazhdanskaya_1" parent="Levels/streets" instance=ExtResource("8_7t2yj")]
+transform = Transform3D(-2.08616e-07, 0, 1, 0, 1, 0, -1, 0, -2.08616e-07, 1181.71, 0, 664.628)
+street_name = "Первая Гражданская, 1"
+
+[node name="package_letter_receiver" parent="Levels/streets/first_grazhdanskaya_1" instance=ExtResource("12_1elkd")]
+transform = Transform3D(0.999997, 0, 1.49012e-08, 0, 1, 0, -1.49012e-08, 0, 0.999997, -3.54675, 2.05833, 6.04932)
+deliver_code = "00086"
+
+[node name="package_box_receiver" parent="Levels/streets/first_grazhdanskaya_1" instance=ExtResource("13_5msbq")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -2.78589, 0.269888, 6.38306)
+deliver_code = "00086"
+
+[node name="first_grazhdanskaya_2" parent="Levels/streets" instance=ExtResource("11_4a5py")]
+transform = Transform3D(-2.08616e-07, 0, 1, 0, 1, 0, -1, 0, -2.08616e-07, 1251.4, 0, 667)
+street_name = "Первая Гражданская, 2"
+
+[node name="package_letter_receiver" parent="Levels/streets/first_grazhdanskaya_2" instance=ExtResource("12_1elkd")]
+transform = Transform3D(-0.999999, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, -0.999999, -0.0942993, 1.82908, -8.1073)
+deliver_code = "00087"
+
+[node name="package_box_receiver" parent="Levels/streets/first_grazhdanskaya_2" instance=ExtResource("13_5msbq")]
+transform = Transform3D(-0.999999, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, -0.999999, 0.393677, 0.315426, -8.23755)
+deliver_code = "00087"
+
+[node name="first_grazhdanskaya_3" parent="Levels/streets" instance=ExtResource("11_cxx1a")]
+transform = Transform3D(-1, 0, 2.5332e-07, 0, 1, 0, -2.5332e-07, 0, -1, 1168.29, 0, 754.16)
+street_name = "Первая Гражданская, 3"
+
+[node name="package_box_receiver" parent="Levels/streets/first_grazhdanskaya_3" instance=ExtResource("13_5msbq")]
+transform = Transform3D(-7.45058e-08, 0, -1, 0, 1, 0, 1, 0, -7.45058e-08, -5.30151, 0.275626, 2.49475)
+deliver_code = "00088"
+
+[node name="package_letter_receiver" parent="Levels/streets/first_grazhdanskaya_3" instance=ExtResource("12_1elkd")]
+transform = Transform3D(-7.45058e-08, 0, -1, 0, 1, 0, 1, 0, -7.45058e-08, -5.17261, 2.79797, 1.38417)
+deliver_code = "00088"
+
+[node name="first_grazhdanskaya_4" parent="Levels/streets" instance=ExtResource("8_7t2yj")]
+transform = Transform3D(2.08616e-07, 0, -1, 0, 1, 0, 1, 0, 2.08616e-07, 1239.31, 0, 766.628)
+street_name = "Первая Гражданская, 4"
+
+[node name="package_letter_receiver" parent="Levels/streets/first_grazhdanskaya_4" instance=ExtResource("12_1elkd")]
+transform = Transform3D(0.999997, 0, 1.49012e-08, 0, 1, 0, -1.49012e-08, 0, 0.999997, -3.54675, 2.05833, 6.04932)
+deliver_code = "00089"
+
+[node name="package_box_receiver" parent="Levels/streets/first_grazhdanskaya_4" instance=ExtResource("13_5msbq")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -2.78589, 0.269888, 6.38306)
+deliver_code = "00089"
+
+[node name="first_grazhdanskaya_5" parent="Levels/streets" instance=ExtResource("11_4a5py")]
+transform = Transform3D(2.98023e-08, 0, 1, 0, 1, 0, -1, 0, 2.98023e-08, 1215.54, 0, 962.747)
+street_name = "Первая Гражданская, 5"
+
+[node name="package_letter_receiver" parent="Levels/streets/first_grazhdanskaya_5" instance=ExtResource("12_1elkd")]
+transform = Transform3D(-0.999999, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, -0.999999, -0.0942993, 1.82908, -8.1073)
+deliver_code = "00090"
+
+[node name="package_box_receiver" parent="Levels/streets/first_grazhdanskaya_5" instance=ExtResource("13_5msbq")]
+transform = Transform3D(-0.999999, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, -0.999999, 0.393677, 0.315426, -8.23755)
+deliver_code = "00090"
+
+[node name="first_grazhdanskaya_6" parent="Levels/streets" instance=ExtResource("11_4a5py")]
+transform = Transform3D(-0.0871556, 0, -0.996195, 0, 1, 0, 0.996195, 0, -0.0871556, 1143.02, -1.90735e-06, 1046.77)
+street_name = "Первая Гражданская, 6"
+
+[node name="package_letter_receiver" parent="Levels/streets/first_grazhdanskaya_6" instance=ExtResource("12_1elkd")]
+transform = Transform3D(-0.999999, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, -0.999999, -0.0942993, 1.82908, -8.1073)
+deliver_code = "00091"
+
+[node name="package_box_receiver" parent="Levels/streets/first_grazhdanskaya_6" instance=ExtResource("13_5msbq")]
+transform = Transform3D(-0.999999, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, -0.999999, 0.393677, 0.315426, -8.23755)
+deliver_code = "00091"
+
+[node name="first_grazhdanskaya_7" parent="Levels/streets" instance=ExtResource("11_cxx1a")]
+transform = Transform3D(-0.984808, 0, 0.173648, 0, 1, 0, -0.173648, 0, -0.984808, 1129.89, 0, 1153.76)
+street_name = "Первая Гражданская, 7"
+
+[node name="package_box_receiver" parent="Levels/streets/first_grazhdanskaya_7" instance=ExtResource("13_5msbq")]
+transform = Transform3D(-7.45058e-08, 0, -1, 0, 1, 0, 1, 0, -7.45058e-08, -5.30151, 0.275626, 2.49475)
+deliver_code = "00092"
+
+[node name="package_letter_receiver" parent="Levels/streets/first_grazhdanskaya_7" instance=ExtResource("12_1elkd")]
+transform = Transform3D(-7.45058e-08, 0, -1, 0, 1, 0, 1, 0, -7.45058e-08, -5.17261, 2.79797, 1.38417)
+deliver_code = "00092"
+
+[node name="cvetochnaya_1" parent="Levels/streets" instance=ExtResource("8_7t2yj")]
+transform = Transform3D(-0.99983, 0, -0.0184464, 0, 1, 0, 0.0184464, 0, -0.99983, 1192.06, 0, 1406)
+street_name = "ул Цветочная, 1"
+
+[node name="package_letter_receiver" parent="Levels/streets/cvetochnaya_1" instance=ExtResource("12_1elkd")]
+transform = Transform3D(0.999997, 0, 1.49012e-08, 0, 1, 0, -1.49012e-08, 0, 0.999997, -3.54675, 2.05833, 6.04932)
+deliver_code = "00075"
+
+[node name="package_box_receiver" parent="Levels/streets/cvetochnaya_1" instance=ExtResource("13_5msbq")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -2.78589, 0.269888, 6.38306)
+deliver_code = "00075"
+
+[node name="cvetochnaya_2" parent="Levels/streets" instance=ExtResource("8_7t2yj")]
+transform = Transform3D(-0.99983, 0, -0.0184472, 0, 1, 0, 0.0184472, 0, -0.99983, 1249.31, 0, 1405.15)
+street_name = "ул Цветочная, 2"
+
+[node name="package_letter_receiver" parent="Levels/streets/cvetochnaya_2" instance=ExtResource("12_1elkd")]
+transform = Transform3D(0.999997, 0, 1.49012e-08, 0, 1, 0, -1.49012e-08, 0, 0.999997, -3.54675, 2.05833, 6.04932)
+deliver_code = "00076"
+
+[node name="package_box_receiver" parent="Levels/streets/cvetochnaya_2" instance=ExtResource("13_5msbq")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -2.78589, 0.269888, 6.38306)
+deliver_code = "00076"
+
+[node name="sovetskaya_1" parent="Levels/streets" instance=ExtResource("8_7t2yj")]
+transform = Transform3D(-0.984808, 0, 0.173648, 0, 1, 0, -0.173648, 0, -0.984808, 513.706, 0, 1564.93)
+street_name = "ул Советская, 1"
+
+[node name="package_letter_receiver" parent="Levels/streets/sovetskaya_1" instance=ExtResource("12_1elkd")]
+transform = Transform3D(0.999997, 0, 1.49012e-08, 0, 1, 0, -1.49012e-08, 0, 0.999997, -3.54675, 2.05833, 6.04932)
+deliver_code = "00069"
+
+[node name="package_box_receiver" parent="Levels/streets/sovetskaya_1" instance=ExtResource("13_5msbq")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -2.78589, 0.269888, 6.38306)
+deliver_code = "00069"
+
+[node name="first_maya_1" parent="Levels/streets" instance=ExtResource("11_cxx1a")]
+transform = Transform3D(0.34202, 0, 0.939693, 0, 1, 0, -0.939693, 0, 0.34202, 1015.89, 0, 1298.76)
+street_name = "ул Первого Мая, 1"
+
+[node name="package_box_receiver" parent="Levels/streets/first_maya_1" instance=ExtResource("13_5msbq")]
+transform = Transform3D(-7.45058e-08, 0, -1, 0, 1, 0, 1, 0, -7.45058e-08, -5.30151, 0.275626, 2.49475)
+deliver_code = "00070"
+
+[node name="package_letter_receiver" parent="Levels/streets/first_maya_1" instance=ExtResource("12_1elkd")]
+transform = Transform3D(-7.45058e-08, 0, -1, 0, 1, 0, 1, 0, -7.45058e-08, -5.17261, 2.79797, 1.38417)
+deliver_code = "00070"
+
+[node name="first_maya_2" parent="Levels/streets" instance=ExtResource("8_7t2yj")]
+transform = Transform3D(-0.906308, 0, 0.422619, 0, 1, 0, -0.422619, 0, -0.906308, 1010.91, 0, 1357.23)
+street_name = "ул Первого Мая, 2"
+
+[node name="package_letter_receiver" parent="Levels/streets/first_maya_2" instance=ExtResource("12_1elkd")]
+transform = Transform3D(0.999997, 0, 1.49012e-08, 0, 1, 0, -1.49012e-08, 0, 0.999997, -3.54675, 2.05833, 6.04932)
+deliver_code = "00071"
+
+[node name="package_box_receiver" parent="Levels/streets/first_maya_2" instance=ExtResource("13_5msbq")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -2.78589, 0.269888, 6.38306)
+deliver_code = "00071"
+
+[node name="first_maya_3" parent="Levels/streets" instance=ExtResource("11_cxx1a")]
+transform = Transform3D(-0.573577, 0, -0.819152, 0, 1, 0, 0.819152, 0, -0.573577, 1069.39, 0, 1394.06)
+street_name = "ул Первого Мая, 3"
+
+[node name="package_box_receiver" parent="Levels/streets/first_maya_3" instance=ExtResource("13_5msbq")]
+transform = Transform3D(-7.45058e-08, 0, -1, 0, 1, 0, 1, 0, -7.45058e-08, -5.30151, 0.275626, 2.49475)
+deliver_code = "00072"
+
+[node name="package_letter_receiver" parent="Levels/streets/first_maya_3" instance=ExtResource("12_1elkd")]
+transform = Transform3D(-7.45058e-08, 0, -1, 0, 1, 0, 1, 0, -7.45058e-08, -5.17261, 2.79797, 1.38417)
+deliver_code = "00072"
+
+[node name="molodejnaya_1" parent="Levels/streets" instance=ExtResource("8_7t2yj")]
+transform = Transform3D(0.247659, 0, -0.968848, 0, 1, 0, 0.968848, 0, 0.247659, 1429.47, 3.8147e-06, 1358.59)
+street_name = "ул Молодежная, 1"
+
+[node name="package_letter_receiver" parent="Levels/streets/molodejnaya_1" instance=ExtResource("12_1elkd")]
+transform = Transform3D(0.999997, 0, 1.49012e-08, 0, 1, 0, -1.49012e-08, 0, 0.999997, -3.54675, 2.05833, 6.04932)
+deliver_code = "00097"
+
+[node name="package_box_receiver" parent="Levels/streets/molodejnaya_1" instance=ExtResource("13_5msbq")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -2.78589, 0.269888, 6.38306)
+deliver_code = "00097"
+
+[node name="molodejnaya_2" parent="Levels/streets" instance=ExtResource("10_qyej0")]
+transform = Transform3D(-0.173648, 0, 0.984808, 0, 1, 0, -0.984808, 0, -0.173648, 1441.48, 0, 1404.51)
+street_name = "ул Молодежная, 2"
+
+[node name="package_box_receiver" parent="Levels/streets/molodejnaya_2" instance=ExtResource("13_5msbq")]
+transform = Transform3D(-1, 0, -1.19209e-07, 0, 1, 0, 1.19209e-07, 0, -1, -1.63989, 0.786101, -4.37494)
+deliver_code = "00098"
+
+[node name="package_letter_receiver" parent="Levels/streets/molodejnaya_2" instance=ExtResource("12_1elkd")]
+transform = Transform3D(-1, 0, -1.19209e-07, 0, 1, 0, 1.19209e-07, 0, -1, 1.56934, 1.58171, -4.05695)
+deliver_code = "00098"
+
+[node name="molodejnaya_3" parent="Levels/streets" instance=ExtResource("11_cxx1a")]
+transform = Transform3D(0.984808, 0, 0.173648, 0, 1, 0, -0.173648, 0, 0.984808, 1447.78, -3.8147e-06, 1444.57)
+street_name = "ул Молодежная, 3"
+
+[node name="package_box_receiver" parent="Levels/streets/molodejnaya_3" instance=ExtResource("13_5msbq")]
+transform = Transform3D(-7.45058e-08, 0, -1, 0, 1, 0, 1, 0, -7.45058e-08, -5.30151, 0.275626, 2.49475)
+deliver_code = "00099"
+
+[node name="package_letter_receiver" parent="Levels/streets/molodejnaya_3" instance=ExtResource("12_1elkd")]
+transform = Transform3D(-7.45058e-08, 0, -1, 0, 1, 0, 1, 0, -7.45058e-08, -5.17261, 2.79797, 1.38417)
+deliver_code = "00099"
+
+[node name="molodejnaya_4" parent="Levels/streets" instance=ExtResource("11_cxx1a")]
+transform = Transform3D(0.984808, 0, 0.173648, 0, 1, 0, -0.173648, 0, 0.984808, 1454.58, -3.8147e-06, 1475.19)
+street_name = "ул Молодежная, 4"
+
+[node name="package_box_receiver" parent="Levels/streets/molodejnaya_4" instance=ExtResource("13_5msbq")]
+transform = Transform3D(-7.45058e-08, 0, -1, 0, 1, 0, 1, 0, -7.45058e-08, -5.30151, 0.275626, 2.49475)
+deliver_code = "00100"
+
+[node name="package_letter_receiver" parent="Levels/streets/molodejnaya_4" instance=ExtResource("12_1elkd")]
+transform = Transform3D(-7.45058e-08, 0, -1, 0, 1, 0, 1, 0, -7.45058e-08, -5.17261, 2.79797, 1.38417)
+deliver_code = "00100"
+
+[node name="slavi_1" parent="Levels/streets" instance=ExtResource("8_7t2yj")]
+transform = Transform3D(-0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, -0.965926, 966.074, 0, 986.106)
+street_name = "ул Славы, 1"
+
+[node name="package_letter_receiver" parent="Levels/streets/slavi_1" instance=ExtResource("12_1elkd")]
+transform = Transform3D(0.999997, 0, 1.49012e-08, 0, 1, 0, -1.49012e-08, 0, 0.999997, -3.54675, 2.05833, 6.04932)
+deliver_code = "00063"
+
+[node name="package_box_receiver" parent="Levels/streets/slavi_1" instance=ExtResource("13_5msbq")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -2.78589, 0.269888, 6.38306)
+deliver_code = "00063"
+
+[node name="slavi_2" parent="Levels/streets" instance=ExtResource("11_cxx1a")]
+transform = Transform3D(-0.258819, 0, -0.965926, 0, 1, 0, 0.965926, 0, -0.258819, 1042.22, 1.90735e-06, 1007.61)
+street_name = "ул Славы, 2"
+
+[node name="package_box_receiver" parent="Levels/streets/slavi_2" instance=ExtResource("13_5msbq")]
+transform = Transform3D(-7.45058e-08, 0, -1, 0, 1, 0, 1, 0, -7.45058e-08, -5.30151, 0.275626, 2.49475)
+deliver_code = "00064"
+
+[node name="package_letter_receiver" parent="Levels/streets/slavi_2" instance=ExtResource("12_1elkd")]
+transform = Transform3D(-7.45058e-08, 0, -1, 0, 1, 0, 1, 0, -7.45058e-08, -5.17261, 2.79797, 1.38417)
+deliver_code = "00064"
+
+[node name="tihiy_1" parent="Levels/streets" instance=ExtResource("11_cxx1a")]
+transform = Transform3D(2.08616e-07, 0, 1, 0, 1, 0, -1, 0, 2.08616e-07, 378.39, 0, 836.96)
+street_name = "Тихий, 1"
+
+[node name="package_box_receiver" parent="Levels/streets/tihiy_1" instance=ExtResource("13_5msbq")]
+transform = Transform3D(-7.45058e-08, 0, -1, 0, 1, 0, 1, 0, -7.45058e-08, -5.30151, 0.275626, 2.49475)
+deliver_code = "00031"
+
+[node name="package_letter_receiver" parent="Levels/streets/tihiy_1" instance=ExtResource("12_1elkd")]
+transform = Transform3D(-7.45058e-08, 0, -1, 0, 1, 0, 1, 0, -7.45058e-08, -5.17261, 2.79797, 1.38417)
+deliver_code = "00031"
+
+[node name="tihiy_2" parent="Levels/streets" instance=ExtResource("8_7t2yj")]
+transform = Transform3D(-1, 0, 6.70552e-08, 0, 1, 0, -6.70552e-08, 0, -1, 385.306, 0, 902.428)
+street_name = "Тихий, 2"
+
+[node name="package_letter_receiver" parent="Levels/streets/tihiy_2" instance=ExtResource("12_1elkd")]
+transform = Transform3D(0.999997, 0, 1.49012e-08, 0, 1, 0, -1.49012e-08, 0, 0.999997, -3.54675, 2.05833, 6.04932)
+deliver_code = "00032"
+
+[node name="package_box_receiver" parent="Levels/streets/tihiy_2" instance=ExtResource("13_5msbq")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -2.78589, 0.269888, 6.38306)
+deliver_code = "00032"
+
+[node name="tihiy_3" parent="Levels/streets" instance=ExtResource("11_cxx1a")]
+transform = Transform3D(-1.93715e-07, 0, -1, 0, 1, 0, 1, 0, -1.93715e-07, 445.69, 0, 902.96)
+street_name = "Тихий, 3"
+
+[node name="package_box_receiver" parent="Levels/streets/tihiy_3" instance=ExtResource("13_5msbq")]
+transform = Transform3D(-7.45058e-08, 0, -1, 0, 1, 0, 1, 0, -7.45058e-08, -5.30151, 0.275626, 2.49475)
+deliver_code = "00033"
+
+[node name="package_letter_receiver" parent="Levels/streets/tihiy_3" instance=ExtResource("12_1elkd")]
+transform = Transform3D(-7.45058e-08, 0, -1, 0, 1, 0, 1, 0, -7.45058e-08, -5.17261, 2.79797, 1.38417)
+deliver_code = "00033"
+
+[node name="tihiy_4" parent="Levels/streets" instance=ExtResource("11_cxx1a")]
+transform = Transform3D(2.08616e-07, 0, 1, 0, 1, 0, -1, 0, 2.08616e-07, 459.09, 0, 837.06)
+street_name = "Тихий, 4"
+
+[node name="package_box_receiver" parent="Levels/streets/tihiy_4" instance=ExtResource("13_5msbq")]
+transform = Transform3D(-7.45058e-08, 0, -1, 0, 1, 0, 1, 0, -7.45058e-08, -5.30151, 0.275626, 2.49475)
+deliver_code = "00034"
+
+[node name="package_letter_receiver" parent="Levels/streets/tihiy_4" instance=ExtResource("12_1elkd")]
+transform = Transform3D(-7.45058e-08, 0, -1, 0, 1, 0, 1, 0, -7.45058e-08, -5.17261, 2.79797, 1.38417)
+deliver_code = "00034"
+
+[node name="fourth_railway_1" parent="Levels/streets" instance=ExtResource("10_qyej0")]
+transform = Transform3D(-4.27193e-08, 0, -1, 0, 1, 0, 1, 0, -4.27193e-08, 596.1, 0, 650.2)
+street_name = "Четвертая Железнодорожная, 1"
+
+[node name="package_letter_receiver" parent="Levels/streets/fourth_railway_1" instance=ExtResource("12_1elkd")]
+transform = Transform3D(-0.999999, 0, 0, 0, 1, 0, 0, 0, -0.999999, -1.51823, 2.14378, -4.05347)
+deliver_code = "00025"
+
+[node name="package_box_receiver" parent="Levels/streets/fourth_railway_1" instance=ExtResource("13_5msbq")]
+transform = Transform3D(-0.999999, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, -0.999999, -1.56429, 0.792224, -4.22534)
+deliver_code = "00025"
+
+[node name="fourth_railway_2" parent="Levels/streets" instance=ExtResource("11_cxx1a")]
+transform = Transform3D(1, 0, -1.49012e-08, 0, 1, 0, 1.49012e-08, 0, 1, 674.99, 0, 674.36)
+street_name = "Четвертая Железнодорожная, 2"
+
+[node name="package_box_receiver" parent="Levels/streets/fourth_railway_2" instance=ExtResource("13_5msbq")]
+transform = Transform3D(-7.45058e-08, 0, -1, 0, 1, 0, 1, 0, -7.45058e-08, -5.30151, 0.275626, 2.49475)
+deliver_code = "00026"
+
+[node name="package_letter_receiver" parent="Levels/streets/fourth_railway_2" instance=ExtResource("12_1elkd")]
+transform = Transform3D(-7.45058e-08, 0, -1, 0, 1, 0, 1, 0, -7.45058e-08, -5.17261, 2.79797, 1.38417)
+deliver_code = "00026"
+
+[node name="fourth_railway_3" parent="Levels/streets" instance=ExtResource("11_cxx1a")]
+transform = Transform3D(-1, 0, -7.25216e-08, 0, 1, 0, 7.25216e-08, 0, -1, 597.59, 0, 719.26)
+street_name = "Четвертая Железнодорожная, 3"
+
+[node name="package_box_receiver" parent="Levels/streets/fourth_railway_3" instance=ExtResource("13_5msbq")]
+transform = Transform3D(-7.45058e-08, 0, -1, 0, 1, 0, 1, 0, -7.45058e-08, -5.30151, 0.275626, 2.49475)
+deliver_code = "00027"
+
+[node name="package_letter_receiver" parent="Levels/streets/fourth_railway_3" instance=ExtResource("12_1elkd")]
+transform = Transform3D(-7.45058e-08, 0, -1, 0, 1, 0, 1, 0, -7.45058e-08, -5.17261, 2.79797, 1.38417)
+deliver_code = "00027"
+
+[node name="fourth_railway_4" parent="Levels/streets" instance=ExtResource("10_qyej0")]
+transform = Transform3D(-4.47035e-08, 0, 1, 0, 1, 0, -1, 0, -4.47035e-08, 676.1, 0, 720.2)
+street_name = "Четвертая Железнодорожная, 4"
+
+[node name="package_letter_receiver" parent="Levels/streets/fourth_railway_4" instance=ExtResource("12_1elkd")]
+transform = Transform3D(-0.999999, 0, 0, 0, 1, 0, 0, 0, -0.999999, -1.51823, 2.14378, -4.05347)
+deliver_code = "00028"
+
+[node name="package_box_receiver" parent="Levels/streets/fourth_railway_4" instance=ExtResource("13_5msbq")]
+transform = Transform3D(-0.999999, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, -0.999999, -1.56429, 0.792224, -4.22534)
+deliver_code = "00028"
+
+[node name="fourth_railway_5" parent="Levels/streets" instance=ExtResource("11_4a5py")]
+transform = Transform3D(1.04308e-07, 0, -1, 0, 1, 0, 1, 0, 1.04308e-07, 600.4, 0, 788)
+street_name = "Четвертая Железнодорожная, 5"
+
+[node name="package_letter_receiver" parent="Levels/streets/fourth_railway_5" instance=ExtResource("12_1elkd")]
+transform = Transform3D(-0.999999, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, -0.999999, -0.0942993, 1.82908, -8.1073)
+deliver_code = "00029"
+
+[node name="package_box_receiver" parent="Levels/streets/fourth_railway_5" instance=ExtResource("13_5msbq")]
+transform = Transform3D(-0.999999, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, -0.999999, 0.393677, 0.315426, -8.23755)
+deliver_code = "00029"
+
+[node name="fourth_railway_6" parent="Levels/streets" instance=ExtResource("8_7t2yj")]
+transform = Transform3D(-1.98419e-09, 0, -1, 0, 1, 0, 1, 0, -1.98419e-09, 673.306, 0, 786.128)
+street_name = "Четвертая Железнодорожная, 6"
+
+[node name="package_letter_receiver" parent="Levels/streets/fourth_railway_6" instance=ExtResource("12_1elkd")]
+transform = Transform3D(0.999997, 0, 1.49012e-08, 0, 1, 0, -1.49012e-08, 0, 0.999997, -3.54675, 2.05833, 6.04932)
+deliver_code = "00030"
+
+[node name="package_box_receiver" parent="Levels/streets/fourth_railway_6" instance=ExtResource("13_5msbq")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -2.78589, 0.269888, 6.38306)
+deliver_code = "00030"
+
+[node name="dudorovskaya_1" parent="Levels/streets" instance=ExtResource("8_7t2yj")]
+transform = Transform3D(0.258819, 0, -0.965926, 0, 1, 0, 0.965926, 0, 0.258819, 541.006, 0, 904.128)
+street_name = "Дудоровская, 1"
+
+[node name="package_letter_receiver" parent="Levels/streets/dudorovskaya_1" instance=ExtResource("12_1elkd")]
+transform = Transform3D(0.999997, 0, 1.49012e-08, 0, 1, 0, -1.49012e-08, 0, 0.999997, -3.54675, 2.05833, 6.04932)
+deliver_code = "00035"
+
+[node name="package_box_receiver" parent="Levels/streets/dudorovskaya_1" instance=ExtResource("13_5msbq")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -2.78589, 0.269888, 6.38306)
+deliver_code = "00035"
+
+[node name="dudorovskaya_2" parent="Levels/streets" instance=ExtResource("11_4a5py")]
+transform = Transform3D(-0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, -0.258819, 567.5, 0, 988.5)
+street_name = "Дудоровская, 2"
+
+[node name="package_letter_receiver" parent="Levels/streets/dudorovskaya_2" instance=ExtResource("12_1elkd")]
+transform = Transform3D(-0.999999, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, -0.999999, -0.0942993, 1.82908, -8.1073)
+deliver_code = "00036"
+
+[node name="package_box_receiver" parent="Levels/streets/dudorovskaya_2" instance=ExtResource("13_5msbq")]
+transform = Transform3D(-0.999999, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, -0.999999, 0.393677, 0.315426, -8.23755)
+deliver_code = "00036"
+
+[node name="dudorovskaya_3" parent="Levels/streets" instance=ExtResource("11_4a5py")]
+transform = Transform3D(0.422618, 0, 0.906308, 0, 1, 0, -0.906308, 0, 0.422618, 567, 0, 1112.2)
+street_name = "Дудоровская, 3"
+
+[node name="package_letter_receiver" parent="Levels/streets/dudorovskaya_3" instance=ExtResource("12_1elkd")]
+transform = Transform3D(-0.999999, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, -0.999999, -0.0942993, 1.82908, -8.1073)
+deliver_code = "00037"
+
+[node name="package_box_receiver" parent="Levels/streets/dudorovskaya_3" instance=ExtResource("13_5msbq")]
+transform = Transform3D(-0.999999, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, -0.999999, 0.393677, 0.315426, -8.23755)
+deliver_code = "00037"
+
+[node name="dudorovskaya_4" parent="Levels/streets" instance=ExtResource("12_2pvwt")]
+transform = Transform3D(0.34202, 0, 0.939693, 0, 1, 0, -0.939693, 0, 0.34202, 491.9, 0, 1149)
+street_name = "Дудоровская, 4"
+
+[node name="package_box_receiver" parent="Levels/streets/dudorovskaya_4" instance=ExtResource("13_5msbq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.131958, 0.272772, 3.37781)
+deliver_code = "00038"
+
+[node name="package_letter_receiver" parent="Levels/streets/dudorovskaya_4" instance=ExtResource("12_1elkd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.432007, 1.06838, 3.06805)
+deliver_code = "00038"
+
+[node name="dudorovskaya_5" parent="Levels/streets" instance=ExtResource("8_7t2yj")]
+transform = Transform3D(-0.422619, 0, -0.906308, 0, 1, 0, 0.906308, 0, -0.422619, 523.106, 0, 1207.83)
+street_name = "Дудоровская, 5"
+
+[node name="package_letter_receiver" parent="Levels/streets/dudorovskaya_5" instance=ExtResource("12_1elkd")]
+transform = Transform3D(0.999997, 0, 1.49012e-08, 0, 1, 0, -1.49012e-08, 0, 0.999997, -3.54675, 2.05833, 6.04932)
+deliver_code = "00039"
+
+[node name="package_box_receiver" parent="Levels/streets/dudorovskaya_5" instance=ExtResource("13_5msbq")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -2.78589, 0.269888, 6.38306)
+deliver_code = "00039"
+
+[node name="dudorovskaya_6" parent="Levels/streets" instance=ExtResource("12_2pvwt")]
+transform = Transform3D(-4.47035e-08, 0, 1, 0, 1, 0, -1, 0, -4.47035e-08, 449.9, 0, 1249.4)
+street_name = "Дудоровская, 6"
+
+[node name="package_box_receiver" parent="Levels/streets/dudorovskaya_6" instance=ExtResource("13_5msbq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.131958, 0.272772, 3.37781)
+deliver_code = "00040"
+
+[node name="package_letter_receiver" parent="Levels/streets/dudorovskaya_6" instance=ExtResource("12_1elkd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.432007, 1.06838, 3.06805)
+deliver_code = "00040"
+
+[node name="dudorovskaya_7" parent="Levels/streets" instance=ExtResource("12_2pvwt")]
+transform = Transform3D(4.47035e-08, 0, -1, 0, 1, 0, 1, 0, 4.47035e-08, 493.1, 0, 1296)
+street_name = "Дудоровская, 7"
+
+[node name="package_letter_receiver" parent="Levels/streets/dudorovskaya_7" instance=ExtResource("12_1elkd")]
+transform = Transform3D(1, 0, 1.49012e-08, 0, 1, 0, -1.49012e-08, 0, 1, 0.431885, 1.06838, 3.06805)
+deliver_code = "00041"
+
+[node name="package_box_receiver" parent="Levels/streets/dudorovskaya_7" instance=ExtResource("13_5msbq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.131958, 0.272772, 3.37781)
+deliver_code = "00041"
+
+[node name="dudorovskaya_8" parent="Levels/streets" instance=ExtResource("12_2pvwt")]
+transform = Transform3D(-4.47035e-08, 0, 1, 0, 1, 0, -1, 0, -4.47035e-08, 432.1, 0, 1368)
+street_name = "Дудоровская, 8"
+
+[node name="package_box_receiver" parent="Levels/streets/dudorovskaya_8" instance=ExtResource("13_5msbq")]
+transform = Transform3D(1, 0, 1.49012e-08, 0, 1, 0, -1.49012e-08, 0, 1, -0.131226, 0.272772, 3.38135)
+deliver_code = "00042"
+
+[node name="package_letter_receiver" parent="Levels/streets/dudorovskaya_8" instance=ExtResource("12_1elkd")]
+transform = Transform3D(1, 0, 1.49012e-08, 0, 1, 0, -1.49012e-08, 0, 1, 0.432861, 1.06838, 3.07153)
+deliver_code = "00042"
+
+[node name="dudorovskaya_9" parent="Levels/streets" instance=ExtResource("12_2pvwt")]
+transform = Transform3D(4.47035e-08, 0, -1, 0, 1, 0, 1, 0, 4.47035e-08, 487.8, 0, 1368)
+street_name = "Дудоровская, 9"
+
+[node name="package_box_receiver" parent="Levels/streets/dudorovskaya_9" instance=ExtResource("13_5msbq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.131958, 0.272772, 3.37781)
+deliver_code = "00043"
+
+[node name="package_letter_receiver" parent="Levels/streets/dudorovskaya_9" instance=ExtResource("12_1elkd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.432007, 1.06838, 3.06805)
+deliver_code = "00043"
+
+[node name="dudorovskaya_10" parent="Levels/streets" instance=ExtResource("8_7t2yj")]
+transform = Transform3D(0.766045, 0, 0.642787, 0, 1, 0, -0.642787, 0, 0.766045, 363.106, 0, 1484.93)
+street_name = "Дудоровская, 10"
+
+[node name="package_letter_receiver" parent="Levels/streets/dudorovskaya_10" instance=ExtResource("12_1elkd")]
+transform = Transform3D(0.999997, 0, 1.49012e-08, 0, 1, 0, -1.49012e-08, 0, 0.999997, -3.54675, 2.05833, 6.04932)
+deliver_code = "00044"
+
+[node name="package_box_receiver" parent="Levels/streets/dudorovskaya_10" instance=ExtResource("13_5msbq")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -2.78589, 0.269888, 6.38306)
+deliver_code = "00044"
+
+[node name="dudorovskaya_11" parent="Levels/streets" instance=ExtResource("11_4a5py")]
+transform = Transform3D(-0.819152, 0, -0.573577, 0, 1, 0, 0.573577, 0, -0.819152, 297, 0, 1534.2)
+street_name = "Дудоровская, 11"
+
+[node name="package_letter_receiver" parent="Levels/streets/dudorovskaya_11" instance=ExtResource("12_1elkd")]
+transform = Transform3D(-0.999999, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, -0.999999, -0.0942993, 1.82908, -8.1073)
+deliver_code = "00045"
+
+[node name="package_box_receiver" parent="Levels/streets/dudorovskaya_11" instance=ExtResource("13_5msbq")]
+transform = Transform3D(-0.999999, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, -0.999999, 0.393677, 0.315426, -8.23755)
+deliver_code = "00045"
+
+[node name="dudorovskaya_12" parent="Levels/streets" instance=ExtResource("8_7t2yj")]
+transform = Transform3D(-0.342021, 0, -0.939693, 0, 1, 0, 0.939693, 0, -0.342021, 242.806, 0, 1654.23)
+street_name = "Дудоровская, 12"
+
+[node name="package_letter_receiver" parent="Levels/streets/dudorovskaya_12" instance=ExtResource("12_1elkd")]
+transform = Transform3D(0.999997, 0, 1.49012e-08, 0, 1, 0, -1.49012e-08, 0, 0.999997, -3.54675, 2.05833, 6.04932)
+deliver_code = "00046"
+
+[node name="package_box_receiver" parent="Levels/streets/dudorovskaya_12" instance=ExtResource("13_5msbq")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -2.78589, 0.269888, 6.38306)
+deliver_code = "00046"
+
+[node name="dudorovskaya_13" parent="Levels/streets" instance=ExtResource("11_4a5py")]
+transform = Transform3D(0.422618, 0, 0.906308, 0, 1, 0, -0.906308, 0, 0.422618, 216, 0, 1747.2)
+street_name = "Дудоровская, 13"
+
+[node name="package_letter_receiver" parent="Levels/streets/dudorovskaya_13" instance=ExtResource("12_1elkd")]
+transform = Transform3D(-0.999999, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, -0.999999, -0.0942993, 1.82908, -8.1073)
+deliver_code = "00047"
+
+[node name="package_box_receiver" parent="Levels/streets/dudorovskaya_13" instance=ExtResource("13_5msbq")]
+transform = Transform3D(-0.999999, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, -0.999999, 0.393677, 0.315426, -8.23755)
+deliver_code = "00047"
+
+[node name="dudorovskaya_14" parent="Levels/streets" instance=ExtResource("11_cxx1a")]
+transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 174.59, 0, 1816.26)
+street_name = "Дудоровская, 14"
+
+[node name="package_box_receiver" parent="Levels/streets/dudorovskaya_14" instance=ExtResource("13_5msbq")]
+transform = Transform3D(-7.45058e-08, 0, -1, 0, 1, 0, 1, 0, -7.45058e-08, -5.30151, 0.275626, 2.49475)
+deliver_code = "00048"
+
+[node name="package_letter_receiver" parent="Levels/streets/dudorovskaya_14" instance=ExtResource("12_1elkd")]
+transform = Transform3D(-7.45058e-08, 0, -1, 0, 1, 0, 1, 0, -7.45058e-08, -5.17261, 2.79797, 1.38417)
+deliver_code = "00048"
+
+[node name="dudorovskaya_15" parent="Levels/streets" instance=ExtResource("11_cxx1a")]
+transform = Transform3D(-1, 0, -4.47035e-08, 0, 1, 0, 4.47035e-08, 0, -1, 72.59, 0, 1726.96)
+street_name = "Дудоровская, 15"
+
+[node name="package_box_receiver" parent="Levels/streets/dudorovskaya_15" instance=ExtResource("13_5msbq")]
+transform = Transform3D(-7.45058e-08, 0, -1, 0, 1, 0, 1, 0, -7.45058e-08, -5.30151, 0.275626, 2.49475)
+deliver_code = "00049"
+
+[node name="package_letter_receiver" parent="Levels/streets/dudorovskaya_15" instance=ExtResource("12_1elkd")]
+transform = Transform3D(-7.45058e-08, 0, -1, 0, 1, 0, 1, 0, -7.45058e-08, -5.17261, 2.79797, 1.38417)
+deliver_code = "00049"
+
+[node name="dudorovskaya_16" parent="Levels/streets" instance=ExtResource("11_cxx1a")]
+transform = Transform3D(1, 0, 2.08616e-07, 0, 1, 0, -2.08616e-07, 0, 1, 145.59, 0, 1669.26)
+street_name = "Дудоровская, 16"
+
+[node name="package_box_receiver" parent="Levels/streets/dudorovskaya_16" instance=ExtResource("13_5msbq")]
+transform = Transform3D(-7.45058e-08, 0, -1, 0, 1, 0, 1, 0, -7.45058e-08, -5.30151, 0.275626, 2.49475)
+deliver_code = "00050"
+
+[node name="package_letter_receiver" parent="Levels/streets/dudorovskaya_16" instance=ExtResource("12_1elkd")]
+transform = Transform3D(-7.45058e-08, 0, -1, 0, 1, 0, 1, 0, -7.45058e-08, -5.17261, 2.79797, 1.38417)
+deliver_code = "00050"
+
+[node name="dudorovskaya_17" parent="Levels/streets" instance=ExtResource("8_7t2yj")]
+transform = Transform3D(2.30968e-07, 0, 1, 0, 1, 0, -1, 0, 2.30968e-07, 82.8062, 0, 1654.23)
+street_name = "Дудоровская, 17"
+
+[node name="package_letter_receiver" parent="Levels/streets/dudorovskaya_17" instance=ExtResource("12_1elkd")]
+transform = Transform3D(0.999997, 0, 1.49012e-08, 0, 1, 0, -1.49012e-08, 0, 0.999997, -3.54675, 2.05833, 6.04932)
+deliver_code = "00051"
+
+[node name="package_box_receiver" parent="Levels/streets/dudorovskaya_17" instance=ExtResource("13_5msbq")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -2.78589, 0.269888, 6.38306)
+deliver_code = "00051"
+
+[node name="dudorovskaya_18" parent="Levels/streets" instance=ExtResource("11_4a5py")]
+transform = Transform3D(-1.78814e-07, 0, 1, 0, 1, 0, -1, 0, -1.78814e-07, 159, 0, 1590.2)
+street_name = "Дудоровская, 18"
+
+[node name="package_letter_receiver" parent="Levels/streets/dudorovskaya_18" instance=ExtResource("12_1elkd")]
+transform = Transform3D(-0.999999, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, -0.999999, -0.0942993, 1.82908, -8.1073)
+deliver_code = "00052"
+
+[node name="package_box_receiver" parent="Levels/streets/dudorovskaya_18" instance=ExtResource("13_5msbq")]
+transform = Transform3D(-0.999999, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, -0.999999, 0.393677, 0.315426, -8.23755)
+deliver_code = "00052"
+
+[node name="torgoviy_1" parent="Levels/streets" instance=ExtResource("10_qyej0")]
+transform = Transform3D(2.08616e-07, 0, -1, 0, 1, 0, 1, 0, 2.08616e-07, 1237.1, 0, 1097.2)
+street_name = "переулок Торговый, 1"
+
+[node name="package_box_receiver" parent="Levels/streets/torgoviy_1" instance=ExtResource("13_5msbq")]
+transform = Transform3D(-1, 0, -1.19209e-07, 0, 1, 0, 1.19209e-07, 0, -1, -1.63989, 0.786101, -4.37494)
+deliver_code = "00106"
+
+[node name="package_letter_receiver" parent="Levels/streets/torgoviy_1" instance=ExtResource("12_1elkd")]
+transform = Transform3D(-1, 0, -1.19209e-07, 0, 1, 0, 1.19209e-07, 0, -1, 1.56934, 1.58171, -4.05695)
+deliver_code = "00106"
+
+[node name="torgoviy_2" parent="Levels/streets" instance=ExtResource("8_7t2yj")]
+transform = Transform3D(-2.08616e-07, 0, 1, 0, 1, 0, -1, 0, -2.08616e-07, 1238.31, 0, 1160.63)
+street_name = "переулок Торговый, 2"
+
+[node name="package_letter_receiver" parent="Levels/streets/torgoviy_2" instance=ExtResource("12_1elkd")]
+transform = Transform3D(0.999997, 0, 1.49012e-08, 0, 1, 0, -1.49012e-08, 0, 0.999997, -3.54675, 2.05833, 6.04932)
+deliver_code = "00107"
+
+[node name="package_box_receiver" parent="Levels/streets/torgoviy_2" instance=ExtResource("13_5msbq")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -2.78589, 0.269888, 6.38306)
+deliver_code = "00107"
+
+[node name="torgoviy_3" parent="Levels/streets" instance=ExtResource("11_cxx1a")]
+transform = Transform3D(-1, 0, 1.78814e-07, 0, 1, 0, -1.78814e-07, 0, -1, 1236.89, 0, 1232.76)
+street_name = "переулок Торговый, 3"
+
+[node name="package_box_receiver" parent="Levels/streets/torgoviy_3" instance=ExtResource("13_5msbq")]
+transform = Transform3D(-7.45058e-08, 0, -1, 0, 1, 0, 1, 0, -7.45058e-08, -5.30151, 0.275626, 2.49475)
+deliver_code = "00108"
+
+[node name="package_letter_receiver" parent="Levels/streets/torgoviy_3" instance=ExtResource("12_1elkd")]
+transform = Transform3D(-7.45058e-08, 0, -1, 0, 1, 0, 1, 0, -7.45058e-08, -5.17261, 2.79797, 1.38417)
+deliver_code = "00108"
+
+[node name="torgoviy_4" parent="Levels/streets" instance=ExtResource("10_qyej0")]
+transform = Transform3D(-2.06599e-07, -0.0178538, 0.999841, -3.68916e-09, 0.999841, 0.0178538, -1, 0, -2.06632e-07, 1285.11, 0, 1234.4)
+street_name = "переулок Торговый, 4"
+
+[node name="package_box_receiver" parent="Levels/streets/torgoviy_4" instance=ExtResource("13_5msbq")]
+transform = Transform3D(-1, 0, -1.19209e-07, 0, 1, 0, 1.19209e-07, 0, -1, -1.63989, 0.786101, -4.37494)
+deliver_code = "00109"
+
+[node name="package_letter_receiver" parent="Levels/streets/torgoviy_4" instance=ExtResource("12_1elkd")]
+transform = Transform3D(-1, 0, -1.19209e-07, 0, 1, 0, 1.19209e-07, 0, -1, 1.56934, 1.58171, -4.05695)
+deliver_code = "00109"
+
+[node name="neizvestnaya_1" parent="Levels/streets" instance=ExtResource("8_7t2yj")]
+transform = Transform3D(0.0493027, 0, -0.998784, 0, 1, 0, 0.998784, 0, 0.0493027, 1502.29, 0, 1433.77)
+street_name = "ул Неизвестная, 1"
+
+[node name="package_letter_receiver" parent="Levels/streets/neizvestnaya_1" instance=ExtResource("12_1elkd")]
+transform = Transform3D(0.999997, 0, 1.49012e-08, 0, 1, 0, -1.49012e-08, 0, 0.999997, -3.54675, 2.05833, 6.04932)
+deliver_code = "00119"
+
+[node name="package_box_receiver" parent="Levels/streets/neizvestnaya_1" instance=ExtResource("13_5msbq")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -2.78589, 0.269888, 6.38306)
+deliver_code = "00119"
+
+[node name="polevaya_1" parent="Levels/streets" instance=ExtResource("8_7t2yj")]
+transform = Transform3D(1, 0, -2.38419e-07, 0, 1, 0, 2.38419e-07, 0, 1, 1425.31, 0, 1116.43)
+street_name = "ул Полевая, 1"
+
+[node name="package_letter_receiver" parent="Levels/streets/polevaya_1" instance=ExtResource("12_1elkd")]
+transform = Transform3D(0.999997, 0, 1.49012e-08, 0, 1, 0, -1.49012e-08, 0, 0.999997, -3.54675, 2.05833, 6.04932)
+deliver_code = "00120"
+
+[node name="package_box_receiver" parent="Levels/streets/polevaya_1" instance=ExtResource("13_5msbq")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -2.78589, 0.269888, 6.38306)
+deliver_code = "00120"
+
+[node name="polevaya_2" parent="Levels/streets" instance=ExtResource("10_qyej0")]
+transform = Transform3D(-1, 0, 4.47035e-08, 0, 1, 0, -4.47035e-08, 0, -1, 1507.69, 0, 1094.19)
+street_name = "ул Полевая, 2"
+
+[node name="package_box_receiver" parent="Levels/streets/polevaya_2" instance=ExtResource("13_5msbq")]
+transform = Transform3D(-1, 0, -1.19209e-07, 0, 1, 0, 1.19209e-07, 0, -1, -1.63989, 0.786101, -4.37494)
+deliver_code = "00121"
+
+[node name="package_letter_receiver" parent="Levels/streets/polevaya_2" instance=ExtResource("12_1elkd")]
+transform = Transform3D(-1, 0, -1.19209e-07, 0, 1, 0, 1.19209e-07, 0, -1, 1.56934, 1.58171, -4.05695)
+deliver_code = "00121"
+
+[node name="polevaya_3" parent="Levels/streets" instance=ExtResource("11_cxx1a")]
+transform = Transform3D(4.47035e-08, 0, 1, 0, 1, 0, -1, 0, 4.47035e-08, 1569.39, 0, 1076.66)
+street_name = "ул Полевая, 3"
+
+[node name="package_box_receiver" parent="Levels/streets/polevaya_3" instance=ExtResource("13_5msbq")]
+transform = Transform3D(-7.45058e-08, 0, -1, 0, 1, 0, 1, 0, -7.45058e-08, -5.30151, 0.275626, 2.49475)
+deliver_code = "00122"
+
+[node name="package_letter_receiver" parent="Levels/streets/polevaya_3" instance=ExtResource("12_1elkd")]
+transform = Transform3D(-7.45058e-08, 0, -1, 0, 1, 0, 1, 0, -7.45058e-08, -5.17261, 2.79797, 1.38417)
+deliver_code = "00122"
+
+[node name="polevaya_4" parent="Levels/streets" instance=ExtResource("8_7t2yj")]
+transform = Transform3D(1, 0, -2.83122e-07, 0, 1, 0, 2.83122e-07, 0, 1, 1638.31, 0, 1066.53)
+street_name = "ул Полевая, 4"
+
+[node name="package_letter_receiver" parent="Levels/streets/polevaya_4" instance=ExtResource("12_1elkd")]
+transform = Transform3D(0.999997, 0, 1.49012e-08, 0, 1, 0, -1.49012e-08, 0, 0.999997, -3.54675, 2.05833, 6.04932)
+deliver_code = "00123"
+
+[node name="package_box_receiver" parent="Levels/streets/polevaya_4" instance=ExtResource("13_5msbq")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -2.78589, 0.269888, 6.38306)
+deliver_code = "00123"
+
+[node name="polevaya_5" parent="Levels/streets" instance=ExtResource("11_4a5py")]
+transform = Transform3D(0.173648, 0, 0.984808, 0, 1, 0, -0.984808, 0, 0.173648, 1722, 0, 1154)
+street_name = "ул Полевая, 5"
+
+[node name="package_letter_receiver" parent="Levels/streets/polevaya_5" instance=ExtResource("12_1elkd")]
+transform = Transform3D(-0.999999, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, -0.999999, -0.0942993, 1.82908, -8.1073)
+deliver_code = "00124"
+
+[node name="package_box_receiver" parent="Levels/streets/polevaya_5" instance=ExtResource("13_5msbq")]
+transform = Transform3D(-0.999999, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, -0.999999, 0.393677, 0.315426, -8.23755)
+deliver_code = "00124"
+
+[node name="sec_grajdanskaya_1" parent="Levels/streets" instance=ExtResource("11_cxx1a")]
+transform = Transform3D(-1, 0, -2.08616e-07, 0, 1, 0, 2.08616e-07, 0, -1, 1095.52, 7.62939e-06, 852.253)
+street_name = "Вторая Гражданская, 1"
+
+[node name="package_box_receiver" parent="Levels/streets/sec_grajdanskaya_1" instance=ExtResource("13_5msbq")]
+transform = Transform3D(-7.45058e-08, 0, -1, 0, 1, 0, 1, 0, -7.45058e-08, -5.30151, 0.275626, 2.49475)
+deliver_code = "00065"
+
+[node name="package_letter_receiver" parent="Levels/streets/sec_grajdanskaya_1" instance=ExtResource("12_1elkd")]
+transform = Transform3D(-7.45058e-08, 0, -1, 0, 1, 0, 1, 0, -7.45058e-08, -5.17261, 2.79797, 1.38417)
+deliver_code = "00065"
+
+[node name="sec_grajdanskaya_2" parent="Levels/streets" instance=ExtResource("8_7t2yj")]
+transform = Transform3D(2.08616e-07, 0, -1, 0, 1, 0, 1, 0, 2.08616e-07, 1143.81, 0, 869.428)
+street_name = "Вторая Гражданская, 2"
+
+[node name="package_letter_receiver" parent="Levels/streets/sec_grajdanskaya_2" instance=ExtResource("12_1elkd")]
+transform = Transform3D(0.999997, 0, 1.49012e-08, 0, 1, 0, -1.49012e-08, 0, 0.999997, -3.54675, 2.05833, 6.04932)
+deliver_code = "00066"
+
+[node name="package_box_receiver" parent="Levels/streets/sec_grajdanskaya_2" instance=ExtResource("13_5msbq")]
+transform = Transform3D(0.999998, 0, 0, 0, 1, 0, 0, 0, 0.999998, -2.78589, 0.269888, 6.38306)
+deliver_code = "00066"
+
+[node name="sec_grajdanskaya_3" parent="Levels/streets" instance=ExtResource("11_cxx1a")]
+transform = Transform3D(-1, 0, -2.08616e-07, 0, 1, 0, 2.08616e-07, 0, -1, 1086.64, 7.62939e-06, 910.495)
+street_name = "Вторая Гражданская, 3"
+
+[node name="package_box_receiver" parent="Levels/streets/sec_grajdanskaya_3" instance=ExtResource("13_5msbq")]
+transform = Transform3D(-7.45058e-08, 0, -1, 0, 1, 0, 1, 0, -7.45058e-08, -5.30151, 0.275626, 2.49475)
+deliver_code = "00067"
+
+[node name="package_letter_receiver" parent="Levels/streets/sec_grajdanskaya_3" instance=ExtResource("12_1elkd")]
+transform = Transform3D(-7.45058e-08, 0, -1, 0, 1, 0, 1, 0, -7.45058e-08, -5.17261, 2.79797, 1.38417)
+deliver_code = "00067"
+
+[node name="sec_grajdanskaya_4" parent="Levels/streets" instance=ExtResource("11_cxx1a")]
+transform = Transform3D(-1, 0, -2.08616e-07, 0, 1, 0, 2.08616e-07, 0, -1, 1078.09, 7.62939e-06, 962.834)
+street_name = "Вторая Гражданская, 4"
+
+[node name="package_box_receiver" parent="Levels/streets/sec_grajdanskaya_4" instance=ExtResource("13_5msbq")]
+transform = Transform3D(-7.45058e-08, 0, -1, 0, 1, 0, 1, 0, -7.45058e-08, -5.30151, 0.275626, 2.49475)
+deliver_code = "00068"
+
+[node name="package_letter_receiver" parent="Levels/streets/sec_grajdanskaya_4" instance=ExtResource("12_1elkd")]
+transform = Transform3D(-7.45058e-08, 0, -1, 0, 1, 0, 1, 0, -7.45058e-08, -5.17261, 2.79797, 1.38417)
+deliver_code = "00068"
+
+[node name="river" type="Node" parent="Levels"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Levels/river"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1051, -1.4, 1950.4)
+mesh = SubResource("PlaneMesh_gc26u")
+
+[node name="infrastructure" type="Node" parent="Levels"]
+
+[node name="school" parent="Levels/infrastructure" instance=ExtResource("14_6dguf")]
+transform = Transform3D(0.0871557, 0, -0.996195, 0, 1, 0, 0.996195, 0, 0.0871557, 917.6, 0, 1565.8)
+
+[node name="package_box_receiver" parent="Levels/infrastructure/school" instance=ExtResource("13_5msbq")]
+transform = Transform3D(-4.47035e-08, 0, 1, 0, 1, 0, -1, 0, -4.47035e-08, -14.7772, 0.292342, 4.55908)
+deliver_code = "00073"
+
+[node name="package_letter_receiver" parent="Levels/infrastructure/school" instance=ExtResource("12_1elkd")]
+transform = Transform3D(-4.47035e-08, 0, 1, 0, 1, 0, -1, 0, -4.47035e-08, -14.9261, 1.71322, 3.72839)
+deliver_code = "00073"
+
+[node name="postOfficeBulild" parent="Levels/infrastructure" instance=ExtResource("15_hcqwq")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 948, 0.0231446, 1174)
+
+[node name="package_spawner" parent="Levels/infrastructure/postOfficeBulild" instance=ExtResource("18_viama")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.8962, 7.35382)
+
+[node name="hospital" parent="Levels/infrastructure" instance=ExtResource("16_st33v")]
+transform = Transform3D(0.302104, 0, 0.953275, 0, 1, 0, -0.953275, 0, 0.302104, 1050.98, 0, 778.913)
+street_name = "улица Победы, д1"
+
+[node name="package_letter_receiver" parent="Levels/infrastructure/hospital" instance=ExtResource("12_1elkd")]
+transform = Transform3D(-2.98023e-08, 0, -1, 0, 1, 0, 1, 0, -2.98023e-08, 4.94406, 1.35385, 2.62537)
+deliver_code = "00062"
+
+[node name="package_box_receiver" parent="Levels/infrastructure/hospital" instance=ExtResource("13_5msbq")]
+transform = Transform3D(-2.98023e-08, 0, -1, 0, 1, 0, 1, 0, -2.98023e-08, 4.6875, 0.763645, -2.58154)
+deliver_code = "00062"
+
+[node name="abandonedFactory" parent="Levels/infrastructure" instance=ExtResource("21_h3s7q")]
+transform = Transform3D(-0.999834, 0, -0.0182028, 0, 1, 0, 0.0182028, 0, -0.999834, 710.295, 0.1, 2307.63)
+
+[node name="griffin_statue" parent="Levels/infrastructure/abandonedFactory" instance=ExtResource("22_wb4fs")]
+transform = Transform3D(-1, 0, -2.70084e-07, 0, 1, 0, 2.70084e-07, 0, -1, -23.8865, 4.76837e-07, -10.5256)
+
+[node name="waterTower" parent="Levels/infrastructure" instance=ExtResource("22_umta2")]
+transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, 1161.46, -1.90735e-06, 1411.06)
+
+[node name="props_build" type="GridMap" parent="Levels/infrastructure"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+mesh_library = ExtResource("23_q1m3v")
+data = {
+"cells": PackedInt32Array(854, 634, 1048580, 845, 690, 655363, 848, 661, 655362, 854, 656, 655361, 854, 699, 1048581, 808, 687, 1441797, 810, 655, 1441792, 797, 676, 1048580, 790, 630, 1048581, 787, 650, 655363, 797, 610, 1048579, 808, 618, 4, 759, 714, 655365, 504, 688, 5, 538, 701, 3, 707, 547, 655365, 758, 539, 655364, 755, 540, 1441794, 747, 540, 1441793, 425, 241, 1048577, 431, 226, 1048580, 389, 232, 1441797, 395, 256, 1048581, 350, 272, 1441796, 353, 243, 1441796, 344, 395, 1048580, 290, 398, 1441797, 280, 568, 0, 263, 615, 5, 252, 652, 655361, 211, 689, 1, 89, 798, 655361, 79, 841, 1048580, 80, 833, 655365, 34, 831, 1441797, 37, 813, 655364, 108, 886, 0, 85, 899, 655360, 240, 776, 1441792, 250, 794, 5, 260, 791, 1, 519, 752, 1048577, 530, 753, 4, 597, 710, 5, 626, 710, 4, 601, 703, 2, 615, 703, 655363, 628, 644, 1048579, 611, 582, 1441797, 611, 579, 1441797, 611, 576, 1441797, 611, 573, 1441797, 536, 451, 1441797, 546, 432, 655361, 548, 421, 1441795, 579, 432, 1048580, 582, 332, 1441796, 632, 340, 1048576, 577, 377, 1441792, 618, 392, 1048579, 700, 603, 655364, 703, 603, 655365, 706, 603, 655364, 709, 603, 655360, 812, 523, 655360, 823, 523, 655365, 828, 533, 1441794, 779, 529, 655364, 782, 529, 655364, 785, 529, 655364, 788, 529, 655364, 653, 784, 1441797, 700, 773, 1048580, 686, 773, 2, 655, 822, 4, 693, 809, 5, 729, 794, 1048576, 816, 731, 655360, 837, 738, 1048576, 844, 764, 3, 151, 755, 655365, 135, 770, 1441797, 26, 892, 1441797, 18, 901, 1441797, 15, 885, 1441797, 58, 878, 1441797, 16, 893, 1441796, 8, 901, 1441796, 180, 665, 655360, 150, 703, 1441792, 36, 584, 655365, 182, 458, 5, 223, 459, 0, 182, 410, 655364, 238, 408, 655365, 65815, 453, 1441793, 65811, 462, 1048580, 65805, 459, 1441795, 65931, 454, 3, 645, 583, 1441792, 644, 604, 1441797, 648, 560, 655364, 610, 554, 1441796, 867, 586, 1048581, 868, 580, 1441793, 865, 568, 655363, 782, 541, 2, 667, 647, 5, 670, 709, 1441792, 343, 441, 1441792, 513, 242, 1048576, 520, 205, 1048580, 524, 189, 1048581)
+}
+metadata/_editor_floor_ = Vector3(0, 0, 0)
+
+[node name="gasStation" parent="Levels/infrastructure" instance=ExtResource("38_b6cnr")]
+transform = Transform3D(0.34202, 0, -0.939693, 0, 1, 0, 0.939693, 0, 0.34202, 1426.1, 0, 1269.7)
+
+[node name="nature" type="Node" parent="Levels"]
+
+[node name="big_forest" type="Node3D" parent="Levels/nature"]
+script = ExtResource("17_0tutk")
+global_seed = 20
+render_mode = 1
+modifier_stack = SubResource("Resource_px8t0")
+Performance/use_chunks = true
+Performance/chunk_dimensions = Vector3(15, 15, 15)
+
+[node name="tree_1" type="Node3D" parent="Levels/nature/big_forest"]
+script = ExtResource("23_kpixf")
+source_scale_multiplier = 2.0
+path = "res://objects/PROPS/nature/forest_tree_1.tscn"
+
+[node name="tree_2" type="Node3D" parent="Levels/nature/big_forest"]
+script = ExtResource("23_kpixf")
+source_scale_multiplier = 3.0
+path = "res://objects/PROPS/nature/forest_tree_2.tscn"
+
+[node name="tree_3" type="Node3D" parent="Levels/nature/big_forest"]
+script = ExtResource("23_kpixf")
+source_scale_multiplier = 4.0
+path = "res://objects/PROPS/nature/forest_tree_3.tscn"
+
+[node name="ScatterShape" type="Node3D" parent="Levels/nature/big_forest"]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 0, 0, 0)
+script = ExtResource("24_g5fqv")
+shape = SubResource("Resource_e18i2")
+
+[node name="reed" type="Node3D" parent="Levels/nature"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2032, 0, 1595)
+script = ExtResource("17_0tutk")
+render_mode = 1
+modifier_stack = SubResource("Resource_vd30h")
+Performance/use_chunks = true
+Performance/chunk_dimensions = Vector3(15, 15, 15)
+
+[node name="ScatterItem" type="Node3D" parent="Levels/nature/reed"]
+script = ExtResource("23_kpixf")
+source_scale_multiplier = 2.0
+override_cast_shadow = 0
+path = "res://objects/PROPS/nature/reed.tscn"
+
+[node name="ScatterShape" type="Node3D" parent="Levels/nature/reed"]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 0, 0, 0)
+script = ExtResource("24_g5fqv")
+shape = SubResource("Resource_o2ocv")
+
+[node name="GridMap" type="GridMap" parent="Levels/nature"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+mesh_library = ExtResource("32_n7ywf")
+cell_octant_size = 1
+data = {
+"cells": PackedInt32Array(846, 614, 1441793, 850, 601, 655361, 854, 615, 5, 860, 603, 1441792, 864, 621, 1441792, 875, 603, 1441792, 902, 601, 1441792, 927, 614, 655360, 938, 587, 1048576, 966, 600, 0, 979, 565, 1441792, 996, 586, 1048576, 1016, 553, 0, 920, 595, 1441793, 888, 624, 655361, 948, 608, 1048577, 957, 576, 1, 979, 592, 1441793, 929, 592, 655365, 911, 597, 1048581, 901, 622, 1048581, 998, 556, 5, 1012, 577, 5, 1021, 572, 5, 879, 622, 1441797, 889, 601, 655361, 863, 604, 655364, 867, 606, 655364, 867, 618, 655364, 869, 623, 655364, 872, 619, 655364, 875, 624, 655364, 848, 620, 655364, 856, 619, 655364, 882, 605, 655364, 880, 599, 655364, 894, 624, 655364, 905, 623, 655364, 900, 629, 655364, 882, 627, 655364, 871, 626, 655364, 871, 593, 655364, 893, 605, 655364, 854, 599, 655363, 853, 602, 655363, 846, 596, 655363, 855, 595, 655363, 878, 606, 655362, 883, 619, 655362, 914, 618, 655362, 911, 592, 655362, 920, 619, 655362, 917, 623, 655362, 912, 624, 655362, 946, 578, 655364, 956, 605, 655364, 972, 596, 655364, 967, 594, 655364, 964, 578, 655364, 958, 579, 655364, 961, 568, 655364, 826, 641, 1, 821, 610, 1441793, 824, 646, 1441798, 820, 637, 1441798, 844, 639, 1441798, 841, 648, 1441798, 819, 694, 1441798, 817, 708, 1441798, 813, 700, 655360, 842, 713, 655360, 807, 668, 655360, 823, 662, 655365, 842, 673, 655365, 774, 613, 655365, 783, 610, 1048577, 801, 620, 1048577, 778, 637, 1048577, 782, 657, 1048577, 778, 688, 1048577, 755, 750, 1048577, 789, 742, 1048577, 754, 696, 0, 816, 752, 0, 844, 743, 0, 834, 770, 655361, 867, 737, 655361, 862, 757, 655365, 862, 745, 655365, 857, 731, 655365, 804, 746, 655366, 781, 740, 655366, 763, 753, 655366, 798, 745, 655364, 790, 747, 655364, 798, 749, 655364, 761, 748, 655364, 760, 748, 655364, 758, 755, 655364, 757, 752, 655364, 754, 754, 655364, 750, 747, 655364, 757, 776, 655364, 762, 783, 655364, 736, 786, 1048577, 749, 780, 0, 789, 767, 0, 808, 786, 1441792, 810, 770, 655365, 825, 780, 655365, 791, 785, 1048577, 823, 589, 1, 787, 588, 1441793, 800, 563, 655361, 808, 576, 1048577, 773, 570, 1048577, 789, 573, 0, 754, 574, 0, 829, 563, 0, 816, 563, 655365, 810, 588, 655365, 781, 564, 655365, 794, 563, 1048582, 801, 573, 6, 812, 560, 6, 830, 573, 6, 825, 586, 1441798, 817, 588, 1441798, 798, 586, 655366, 820, 576, 1048582, 774, 583, 6, 759, 594, 1441798, 770, 581, 1441796, 766, 571, 1441796, 761, 579, 1441796, 752, 575, 1441796, 753, 588, 1441796, 807, 568, 1441796, 819, 558, 1441796, 828, 569, 1441796, 833, 585, 1441796, 821, 580, 1441796, 805, 584, 1441796, 784, 586, 1441796, 783, 577, 1441796, 788, 564, 1441796, 811, 641, 655365, 795, 657, 1048581, 798, 634, 1, 766, 722, 1441793, 779, 713, 655365, 878, 568, 1048577, 858, 542, 1, 800, 535, 1441793, 699, 533, 655361, 681, 518, 1048577, 689, 470, 1048577, 651, 468, 1, 693, 496, 1, 653, 507, 1441793, 622, 500, 655361, 604, 455, 1048577, 611, 425, 1048577, 626, 354, 1, 630, 399, 1, 627, 305, 1441793, 594, 313, 1441793, 584, 399, 655361, 590, 357, 1048577, 581, 460, 1441793, 578, 495, 655361, 556, 495, 655361, 567, 416, 1048577, 537, 435, 1, 564, 473, 1441793, 544, 391, 655361, 525, 373, 1048577, 497, 386, 1, 464, 378, 1441793, 473, 413, 655361, 455, 481, 1048577, 444, 513, 1, 441, 474, 1441793, 547, 144, 655361, 521, 154, 655361, 522, 179, 1048577, 517, 223, 1, 498, 131, 1441793, 537, 122, 655361, 518, 120, 1048577, 595, 665, 1, 580, 642, 1441793, 563, 664, 655361, 561, 636, 1048581, 539, 622, 5, 540, 622, 5, 555, 649, 1441798, 549, 632, 1441798, 581, 658, 1441798, 597, 649, 655366, 583, 632, 655366, 579, 677, 655366, 559, 682, 655366, 533, 655, 1048582, 594, 676, 5, 548, 663, 1441797, 539, 641, 655365, 571, 648, 655365, 536, 631, 1048580, 577, 647, 1048580, 564, 632, 1048580, 557, 625, 1048580, 565, 620, 1048580, 558, 668, 1048580, 585, 669, 1048580, 530, 634, 1048580, 531, 620, 1048580, 524, 614, 1048580, 524, 603, 1048580, 520, 623, 0, 523, 647, 1441792, 522, 594, 655360, 490, 641, 1048576, 506, 582, 0, 496, 602, 1441792, 479, 627, 655360, 461, 638, 655360, 489, 569, 1048576, 463, 549, 1048576, 474, 559, 1, 492, 588, 1441793, 465, 625, 655361, 462, 566, 1048577, 474, 613, 1, 496, 577, 1441798, 501, 592, 655366, 482, 611, 1048582, 517, 612, 6, 505, 626, 6, 530, 630, 1441798, 593, 549, 655361, 584, 592, 1048577, 507, 498, 1, 465, 504, 1, 527, 515, 0, 543, 546, 0, 548, 512, 1441792, 526, 545, 655360, 491, 545, 1048576, 463, 523, 0, 480, 536, 1441793, 471, 532, 655365, 492, 529, 1048582, 502, 516, 1048582, 479, 511, 6, 494, 520, 1441798, 514, 527, 655366, 503, 532, 1048582, 258, 511, 1, 308, 439, 1441793, 309, 439, 1441793, 314, 473, 655361, 332, 456, 1048577, 40, 847, 0, 54, 794, 1441792, 50, 811, 655360, 29, 899, 1048581, 35, 882, 1048581, 24, 884, 6, 42, 803, 1441793, 52, 912, 1441793, 64, 924, 1441793, 72, 913, 1441793, 111, 849, 655361, 99, 767, 1048577, 107, 800, 1, 254, 409, 1441793, 220, 413, 655360, 244, 452, 1048576, 172, 450, 0, 201, 426, 1441792, 281, 414, 655360, 311, 406, 1048576, 313, 335, 0, 329, 345, 1441792, 327, 377, 655360, 354, 341, 1048576, 354, 378, 5, 346, 329, 1441797, 330, 316, 655365, 349, 400, 1048581, 391, 340, 1048581, 388, 368, 5, 373, 333, 1441793, 369, 368, 655361, 390, 350, 1048576, 445, 387, 0, 675, 676, 0, 689, 640, 1441792, 398, 652, 1441792, 435, 654, 655360, 338, 661, 1048576, 316, 662, 0, 322, 679, 1441792, 291, 744, 655360, 314, 742, 1048576, 296, 682, 1441792, 284, 716, 655360, 270, 737, 1048576, 315, 705, 5, 315, 728, 1441797, 289, 691, 655365, 285, 727, 1048581, 341, 683, 5, 348, 725, 1441797, 346, 702, 655361, 329, 739, 1048577, 326, 715, 1, 287, 795, 1441793, 345, 791, 655361, 360, 746, 1048577, 320, 771, 1, 275, 761, 1441793, 293, 752, 655366, 308, 749, 1048582, 279, 742, 6, 264, 750, 1441798, 62, 896, 1048582, 87, 888, 6, 85, 858, 1441798, 73, 877, 655361, 64, 894, 1048576, 59, 867, 0, 53, 894, 1441792, 21, 918, 655360, 46, 925, 1048576, 10, 872, 0, 9, 895, 1441792, 19, 819, 655360, 9, 842, 1048581, 25, 854, 5, 20, 875, 1441797, 4, 809, 655361, 92, 837, 1048577, 153, 806, 1, 202, 787, 1441793, 174, 795, 655361, 218, 751, 1048576, 193, 776, 0, 199, 714, 1441792, 176, 760, 655360, 131, 789, 1048576, 364, 668, 0, 415, 656, 1441797, 793, 720, 655366, 807, 724, 1048582, 802, 724, 1, 936, 639, 1441793, 909, 639, 655361, 935, 692, 1048577, 917, 670, 5, 954, 682, 1441797, 946, 755, 655365, 968, 754, 1048581, 950, 726, 0, 968, 725, 1441792, 942, 707, 655360, 978, 690, 1048576, 926, 717, 0, 921, 767, 1441792, 895, 758, 655360, 897, 726, 1048576, 929, 737, 0, 902, 560, 1441792, 903, 560, 1441792, 936, 555, 655360, 734, 556, 1048576, 696, 587, 0, 693, 621, 1441793, 666, 628, 1441793, 676, 600, 655361, 671, 539, 1048577, 672, 566, 1441797, 664, 605, 655365, 638, 627, 1048581, 621, 679, 5, 638, 668, 1441793, 620, 649, 655361, 624, 665, 1048577, 603, 722, 0, 634, 724, 1441793, 647, 701, 655361, 653, 722, 1048581, 685, 716, 5, 646, 715, 1441798, 632, 710, 655366, 614, 725, 1048582, 521, 682, 6, 488, 345, 1441793, 493, 283, 655361, 481, 318, 1048576, 456, 342, 1048576, 483, 228, 0, 497, 170, 1441792, 403, 210, 655360, 394, 293, 1048576, 409, 327, 0, 409, 361, 1441792, 416, 410, 655360, 419, 440, 1048576, 429, 453, 1, 405, 494, 1441793, 370, 490, 655361, 341, 491, 1048577, 314, 500, 5, 284, 525, 1441797, 295, 520, 655365, 311, 515, 1048582, 294, 558, 6, 286, 571, 1441798, 277, 539, 655360, 267, 572, 1048576, 250, 614, 1, 272, 592, 1441793, 260, 668, 1441793, 254, 694, 655360, 235, 712, 1, 223, 727, 1441793, 203, 762, 655361, 156, 684, 1048577, 130, 740, 1, 197, 629, 1441793, 164, 647, 655361, 189, 668, 1048577, 162, 714, 1, 183, 695, 1441793, 131, 714, 655360, 153, 743, 1048576, 171, 668, 0, 145, 639, 1441792, 205, 651, 655360, 168, 588, 1048576, 164, 621, 0, 220, 590, 1441797, 195, 604, 655365, 178, 568, 1048576, 207, 564, 0, 234, 556, 1441792, 212, 543, 655360, 119, 619, 1048576, 130, 592, 0, 126, 562, 1441792, 158, 536, 655360, 182, 516, 1048577, 227, 512, 1, 194, 551, 1441793, 199, 580, 655361, 181, 651, 1048582, 178, 719, 6, 106, 903, 1441798, 117, 896, 655361, 100, 919, 1048576, 131, 885, 0, 11, 1004, 655360, 15, 959, 1048576, 48, 976, 0, 24, 993, 1441792, 11, 978, 655361, 25, 1018, 1048577, 56, 1015, 1, 47, 998, 1441793, 17, 1003, 1441798, 8, 1013, 1441798, 5, 987, 655366, 32, 968, 655366, 64, 991, 1048582, 41, 1011, 6, 69, 1018, 1441798, 38, 997, 655366, 20, 938, 1048582, 49, 951, 6, 364, 683, 1441798, 402, 677, 655361, 363, 704, 1048577, 347, 618, 1, 391, 604, 1441793, 318, 589, 655361, 347, 518, 1048577, 426, 549, 1, 358, 589, 1441792, 415, 621, 655360, 436, 591, 1048576, 374, 531, 0, 409, 524, 1441792, 321, 535, 655360, 401, 584, 1048576, 333, 593, 5, 388, 544, 1441797, 498, 300, 655365, 499, 326, 1048581, 509, 266, 1048581, 541, 234, 5, 525, 353, 1441797, 468, 435, 655365, 463, 451, 1048576, 478, 473, 0, 524, 485, 1441792, 507, 481, 655360, 579, 479, 655360, 587, 431, 1048576, 553, 363, 0, 574, 561, 1441792, 691, 602, 655360, 888, 655, 1048576, 880, 713, 0, 500, 794, 1441792, 554, 797, 655360, 498, 743, 1048577, 561, 729, 1, 550, 742, 1441793, 586, 729, 655361, 467, 756, 1048577, 448, 755, 1, 462, 727, 1441793, 437, 783, 655361, 437, 805, 1048577, 475, 802, 1, 423, 759, 1441792, 462, 780, 655365, 453, 782, 1048581, 453, 785, 5, 453, 665, 1441792, 422, 694, 655360, 426, 675, 655366, 387, 734, 1048582, 372, 771, 6, 400, 783, 1441798, 394, 740, 655366, 370, 715, 1048582, 371, 759, 6, 366, 439, 1441792, 378, 461, 655360, 364, 458, 1048577, 381, 434, 1, 368, 412, 1441793, 384, 411, 655360, 367, 391, 1048576, 404, 382, 0, 400, 411, 1441793, 438, 430, 1441793, 452, 428, 1441793, 458, 404, 1441793, 446, 450, 1441793, 468, 353, 1441793, 475, 330, 1441793, 461, 325, 1441792, 466, 307, 655360, 470, 288, 1048576, 474, 272, 0, 479, 257, 1441792, 482, 242, 655360, 487, 212, 1048576, 493, 195, 0, 498, 180, 1441792, 430, 301, 1441792, 420, 257, 655360, 460, 241, 1048576, 383, 339, 5, 371, 354, 1441797, 373, 318, 1441797, 378, 320, 1441797, 383, 323, 1441797, 388, 325, 1441797, 393, 326, 1441797, 378, 295, 655361, 381, 309, 1048577, 381, 266, 0, 345, 285, 1441792, 401, 254, 655360, 369, 232, 1048576, 421, 220, 0, 305, 300, 1441792, 328, 287, 655360, 318, 297, 655366, 293, 310, 5, 307, 319, 6, 326, 358, 1441798, 329, 371, 655366, 354, 362, 1048582, 375, 343, 6, 487, 507, 655365, 430, 508, 1048581, 434, 491, 5, 432, 501, 1441792, 441, 493, 655366, 438, 507, 1048582, 434, 495, 1048580, 437, 481, 1048580, 442, 486, 1048580, 417, 500, 0, 393, 479, 655360, 392, 492, 1048576, 349, 472, 1441792, 297, 490, 655360, 292, 457, 1048576, 270, 478, 0, 187, 484, 1441792, 253, 487, 1441796, 259, 498, 1441796, 251, 504, 1441796, 253, 515, 1441796, 244, 518, 1441796, 235, 508, 1441796, 233, 519, 1441796, 214, 512, 1441796, 225, 483, 1441796, 208, 485, 1441796, 218, 495, 1441796, 234, 495, 1441796, 248, 495, 1441796, 238, 479, 1441796, 206, 470, 1441796, 286, 537, 655364, 294, 547, 1048580, 297, 529, 4, 296, 538, 1441796, 292, 532, 655363, 290, 540, 655363, 285, 544, 655363, 293, 549, 655363, 298, 541, 655363, 285, 532, 655363, 305, 521, 655363, 305, 528, 655363, 292, 534, 655362, 282, 532, 655362, 278, 542, 655362, 296, 610, 0, 262, 640, 1441792, 295, 637, 655360, 280, 663, 1048576, 278, 629, 1, 294, 654, 1441793, 273, 694, 655361, 251, 715, 1048577, 264, 715, 1, 242, 749, 1441793, 219, 776, 655361, 205, 808, 1048577, 165, 822, 1, 130, 857, 1441793, 143, 832, 1048576, 140, 844, 5, 132, 818, 5, 144, 807, 1441797, 173, 810, 655365, 189, 789, 1048581, 190, 807, 5, 75, 818, 1441797, 78, 777, 655360, 89, 815, 1, 66, 847, 1441793, 78, 863, 655360, 101, 816, 1048576, 40, 943, 0, 157, 906, 1441792, 147, 873, 655360, 143, 886, 1048577, 125, 865, 1048577, 159, 845, 1, 133, 384, 655361, 139, 414, 1048577, 169, 353, 1, 171, 389, 1441792, 147, 365, 655360, 225, 320, 1048576, 200, 341, 0, 209, 371, 1441792, 159, 424, 655360, 136, 457, 1048576, 181, 363, 5, 150, 388, 5, 240, 372, 5, 256, 311, 5, 271, 350, 5, 254, 339, 5, 284, 380, 5, 277, 287, 5, 294, 301, 5, 278, 323, 5, 279, 323, 5, 238, 398, 1441793, 233, 347, 655361, 268, 393, 1048577, 278, 242, 1048577, 316, 264, 1, 232, 263, 1441793, 275, 261, 655360, 227, 288, 1048576, 205, 306, 1, 164, 319, 1441793, 181, 342, 655361, 303, 199, 655361, 211, 166, 655361, 369, 195, 655361, 383, 171, 1048577, 478, 178, 1, 546, 181, 1, 521, 283, 1, 530, 250, 1441792, 519, 322, 655360, 484, 370, 1048576, 470, 396, 0, 463, 421, 1441792, 457, 438, 655360, 543, 325, 1048576, 629, 366, 0, 605, 300, 1441792, 576, 307, 655360, 579, 360, 1048576, 606, 438, 0, 620, 466, 1441792, 595, 498, 1441792, 596, 518, 655360, 628, 535, 1048576, 613, 523, 1, 593, 535, 1441793, 535, 575, 655361, 558, 594, 1048577, 546, 586, 5, 539, 560, 1441797, 570, 592, 1441797, 556, 519, 1441797, 553, 554, 1441798, 549, 574, 1441798, 566, 561, 655366, 553, 535, 655366, 572, 538, 1048582, 560, 543, 1048582, 552, 710, 6, 560, 713, 0, 574, 689, 1441792, 576, 704, 655361, 525, 721, 1048577, 478, 684, 1048577, 526, 689, 1048577, 495, 668, 0, 513, 672, 0, 545, 693, 1441792, 536, 686, 1441797, 546, 718, 1441797, 536, 716, 1441792, 449, 735, 655360, 488, 724, 1048576, 484, 744, 1048576, 460, 608, 0, 474, 643, 0, 492, 617, 1441792, 510, 610, 655361, 498, 626, 1048577, 426, 480, 1048577, 430, 464, 0, 407, 476, 1441792, 419, 489, 655360, 424, 485, 655366, 420, 496, 1048582, 434, 485, 6, 440, 462, 6, 444, 453, 4, 443, 461, 4, 448, 456, 3, 445, 466, 3, 448, 468, 3, 447, 439, 2, 450, 437, 2, 441, 415, 1441792, 412, 425, 655361, 429, 411, 655361, 410, 394, 655361, 443, 404, 1048581, 427, 390, 5, 431, 397, 0, 426, 360, 1441792, 404, 342, 1441793, 439, 344, 655361, 448, 291, 655361, 444, 321, 655361, 441, 333, 655365, 449, 279, 655365, 410, 309, 655365, 410, 287, 655361, 404, 236, 1048577, 417, 245, 1048577, 427, 339, 1048577, 428, 318, 5, 423, 311, 1, 437, 270, 6, 427, 264, 6, 422, 264, 1441798, 424, 301, 655366, 434, 285, 1048582, 414, 300, 1048582, 427, 333, 6, 412, 324, 1441798, 423, 351, 655366, 405, 348, 1048582, 403, 360, 1048582, 436, 381, 1048577, 450, 359, 1048577, 438, 354, 1048577, 565, 429, 1048577, 565, 444, 1048581, 563, 431, 1048580, 561, 438, 1048580, 565, 441, 1048580, 567, 435, 1048582, 569, 442, 1048582, 560, 443, 1048582, 562, 418, 1048582, 562, 398, 0, 539, 414, 1, 609, 376, 0, 608, 391, 1, 615, 324, 1, 616, 339, 0, 642, 740, 6, 471, 663, 6, 463, 682, 6, 486, 696, 1441798, 441, 708, 1441798, 467, 711, 655366, 473, 725, 1048582, 502, 721, 6, 505, 748, 1441798, 485, 758, 655366, 503, 758, 1048582, 335, 806, 6, 365, 773, 1441798, 308, 808, 655366, 306, 539, 1048582, 313, 556, 6, 329, 551, 1441798, 306, 580, 655366, 327, 565, 1048582, 234, 547, 6, 203, 512, 1441798, 206, 616, 655366, 151, 668, 1048582, 179, 714, 6, 107, 557, 1441798, 132, 544, 655366, 146, 481, 1048582, 198, 475, 6, 198, 501, 1441798, 149, 489, 655366, 603, 1075, 655366, 629, 1073, 1048582, 535, 1079, 6, 580, 1102, 1441798, 621, 1092, 655366, 720, 874, 655366, 675, 871, 1048582, 727, 850, 6, 690, 821, 1441798, 650, 801, 1441792, 683, 776, 655360, 715, 772, 1048576, 712, 803, 0, 677, 806, 1441793, 627, 822, 655361, 679, 826, 1048577, 638, 772, 1, 661, 738, 1441793, 618, 744, 655365, 639, 745, 1048581, 603, 743, 0, 606, 763, 1441792, 607, 799, 655360, 681, 750, 1048576, 705, 738, 1048576, 703, 726, 0, 701, 716, 1441792, 699, 707, 655360, 696, 697, 1048576, 694, 688, 0, 693, 680, 1441792, 740, 766, 1048577, 733, 807, 1048577, 707, 823, 1, 763, 787, 1441793, 768, 809, 655361, 840, 664, 655361, 841, 643, 0, 869, 671, 1441792, 865, 707, 655360, 835, 489, 1048582, 826, 487, 6, 835, 499, 1441798, 859, 525, 655366, 868, 548, 1048582, 857, 558, 6, 839, 534, 1441798, 852, 593, 655366, 861, 589, 1048582, 854, 588, 1048580, 821, 614, 1048580, 827, 620, 1048580, 813, 632, 1048580, 825, 635, 1048580, 828, 666, 1048580, 825, 671, 1048580, 815, 669, 1048580, 822, 675, 1048580, 822, 701, 1048580, 821, 709, 1048580, 812, 707, 1048580, 815, 713, 1048580, 820, 713, 1048580, 820, 718, 1048580, 831, 724, 4, 843, 734, 1441796, 847, 739, 655364, 851, 730, 1048580, 845, 724, 1048580, 836, 731, 4, 840, 727, 4, 839, 713, 3, 838, 718, 3, 827, 718, 3, 824, 725, 3, 829, 731, 3, 825, 750, 3, 820, 752, 3, 815, 746, 3, 826, 749, 3, 832, 749, 3, 832, 762, 3, 826, 766, 6, 820, 770, 6, 833, 746, 1441798, 821, 749, 655366, 825, 745, 1048582, 784, 796, 6, 782, 808, 1441798, 793, 804, 655360, 760, 830, 1048576, 788, 825, 0, 785, 844, 1441792, 741, 849, 655360, 835, 827, 1048576, 782, 720, 0, 788, 697, 1441792, 769, 699, 655360, 794, 710, 1048576, 899, 691, 1441793, 908, 708, 655361, 880, 694, 1048577, 905, 663, 1, 916, 728, 1441793, 952, 716, 655361, 919, 754, 1048577, 942, 769, 1, 954, 742, 1441793, 902, 582, 655361, 920, 576, 1048577, 789, 502, 1, 828, 505, 1441793, 724, 514, 655361, 754, 524, 1048577, 755, 502, 1, 798, 514, 1441793, 721, 531, 655360, 775, 517, 1048576, 773, 545, 0, 834, 539, 1441792, 814, 539, 655360, 818, 523, 1048576, 728, 606, 0, 746, 598, 1441792, 720, 592, 655360, 732, 586, 655365, 736, 599, 1048581, 745, 576, 5, 755, 589, 1441797, 704, 592, 655365, 744, 582, 1048577, 769, 591, 1, 675, 627, 1, 661, 665, 1441793, 648, 680, 655361, 663, 682, 1048577, 671, 696, 1, 659, 697, 1441793, 681, 694, 1441793, 684, 707, 1441793, 679, 719, 1441793, 672, 721, 1441793, 665, 723, 1441793, 658, 724, 1441793, 650, 724, 1441793, 644, 711, 1441793, 611, 728, 1441793, 621, 728, 1441793, 606, 695, 1441793, 631, 695, 1441793, 632, 707, 1441793, 632, 708, 1441793, 589, 716, 1441793, 507, 723, 1441793, 467, 707, 1441793, 444, 705, 1441793, 428, 724, 1441793, 391, 736, 1441793, 382, 759, 1441793, 360, 765, 1441793, 366, 781, 1441793, 394, 695, 655360, 374, 713, 1048576, 417, 746, 0, 399, 776, 0, 383, 789, 1441792, 303, 770, 655360, 305, 785, 1048576, 326, 787, 0, 352, 769, 0, 342, 768, 0, 341, 759, 0, 349, 754, 0, 337, 743, 1441792, 346, 737, 655360, 311, 692, 655360, 301, 702, 1048577, 310, 713, 1, 299, 720, 1441793, 309, 733, 1441793, 300, 734, 655361, 301, 745, 655361, 305, 745, 655361, 322, 620, 1048577, 430, 524, 1048577, 401, 510, 1, 374, 502, 1441793, 347, 502, 655361, 323, 508, 655361, 306, 515, 655361, 316, 512, 1048576, 334, 506, 1048576, 361, 502, 0, 388, 507, 0, 417, 517, 0, 440, 530, 0, 446, 543, 0, 448, 560, 1441792, 446, 551, 1441793, 448, 576, 655361, 447, 593, 1048577, 449, 583, 0, 446, 637, 1441792, 445, 623, 655360, 447, 602, 1048577, 447, 615, 1, 428, 635, 1, 366, 641, 1441793, 340, 644, 655361, 324, 644, 1048577, 330, 648, 0, 353, 643, 0, 379, 635, 0, 399, 633, 1441792, 416, 635, 655360, 276, 432, 1048576, 313, 425, 0, 317, 455, 1441792, 323, 489, 655360, 325, 427, 1048576, 351, 425, 0, 338, 424, 1441797, 327, 445, 655365, 326, 436, 1048581, 328, 463, 0, 331, 483, 1441792, 350, 449, 655360, 336, 414, 655360, 324, 402, 1048576, 357, 360, 1048576, 325, 320, 0, 315, 357, 1441792, 361, 318, 1441792, 343, 310, 655360, 334, 304, 1048577, 321, 306, 1, 343, 321, 1, 367, 276, 1, 365, 302, 1441793, 368, 258, 655361, 355, 256, 1048576, 361, 289, 0, 376, 286, 1441792, 367, 268, 1441792, 381, 241, 1441792, 446, 243, 655360, 452, 223, 1048576, 464, 223, 0, 452, 264, 1441793, 444, 258, 655361, 438, 279, 655361, 441, 307, 1048577, 429, 330, 1048577, 464, 364, 1048577, 424, 429, 1048576, 395, 422, 1048576, 394, 431, 1048576, 385, 420, 0, 384, 429, 0, 392, 454, 0, 380, 446, 0, 378, 474, 1441792, 377, 489, 655360, 454, 498, 1048576, 505, 516, 0, 508, 532, 1441792, 474, 514, 655360, 487, 526, 1048576, 494, 507, 0, 493, 517, 1441793, 476, 502, 655361, 476, 522, 1048577, 499, 537, 1, 504, 527, 1441793, 524, 524, 655361, 516, 542, 1048577, 512, 428, 1, 491, 452, 1441793, 524, 464, 655361, 527, 426, 1048577, 505, 418, 1, 515, 448, 1441792, 492, 435, 655360, 544, 406, 655360, 563, 456, 655360, 633, 499, 1048576, 671, 493, 1048576, 671, 470, 0, 660, 480, 1441792, 644, 735, 655360, 307, 830, 1048576, 289, 863, 0, 348, 861, 1441792, 264, 825, 655360, 346, 821, 1048576, 392, 825, 0, 208, 843, 1441792, 180, 892, 655360, 206, 896, 1048576, 191, 866, 0, 180, 907, 1441792, 159, 877, 655360, 438, 853, 1048576, 479, 822, 0, 423, 821, 1441792, 400, 850, 655360, 373, 839, 1048576, 505, 859, 0, 508, 818, 1441793, 471, 843, 655361, 471, 844, 655361, 536, 851, 1048577, 535, 788, 1, 570, 842, 1441793, 577, 785, 655361, 594, 833, 1048577, 555, 738, 1, 585, 752, 1, 576, 809, 1, 637, 853, 1, 591, 857, 1, 681, 851, 1, 707, 849, 1, 725, 831, 1, 746, 824, 1, 766, 847, 1, 775, 832, 1, 813, 816, 1, 808, 839, 1, 809, 839, 1, 850, 833, 1, 824, 795, 1, 822, 825, 5, 805, 818, 5, 787, 808, 5, 778, 804, 5, 756, 838, 5, 736, 836, 5, 723, 851, 1441797, 656, 855, 1441797, 647, 838, 1441797, 647, 839, 1441797, 613, 849, 1441797, 597, 807, 1441797, 596, 807, 1441797, 596, 808, 1441797, 544, 820, 1441797, 555, 847, 1441797, 508, 833, 1441797, 480, 850, 1441797, 457, 851, 1441797, 448, 825, 1441797, 415, 839, 1441797, 382, 806, 1441797, 381, 806, 1441797, 348, 824, 1441797, 368, 845, 1441797, 368, 846, 1441797, 414, 763, 1441797, 414, 764, 1441797, 399, 743, 1441797, 325, 811, 1441797, 307, 797, 1441797, 295, 815, 1441797, 332, 821, 1441798, 316, 813, 655366, 260, 806, 1048582, 272, 787, 6, 245, 769, 1441798, 243, 786, 655366, 255, 792, 1048582, 322, 725, 6, 329, 725, 1441798, 313, 721, 655366, 327, 692, 655366, 329, 706, 655366, 367, 654, 1048582, 486, 624, 6, 471, 634, 1441798, 463, 643, 655366, 489, 599, 1048582, 468, 562, 6, 449, 568, 1441798, 448, 587, 655366, 474, 538, 1048582, 492, 549, 6, 544, 573, 1441798, 560, 559, 655366, 567, 600, 1048582, 560, 616, 6, 544, 602, 6, 743, 421, 1441797, 791, 440, 655365, 699, 430, 1048581, 743, 471, 5, 714, 334, 1441797, 780, 366, 1441797, 828, 382, 1441797, 784, 269, 1441797, 709, 259, 1441797, 722, 183, 1441797, 723, 182, 1441797, 724, 181, 1441797, 778, 329, 655361, 715, 383, 1048577, 770, 453, 1, 682, 415, 1, 788, 406, 1, 827, 435, 1, 839, 467, 1, 878, 413, 1, 816, 284, 1, 666, 218, 1, 685, 171, 1, 760, 141, 1, 818, 167, 1, 842, 225, 1, 779, 211, 1, 589, 200, 1, 572, 136, 1, 612, 256, 1, 813, 123, 1, 831, 207, 1, 804, 389, 1441792, 732, 428, 655360, 686, 339, 1048576, 690, 289, 0, 834, 295, 1441792, 860, 343, 655360, 822, 337, 1048576, 743, 169, 0, 804, 141, 1441792, 864, 284, 655360, 873, 460, 1048576, 858, 496, 0, 890, 492, 1441792, 869, 514, 655360, 805, 475, 655360, 768, 479, 1048576, 720, 458, 0, 722, 483, 1441792, 669, 437, 655360, 650, 392, 1048576, 733, 398, 0, 678, 379, 1441792, 741, 358, 655360, 765, 393, 1048576, 811, 419, 0, 632, 175, 1441792, 622, 214, 655360, 640, 239, 1048576, 674, 248, 0, 705, 215, 1441792, 666, 182, 655360, 647, 122, 1048576, 599, 129, 0, 697, 129, 1441792, 736, 131, 655360, 720, 152, 1048576, 294, 579, 0, 235, 597, 1441792, 226, 609, 655360, 224, 652, 1048576, 221, 673, 0, 214, 696, 1441792)
+}
+metadata/_editor_floor_ = Vector3(0, 0, 0)
+
+[node name="sound_zones" type="Node" parent="Levels"]
+
+[node name="FOREST_ALWAYS_AMBIENT" type="Node3D" parent="Levels/sound_zones"]
+
+[node name="ZONE_FOREST" parent="Levels/sound_zones/FOREST_ALWAYS_AMBIENT" instance=ExtResource("36_uq1yy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 138.03, 44.7302, -32.8721)
+
+[node name="ZONE_FOREST2" parent="Levels/sound_zones/FOREST_ALWAYS_AMBIENT" instance=ExtResource("36_uq1yy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -320.546, 44.7302, 634.929)
+
+[node name="ZONE_FOREST3" parent="Levels/sound_zones/FOREST_ALWAYS_AMBIENT" instance=ExtResource("36_uq1yy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -271.62, 44.7302, 1169.9)
+
+[node name="ZONE_FOREST11" parent="Levels/sound_zones/FOREST_ALWAYS_AMBIENT" instance=ExtResource("36_uq1yy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -433.84, 44.73, 2139.85)
+
+[node name="ZONE_FOREST4" parent="Levels/sound_zones/FOREST_ALWAYS_AMBIENT" instance=ExtResource("36_uq1yy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 292.359, 44.7302, 2859.83)
+
+[node name="ZONE_FOREST5" parent="Levels/sound_zones/FOREST_ALWAYS_AMBIENT" instance=ExtResource("36_uq1yy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1048.2, 44.7302, 2893.2)
+
+[node name="ZONE_FOREST6" parent="Levels/sound_zones/FOREST_ALWAYS_AMBIENT" instance=ExtResource("36_uq1yy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2023.14, 44.7302, 2797.07)
+
+[node name="ZONE_FOREST7" parent="Levels/sound_zones/FOREST_ALWAYS_AMBIENT" instance=ExtResource("36_uq1yy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2674.22, 44.7302, 1979.7)
+
+[node name="ZONE_FOREST8" parent="Levels/sound_zones/FOREST_ALWAYS_AMBIENT" instance=ExtResource("36_uq1yy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2155.6, 44.7302, 578.144)
+
+[node name="ZONE_FOREST9" parent="Levels/sound_zones/FOREST_ALWAYS_AMBIENT" instance=ExtResource("36_uq1yy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1522.93, 44.7301, -188.73)
+
+[node name="ZONE_FOREST10" parent="Levels/sound_zones/FOREST_ALWAYS_AMBIENT" instance=ExtResource("36_uq1yy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 751.258, 44.7302, -179.901)
+
+[node name="CRICKETS_NIGHT_SOUNDS" type="Node3D" parent="Levels/sound_zones"]
+
+[node name="ZONE_CRICKETS1" parent="Levels/sound_zones/CRICKETS_NIGHT_SOUNDS" instance=ExtResource("37_pwyfn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 791.572, 15.7356, 846.094)
+
+[node name="ZONE_CRICKETS2" parent="Levels/sound_zones/CRICKETS_NIGHT_SOUNDS" instance=ExtResource("37_pwyfn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 543.563, 15.7356, 1158.37)
+
+[node name="ZONE_CRICKETS3" parent="Levels/sound_zones/CRICKETS_NIGHT_SOUNDS" instance=ExtResource("37_pwyfn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1004.66, 15.7356, 1041.57)
+
+[node name="ZONE_CRICKETS4" parent="Levels/sound_zones/CRICKETS_NIGHT_SOUNDS" instance=ExtResource("37_pwyfn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 822.473, 15.7356, 497.741)
+
+[node name="ZONE_CRICKETS5" parent="Levels/sound_zones/CRICKETS_NIGHT_SOUNDS" instance=ExtResource("37_pwyfn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1459.91, 15.7356, 1305.19)
+
+[node name="ZONE_CRICKETS6" parent="Levels/sound_zones/CRICKETS_NIGHT_SOUNDS" instance=ExtResource("37_pwyfn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1270.41, 15.7356, 1431.5)
+
+[node name="ZONE_CRICKETS7" parent="Levels/sound_zones/CRICKETS_NIGHT_SOUNDS" instance=ExtResource("37_pwyfn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 893.959, 15.7356, 1541.59)
+
+[node name="ZONE_CRICKETS8" parent="Levels/sound_zones/CRICKETS_NIGHT_SOUNDS" instance=ExtResource("37_pwyfn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1357.23, 15.7356, 1584.74)
+
+[node name="ZONE_CRICKETS9" parent="Levels/sound_zones/CRICKETS_NIGHT_SOUNDS" instance=ExtResource("37_pwyfn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 415.131, 15.7356, 869.728)
+
+[node name="out_of_map" type="Node" parent="Levels"]
+
+[node name="props" type="Node" parent="Levels"]
+
+[node name="barrel" parent="Levels/props" instance=ExtResource("35_bhpn8")]
+transform = Transform3D(-0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, -0.866025, 1426, 0, 1261)
+
+[node name="barrel2" parent="Levels/props" instance=ExtResource("35_bhpn8")]
+transform = Transform3D(-0.294891, 0, -0.955531, 0, 1, 0, 0.955531, 0, -0.294891, 1424.6, 0, 1261.1)
+
+[node name="barrel3" parent="Levels/props" instance=ExtResource("35_bhpn8")]
+transform = Transform3D(-0.583513, 0, -0.812104, 0, 1, 0, 0.812104, 0, -0.583513, 1425.3, 0, 1260.1)
+
+[node name="mines" type="Node" parent="Levels"]
+
+[node name="mine" parent="Levels/mines" instance=ExtResource("36_8jew2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -65, 0, 1905)
+
+[node name="mine2" parent="Levels/mines" instance=ExtResource("36_8jew2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -77, 0, 1843)
+
+[node name="mine3" parent="Levels/mines" instance=ExtResource("36_8jew2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -110, 0, 1758)
+
+[node name="mine4" parent="Levels/mines" instance=ExtResource("36_8jew2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -57, 0, 1631)
+
+[node name="mine5" parent="Levels/mines" instance=ExtResource("36_8jew2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -77, 0, 1690)
+
+[node name="mine6" parent="Levels/mines" instance=ExtResource("36_8jew2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44, 0, 1570)
+
+[node name="mine7" parent="Levels/mines" instance=ExtResource("36_8jew2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -98, 0, 1502)
+
+[node name="mine8" parent="Levels/mines" instance=ExtResource("36_8jew2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -52, 0, 1457)
+
+[node name="mine9" parent="Levels/mines" instance=ExtResource("36_8jew2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -102, 0, 1388)
+
+[node name="mine10" parent="Levels/mines" instance=ExtResource("36_8jew2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, 1308)
+
+[node name="mine11" parent="Levels/mines" instance=ExtResource("36_8jew2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -95, 0, 1199)
+
+[node name="mine12" parent="Levels/mines" instance=ExtResource("36_8jew2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26, 0, 1077)
+
+[node name="mine13" parent="Levels/mines" instance=ExtResource("36_8jew2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -101, 0, 975)
+
+[node name="mine14" parent="Levels/mines" instance=ExtResource("36_8jew2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -158, 0, 845)
+
+[node name="mine15" parent="Levels/mines" instance=ExtResource("36_8jew2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -62, 0, 769)
+
+[node name="mine16" parent="Levels/mines" instance=ExtResource("36_8jew2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -139, 0, 612)
+
+[node name="mine17" parent="Levels/mines" instance=ExtResource("36_8jew2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -62, 0, 459)
+
+[node name="mine18" parent="Levels/mines" instance=ExtResource("36_8jew2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -134, 0, 301)
+
+[node name="mine19" parent="Levels/mines" instance=ExtResource("36_8jew2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45, 0, 148)
+
+[node name="mine20" parent="Levels/mines" instance=ExtResource("36_8jew2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -91, 0, 3)
+
+[node name="mine21" parent="Levels/mines" instance=ExtResource("36_8jew2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40, 0, -48)
+
+[node name="mine22" parent="Levels/mines" instance=ExtResource("36_8jew2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 185, 0, -47)
+
+[node name="mine23" parent="Levels/mines" instance=ExtResource("36_8jew2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 305, 0, -16)
+
+[node name="mine24" parent="Levels/mines" instance=ExtResource("36_8jew2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 432, 0, -66)
+
+[node name="mine25" parent="Levels/mines" instance=ExtResource("36_8jew2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 561, 0, -33)
+
+[node name="mine26" parent="Levels/mines" instance=ExtResource("36_8jew2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 722, 0, -86)
+
+[node name="mine27" parent="Levels/mines" instance=ExtResource("36_8jew2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 836, 0, -38)
+
+[node name="mine28" parent="Levels/mines" instance=ExtResource("36_8jew2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 972, 0, -16)
+
+[node name="mine29" parent="Levels/mines" instance=ExtResource("36_8jew2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1053, 0, -100)
+
+[node name="mine30" parent="Levels/mines" instance=ExtResource("36_8jew2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1174, 0, -38)
+
+[node name="mine31" parent="Levels/mines" instance=ExtResource("36_8jew2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1276, 0, -73)
+
+[node name="mine32" parent="Levels/mines" instance=ExtResource("36_8jew2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1360, 0, 8)
+
+[node name="mine33" parent="Levels/mines" instance=ExtResource("36_8jew2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1478, 0, -72)
+
+[node name="mine34" parent="Levels/mines" instance=ExtResource("36_8jew2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1558, 0, -9)
+
+[node name="mine35" parent="Levels/mines" instance=ExtResource("36_8jew2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1629, 0, -80)
+
+[node name="mine36" parent="Levels/mines" instance=ExtResource("36_8jew2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1765, 0, -5)
+
+[node name="mine37" parent="Levels/mines" instance=ExtResource("36_8jew2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1863, 0, -76)
+
+[node name="mine38" parent="Levels/mines" instance=ExtResource("36_8jew2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1999, 0, -23)
+
+[node name="mine39" parent="Levels/mines" instance=ExtResource("36_8jew2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2094, 0, -23)
+
+[node name="mine40" parent="Levels/mines" instance=ExtResource("36_8jew2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2112, 0, 95)
+
+[node name="mine41" parent="Levels/mines" instance=ExtResource("36_8jew2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2076, 0, 194)
+
+[node name="mine42" parent="Levels/mines" instance=ExtResource("36_8jew2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2121, 0, 269)
+
+[node name="mine43" parent="Levels/mines" instance=ExtResource("36_8jew2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2075, 0, 349)
+
+[node name="mine44" parent="Levels/mines" instance=ExtResource("36_8jew2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2139, 0, 463)
+
+[node name="mine45" parent="Levels/mines" instance=ExtResource("36_8jew2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2074, 0, 550)
+
+[node name="mine46" parent="Levels/mines" instance=ExtResource("36_8jew2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2136, 0, 630)
+
+[node name="mine47" parent="Levels/mines" instance=ExtResource("36_8jew2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2069, 0, 750)
+
+[node name="mine48" parent="Levels/mines" instance=ExtResource("36_8jew2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2127, 0, 820)
+
+[node name="mine49" parent="Levels/mines" instance=ExtResource("36_8jew2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2074, 0, 889)
+
+[node name="mine50" parent="Levels/mines" instance=ExtResource("36_8jew2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2122, 0, 972)
+
+[node name="mine51" parent="Levels/mines" instance=ExtResource("36_8jew2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2077, 0, 1066)
+
+[node name="mine52" parent="Levels/mines" instance=ExtResource("36_8jew2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2122, 0, 1125)
+
+[node name="mine53" parent="Levels/mines" instance=ExtResource("36_8jew2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2072, 0, 1180)
+
+[node name="mine54" parent="Levels/mines" instance=ExtResource("36_8jew2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2118, 0, 1254)
+
+[node name="mine55" parent="Levels/mines" instance=ExtResource("36_8jew2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2074, 0, 1333)
+
+[node name="mine56" parent="Levels/mines" instance=ExtResource("36_8jew2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2114, 0, 1415)
+
+[node name="mine57" parent="Levels/mines" instance=ExtResource("36_8jew2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2109, 0, 1504)
+
+[node name="mine58" parent="Levels/mines" instance=ExtResource("36_8jew2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2143, 0, 1545)
+
+[node name="mine59" parent="Levels/mines" instance=ExtResource("36_8jew2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2081, 0, 1619)
+
+[node name="mine60" parent="Levels/mines" instance=ExtResource("36_8jew2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2120, 0, 1740)
+
+[node name="mine61" parent="Levels/mines" instance=ExtResource("36_8jew2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2078, 0, 1811)
+
+[node name="mine62" parent="Levels/mines" instance=ExtResource("36_8jew2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2105, 0, 1891)
+
+[node name="mine63" parent="Levels/mines" instance=ExtResource("36_8jew2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2093, 0, 1959)
+
+[node name="mine64" parent="Levels/mines" instance=ExtResource("36_8jew2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2139, 0, 2042)
+
+[node name="mine65" parent="Levels/mines" instance=ExtResource("36_8jew2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2082, 0, 2096)
+
+[node name="mine66" parent="Levels/mines" instance=ExtResource("36_8jew2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2129, 0, 2157)
+
+[node name="mine67" parent="Levels/mines" instance=ExtResource("36_8jew2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2084, 0, 2210)
+
+[node name="mine68" parent="Levels/mines" instance=ExtResource("36_8jew2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2115, 0, 2268)
+
+[node name="mine69" parent="Levels/mines" instance=ExtResource("36_8jew2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2115, 0, 2340)
+
+[node name="mine70" parent="Levels/mines" instance=ExtResource("36_8jew2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2122, 0, 2395)
+
+[node name="mine71" parent="Levels/mines" instance=ExtResource("36_8jew2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2092, 0, 2456)
+
+[node name="mine72" parent="Levels/mines" instance=ExtResource("36_8jew2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2030, 0, 2469)
+
+[node name="mine73" parent="Levels/mines" instance=ExtResource("36_8jew2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1905, 0, 2519)
+
+[node name="mine74" parent="Levels/mines" instance=ExtResource("36_8jew2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1717, 0, 2493)
+
+[node name="mine75" parent="Levels/mines" instance=ExtResource("36_8jew2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1600, 0, 2472)
+
+[node name="mine76" parent="Levels/mines" instance=ExtResource("36_8jew2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1506, 0, 2516)
+
+[node name="mine77" parent="Levels/mines" instance=ExtResource("36_8jew2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1421, 0, 2516)
+
+[node name="mine78" parent="Levels/mines" instance=ExtResource("36_8jew2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1332, 0, 2461)
+
+[node name="mine79" parent="Levels/mines" instance=ExtResource("36_8jew2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1186, 0, 2461)
+
+[node name="mine80" parent="Levels/mines" instance=ExtResource("36_8jew2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1056, 0, 2442)
+
+[node name="mine81" parent="Levels/mines" instance=ExtResource("36_8jew2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 994, 0, 2521)
+
+[node name="mine82" parent="Levels/mines" instance=ExtResource("36_8jew2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 909, 0, 2491)
+
+[node name="mine83" parent="Levels/mines" instance=ExtResource("36_8jew2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 758, 0, 2442)
+
+[node name="mine84" parent="Levels/mines" instance=ExtResource("36_8jew2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 673, 0, 2442)
+
+[node name="mine85" parent="Levels/mines" instance=ExtResource("36_8jew2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 506, 0, 2489)
+
+[node name="mine86" parent="Levels/mines" instance=ExtResource("36_8jew2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 506, 0, 2489)
+
+[node name="mine87" parent="Levels/mines" instance=ExtResource("36_8jew2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 372, 0, 2489)
+
+[node name="mine88" parent="Levels/mines" instance=ExtResource("36_8jew2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 229, 0, 2456)
+
+[node name="mine89" parent="Levels/mines" instance=ExtResource("36_8jew2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 77, 0, 2456)
+
+[node name="mine90" parent="Levels/mines" instance=ExtResource("36_8jew2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 2439)
+
+[node name="mine91" parent="Levels/mines" instance=ExtResource("36_8jew2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -79, 0, 2374)
+
+[node name="mine92" parent="Levels/mines" instance=ExtResource("36_8jew2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, 2278)
+
+[node name="mine93" parent="Levels/mines" instance=ExtResource("36_8jew2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -74, 0, 2208)
+
+[node name="mine94" parent="Levels/mines" instance=ExtResource("36_8jew2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40, 0, 2122)
+
+[node name="mine95" parent="Levels/mines" instance=ExtResource("36_8jew2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -121, 0, 2063)
+
+[node name="mine96" parent="Levels/mines" instance=ExtResource("36_8jew2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -110, 0, 1992)
+
+[node name="mine97" parent="Levels/mines" instance=ExtResource("36_8jew2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35, 0, 2062)
+
+[node name="mine98" parent="Levels/mines" instance=ExtResource("36_8jew2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -105, 0, 2127)
+
+[node name="mine99" parent="Levels/mines" instance=ExtResource("36_8jew2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38, 0, 2169)
+
+[node name="mine100" parent="Levels/mines" instance=ExtResource("36_8jew2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -97, 0, 2169)
+
+[node name="mine_signes" type="Node" parent="Levels"]
+
+[node name="mine_sign" parent="Levels/mine_signes" instance=ExtResource("37_sekee")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2, 0, 1751)
+
+[node name="mine_sign2" parent="Levels/mine_signes" instance=ExtResource("37_sekee")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2, 0, 2057)
+
+[node name="mine_sign3" parent="Levels/mine_signes" instance=ExtResource("37_sekee")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3, 0, 2238)
+
+[node name="mine_sign4" parent="Levels/mine_signes" instance=ExtResource("37_sekee")]
+transform = Transform3D(-1, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, -1, 19, 0, 2378)
+
+[node name="mine_sign5" parent="Levels/mine_signes" instance=ExtResource("37_sekee")]
+transform = Transform3D(-1, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, -1, 272, 0, 2378)
+
+[node name="mine_sign6" parent="Levels/mine_signes" instance=ExtResource("37_sekee")]
+transform = Transform3D(-1, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, -1, 1215, 0, 2378)
+
+[node name="mine_sign7" parent="Levels/mine_signes" instance=ExtResource("37_sekee")]
+transform = Transform3D(-1, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, -1, 1882, 0, 2421)
+
+[node name="mine_sign8" parent="Levels/mine_signes" instance=ExtResource("37_sekee")]
+transform = Transform3D(-0.110393, 0, -0.993888, 0, 1, 0, 0.993888, 0, -0.110393, 2043.9, 0, 2296)
+
+[node name="mine_sign9" parent="Levels/mine_signes" instance=ExtResource("37_sekee")]
+transform = Transform3D(-0.110393, 0, -0.993888, 0, 1, 0, 0.993888, 0, -0.110393, 2043.9, 0, 1971)
+
+[node name="mine_sign10" parent="Levels/mine_signes" instance=ExtResource("37_sekee")]
+transform = Transform3D(-0.110393, 0, -0.993888, 0, 1, 0, 0.993888, 0, -0.110393, 2043.9, 0, 1551)
+
+[node name="mine_sign11" parent="Levels/mine_signes" instance=ExtResource("37_sekee")]
+transform = Transform3D(-0.110393, 0, -0.993888, 0, 1, 0, 0.993888, 0, -0.110393, 2043.9, 0, 953)
+
+[node name="mine_sign12" parent="Levels/mine_signes" instance=ExtResource("37_sekee")]
+transform = Transform3D(-0.110393, 0, -0.993888, 0, 1, 0, 0.993888, 0, -0.110393, 2043.9, 0, 282)
+
+[node name="mine_sign13" parent="Levels/mine_signes" instance=ExtResource("37_sekee")]
+transform = Transform3D(0.93145, 0, -0.363869, 0, 1, 0, 0.363869, 0, 0.93145, 1976.9, 0, 30)
+
+[node name="mine_sign14" parent="Levels/mine_signes" instance=ExtResource("37_sekee")]
+transform = Transform3D(0.995251, 0, -0.0973396, 0, 1, 0, 0.0973396, 0, 0.995251, 1772.9, 0, 30)
+
+[node name="mine_sign15" parent="Levels/mine_signes" instance=ExtResource("37_sekee")]
+transform = Transform3D(0.995251, 0, -0.0973396, 0, 1, 0, 0.0973396, 0, 0.995251, 1174.9, 0, 30)
+
+[node name="mine_sign16" parent="Levels/mine_signes" instance=ExtResource("37_sekee")]
+transform = Transform3D(0.995251, 0, -0.0973396, 0, 1, 0, 0.0973396, 0, 0.995251, 628.9, 0, 30)
+
+[node name="mine_sign17" parent="Levels/mine_signes" instance=ExtResource("37_sekee")]
+transform = Transform3D(0.995251, 0, -0.0973396, 0, 1, 0, 0.0973396, 0, 0.995251, 195.9, 0, 30)
+
+[node name="MOBS" type="Node" parent="."]
+
+[node name="ufo" parent="MOBS" instance=ExtResource("27_mbv02")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1000, 200, 1000)
+
+[node name="ghost_girl" parent="MOBS" instance=ExtResource("37_wavva")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 50, 0, 1177)
+
+[node name="BIRDS" type="Node" parent="MOBS"]
+
+[node name="bird_1" parent="MOBS/BIRDS" instance=ExtResource("41_myaqo")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 978.312, 9.11594, 423.942)
+
+[node name="bird_2" parent="MOBS/BIRDS" instance=ExtResource("41_myaqo")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 987.385, 18.9849, 567.201)
+
+[node name="bird_3" parent="MOBS/BIRDS" instance=ExtResource("41_myaqo")]
+transform = Transform3D(-2.18557e-07, 0, -1, 0, 1, 0, 1, 0, -2.18557e-07, 924.182, 16.3289, 655.776)
+
+[node name="bird_4" parent="MOBS/BIRDS" instance=ExtResource("41_myaqo")]
+transform = Transform3D(0.5, 0, -0.866026, 0, 1, 0, 0.866026, 0, 0.5, 857.711, 16.3722, 719.03)
+
+[node name="bird_5" parent="MOBS/BIRDS" instance=ExtResource("41_myaqo")]
+transform = Transform3D(-0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, -0.707107, 747.139, 18.9298, 666.577)
+
+[node name="bird_6" parent="MOBS/BIRDS" instance=ExtResource("41_myaqo")]
+transform = Transform3D(1.47027e-07, 0, 1, 0, 1, 0, -1, 0, 1.47027e-07, 761.511, 16.434, 528.522)
+
+[node name="bird_7" parent="MOBS/BIRDS" instance=ExtResource("41_myaqo")]
+transform = Transform3D(1.47027e-07, 0, 1, 0, 1, 0, -1, 0, 1.47027e-07, 656.261, 16.4099, 759.739)
+
+[node name="bird_8" parent="MOBS/BIRDS" instance=ExtResource("41_myaqo")]
+transform = Transform3D(-7.45058e-08, 0, -1, 0, 1, 0, 1, 0, -7.45058e-08, 702.765, 16.4382, 903.693)
+
+[node name="bird_9" parent="MOBS/BIRDS" instance=ExtResource("41_myaqo")]
+transform = Transform3D(0.112336, 0, -0.99367, 0, 1, 0, 0.99367, 0, 0.112336, 479.544, 6.86436, 858.894)
+
+[node name="bird_10" parent="MOBS/BIRDS" instance=ExtResource("41_myaqo")]
+transform = Transform3D(-0.112336, 0, 0.99367, 0, 1, 0, -0.99367, 0, -0.112336, 533.244, 15.9828, 1140.63)
+
+[node name="bird_11" parent="MOBS/BIRDS" instance=ExtResource("41_myaqo")]
+transform = Transform3D(-0.399549, 0, -0.916712, 0, 1, 0, 0.916712, 0, -0.399549, 1032.83, 18.4985, 1087.35)
+
+[node name="bird_12" parent="MOBS/BIRDS" instance=ExtResource("41_myaqo")]
+transform = Transform3D(0.399549, 0, 0.916712, 0, 1, 0, -0.916712, 0, 0.399549, 882.621, 19.0534, 949.012)
+
+[node name="bird_13" parent="MOBS/BIRDS" instance=ExtResource("41_myaqo")]
+transform = Transform3D(0.782064, 0, -0.623197, 0, 1, 0, 0.623197, 0, 0.782064, 875.745, 15.112, 1311.14)
+
+[node name="bird_14" parent="MOBS/BIRDS" instance=ExtResource("41_myaqo")]
+transform = Transform3D(0.623197, 0, 0.782064, 0, 1, 0, -0.782064, 0, 0.623197, 1241.56, 18.9015, 1299.26)
+
+[node name="bird_15" parent="MOBS/BIRDS" instance=ExtResource("41_myaqo")]
+transform = Transform3D(0.623197, 0, 0.782064, 0, 1, 0, -0.782064, 0, 0.623197, 1442.22, 16.3508, 1188.99)
+
+[node name="bird_16" parent="MOBS/BIRDS" instance=ExtResource("41_myaqo")]
+transform = Transform3D(0.623197, 0, 0.782064, 0, 1, 0, -0.782064, 0, 0.623197, 1566.86, 18.9926, 1221.01)
+
+[node name="bird_17" parent="MOBS/BIRDS" instance=ExtResource("41_myaqo")]
+transform = Transform3D(0.594121, 0, -0.804375, 0, 1, 0, 0.804375, 0, 0.594121, 1369.47, 18.6911, 1413.26)
+
+[node name="bird_18" parent="MOBS/BIRDS" instance=ExtResource("41_myaqo")]
+transform = Transform3D(-0.435655, 0, -0.900113, 0, 1, 0, 0.900113, 0, -0.435655, 1481.92, 18.4771, 1534.93)
+
+[node name="bird_19" parent="MOBS/BIRDS" instance=ExtResource("41_myaqo")]
+transform = Transform3D(-0.997348, 0, -0.072768, 0, 1, 0, 0.072768, 0, -0.997348, 1681.39, 18.9144, 1329.55)
+
+[node name="bird_20" parent="MOBS/BIRDS" instance=ExtResource("41_myaqo")]
+transform = Transform3D(0.979002, 0, 0.203847, 0, 1, 0, -0.203847, 0, 0.979002, 1653.56, 15.2793, 1123.76)
+
+[node name="bird_21" parent="MOBS/BIRDS" instance=ExtResource("41_myaqo")]
+transform = Transform3D(0.203847, 0, -0.979002, 0, 1, 0, 0.979002, 0, 0.203847, 1261.33, 15.4696, 1066.65)
+
+[node name="bird_22" parent="MOBS/BIRDS" instance=ExtResource("41_myaqo")]
+transform = Transform3D(-0.623197, 0, -0.782064, 0, 1, 0, 0.782064, 0, -0.623197, 202.687, 16.2918, 1628.28)
+
+[node name="bird_23" parent="MOBS/BIRDS" instance=ExtResource("41_myaqo")]
+transform = Transform3D(0.99367, 0, 0.112336, 0, 1, 0, -0.112336, 0, 0.99367, 109.551, 15.4812, 1783.02)
+
+[node name="bird_24" parent="MOBS/BIRDS" instance=ExtResource("41_myaqo")]
+transform = Transform3D(-0.727354, 0, -0.686262, 0, 1, 0, 0.686262, 0, -0.727354, 641.191, 18.9818, 1543.57)
+
+[node name="bird_25" parent="MOBS/BIRDS" instance=ExtResource("41_myaqo")]
+transform = Transform3D(-0.399549, 0, -0.916712, 0, 1, 0, 0.916712, 0, -0.399549, 1051.56, 15.2208, 965.984)
+
+[node name="bird_26" parent="MOBS/BIRDS" instance=ExtResource("41_myaqo")]
+transform = Transform3D(-0.929068, 0, -0.369909, 0, 1, 0, 0.369909, 0, -0.929068, 1094.64, 15.361, 816.091)
+
+[node name="bird_27" parent="MOBS/BIRDS" instance=ExtResource("41_myaqo")]
+transform = Transform3D(0.365689, 0, -0.930737, 0, 1, 0, 0.930737, 0, 0.365689, 1126.04, 16.2888, 1426.13)
+
+[node name="bird_28" parent="MOBS/BIRDS" instance=ExtResource("41_myaqo")]
+transform = Transform3D(0.99367, 0, 0.112336, 0, 1, 0, -0.112336, 0, 0.99367, 909.602, 10.3357, 1541.92)
+
+[node name="ufo_giant" parent="MOBS" instance=ExtResource("44_cxhy8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 796.773, 565.284, 1070.31)
+
+[node name="WORLD_LIMITERS" type="Node" parent="."]
+
+[node name="world_limiter1" parent="WORLD_LIMITERS" instance=ExtResource("38_wj0qi")]
+
+[node name="world_limiter2" parent="WORLD_LIMITERS" instance=ExtResource("38_wj0qi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1000, 500, 2500)
+
+[node name="world_limiter3" parent="WORLD_LIMITERS" instance=ExtResource("38_wj0qi")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -500, 500, 1000)
+
+[node name="world_limiter4" parent="WORLD_LIMITERS" instance=ExtResource("38_wj0qi")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2500, 500, 1000)
+
+[node name="shell" parent="." instance=ExtResource("46_7idbo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 940.934, 0.368457, 1187.5)
+
+[node name="shell2" parent="." instance=ExtResource("46_7idbo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 941.241, 0.368457, 1187.5)
+
+[node name="shell3" parent="." instance=ExtResource("46_7idbo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 941.428, 0.368457, 1187.5)
+
+[node name="shell4" parent="." instance=ExtResource("46_7idbo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 941.56, 0.368457, 1187.5)
+
+[node name="shell5" parent="." instance=ExtResource("46_7idbo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 941.683, 0.368457, 1187.5)
+
+[node name="shotgun" parent="." instance=ExtResource("47_44jpd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 940.667, 0.368457, 1187.5)
+
+[node name="spray" parent="." instance=ExtResource("48_ui000")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 942.597, 1.13797, 1187.5)
+
+[node name="milk" parent="." instance=ExtResource("48_ffds6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 942.313, 1.13797, 1187.5)
+
+[node name="Player" parent="." instance=ExtResource("5_6o1kf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 939.426, 0, 1187.5)
+wall_min_slide_angle = 0.47822
+throw_item_power = 10.0
+base_speed = 3.0
+sprint_speed = 6.0
+crouch_speed = 1.0
+acceleration = 10.0
+jump_velocity = 4.5
+mouse_sensitivity = 0.1
+initial_facing_direction = Vector3(0, 0, 0)
+JUMP = "move_jump"
+LEFT = "move_left"
+RIGHT = "move_right"
+FORWARD = "move_foward"
+BACKWARD = "move_backward"
+PAUSE = "ui_cancel"
+immobile = false
+jumping_enabled = true
+in_air_momentum = true
+motion_smoothing = true
+sprint_enabled = true
+crouch_enabled = true
+crouch_mode = 0
+sprint_mode = 0
+dynamic_fov = true
+continuous_jumping = true
+view_bobbing = true
+jump_animation = true
+
+[node name="racecar" parent="." instance=ExtResource("46_tlmci")]
+transform = Transform3D(0.341052, 0, -0.940044, 0, 1, 0, 0.940044, 0, 0.341052, 1428.9, 0.145038, 1278.24)
+
+[node name="racecar2" parent="." instance=ExtResource("46_tlmci")]
+transform = Transform3D(0.341052, 0, -0.940044, 0, 1, 0, 0.940044, 0, 0.341052, 939.905, 0.145038, 1199.21)
+
+[node name="car" parent="." instance=ExtResource("27_vrtll")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 938.484, 0.145038, 1193.68)
+consumption_energy = 0.003
+
+[connection signal="timeout" from="SERVERS/timer_daycycle" to="." method="_on_timer_daycycle_timeout"]

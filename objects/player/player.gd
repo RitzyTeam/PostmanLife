@@ -82,7 +82,7 @@ var current_slot_selected: int = 1
 # Member variables
 var speed : float = base_speed
 var current_speed : float = 0.0
-var stamina: float = 100
+var stamina: float = 100.0
 # States: normal, crouching, sprinting
 var state : String = "normal"
 var low_ceiling : bool = false # This is for when the cieling is too low and the player needs to crouch.
@@ -115,7 +115,7 @@ func _ready():
 	JUMP_ANIMATION.play("RESET")
 
 func _physics_process(delta):
-	
+
 #region СТАМИНА
 	if stamina < 100 and state == 'normal':
 		stamina += 0.1
@@ -233,7 +233,6 @@ func handle_state(moving):
 						if !$CrouchCeilingDetection.is_colliding():
 							enter_normal_state()
 
-# Any enter state function should only be called once when you want to enter that state, not every frame.
 func enter_normal_state():
 	var prev_state = state
 	if prev_state == "crouching":
@@ -384,8 +383,27 @@ func drop_item_slot(slot_id: int):
 			obj.item = SIN_WORLD_DATA.WORLD_DATA['player_inv']['slot_' + str(slot_id)]
 			obj.global_position = $Head/Camera/item_display/fuel_tank.global_position
 			obj.global_rotation = $Head/Camera/item_display/fuel_tank.global_rotation
+			obj.global_rotation.y += deg_to_rad(180)
 			obj.apply_central_impulse($Head/Camera/item_display/fuel_tank.global_transform.basis.x * throw_item_power)
 			SIN_WORLD_DATA.WORLD_DATA['player_inv']['slot_' + str(slot_id)] = {'id': 'void'}
+		'milk':
+			var obj = load("res://objects/PROPS/FOOD/milk/milk.tscn").instantiate()
+			get_tree().get_root().add_child(obj)
+			obj.item = SIN_WORLD_DATA.WORLD_DATA['player_inv']['slot_' + str(slot_id)]
+			obj.global_position = $Head/Camera/item_display/fuel_tank.global_position
+			obj.global_rotation = $Head/Camera/item_display/fuel_tank.global_rotation
+			obj.global_rotation.y += deg_to_rad(180)
+			obj.apply_central_impulse($Head/Camera/item_display/fuel_tank.global_transform.basis.x * throw_item_power)
+			SIN_WORLD_DATA.WORLD_DATA['player_inv']['slot_' + str(slot_id)] = {'id': 'void'}
+		'spray_orange':
+			var obj = load("res://objects/PROPS/spray_orange/spray_orange.tscn").instantiate()
+			get_tree().get_root().add_child(obj)
+			obj.item = SIN_WORLD_DATA.WORLD_DATA['player_inv']['slot_' + str(slot_id)]
+			obj.global_position = $Head/Camera/item_display/spray_orange.global_position
+			obj.global_rotation = $Head/Camera/item_display/spray_orange.global_rotation
+			obj.apply_central_impulse($Head/Camera/item_display/spray_orange.global_transform.basis.x * throw_item_power)
+			SIN_WORLD_DATA.WORLD_DATA['player_inv']['slot_' + str(slot_id)] = {'id': 'void'}
+	inventory_loader.load_hand_visual(current_slot_selected)
 	inventory_loader.load_hand_visual(current_slot_selected)
 	calculate_speed()
 	inventory_loader.load_inventory_visual()
@@ -437,12 +455,6 @@ func _unhandled_input(event):
 			current_slot_selected -= 1
 		else:
 			current_slot_selected = 4
-	if event.is_action_pressed('lmb'):
-		if $Head/Camera/item_display/shotgun.visible:
-			shotgun_shoot()
-	if event.is_action_pressed('key_r'):
-		if $Head/Camera/item_display/shotgun.visible:
-			shotgun_try_reload()
 	set_slot_selected(current_slot_selected)
 	
 	# INVENTORY BY KEYS
@@ -533,61 +545,6 @@ func set_speed_by_payload():
 			enter_normal_state()
 		'sprinting':
 			enter_sprint_state()
-
-func shotgun_shoot():
-	if $Head/Camera/item_display/shotgun.visible:
-		if not $Head/Camera/item_display/shotgun/shot.is_playing():
-			if SIN_WORLD_DATA.WORLD_DATA['player_inv']['slot_'+str(current_slot_selected)]['ammo_inside'] > 0:
-				var spread: int = 10
-				$Head/Camera/raycast_shotgun_1.rotation.x = deg_to_rad(0)
-				$Head/Camera/raycast_shotgun_1.rotation.y = deg_to_rad(0)
-				
-				$Head/Camera/raycast_shotgun_2.rotation.x = deg_to_rad(randi_range(-spread,spread))
-				$Head/Camera/raycast_shotgun_2.rotation.y = deg_to_rad(randi_range(-spread,spread))
-				
-				$Head/Camera/raycast_shotgun_3.rotation.x = deg_to_rad(randi_range(-spread,spread))
-				$Head/Camera/raycast_shotgun_3.rotation.y = deg_to_rad(randi_range(-spread,spread))
-				
-				$Head/Camera/raycast_shotgun_4.rotation.x = deg_to_rad(randi_range(-spread,spread))
-				$Head/Camera/raycast_shotgun_4.rotation.y = deg_to_rad(randi_range(-spread,spread))
-				
-				$Head/Camera/raycast_shotgun_5.rotation.x = deg_to_rad(randi_range(-spread,spread))
-				$Head/Camera/raycast_shotgun_5.rotation.y = deg_to_rad(randi_range(-spread,spread))
-				
-				SIN_WORLD_DATA.WORLD_DATA['player_inv']['slot_'+str(current_slot_selected)]['ammo_inside'] -= 1
-				$Head/Camera/item_display/shotgun/shot.play('shot')
-				var sound_id: int = randi_range(1,5)
-				get_node("Head/Camera/item_display/shotgun/fire_" + str(sound_id)).play()
-				for i in range(5):
-					var raycast = get_node('Head/Camera/raycast_shotgun_'+str(i+1))
-					if raycast.is_colliding():
-						if not raycast.get_collider() == null:
-							if raycast.get_collider().has_method('hurt'):
-								raycast.get_collider().hurt()
-			else:
-				$Head/Camera/item_display/shotgun/no_ammo.play()
-
-func shotgun_try_reload():
-	if not $Head/Camera/item_display/shotgun/anim_reload.is_playing():
-		var isSuccessReload: bool = false
-		if SIN_WORLD_DATA.WORLD_DATA['player_inv']['slot_'+str(current_slot_selected)]['ammo_inside'] < 5:
-			if SIN_WORLD_DATA.WORLD_DATA['player_inv']['slot_1']['id'] == 'shell':
-				SIN_WORLD_DATA.WORLD_DATA['player_inv']['slot_1'] = {'id': 'void'}
-				isSuccessReload = true
-			elif SIN_WORLD_DATA.WORLD_DATA['player_inv']['slot_2']['id'] == 'shell':
-				SIN_WORLD_DATA.WORLD_DATA['player_inv']['slot_2'] = {'id': 'void'}
-				isSuccessReload = true
-			elif SIN_WORLD_DATA.WORLD_DATA['player_inv']['slot_3']['id'] == 'shell':
-				SIN_WORLD_DATA.WORLD_DATA['player_inv']['slot_3'] = {'id': 'void'}
-				isSuccessReload = true
-			elif SIN_WORLD_DATA.WORLD_DATA['player_inv']['slot_4']['id'] == 'shell':
-				SIN_WORLD_DATA.WORLD_DATA['player_inv']['slot_4'] = {'id': 'void'}
-				isSuccessReload = true
-			if isSuccessReload:
-				SIN_WORLD_DATA.WORLD_DATA['player_inv']['slot_'+str(current_slot_selected)]['ammo_inside'] += 1
-				inventory_loader.load_inventory_visual()
-				$Head/Camera/item_display/shotgun/anim_reload.play('reload')
-
 
 func _on_check_die_from_height_body_entered(body):
 	if -velocity.y > 20:

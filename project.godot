@@ -158,3 +158,4 @@ common/physics_jitter_fix=0.0
 [rendering]
 
 renderer/rendering_method.mobile="gl_compatibility"
+limits/cluster_builder/max_clustered_elements=2048.0

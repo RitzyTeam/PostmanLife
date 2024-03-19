@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://b6ughhc15gnbi"]
+
+[ext_resource type="Texture2D" uid="uid://dfihu382imm3v" path="res://assets/textures/spray/spray_paint.png" id="1_gb7fv"]
+
+[node name="spray_paint" type="Decal"]
+size = Vector3(0.1, 0.1, 0.1)
+texture_albedo = ExtResource("1_gb7fv")
+upper_fade = 5.36164e-05
+lower_fade = 2.68082e-05
