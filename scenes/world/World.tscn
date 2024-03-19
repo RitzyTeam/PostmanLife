@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=3 uid="uid://c66dar30xo83l"]
+[gd_scene load_steps=72 format=3 uid="uid://c66dar30xo83l"]
 
 [ext_resource type="Script" path="res://scenes/world/World.gd" id="1_xxt06"]
 [ext_resource type="PackedScene" uid="uid://b6xb3m0mq55td" path="res://objects/ENVIRONMENT/ENV.tscn" id="3_7t5e4"]
@@ -47,6 +47,7 @@
 [ext_resource type="PackedScene" uid="uid://chspevxyt4l2o" path="res://objects/ENVIRONMENT/world_limiter/world_limiter.tscn" id="38_wj0qi"]
 [ext_resource type="PackedScene" uid="uid://cfw050vcnfw5o" path="res://objects/MOBS/bird/bird.tscn" id="41_myaqo"]
 [ext_resource type="PackedScene" uid="uid://dk7h0364v60bg" path="res://objects/MOBS/ufo_giant/ufo_giant.tscn" id="44_cxhy8"]
+[ext_resource type="PackedScene" uid="uid://cjgjffiykv7il" path="res://objects/PROPS/coffee_can/coffee_can.tscn" id="46_bpo6x"]
 [ext_resource type="PackedScene" uid="uid://dit3ypm30lxlf" path="res://objects/TRANSPORT/racecar/racecar.tscn" id="46_tlmci"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_1gdrn"]
@@ -102,7 +103,7 @@ shader_parameter/texture_normal2 = SubResource("NoiseTexture2D_npkdg")
 material = SubResource("ShaderMaterial_divvh")
 size = Vector2(2000, 600)
 
-[sub_resource type="Resource" id="Resource_xhhqi"]
+[sub_resource type="Resource" id="Resource_1pkg2"]
 script = ExtResource("19_6qlp7")
 amount = 500
 enabled = true
@@ -111,7 +112,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 1
 
-[sub_resource type="Resource" id="Resource_u01rc"]
+[sub_resource type="Resource" id="Resource_781sb"]
 script = ExtResource("20_xv4po")
 position = Vector3(0.15, 0.15, 0.15)
 rotation = Vector3(0, 360, 0)
@@ -122,7 +123,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 2
 
-[sub_resource type="Resource" id="Resource_q3e8n"]
+[sub_resource type="Resource" id="Resource_jhjnu"]
 script = ExtResource("21_ai286")
 iterations = 3
 offset_step = 0.2
@@ -134,7 +135,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_hf8je"]
+[sub_resource type="Resource" id="Resource_shubf"]
 script = ExtResource("22_k8kdo")
 ray_direction = Vector3(0, -1, 0)
 ray_length = 5.0
@@ -150,9 +151,9 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_er4g6"]
+[sub_resource type="Resource" id="Resource_igyl5"]
 script = ExtResource("18_1fwha")
-stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_xhhqi"), SubResource("Resource_u01rc"), SubResource("Resource_q3e8n"), SubResource("Resource_hf8je")])
+stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_1pkg2"), SubResource("Resource_781sb"), SubResource("Resource_jhjnu"), SubResource("Resource_shubf")])
 
 [sub_resource type="Curve3D" id="Curve3D_2u2vc"]
 _data = {
@@ -167,7 +168,7 @@ closed = true
 thickness = 0.0
 curve = SubResource("Curve3D_2u2vc")
 
-[sub_resource type="Resource" id="Resource_r5wgv"]
+[sub_resource type="Resource" id="Resource_8hh21"]
 script = ExtResource("19_6qlp7")
 amount = 2000
 enabled = true
@@ -176,7 +177,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 1
 
-[sub_resource type="Resource" id="Resource_okn67"]
+[sub_resource type="Resource" id="Resource_xhblf"]
 script = ExtResource("20_xv4po")
 position = Vector3(0.15, 0.15, 0.15)
 rotation = Vector3(1, 360, 1)
@@ -187,7 +188,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 2
 
-[sub_resource type="Resource" id="Resource_5lk52"]
+[sub_resource type="Resource" id="Resource_dy2sy"]
 script = ExtResource("21_ai286")
 iterations = 1
 offset_step = 0.1
@@ -199,7 +200,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_0iijc"]
+[sub_resource type="Resource" id="Resource_54ihn"]
 script = ExtResource("22_k8kdo")
 ray_direction = Vector3(0, -1, 0)
 ray_length = 5.0
@@ -215,9 +216,9 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_md51a"]
+[sub_resource type="Resource" id="Resource_nxnj6"]
 script = ExtResource("18_1fwha")
-stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_r5wgv"), SubResource("Resource_okn67"), SubResource("Resource_5lk52"), SubResource("Resource_0iijc")])
+stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_8hh21"), SubResource("Resource_xhblf"), SubResource("Resource_dy2sy"), SubResource("Resource_54ihn")])
 
 [sub_resource type="Curve3D" id="Curve3D_b4q5a"]
 _data = {
@@ -2196,7 +2197,7 @@ transform = Transform3D(0.34202, 0, -0.939693, 0, 1, 0, 0.939693, 0, 0.34202, 14
 script = ExtResource("17_0tutk")
 global_seed = 20
 render_mode = 1
-modifier_stack = SubResource("Resource_er4g6")
+modifier_stack = SubResource("Resource_igyl5")
 Performance/use_chunks = true
 Performance/chunk_dimensions = Vector3(15, 15, 15)
 
@@ -2224,7 +2225,7 @@ shape = SubResource("Resource_e18i2")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2032, 0, 1595)
 script = ExtResource("17_0tutk")
 render_mode = 1
-modifier_stack = SubResource("Resource_md51a")
+modifier_stack = SubResource("Resource_nxnj6")
 Performance/use_chunks = true
 Performance/chunk_dimensions = Vector3(15, 15, 15)
 
@@ -2789,6 +2790,18 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -500, 
 
 [node name="world_limiter4" parent="WORLD_LIMITERS" instance=ExtResource("38_wj0qi")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2500, 500, 1000)
+
+[node name="coffee_can" parent="." instance=ExtResource("46_bpo6x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 940.757, 0.619924, 1187.5)
+
+[node name="coffee_can2" parent="." instance=ExtResource("46_bpo6x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 941.091, 0.619924, 1187.5)
+
+[node name="coffee_can3" parent="." instance=ExtResource("46_bpo6x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 941.459, 0.619924, 1187.5)
+
+[node name="coffee_can4" parent="." instance=ExtResource("46_bpo6x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 941.81, 0.619924, 1187.5)
 
 [node name="Player" parent="." instance=ExtResource("5_6o1kf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 939.426, 0, 1187.5)

@@ -30,6 +30,8 @@ func load_inventory_visual():
 				get_node("../UI/UI/inventory/slot_" + str(i+1) + "/item_icon").texture = load('res://assets/images/item_milk.png')
 			'spray_orange':
 				get_node("../UI/UI/inventory/slot_" + str(i+1) + "/item_icon").texture = load('res://assets/images/item_spray.png')
+			'coffee_can':
+				get_node("../UI/UI/inventory/slot_" + str(i+1) + "/item_icon").texture = load('res://assets/images/item_coffee_can.png')
 
 func load_hand_visual(slot_id):
 	$"../UI/UI/item_name".text = ''
@@ -43,6 +45,7 @@ func load_hand_visual(slot_id):
 	$"../Head/Camera/item_display/shell".visible = false
 	$"../Head/Camera/item_display/milk".visible = false
 	$"../Head/Camera/item_display/spray_orange".visible = false
+	$"../Head/Camera/item_display/coffee_can".visible = false
 	match item.id:
 		'void': 
 			$"../UI/UI/item_name".text = ''
@@ -69,4 +72,7 @@ func load_hand_visual(slot_id):
 			$"../UI/UI/item_name".text = item['name']
 		'spray_orange':
 			$"../Head/Camera/item_display/spray_orange".visible = true
+			$"../UI/UI/item_name".text = item['name']
+		'coffee_can':
+			$"../Head/Camera/item_display/coffee_can".visible = true
 			$"../UI/UI/item_name".text = item['name']

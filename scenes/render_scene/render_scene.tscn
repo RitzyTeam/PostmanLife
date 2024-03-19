@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cfl6vt4pjnbo6"]
 
-[ext_resource type="PackedScene" uid="uid://dff23eg6q6d2" path="res://objects/PROPS/spray_orange/spray_orange.tscn" id="1_62stk"]
+[ext_resource type="PackedScene" uid="uid://cjgjffiykv7il" path="res://objects/PROPS/coffee_can/coffee_can.tscn" id="1_gk2v8"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vjrxw"]
 albedo_color = Color(0, 0, 0, 1)
@@ -23,5 +23,5 @@ fov = 31.5
 [node name="origin" type="Marker3D" parent="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.555, 0)
 
-[node name="spray" parent="Node3D/origin" instance=ExtResource("1_62stk")]
-transform = Transform3D(2.74, 0, 0, 0, 2.74, 0, 0, 0, 2.74, 0, 0, 0)
+[node name="coffee_can" parent="Node3D/origin" instance=ExtResource("1_gk2v8")]
+transform = Transform3D(2.165, 0, 0, 0, 2.165, 0, 0, 0, 2.165, 0, 0, 0)
