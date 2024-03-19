@@ -22,6 +22,9 @@ func set_death_reason():
 		'mine':
 			$UI/bg/reason.text = 'Вы подорвались на мине'
 			$death_sound.stream = load('res://assets/sounds/death_sounds/mine/mine_blow.mp3')
+		'blow':
+			$UI/bg/reason.text = 'Вы взорвались'
+			$death_sound.stream = load('res://assets/sounds/death_sounds/mine/mine_blow.mp3')
 	$anim.play('play')
 
 

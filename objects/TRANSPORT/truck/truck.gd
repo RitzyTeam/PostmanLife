@@ -219,7 +219,7 @@ func _on_area_body_entered(body):
 	if body is RigidBody3D:
 		if 'item' in body:
 			if body.has_method('grab'):
-				if not body.item['litres'] == null:
+				if body.item.has('litres'):
 					if body.item['litres'] > 0:
 						if item.res_fuel < max_fuel:
 							if current_tank == null:
@@ -241,7 +241,7 @@ func _on_area_body_exited(body):
 	if body is RigidBody3D:
 		if 'item' in body:
 			if body.has_method('grab'):
-				if not body.item['litres'] == null:
+				if body.item.has('litres'):
 					body.freeze = false
 
 # DEATH BY CAR BUMP INTO OBJECT

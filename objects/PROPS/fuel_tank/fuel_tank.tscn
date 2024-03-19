@@ -85,18 +85,18 @@ size = Vector3(0.192879, 0.231367, 0.0427246)
 script = ExtResource("1_qmef1")
 
 [node name="tank" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.255201, 0, 0, 0, 0.255201, 0, 0, 0, 0.150842, 0.125291, -0.391755, 0)
+transform = Transform3D(0.255201, 0, 0, 0, 0.255201, 0, 0, 0, 0.150842, 0, 0, 0)
 mesh = SubResource("ArrayMesh_nt3tx")
 skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.08925, -0.390977, -0.00195313)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0307094, 0, -0.00195313)
 shape = SubResource("BoxShape3D_1ayi7")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0026933, -0.0697316, -0.00195313)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.131642, 0.318865, -0.00195313)
 shape = SubResource("BoxShape3D_bcdlm")
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.142058, -0.391481, 0.000366211)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.000366211)
 shape = SubResource("BoxShape3D_e67m0")

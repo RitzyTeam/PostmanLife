@@ -568,24 +568,25 @@ func shotgun_shoot():
 				$Head/Camera/item_display/shotgun/no_ammo.play()
 
 func shotgun_try_reload():
-	var isSuccessReload: bool = false
-	if SIN_WORLD_DATA.WORLD_DATA['player_inv']['slot_'+str(current_slot_selected)]['ammo_inside'] < 5:
-		if SIN_WORLD_DATA.WORLD_DATA['player_inv']['slot_1']['id'] == 'shell':
-			SIN_WORLD_DATA.WORLD_DATA['player_inv']['slot_1'] = {'id': 'void'}
-			isSuccessReload = true
-		elif SIN_WORLD_DATA.WORLD_DATA['player_inv']['slot_2']['id'] == 'shell':
-			SIN_WORLD_DATA.WORLD_DATA['player_inv']['slot_2'] = {'id': 'void'}
-			isSuccessReload = true
-		elif SIN_WORLD_DATA.WORLD_DATA['player_inv']['slot_3']['id'] == 'shell':
-			SIN_WORLD_DATA.WORLD_DATA['player_inv']['slot_3'] = {'id': 'void'}
-			isSuccessReload = true
-		elif SIN_WORLD_DATA.WORLD_DATA['player_inv']['slot_4']['id'] == 'shell':
-			SIN_WORLD_DATA.WORLD_DATA['player_inv']['slot_4'] = {'id': 'void'}
-			isSuccessReload = true
-		if isSuccessReload:
-			SIN_WORLD_DATA.WORLD_DATA['player_inv']['slot_'+str(current_slot_selected)]['ammo_inside'] += 1
-			inventory_loader.load_inventory_visual()
-			$Head/Camera/item_display/shotgun/anim_reload.play('reload')
+	if not $Head/Camera/item_display/shotgun/anim_reload.is_playing():
+		var isSuccessReload: bool = false
+		if SIN_WORLD_DATA.WORLD_DATA['player_inv']['slot_'+str(current_slot_selected)]['ammo_inside'] < 5:
+			if SIN_WORLD_DATA.WORLD_DATA['player_inv']['slot_1']['id'] == 'shell':
+				SIN_WORLD_DATA.WORLD_DATA['player_inv']['slot_1'] = {'id': 'void'}
+				isSuccessReload = true
+			elif SIN_WORLD_DATA.WORLD_DATA['player_inv']['slot_2']['id'] == 'shell':
+				SIN_WORLD_DATA.WORLD_DATA['player_inv']['slot_2'] = {'id': 'void'}
+				isSuccessReload = true
+			elif SIN_WORLD_DATA.WORLD_DATA['player_inv']['slot_3']['id'] == 'shell':
+				SIN_WORLD_DATA.WORLD_DATA['player_inv']['slot_3'] = {'id': 'void'}
+				isSuccessReload = true
+			elif SIN_WORLD_DATA.WORLD_DATA['player_inv']['slot_4']['id'] == 'shell':
+				SIN_WORLD_DATA.WORLD_DATA['player_inv']['slot_4'] = {'id': 'void'}
+				isSuccessReload = true
+			if isSuccessReload:
+				SIN_WORLD_DATA.WORLD_DATA['player_inv']['slot_'+str(current_slot_selected)]['ammo_inside'] += 1
+				inventory_loader.load_inventory_visual()
+				$Head/Camera/item_display/shotgun/anim_reload.play('reload')
 
 
 func _on_check_die_from_height_body_entered(body):
