@@ -10,6 +10,10 @@ func _on_trigger_body_exited(body):
 	if body.is_in_group('player'):
 		body.queue_free()
 		blow()
+	else:
+		if body.is_in_group('car'):
+			if body.isPlayerInside:
+				blow()
 
 
 func _on_trigger_body_entered(body):
