@@ -538,14 +538,32 @@ func shotgun_shoot():
 	if $Head/Camera/item_display/shotgun.visible:
 		if not $Head/Camera/item_display/shotgun/shot.is_playing():
 			if SIN_WORLD_DATA.WORLD_DATA['player_inv']['slot_'+str(current_slot_selected)]['ammo_inside'] > 0:
+				var spread: int = 10
+				$Head/Camera/raycast_shotgun_1.rotation.x = deg_to_rad(0)
+				$Head/Camera/raycast_shotgun_1.rotation.y = deg_to_rad(0)
+				
+				$Head/Camera/raycast_shotgun_2.rotation.x = deg_to_rad(randi_range(-spread,spread))
+				$Head/Camera/raycast_shotgun_2.rotation.y = deg_to_rad(randi_range(-spread,spread))
+				
+				$Head/Camera/raycast_shotgun_3.rotation.x = deg_to_rad(randi_range(-spread,spread))
+				$Head/Camera/raycast_shotgun_3.rotation.y = deg_to_rad(randi_range(-spread,spread))
+				
+				$Head/Camera/raycast_shotgun_4.rotation.x = deg_to_rad(randi_range(-spread,spread))
+				$Head/Camera/raycast_shotgun_4.rotation.y = deg_to_rad(randi_range(-spread,spread))
+				
+				$Head/Camera/raycast_shotgun_5.rotation.x = deg_to_rad(randi_range(-spread,spread))
+				$Head/Camera/raycast_shotgun_5.rotation.y = deg_to_rad(randi_range(-spread,spread))
+				
 				SIN_WORLD_DATA.WORLD_DATA['player_inv']['slot_'+str(current_slot_selected)]['ammo_inside'] -= 1
 				$Head/Camera/item_display/shotgun/shot.play('shot')
 				var sound_id: int = randi_range(1,5)
 				get_node("Head/Camera/item_display/shotgun/fire_" + str(sound_id)).play()
-				if $Head/Camera/raycast_shotfun.is_colliding():
-					if not $Head/Camera/raycast_shotfun.get_collider() == null:
-						if $Head/Camera/raycast_shotfun.get_collider().has_method('hurt'):
-							$Head/Camera/raycast_shotfun.get_collider().hurt()
+				for i in range(5):
+					var raycast = get_node('Head/Camera/raycast_shotgun_'+str(i+1))
+					if raycast.is_colliding():
+						if not raycast.get_collider() == null:
+							if raycast.get_collider().has_method('hurt'):
+								raycast.get_collider().hurt()
 			else:
 				$Head/Camera/item_display/shotgun/no_ammo.play()
 
@@ -571,7 +589,6 @@ func shotgun_try_reload():
 
 
 func _on_check_die_from_height_body_entered(body):
-	print(-velocity.y)
 	if -velocity.y > 20:
 		SIN_WORLD_DATA.last_death_reason = 'fall'
 		get_tree().change_scene_to_file.bind("res://scenes/death/death.tscn").call_deferred()
