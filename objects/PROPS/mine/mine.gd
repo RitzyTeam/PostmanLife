@@ -12,7 +12,7 @@ func _on_trigger_body_exited(body):
 		blow()
 	else:
 		if body.is_in_group('car'):
-			if body.isPlayerInside:
+			if body.item.isPlayerInside:
 				blow()
 
 
