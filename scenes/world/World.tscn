@@ -1,11 +1,11 @@
-[gd_scene load_steps=74 format=3 uid="uid://c66dar30xo83l"]
+[gd_scene load_steps=73 format=3 uid="uid://c66dar30xo83l"]
 
 [ext_resource type="Script" path="res://scenes/world/World.gd" id="1_xxt06"]
-[ext_resource type="Script" path="res://addons/zylann.hterrain/hterrain.gd" id="2_j3jfb"]
 [ext_resource type="PackedScene" uid="uid://b6xb3m0mq55td" path="res://objects/ENVIRONMENT/ENV.tscn" id="3_7t5e4"]
-[ext_resource type="Resource" path="res://scenes/world/terrain_data/data.hterrain" id="3_ajii5"]
-[ext_resource type="Script" path="res://addons/zylann.hterrain/hterrain_texture_set.gd" id="4_rbhmn"]
+[ext_resource type="Terrain3DStorage" uid="uid://dnhs27dsadplu" path="res://scenes/world/world_data/terrain_storage.res" id="3_gvvxl"]
+[ext_resource type="Terrain3DMaterial" uid="uid://cde8a6xoleq2s" path="res://scenes/world/world_data/terrain_material.res" id="4_eae2c"]
 [ext_resource type="PackedScene" uid="uid://cc1m2a1obsyn4" path="res://objects/player/player.tscn" id="5_6o1kf"]
+[ext_resource type="Terrain3DTextureList" uid="uid://c8pa5ggksl8p4" path="res://scenes/world/world_data/terrain_tex_list.res" id="5_ekkgx"]
 [ext_resource type="PackedScene" uid="uid://cjsj70ofmvnx2" path="res://objects/builds/roads/road.tscn" id="6_j5vhd"]
 [ext_resource type="PackedScene" uid="uid://bskp62bdkhqpp" path="res://objects/builds/street_lamp/street_lamp.tscn" id="7_6dfov"]
 [ext_resource type="PackedScene" uid="uid://dkfbfrrjn8o18" path="res://objects/builds/HOUSES/house_5/house_5.tscn" id="7_t74fg"]
@@ -31,7 +31,7 @@
 [ext_resource type="PackedScene" uid="uid://dykx8t3kgk81m" path="res://objects/builds/water_tower/water_tower.tscn" id="22_umta2"]
 [ext_resource type="PackedScene" uid="uid://buo5wtbbijrhs" path="res://objects/urban_elements/griffin_statue/griffin_statue.tscn" id="22_wb4fs"]
 [ext_resource type="Script" path="res://addons/proton_scatter/src/scatter_item.gd" id="23_kpixf"]
-[ext_resource type="MeshLibrary" path="res://resources/mesh_libs/prop_builds.meshlib" id="23_q1m3v"]
+[ext_resource type="MeshLibrary" uid="uid://dowyw55vhv8j7" path="res://resources/mesh_libs/prop_builds.meshlib" id="23_q1m3v"]
 [ext_resource type="Script" path="res://addons/proton_scatter/src/scatter_shape.gd" id="24_g5fqv"]
 [ext_resource type="Script" path="res://addons/proton_scatter/src/shapes/path_shape.gd" id="25_4ndlv"]
 [ext_resource type="PackedScene" uid="uid://b2dspemfb0g23" path="res://objects/MOBS/ufo/ufo.tscn" id="27_mbv02"]
@@ -50,11 +50,6 @@
 [ext_resource type="PackedScene" uid="uid://myuxgdmd824e" path="res://objects/PROPS/shell/shell.tscn" id="46_7idbo"]
 [ext_resource type="PackedScene" uid="uid://dit3ypm30lxlf" path="res://objects/TRANSPORT/racecar/racecar.tscn" id="46_tlmci"]
 [ext_resource type="PackedScene" uid="uid://bplsofcftc4et" path="res://objects/PROPS/shotgun/shotgun.tscn" id="47_44jpd"]
-
-[sub_resource type="Resource" id="Resource_hxkjo"]
-script = ExtResource("4_rbhmn")
-mode = 0
-textures = [[], []]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_1gdrn"]
 noise_type = 3
@@ -109,7 +104,7 @@ shader_parameter/texture_normal2 = SubResource("NoiseTexture2D_npkdg")
 material = SubResource("ShaderMaterial_divvh")
 size = Vector2(2000, 600)
 
-[sub_resource type="Resource" id="Resource_poxg7"]
+[sub_resource type="Resource" id="Resource_qx7v4"]
 script = ExtResource("19_6qlp7")
 amount = 500
 enabled = true
@@ -118,7 +113,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 1
 
-[sub_resource type="Resource" id="Resource_o5syo"]
+[sub_resource type="Resource" id="Resource_1es20"]
 script = ExtResource("20_xv4po")
 position = Vector3(0.15, 0.15, 0.15)
 rotation = Vector3(0, 360, 0)
@@ -129,7 +124,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 2
 
-[sub_resource type="Resource" id="Resource_r1aw0"]
+[sub_resource type="Resource" id="Resource_i6keg"]
 script = ExtResource("21_ai286")
 iterations = 3
 offset_step = 0.2
@@ -141,7 +136,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_v1nwi"]
+[sub_resource type="Resource" id="Resource_k2oua"]
 script = ExtResource("22_k8kdo")
 ray_direction = Vector3(0, -1, 0)
 ray_length = 5.0
@@ -157,9 +152,9 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_es173"]
+[sub_resource type="Resource" id="Resource_8tl77"]
 script = ExtResource("18_1fwha")
-stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_poxg7"), SubResource("Resource_o5syo"), SubResource("Resource_r1aw0"), SubResource("Resource_v1nwi")])
+stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_qx7v4"), SubResource("Resource_1es20"), SubResource("Resource_i6keg"), SubResource("Resource_k2oua")])
 
 [sub_resource type="Curve3D" id="Curve3D_2u2vc"]
 _data = {
@@ -174,7 +169,7 @@ closed = true
 thickness = 0.0
 curve = SubResource("Curve3D_2u2vc")
 
-[sub_resource type="Resource" id="Resource_nlc3e"]
+[sub_resource type="Resource" id="Resource_vf7gs"]
 script = ExtResource("19_6qlp7")
 amount = 2000
 enabled = true
@@ -183,7 +178,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 1
 
-[sub_resource type="Resource" id="Resource_3tapy"]
+[sub_resource type="Resource" id="Resource_eue0x"]
 script = ExtResource("20_xv4po")
 position = Vector3(0.15, 0.15, 0.15)
 rotation = Vector3(1, 360, 1)
@@ -194,7 +189,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 2
 
-[sub_resource type="Resource" id="Resource_asm1w"]
+[sub_resource type="Resource" id="Resource_adb8k"]
 script = ExtResource("21_ai286")
 iterations = 1
 offset_step = 0.1
@@ -206,7 +201,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_d6187"]
+[sub_resource type="Resource" id="Resource_tuc1p"]
 script = ExtResource("22_k8kdo")
 ray_direction = Vector3(0, -1, 0)
 ray_length = 5.0
@@ -222,9 +217,9 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_8ojvd"]
+[sub_resource type="Resource" id="Resource_7tv0y"]
 script = ExtResource("18_1fwha")
-stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_nlc3e"), SubResource("Resource_3tapy"), SubResource("Resource_asm1w"), SubResource("Resource_d6187")])
+stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_vf7gs"), SubResource("Resource_eue0x"), SubResource("Resource_adb8k"), SubResource("Resource_tuc1p")])
 
 [sub_resource type="Curve3D" id="Curve3D_b4q5a"]
 _data = {
@@ -255,22 +250,10 @@ autostart = true
 
 [node name="terrain" type="Node" parent="Levels"]
 
-[node name="HTerrain" type="Node3D" parent="Levels/terrain"]
-script = ExtResource("2_j3jfb")
-ambient_wind = 1.0
-map_scale = Vector3(10, 10, 10)
-centered = true
-_terrain_data = ExtResource("3_ajii5")
-chunk_size = 64
-collision_enabled = true
-collision_layer = 1
-collision_mask = 1
-shader_type = "LowPoly"
-custom_shader = null
-custom_globalmap_shader = null
-texture_set = SubResource("Resource_hxkjo")
-render_layers = 1
-cast_shadow = 1
+[node name="Terrain3D" type="Terrain3D" parent="Levels/terrain"]
+storage = ExtResource("3_gvvxl")
+material = ExtResource("4_eae2c")
+texture_list = ExtResource("5_ekkgx")
 
 [node name="road" type="Node" parent="Levels"]
 
@@ -2215,7 +2198,7 @@ transform = Transform3D(0.34202, 0, -0.939693, 0, 1, 0, 0.939693, 0, 0.34202, 14
 script = ExtResource("17_0tutk")
 global_seed = 20
 render_mode = 1
-modifier_stack = SubResource("Resource_es173")
+modifier_stack = SubResource("Resource_8tl77")
 Performance/use_chunks = true
 Performance/chunk_dimensions = Vector3(15, 15, 15)
 
@@ -2243,7 +2226,7 @@ shape = SubResource("Resource_e18i2")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2032, 0, 1595)
 script = ExtResource("17_0tutk")
 render_mode = 1
-modifier_stack = SubResource("Resource_8ojvd")
+modifier_stack = SubResource("Resource_7tv0y")
 Performance/use_chunks = true
 Performance/chunk_dimensions = Vector3(15, 15, 15)
 
