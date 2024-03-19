@@ -10,6 +10,9 @@ func set_death_reason():
 		'car':
 			$UI/bg/reason.text = 'Вы разбились на машине'
 			$death_sound.stream = load('res://assets/sounds/death_sounds/mine/mine_blow.mp3')
+		'fall':
+			$UI/bg/reason.text = 'Вы разбились, упав с высоты'
+			$death_sound.stream = load("res://assets/sounds/death_sounds/fall/fall.mp3")
 		'fired':
 			$UI/bg/reason.text = 'Вы были уволены!'
 			$death_sound.stream = load('res://assets/sounds/death_sounds/fired/fired.mp3')

@@ -378,6 +378,14 @@ func drop_item_slot(slot_id: int):
 			obj.global_rotation.y += deg_to_rad(90)
 			obj.apply_central_impulse($Head/Camera/item_display/fuel_tank.global_transform.basis.x * throw_item_power)
 			SIN_WORLD_DATA.WORLD_DATA['player_inv']['slot_' + str(slot_id)] = {'id': 'void'}
+		'shell':
+			var obj = load("res://objects/PROPS/shell/shell.tscn").instantiate()
+			get_tree().get_root().add_child(obj)
+			obj.item = SIN_WORLD_DATA.WORLD_DATA['player_inv']['slot_' + str(slot_id)]
+			obj.global_position = $Head/Camera/item_display/fuel_tank.global_position
+			obj.global_rotation = $Head/Camera/item_display/fuel_tank.global_rotation
+			obj.apply_central_impulse($Head/Camera/item_display/fuel_tank.global_transform.basis.x * throw_item_power)
+			SIN_WORLD_DATA.WORLD_DATA['player_inv']['slot_' + str(slot_id)] = {'id': 'void'}
 	inventory_loader.load_hand_visual(current_slot_selected)
 	calculate_speed()
 	inventory_loader.load_inventory_visual()
@@ -559,4 +567,12 @@ func shotgun_try_reload():
 		if isSuccessReload:
 			SIN_WORLD_DATA.WORLD_DATA['player_inv']['slot_'+str(current_slot_selected)]['ammo_inside'] += 1
 			inventory_loader.load_inventory_visual()
-			$Head/Camera/item_display/shotgun/reload.play()
+			$Head/Camera/item_display/shotgun/anim_reload.play('reload')
+
+
+func _on_check_die_from_height_body_entered(body):
+	print(-velocity.y)
+	if -velocity.y > 20:
+		SIN_WORLD_DATA.last_death_reason = 'fall'
+		get_tree().change_scene_to_file.bind("res://scenes/death/death.tscn").call_deferred()
+
