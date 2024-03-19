@@ -55,7 +55,11 @@ func life_cycle():
 		
 	if visible:
 		ray_on()
-	await get_tree().create_timer(randf_range(5.0, 15.0)).timeout
+	
+	$lifecycle_part_2.wait_time = randf_range(5.0, 15.0)
+	$lifecycle_part_2.start()
+
+func _on_lifecycle_part_2_timeout():
 	if visible:
 		await ray_off()
 		target_place = Vector3(randi_range(patrol_region[0].x, patrol_region[1].x), randi_range(patrol_region[0].y, patrol_region[1].y), randi_range(patrol_region[0].z, patrol_region[1].z))
