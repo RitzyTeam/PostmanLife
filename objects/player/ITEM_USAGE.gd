@@ -131,6 +131,7 @@ func drink_milk():
 	player.stamina = 100.0
 	milk_anim_consume.play('consume')
 	await milk_anim_consume.animation_finished
+	milk_anim_consume.play('RESET')
 	SIN_WORLD_DATA.WORLD_DATA['player_inv']['slot_'+str(player.current_slot_selected)] = {'id': 'void'}
 	inventory_loader.load_inventory_visual()
 	inventory_loader.load_hand_visual(player.current_slot_selected)
@@ -139,6 +140,7 @@ func drink_coffee():
 	player.stamina = 100.0
 	coffee_can_anim_consume.play('consume')
 	await coffee_can_anim_consume.animation_finished
+	coffee_can_anim_consume.play('RESET')
 	SIN_WORLD_DATA.WORLD_DATA['player_inv']['slot_'+str(player.current_slot_selected)] = {'id': 'void'}
 	inventory_loader.load_inventory_visual()
 	inventory_loader.load_hand_visual(player.current_slot_selected)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=73 format=3 uid="uid://c66dar30xo83l"]
+[gd_scene load_steps=74 format=3 uid="uid://c66dar30xo83l"]
 
 [ext_resource type="Script" path="res://scenes/world/World.gd" id="1_xxt06"]
 [ext_resource type="PackedScene" uid="uid://b6xb3m0mq55td" path="res://objects/ENVIRONMENT/ENV.tscn" id="3_7t5e4"]
@@ -50,6 +50,7 @@
 [ext_resource type="PackedScene" uid="uid://d10v00jrnljvf" path="res://objects/ENVIRONMENT/WEATHERS/weather_rainy.tscn" id="45_nnt07"]
 [ext_resource type="PackedScene" uid="uid://cjgjffiykv7il" path="res://objects/PROPS/coffee_can/coffee_can.tscn" id="46_bpo6x"]
 [ext_resource type="PackedScene" uid="uid://dit3ypm30lxlf" path="res://objects/TRANSPORT/racecar/racecar.tscn" id="46_tlmci"]
+[ext_resource type="PackedScene" uid="uid://u0bq7g7v36eb" path="res://objects/PROPS/FOOD/milk/milk.tscn" id="48_36e0u"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_1gdrn"]
 noise_type = 3
@@ -104,7 +105,7 @@ shader_parameter/texture_normal2 = SubResource("NoiseTexture2D_npkdg")
 material = SubResource("ShaderMaterial_divvh")
 size = Vector2(2000, 600)
 
-[sub_resource type="Resource" id="Resource_8vmbd"]
+[sub_resource type="Resource" id="Resource_wbgcr"]
 script = ExtResource("19_6qlp7")
 amount = 500
 enabled = true
@@ -113,7 +114,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 1
 
-[sub_resource type="Resource" id="Resource_0wuy8"]
+[sub_resource type="Resource" id="Resource_gvws8"]
 script = ExtResource("20_xv4po")
 position = Vector3(0.15, 0.15, 0.15)
 rotation = Vector3(0, 360, 0)
@@ -124,7 +125,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 2
 
-[sub_resource type="Resource" id="Resource_tx3gs"]
+[sub_resource type="Resource" id="Resource_6ypcx"]
 script = ExtResource("21_ai286")
 iterations = 3
 offset_step = 0.2
@@ -136,7 +137,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_3lyrl"]
+[sub_resource type="Resource" id="Resource_tkk8q"]
 script = ExtResource("22_k8kdo")
 ray_direction = Vector3(0, -1, 0)
 ray_length = 5.0
@@ -152,9 +153,9 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_to1ly"]
+[sub_resource type="Resource" id="Resource_nw8ur"]
 script = ExtResource("18_1fwha")
-stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_8vmbd"), SubResource("Resource_0wuy8"), SubResource("Resource_tx3gs"), SubResource("Resource_3lyrl")])
+stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_wbgcr"), SubResource("Resource_gvws8"), SubResource("Resource_6ypcx"), SubResource("Resource_tkk8q")])
 
 [sub_resource type="Curve3D" id="Curve3D_2u2vc"]
 _data = {
@@ -169,7 +170,7 @@ closed = true
 thickness = 0.0
 curve = SubResource("Curve3D_2u2vc")
 
-[sub_resource type="Resource" id="Resource_qll8i"]
+[sub_resource type="Resource" id="Resource_f8mmq"]
 script = ExtResource("19_6qlp7")
 amount = 2000
 enabled = true
@@ -178,7 +179,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 1
 
-[sub_resource type="Resource" id="Resource_2kmtq"]
+[sub_resource type="Resource" id="Resource_wewq6"]
 script = ExtResource("20_xv4po")
 position = Vector3(0.15, 0.15, 0.15)
 rotation = Vector3(1, 360, 1)
@@ -189,7 +190,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 2
 
-[sub_resource type="Resource" id="Resource_s0vxw"]
+[sub_resource type="Resource" id="Resource_631xk"]
 script = ExtResource("21_ai286")
 iterations = 1
 offset_step = 0.1
@@ -201,7 +202,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_4255g"]
+[sub_resource type="Resource" id="Resource_7od3l"]
 script = ExtResource("22_k8kdo")
 ray_direction = Vector3(0, -1, 0)
 ray_length = 5.0
@@ -217,9 +218,9 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_ib76a"]
+[sub_resource type="Resource" id="Resource_6nmrq"]
 script = ExtResource("18_1fwha")
-stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_qll8i"), SubResource("Resource_2kmtq"), SubResource("Resource_s0vxw"), SubResource("Resource_4255g")])
+stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_f8mmq"), SubResource("Resource_wewq6"), SubResource("Resource_631xk"), SubResource("Resource_7od3l")])
 
 [sub_resource type="Curve3D" id="Curve3D_b4q5a"]
 _data = {
@@ -2198,7 +2199,7 @@ transform = Transform3D(0.34202, 0, -0.939693, 0, 1, 0, 0.939693, 0, 0.34202, 14
 script = ExtResource("17_0tutk")
 global_seed = 20
 render_mode = 1
-modifier_stack = SubResource("Resource_to1ly")
+modifier_stack = SubResource("Resource_nw8ur")
 Performance/use_chunks = true
 Performance/chunk_dimensions = Vector3(15, 15, 15)
 
@@ -2226,7 +2227,7 @@ shape = SubResource("Resource_e18i2")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2032, 0, 1595)
 script = ExtResource("17_0tutk")
 render_mode = 1
-modifier_stack = SubResource("Resource_ib76a")
+modifier_stack = SubResource("Resource_6nmrq")
 Performance/use_chunks = true
 Performance/chunk_dimensions = Vector3(15, 15, 15)
 
@@ -2805,6 +2806,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 941.091, 0.619924, 1187.5)
 
 [node name="coffee_can3" parent="." instance=ExtResource("46_bpo6x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 941.459, 0.619924, 1187.5)
+
+[node name="milk" parent="." instance=ExtResource("48_36e0u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 941.81, 0.705496, 1187.09)
+
+[node name="milk2" parent="." instance=ExtResource("48_36e0u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 941.81, 1.28856, 1186.63)
+
+[node name="milk3" parent="." instance=ExtResource("48_36e0u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 941.81, 1.28856, 1186.01)
 
 [node name="coffee_can4" parent="." instance=ExtResource("46_bpo6x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 941.81, 0.619924, 1187.5)

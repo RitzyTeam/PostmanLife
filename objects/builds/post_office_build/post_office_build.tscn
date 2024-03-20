@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://cj1ydvi2t3bot"]
+[gd_scene load_steps=40 format=3 uid="uid://cj1ydvi2t3bot"]
 
 [ext_resource type="Script" path="res://objects/builds/post_office_build/post_office_build.gd" id="2_qoyn2"]
 [ext_resource type="PackedScene" uid="uid://t0yxbxco4m46" path="res://objects/PROPS/quota_laptop/quota_laptop.tscn" id="2_vkukj"]
@@ -236,6 +236,9 @@ size = Vector3(5.125, 9.865, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_g7spe"]
 size = Vector3(34.8693, 0.157532, 24.0203)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_id3ne"]
+size = Vector3(34.959, 2.49648, 24.02)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c6saa"]
 resource_name = "handle"
@@ -520,6 +523,10 @@ shape = SubResource("BoxShape3D_l5gqt")
 [node name="floor" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.664084, 0.00265503, -0.193638)
 shape = SubResource("BoxShape3D_g7spe")
+
+[node name="floor2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.664084, 16.7568, -0.193638)
+shape = SubResource("BoxShape3D_id3ne")
 
 [node name="left_door" type="MeshInstance3D" parent="."]
 transform = Transform3D(2.70006, 0, 0, 0, 2.70006, 0, 0, 0, 0.180004, 3.15503, 2.79337, -12.1991)
