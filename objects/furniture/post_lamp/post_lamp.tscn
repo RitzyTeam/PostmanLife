@@ -1,4 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://ds6nu3aea3u8r"]
+[gd_scene load_steps=10 format=3 uid="uid://ds6nu3aea3u8r"]
+
+[ext_resource type="Script" path="res://objects/furniture/post_lamp/post_lamp.gd" id="1_ff1oe"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e3y1t"]
 resource_name = "Material.013"
@@ -15,7 +17,7 @@ albedo_color = Color(0, 0, 0, 1)
 metallic = 1.0
 emission_enabled = true
 emission = Color(0.975276, 1, 0.767143, 1)
-emission_energy_multiplier = 20.0
+emission_energy_multiplier = 0.0
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_vovdp"]
 _surfaces = [{
@@ -75,7 +77,98 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_vovdp")
 
+[sub_resource type="Animation" id="Animation_38p08"]
+resource_name = "on"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("spotlight:light_energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("mesh:mesh:surface_1/material:emission_energy_multiplier")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 20.0]
+}
+
+[sub_resource type="Animation" id="Animation_8fd27"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("spotlight:light_energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("mesh:mesh:surface_1/material:emission_energy_multiplier")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_eu7yf"]
+resource_name = "off"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("spotlight:light_energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("mesh:mesh:surface_1/material:emission_energy_multiplier")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [20.0, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3kd64"]
+_data = {
+"RESET": SubResource("Animation_8fd27"),
+"off": SubResource("Animation_eu7yf"),
+"on": SubResource("Animation_38p08")
+}
+
 [node name="post_lamp" type="Node3D"]
+script = ExtResource("1_ff1oe")
 
 [node name="mesh" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.185142, 0, 0, 0, 0, 0.182864, 0, -0.185142, 0, 0, -0.214199, 0)
@@ -84,5 +177,11 @@ skeleton = NodePath("")
 
 [node name="spotlight" type="SpotLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -0.509848, 0)
+light_energy = 0.0
 spot_range = 104.165
 spot_angle = 52.13
+
+[node name="anim" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_3kd64")
+}

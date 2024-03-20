@@ -11,5 +11,5 @@ signal TOD_DAY_ENDED
 signal GHOST_GIRL_ANGRY
 signal PLAYER_UI_CASH_UPDATE(value_change)
 signal WORLD_SAVE
-signal WEATHER_RAINY
-signal WEATHER_SNOWY
+signal OFFICE_LIGHTS_OFF
+signal OFFICE_LIGHTS_ON

@@ -1,4 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://c7l1fuerfo0x2"]
+[gd_scene load_steps=17 format=3 uid="uid://c7l1fuerfo0x2"]
+
+[ext_resource type="Script" path="res://objects/furniture/light_switcher/light_switcher.gd" id="1_s35bw"]
+[ext_resource type="AudioStream" uid="uid://j3mklvvecikh" path="res://assets/sounds/FURNITURE/light_switcher/lights_switch.wav" id="2_n6pje"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1d6nr"]
 resource_name = "dark_blue"
@@ -109,9 +112,64 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_ymt5y")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rpu70"]
-size = Vector3(0.065, 0.2, 0.12)
+size = Vector3(0.105, 0.2, 0.125)
+
+[sub_resource type="Animation" id="Animation_5dtm6"]
+resource_name = "on"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("lever:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(-2, 1),
+"update": 0,
+"values": [Vector3(0, 0, -0.785398), Vector3(0, 0, 0.785398)]
+}
+
+[sub_resource type="Animation" id="Animation_iy2p3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("lever:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, -0.785398)]
+}
+
+[sub_resource type="Animation" id="Animation_3tb4k"]
+resource_name = "off"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("lever:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(-2, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0.785398), Vector3(0, 0, -0.785398)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_x228b"]
+_data = {
+"RESET": SubResource("Animation_iy2p3"),
+"off": SubResource("Animation_3tb4k"),
+"on": SubResource("Animation_5dtm6")
+}
 
 [node name="light_switcher" type="StaticBody3D"]
+script = ExtResource("1_s35bw")
 
 [node name="pad" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.008, 0, 0, 0, 0.1, 0, 0, 0, 0.059, 0, 0, 0)
@@ -119,7 +177,7 @@ mesh = SubResource("ArrayMesh_3fg03")
 skeleton = NodePath("")
 
 [node name="lever" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.0169706, -0.00707107, 0, 0.0169706, 0.00707107, 0, 0, 0, 0.017, 0.00791079, 0, 0)
+transform = Transform3D(0.0169706, 0.00707107, 0, -0.0169706, 0.00707107, 0, 0, 0, 0.017, 0.00791079, 0, 0)
 mesh = SubResource("ArrayMesh_bclyy")
 skeleton = NodePath("")
 
@@ -131,3 +189,11 @@ skeleton = NodePath("")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0186136, 0, 0)
 shape = SubResource("BoxShape3D_rpu70")
+
+[node name="anim" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_x228b")
+}
+
+[node name="switch" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("2_n6pje")

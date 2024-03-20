@@ -1,9 +1,11 @@
 extends RigidBody3D
 
+@export var fuel_inside: float = 0
+
 var item: Dictionary = {
 	'id': 'fuel_tank',
 	'name': 'Канистра бензина',
-	'litres': 0,
+	'litres': fuel_inside,
 	'weight': 0
 }
 

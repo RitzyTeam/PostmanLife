@@ -18,8 +18,6 @@ var state: String = 'idle'
 var weather_id: String = 'clear'
 
 func _ready():
-	SIN_WORLD_SIGNALS.WEATHER_RAINY.connect(_set_weather_rainy)
-	SIN_WORLD_SIGNALS.WEATHER_SNOWY.connect(_set_weather_snowy)
 	# === WEATHER
 	var arr =  get_tree().get_nodes_in_group('player')
 	player = arr[0]
