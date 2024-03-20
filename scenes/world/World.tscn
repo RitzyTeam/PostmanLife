@@ -1,4 +1,4 @@
-[gd_scene load_steps=72 format=3 uid="uid://c66dar30xo83l"]
+[gd_scene load_steps=71 format=3 uid="uid://c66dar30xo83l"]
 
 [ext_resource type="Script" path="res://scenes/world/World.gd" id="1_xxt06"]
 [ext_resource type="PackedScene" uid="uid://b6xb3m0mq55td" path="res://objects/ENVIRONMENT/ENV.tscn" id="3_7t5e4"]
@@ -22,7 +22,6 @@
 [ext_resource type="PackedScene" uid="uid://c6776lt6vo53g" path="res://objects/builds/hospital/hospital.tscn" id="16_st33v"]
 [ext_resource type="Script" path="res://addons/proton_scatter/src/scatter.gd" id="17_0tutk"]
 [ext_resource type="Script" path="res://addons/proton_scatter/src/stack/modifier_stack.gd" id="18_1fwha"]
-[ext_resource type="PackedScene" uid="uid://din700dmcsdr4" path="res://objects/PROPS/package_spawner/package_spawner.tscn" id="18_viama"]
 [ext_resource type="Script" path="res://addons/proton_scatter/src/modifiers/create_inside_random.gd" id="19_6qlp7"]
 [ext_resource type="Script" path="res://addons/proton_scatter/src/modifiers/randomize_transforms.gd" id="20_xv4po"]
 [ext_resource type="Script" path="res://addons/proton_scatter/src/modifiers/relax.gd" id="21_ai286"]
@@ -103,7 +102,7 @@ shader_parameter/texture_normal2 = SubResource("NoiseTexture2D_npkdg")
 material = SubResource("ShaderMaterial_divvh")
 size = Vector2(2000, 600)
 
-[sub_resource type="Resource" id="Resource_438xo"]
+[sub_resource type="Resource" id="Resource_0swcj"]
 script = ExtResource("19_6qlp7")
 amount = 500
 enabled = true
@@ -112,7 +111,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 1
 
-[sub_resource type="Resource" id="Resource_nk22k"]
+[sub_resource type="Resource" id="Resource_uiu33"]
 script = ExtResource("20_xv4po")
 position = Vector3(0.15, 0.15, 0.15)
 rotation = Vector3(0, 360, 0)
@@ -123,7 +122,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 2
 
-[sub_resource type="Resource" id="Resource_w73n7"]
+[sub_resource type="Resource" id="Resource_1myja"]
 script = ExtResource("21_ai286")
 iterations = 3
 offset_step = 0.2
@@ -135,7 +134,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_mya15"]
+[sub_resource type="Resource" id="Resource_yklmb"]
 script = ExtResource("22_k8kdo")
 ray_direction = Vector3(0, -1, 0)
 ray_length = 5.0
@@ -151,9 +150,9 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_w84kh"]
+[sub_resource type="Resource" id="Resource_qhwua"]
 script = ExtResource("18_1fwha")
-stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_438xo"), SubResource("Resource_nk22k"), SubResource("Resource_w73n7"), SubResource("Resource_mya15")])
+stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_0swcj"), SubResource("Resource_uiu33"), SubResource("Resource_1myja"), SubResource("Resource_yklmb")])
 
 [sub_resource type="Curve3D" id="Curve3D_2u2vc"]
 _data = {
@@ -168,7 +167,7 @@ closed = true
 thickness = 0.0
 curve = SubResource("Curve3D_2u2vc")
 
-[sub_resource type="Resource" id="Resource_u4wft"]
+[sub_resource type="Resource" id="Resource_o8m3d"]
 script = ExtResource("19_6qlp7")
 amount = 2000
 enabled = true
@@ -177,7 +176,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 1
 
-[sub_resource type="Resource" id="Resource_k4yvb"]
+[sub_resource type="Resource" id="Resource_muiqv"]
 script = ExtResource("20_xv4po")
 position = Vector3(0.15, 0.15, 0.15)
 rotation = Vector3(1, 360, 1)
@@ -188,7 +187,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 2
 
-[sub_resource type="Resource" id="Resource_kf3oo"]
+[sub_resource type="Resource" id="Resource_gp23a"]
 script = ExtResource("21_ai286")
 iterations = 1
 offset_step = 0.1
@@ -200,7 +199,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_00may"]
+[sub_resource type="Resource" id="Resource_k1boq"]
 script = ExtResource("22_k8kdo")
 ray_direction = Vector3(0, -1, 0)
 ray_length = 5.0
@@ -216,9 +215,9 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_pjawi"]
+[sub_resource type="Resource" id="Resource_l02ci"]
 script = ExtResource("18_1fwha")
-stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_u4wft"), SubResource("Resource_k4yvb"), SubResource("Resource_kf3oo"), SubResource("Resource_00may")])
+stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_o8m3d"), SubResource("Resource_muiqv"), SubResource("Resource_gp23a"), SubResource("Resource_k1boq")])
 
 [sub_resource type="Curve3D" id="Curve3D_b4q5a"]
 _data = {
@@ -2156,9 +2155,6 @@ deliver_code = "00073"
 [node name="postOfficeBulild" parent="Levels/infrastructure" instance=ExtResource("15_hcqwq")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 948, 0.0231446, 1174)
 
-[node name="package_spawner" parent="Levels/infrastructure/postOfficeBulild" instance=ExtResource("18_viama")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.8962, 7.35382)
-
 [node name="hospital" parent="Levels/infrastructure" instance=ExtResource("16_st33v")]
 transform = Transform3D(0.302104, 0, 0.953275, 0, 1, 0, -0.953275, 0, 0.302104, 1050.98, 0, 778.913)
 street_name = "улица Победы, д1"
@@ -2197,7 +2193,7 @@ transform = Transform3D(0.34202, 0, -0.939693, 0, 1, 0, 0.939693, 0, 0.34202, 14
 script = ExtResource("17_0tutk")
 global_seed = 20
 render_mode = 1
-modifier_stack = SubResource("Resource_w84kh")
+modifier_stack = SubResource("Resource_qhwua")
 Performance/use_chunks = true
 Performance/chunk_dimensions = Vector3(15, 15, 15)
 
@@ -2225,7 +2221,7 @@ shape = SubResource("Resource_e18i2")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2032, 0, 1595)
 script = ExtResource("17_0tutk")
 render_mode = 1
-modifier_stack = SubResource("Resource_pjawi")
+modifier_stack = SubResource("Resource_l02ci")
 Performance/use_chunks = true
 Performance/chunk_dimensions = Vector3(15, 15, 15)
 
