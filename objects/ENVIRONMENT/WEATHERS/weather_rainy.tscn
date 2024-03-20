@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://d10v00jrnljvf"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_igemq"]
+emission_shape = 3
+emission_box_extents = Vector3(100, 1, 100)
+direction = Vector3(0, -1, 0)
+spread = 0.0
+initial_velocity_min = 5.0
+initial_velocity_max = 20.0
+collision_mode = 2
+collision_use_scale = true
+
+[sub_resource type="Curve" id="Curve_d3jkf"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.818898, 0.251645), 0.0, 0.0, 0, 0, Vector2(0.996063, 0), -14.562, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ekeux"]
+blend_mode = 1
+cull_mode = 2
+shading_mode = 0
+albedo_color = Color(0, 0.980392, 0.878431, 0.0823529)
+
+[sub_resource type="RibbonTrailMesh" id="RibbonTrailMesh_g15bk"]
+material = SubResource("StandardMaterial3D_ekeux")
+size = 0.2
+sections = 10
+curve = SubResource("Curve_d3jkf")
+
+[node name="WEATHER_RAINY" type="GPUParticles3D"]
+emitting = false
+amount = 16000
+lifetime = 20.0
+randomness = 0.5
+visibility_aabb = AABB(-100, -100, -100, 200, 200, 200)
+process_material = SubResource("ParticleProcessMaterial_igemq")
+draw_pass_1 = SubResource("RibbonTrailMesh_g15bk")

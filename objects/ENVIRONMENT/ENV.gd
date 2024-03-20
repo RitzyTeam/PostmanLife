@@ -2,16 +2,27 @@ extends Node3D
 
 @onready var we = $WE
 @onready var sun = $Sun
+@onready var weather_rainy = $WEATHER_RAINY
+@onready var weather_snowy = $WEATHER_SNOWY
 
 # OBJECTS
 @onready var ufo = $"../../MOBS/ufo"
 
-
-
 var time_hours: int = 0
 var time_minutes: int = 0
 
+var player: Object = null
+var state: String = 'idle'
+
 func _ready():
+	SIN_WORLD_SIGNALS.WEATHER_RAINY.connect(_set_weather_rainy)
+	SIN_WORLD_SIGNALS.WEATHER_SNOWY.connect(_set_weather_snowy)
+	# === WEATHER
+	var arr =  get_tree().get_nodes_in_group('player')
+	player = arr[0]
+	state = 'player_looking'
+	_set_weather_clear()
+	# === SETTINGS
 	load_graphic_settings()
 	launch_tod()
 
@@ -94,3 +105,109 @@ func spawnMOBS():
 		ufo.visible = true
 	else:
 		ufo.visible = false
+
+
+# =============================== WEATHER ======================================
+
+func _physics_process(delta):
+	state_machine()
+	if not player == null:
+		state = 'player_looking'
+	if player == null:
+		state = 'seeking_for_player'
+	
+func state_machine():
+	match state: 
+		'player_looking':
+			if not player == null:
+				position = player.global_position
+		'seeking_for_player':
+			state = 'locked'
+			var target_car: Object = null
+			var cars: Array = get_tree().get_nodes_in_group('car')
+			for i in range(cars.size()):
+				if cars[i]['item']['isPlayerInside']:
+					target_car = cars[i]
+			player = target_car
+
+func _input(event):
+	if event.is_action_pressed("key_e"):
+		var isPlayerInAnyCar: bool = false
+		var cars: Array = get_tree().get_nodes_in_group('car')
+		for i in range(cars.size()):
+			if cars[i]['item']['isPlayerInside']:
+				isPlayerInAnyCar = true
+		if not isPlayerInAnyCar:
+			var arr =  get_tree().get_nodes_in_group('player')
+			player = arr[0]
+
+# === WEATHERS
+
+func _set_weather_clear():
+	weather_rainy.visible = false
+	weather_rainy.emitting = false
+	
+	weather_snowy.visible = false
+	weather_snowy.emitting = false
+	
+	var tween = create_tween()
+	tween.tween_property(we, 'environment:volumetric_fog_density', 0, 15)
+	tween.play()
+
+func _set_weather_rainy():
+	weather_rainy.visible = true
+	weather_rainy.emitting = true
+	
+	weather_snowy.visible = false
+	weather_snowy.emitting = false
+	
+	var tween = create_tween()
+	var tween2 = create_tween()
+	var tween3 = create_tween()
+	tween.tween_property(we, 'environment:volumetric_fog_density', 0.1, 15)
+	tween2.tween_property(we, 'environment:volumetric_fog_albedo', Color('7f7f7f'), 15)
+	tween3.tween_property(we, 'environment:volumetric_fog_emission', Color('7f7f7f'), 15)
+	
+func _set_weather_snowy():
+	weather_snowy.visible = true
+	weather_snowy.emitting = true
+	
+	weather_rainy.visible = false
+	weather_rainy.emitting = false
+	
+	var tween = create_tween()
+	var tween2 = create_tween()
+	var tween3 = create_tween()
+	tween.tween_property(we, 'environment:volumetric_fog_density', 0.1, 15)
+	tween2.tween_property(we, 'environment:volumetric_fog_albedo', Color('ffffff'), 15)
+	tween3.tween_property(we, 'environment:volumetric_fog_emission', Color('ffffff'), 15)
+		
+func _set_weather_foggy():
+	weather_snowy.visible = false
+	weather_snowy.emitting = false
+	
+	weather_rainy.visible = false
+	weather_rainy.emitting = false
+	
+	
+	var tween = create_tween()
+	var tween2 = create_tween()
+	var tween3 = create_tween()
+	tween.tween_property(we, 'environment:volumetric_fog_density', 0.3, 15)
+	tween2.tween_property(we, 'environment:volumetric_fog_albedo', Color('7f7f7f'), 15)
+	tween3.tween_property(we, 'environment:volumetric_fog_emission', Color('7f7f7f'), 15)
+
+
+func _on_timer_switch_weather_timeout():
+	$timer_switch_weather.wait_time = randi_range(240, 1440)
+	var weather_id: int = randi_range(0,3)
+	match weather_id:
+		0:
+			_set_weather_clear()
+		1:
+			_set_weather_foggy()
+		2:
+			_set_weather_snowy()
+		3:
+			_set_weather_rainy()
+	$timer_switch_weather.start()

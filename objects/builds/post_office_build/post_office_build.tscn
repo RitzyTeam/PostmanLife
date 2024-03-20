@@ -577,3 +577,11 @@ shape = SubResource("CylinderShape3D_e7kp5")
 [node name="colonna_8" type="CollisionShape3D" parent="."]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 18.4655, 6.97357, 12.3487)
 shape = SubResource("CylinderShape3D_e7kp5")
+
+[node name="GPUParticlesCollisionBox3D" type="GPUParticlesCollisionBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.648987, 7.7268, 0)
+size = Vector3(39.548, 15.6079, 29.55)
+
+[node name="GPUParticlesCollisionBox3D2" type="GPUParticlesCollisionBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.777592, 8.94126, -14.1372)
+size = Vector3(6.79697, 1.61133, 4.07075)
