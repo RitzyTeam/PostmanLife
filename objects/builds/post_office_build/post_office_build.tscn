@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://cj1ydvi2t3bot"]
+[gd_scene load_steps=45 format=3 uid="uid://cj1ydvi2t3bot"]
 
 [ext_resource type="Script" path="res://objects/builds/post_office_build/post_office_build.gd" id="2_qoyn2"]
 [ext_resource type="PackedScene" uid="uid://t0yxbxco4m46" path="res://objects/PROPS/quota_laptop/quota_laptop.tscn" id="2_vkukj"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://db40qaw0d0oy7" path="res://objects/furniture/kassa/kassa.tscn" id="7_bqko2"]
 [ext_resource type="PackedScene" uid="uid://din700dmcsdr4" path="res://objects/PROPS/package_spawner/package_spawner.tscn" id="8_ayadm"]
 [ext_resource type="PackedScene" uid="uid://ds6nu3aea3u8r" path="res://objects/furniture/post_lamp/post_lamp.tscn" id="9_wlyvw"]
+[ext_resource type="PackedScene" uid="uid://c7l1fuerfo0x2" path="res://objects/furniture/light_switcher/light_switcher.tscn" id="10_7bioq"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v2vpn"]
 resource_name = "1"
@@ -521,6 +522,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 12.9192, -7.881)
 
 [node name="post_lamp6" parent="INTERIOR" instance=ExtResource("9_wlyvw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 12.919, -7.881)
+
+[node name="light_switcher" parent="INTERIOR" instance=ExtResource("10_7bioq")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 1.29083, 11.5702)
 
 [node name="multimesh" type="MultiMeshInstance3D" parent="."]
 

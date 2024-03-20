@@ -82,21 +82,23 @@ size = Vector3(0.250015, 0.130791, 0.314453)
 size = Vector3(0.192879, 0.231367, 0.0427246)
 
 [node name="fuel_tank" type="RigidBody3D" groups=["save_this"]]
+center_of_mass_mode = 1
+center_of_mass = Vector3(0.09, -0.45, 0)
 script = ExtResource("1_qmef1")
 
 [node name="tank" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.255201, 0, 0, 0, 0.255201, 0, 0, 0, 0.150842, 0, 0, 0)
+transform = Transform3D(0.255201, 0, 0, 0, 0.255201, 0, 0, 0, 0.150842, 0.123285, -0.470514, 0)
 mesh = SubResource("ArrayMesh_nt3tx")
 skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0307094, 0, -0.00195313)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.092576, -0.470514, -0.00195313)
 shape = SubResource("BoxShape3D_1ayi7")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.131642, 0.318865, -0.00195313)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00835659, -0.151649, -0.00195313)
 shape = SubResource("BoxShape3D_bcdlm")
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.000366211)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.123285, -0.470514, 0.000366211)
 shape = SubResource("BoxShape3D_e67m0")
