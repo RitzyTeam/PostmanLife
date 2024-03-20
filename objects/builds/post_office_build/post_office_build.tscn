@@ -1,10 +1,14 @@
-[gd_scene load_steps=40 format=3 uid="uid://cj1ydvi2t3bot"]
+[gd_scene load_steps=44 format=3 uid="uid://cj1ydvi2t3bot"]
 
 [ext_resource type="Script" path="res://objects/builds/post_office_build/post_office_build.gd" id="2_qoyn2"]
 [ext_resource type="PackedScene" uid="uid://t0yxbxco4m46" path="res://objects/PROPS/quota_laptop/quota_laptop.tscn" id="2_vkukj"]
 [ext_resource type="PackedScene" uid="uid://feb3pavcl8uh" path="res://objects/PROPS/task_panel/task_panel.tscn" id="3_5giss"]
 [ext_resource type="PackedScene" uid="uid://bxqlakvx775oc" path="res://objects/PROPS/task_getter/task_getter.tscn" id="4_dl1us"]
 [ext_resource type="PackedScene" uid="uid://q1fdbd6b4l3t" path="res://objects/PROPS/calendar/calendar.tscn" id="4_hxmt3"]
+[ext_resource type="PackedScene" uid="uid://n38kjjpm0n05" path="res://objects/furniture/shelf/shelf.tscn" id="6_u55fx"]
+[ext_resource type="PackedScene" uid="uid://db40qaw0d0oy7" path="res://objects/furniture/kassa/kassa.tscn" id="7_bqko2"]
+[ext_resource type="PackedScene" uid="uid://din700dmcsdr4" path="res://objects/PROPS/package_spawner/package_spawner.tscn" id="8_ayadm"]
+[ext_resource type="PackedScene" uid="uid://ds6nu3aea3u8r" path="res://objects/furniture/post_lamp/post_lamp.tscn" id="9_wlyvw"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v2vpn"]
 resource_name = "1"
@@ -471,13 +475,52 @@ script = ExtResource("2_qoyn2")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.1921, 4.76837e-07, -2.58027)
 
 [node name="task_panel" parent="INTERIOR" instance=ExtResource("3_5giss")]
-transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, -16.5232, 1.4281, 0)
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, -16.5232, 1.71885, 10.4928)
 
 [node name="calendar" parent="INTERIOR/task_panel" instance=ExtResource("4_hxmt3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.36461, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.59318, 0.229047, -0.00787544)
 
 [node name="task_getter" parent="INTERIOR" instance=ExtResource("4_dl1us")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.0509, 0, -1.59135)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.8658, 9.53674e-07, 7.95063)
+
+[node name="shelf" parent="INTERIOR" instance=ExtResource("6_u55fx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.2451, 1.19209e-07, -10.2771)
+
+[node name="shelf2" parent="INTERIOR" instance=ExtResource("6_u55fx")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 16.0339, 1.19209e-07, -10.7334)
+
+[node name="shelf3" parent="INTERIOR" instance=ExtResource("6_u55fx")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 16.3928, 1.19209e-07, -4.82648)
+
+[node name="shelf4" parent="INTERIOR" instance=ExtResource("6_u55fx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.267, 1.19209e-07, 0.173517)
+
+[node name="shelf5" parent="INTERIOR" instance=ExtResource("6_u55fx")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 16.267, 1.19209e-07, 9.68696)
+
+[node name="kassa" parent="INTERIOR" instance=ExtResource("7_bqko2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.2796, 1.19209e-07, 7.94049)
+
+[node name="package_spawner" parent="INTERIOR" instance=ExtResource("8_ayadm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.5027, 1.82975, -9.78465)
+
+[node name="post_lamp1" parent="INTERIOR" instance=ExtResource("9_wlyvw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12.9192, 7.88096)
+
+[node name="post_lamp2" parent="INTERIOR" instance=ExtResource("9_wlyvw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 12.9192, 7.88096)
+
+[node name="post_lamp3" parent="INTERIOR" instance=ExtResource("9_wlyvw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 12.919, 7.881)
+
+[node name="post_lamp4" parent="INTERIOR" instance=ExtResource("9_wlyvw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12.9192, -7.881)
+
+[node name="post_lamp5" parent="INTERIOR" instance=ExtResource("9_wlyvw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 12.9192, -7.881)
+
+[node name="post_lamp6" parent="INTERIOR" instance=ExtResource("9_wlyvw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 12.919, -7.881)
 
 [node name="multimesh" type="MultiMeshInstance3D" parent="."]
 
