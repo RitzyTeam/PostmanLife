@@ -1,5 +1,7 @@
 extends Node3D
 
+@export var thunderbolt: PackedScene
+
 @onready var we = $WE
 @onready var sun = $Sun
 @onready var weather_rainy = $WEATHER_RAINY
@@ -13,6 +15,7 @@ var time_minutes: int = 0
 
 var player: Object = null
 var state: String = 'idle'
+var weather_id: String = 'clear'
 
 func _ready():
 	SIN_WORLD_SIGNALS.WEATHER_RAINY.connect(_set_weather_rainy)
@@ -21,7 +24,6 @@ func _ready():
 	var arr =  get_tree().get_nodes_in_group('player')
 	player = arr[0]
 	state = 'player_looking'
-	_set_weather_clear()
 	# === SETTINGS
 	load_graphic_settings()
 	launch_tod()
@@ -144,6 +146,7 @@ func _input(event):
 # === WEATHERS
 
 func _set_weather_clear():
+	weather_id = 'clear'
 	weather_rainy.visible = false
 	weather_rainy.emitting = false
 	
@@ -155,6 +158,7 @@ func _set_weather_clear():
 	tween.play()
 
 func _set_weather_rainy():
+	weather_id = 'rainy'
 	weather_rainy.visible = true
 	weather_rainy.emitting = true
 	
@@ -169,6 +173,7 @@ func _set_weather_rainy():
 	tween3.tween_property(we, 'environment:volumetric_fog_emission', Color('7f7f7f'), 15)
 	
 func _set_weather_snowy():
+	weather_id = 'snowy'
 	weather_snowy.visible = true
 	weather_snowy.emitting = true
 	
@@ -183,12 +188,12 @@ func _set_weather_snowy():
 	tween3.tween_property(we, 'environment:volumetric_fog_emission', Color('ffffff'), 15)
 		
 func _set_weather_foggy():
+	weather_id = 'foggy'
 	weather_snowy.visible = false
 	weather_snowy.emitting = false
 	
 	weather_rainy.visible = false
 	weather_rainy.emitting = false
-	
 	
 	var tween = create_tween()
 	var tween2 = create_tween()
@@ -197,6 +202,20 @@ func _set_weather_foggy():
 	tween2.tween_property(we, 'environment:volumetric_fog_albedo', Color('7f7f7f'), 15)
 	tween3.tween_property(we, 'environment:volumetric_fog_emission', Color('7f7f7f'), 15)
 
+func _set_weather_thunder():
+	weather_id = 'thunder'
+	weather_snowy.visible = false
+	weather_snowy.emitting = false
+	
+	weather_rainy.visible = false
+	weather_rainy.emitting = false
+	
+	var tween = create_tween()
+	var tween2 = create_tween()
+	var tween3 = create_tween()
+	tween.tween_property(we, 'environment:volumetric_fog_density', 0.3, 15)
+	tween2.tween_property(we, 'environment:volumetric_fog_albedo', Color('7f7f7f'), 15)
+	tween3.tween_property(we, 'environment:volumetric_fog_emission', Color('7f7f7f'), 15)
 
 func _on_timer_switch_weather_timeout():
 	$timer_switch_weather.wait_time = randi_range(240, 1440)
@@ -211,3 +230,12 @@ func _on_timer_switch_weather_timeout():
 		3:
 			_set_weather_rainy()
 	$timer_switch_weather.start()
+
+func _on_timer_spawn_thunderbolts_timeout():
+	if weather_id == 'thunder':
+		var spawn_radius: int = 100
+		$timer_spawn_thunderbolts.wait_time = randi_range(15, 40)
+		var bolt = thunderbolt.instantiate()
+		get_tree().get_root().add_child(bolt)
+		bolt.global_position = Vector3(player.global_position.x + randi_range(-spawn_radius,spawn_radius), global_position.y, player.global_position.z + randi_range(-spawn_radius,spawn_radius))
+	$timer_spawn_thunderbolts.start()

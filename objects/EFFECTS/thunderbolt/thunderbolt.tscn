@@ -1,0 +1,468 @@
+[gd_scene load_steps=19 format=3 uid="uid://rlhnxlcy7p5w"]
+
+[ext_resource type="Script" path="res://objects/EFFECTS/thunderbolt/thunderbolt.gd" id="1_yvcro"]
+[ext_resource type="AudioStream" uid="uid://m88wbqe8usp7" path="res://assets/sounds/WEATHER/thunder/thunderbolt_sound.mp3" id="2_fbxx7"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b4b47"]
+resource_name = "Material"
+cull_mode = 2
+albedo_color = Color(1, 1, 0, 1)
+roughness = 0.0
+emission_enabled = true
+emission = Color(1, 1, 0, 1)
+emission_energy_multiplier = 200.0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_skys2"]
+_surfaces = [{
+"aabb": AABB(-0.038827, 7.33423, -0.452981, 0.077654, 3.02805, 0.65439),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray(0, 0, 3, 0, 1, 0, 0, 0, 2, 0, 3, 0, 2, 0, 7, 0, 3, 0, 2, 0, 6, 0, 7, 0, 6, 0, 5, 0, 7, 0, 6, 0, 4, 0, 5, 0, 4, 0, 1, 0, 5, 0, 4, 0, 0, 0, 1, 0, 2, 0, 4, 0, 6, 0, 2, 0, 0, 0, 4, 0, 7, 0, 1, 0, 3, 0, 7, 0, 5, 0, 1, 0),
+"name": "Material",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray(0, 0, 60, 1, 253, 255, 0, 0, 0, 0, 255, 255, 213, 29, 0, 0, 0, 0, 0, 0, 40, 226, 0, 0, 0, 0, 194, 254, 0, 0, 0, 0, 255, 255, 60, 1, 253, 255, 0, 0, 255, 255, 255, 255, 213, 29, 0, 0, 255, 255, 0, 0, 40, 226, 0, 0, 255, 255, 194, 254, 0, 0, 0, 0)
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_c55po"]
+resource_name = "thunderbolt_1_Cube_001"
+_surfaces = [{
+"aabb": AABB(-0.038827, 7.33423, -0.452981, 0.077654, 3.02805, 0.65439),
+"attribute_data": PackedByteArray(255, 95, 255, 255, 255, 31, 255, 63, 255, 95, 0, 0, 255, 159, 255, 255, 255, 159, 0, 0, 255, 223, 255, 63, 255, 95, 255, 191, 255, 31, 255, 127, 255, 95, 255, 191, 255, 159, 255, 191, 255, 159, 255, 191, 255, 223, 255, 127, 255, 95, 255, 63, 255, 95, 255, 63, 255, 95, 255, 63, 255, 159, 255, 63, 255, 159, 255, 63, 255, 159, 255, 63, 255, 95, 255, 127, 255, 95, 255, 127, 255, 95, 255, 127, 255, 159, 255, 127, 255, 159, 255, 127, 255, 159, 255, 127),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray(0, 0, 9, 0, 3, 0, 0, 0, 6, 0, 9, 0, 8, 0, 21, 0, 10, 0, 8, 0, 19, 0, 21, 0, 20, 0, 17, 0, 23, 0, 20, 0, 14, 0, 17, 0, 13, 0, 4, 0, 15, 0, 13, 0, 2, 0, 4, 0, 7, 0, 12, 0, 18, 0, 7, 0, 1, 0, 12, 0, 22, 0, 5, 0, 11, 0, 22, 0, 16, 0, 5, 0),
+"material": SubResource("StandardMaterial3D_b4b47"),
+"name": "Material",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray(0, 0, 60, 1, 253, 255, 235, 217, 0, 0, 60, 1, 253, 255, 70, 184, 0, 0, 60, 1, 253, 255, 92, 192, 0, 0, 255, 255, 213, 29, 235, 217, 0, 0, 255, 255, 213, 29, 92, 192, 0, 0, 255, 255, 213, 29, 255, 255, 0, 0, 0, 0, 40, 226, 235, 217, 0, 0, 0, 0, 40, 226, 70, 184, 0, 0, 0, 0, 40, 226, 138, 250, 0, 0, 194, 254, 0, 0, 235, 217, 0, 0, 194, 254, 0, 0, 138, 250, 0, 0, 194, 254, 0, 0, 255, 255, 255, 255, 60, 1, 253, 255, 70, 184, 255, 255, 60, 1, 253, 255, 92, 192, 255, 255, 60, 1, 253, 255, 5, 209, 255, 255, 255, 255, 213, 29, 92, 192, 255, 255, 255, 255, 213, 29, 255, 255, 255, 255, 255, 255, 213, 29, 5, 209, 255, 255, 0, 0, 40, 226, 70, 184, 255, 255, 0, 0, 40, 226, 138, 250, 255, 255, 0, 0, 40, 226, 5, 209, 255, 255, 194, 254, 0, 0, 138, 250, 255, 255, 194, 254, 0, 0, 255, 255, 255, 255, 194, 254, 0, 0, 5, 209, 146, 218, 181, 210, 0, 0, 255, 127, 197, 245, 57, 10, 146, 218, 181, 210, 197, 245, 57, 10, 255, 127, 20, 198, 146, 218, 181, 210, 0, 0, 255, 127, 231, 66, 231, 66, 146, 218, 181, 210, 231, 66, 231, 66, 255, 127, 20, 198, 0, 0, 255, 127, 197, 245, 57, 10, 64, 48, 223, 39, 197, 245, 57, 10, 255, 127, 20, 198, 64, 48, 223, 39, 0, 0, 255, 127, 231, 66, 231, 66, 64, 48, 223, 39, 231, 66, 231, 66, 255, 127, 20, 198, 64, 48, 223, 39)
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_skys2")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_jbifj"]
+_surfaces = [{
+"aabb": AABB(-0.038827, 5.63574, -0.59745, 0.077654, 3.04511, 0.538602),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray(0, 0, 3, 0, 1, 0, 0, 0, 2, 0, 3, 0, 2, 0, 7, 0, 3, 0, 2, 0, 6, 0, 7, 0, 6, 0, 5, 0, 7, 0, 6, 0, 4, 0, 5, 0, 4, 0, 1, 0, 5, 0, 4, 0, 0, 0, 1, 0, 2, 0, 4, 0, 6, 0, 2, 0, 0, 0, 4, 0, 7, 0, 1, 0, 3, 0, 7, 0, 5, 0, 1, 0),
+"name": "Material.001",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 125, 36, 0, 0, 0, 0, 3, 255, 255, 255, 0, 0, 0, 0, 251, 0, 0, 0, 0, 0, 0, 0, 255, 255, 129, 219, 0, 0, 255, 255, 0, 0, 125, 36, 0, 0, 255, 255, 3, 255, 255, 255, 0, 0, 255, 255, 251, 0, 0, 0, 0, 0, 255, 255, 255, 255, 129, 219, 0, 0)
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_gf332"]
+resource_name = "thunderbolt_1_Cube_002"
+_surfaces = [{
+"aabb": AABB(-0.038827, 5.63574, -0.59745, 0.077654, 3.04511, 0.538602),
+"attribute_data": PackedByteArray(255, 95, 255, 255, 255, 31, 255, 63, 255, 95, 0, 0, 255, 159, 255, 255, 255, 159, 0, 0, 255, 223, 255, 63, 255, 95, 255, 191, 255, 31, 255, 127, 255, 95, 255, 191, 255, 159, 255, 191, 255, 159, 255, 191, 255, 223, 255, 127, 255, 95, 255, 63, 255, 95, 255, 63, 255, 95, 255, 63, 255, 159, 255, 63, 255, 159, 255, 63, 255, 159, 255, 63, 255, 95, 255, 127, 255, 95, 255, 127, 255, 95, 255, 127, 255, 159, 255, 127, 255, 159, 255, 127, 255, 159, 255, 127),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray(0, 0, 9, 0, 3, 0, 0, 0, 6, 0, 9, 0, 8, 0, 21, 0, 10, 0, 8, 0, 19, 0, 21, 0, 20, 0, 17, 0, 23, 0, 20, 0, 14, 0, 17, 0, 13, 0, 4, 0, 15, 0, 13, 0, 2, 0, 4, 0, 7, 0, 12, 0, 18, 0, 7, 0, 1, 0, 12, 0, 22, 0, 5, 0, 11, 0, 22, 0, 16, 0, 5, 0),
+"material": SubResource("StandardMaterial3D_b4b47"),
+"name": "Material.001",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 125, 36, 222, 209, 0, 0, 0, 0, 125, 36, 39, 198, 0, 0, 0, 0, 125, 36, 58, 192, 0, 0, 3, 255, 255, 255, 222, 209, 0, 0, 3, 255, 255, 255, 58, 192, 0, 0, 3, 255, 255, 255, 255, 255, 0, 0, 251, 0, 0, 0, 222, 209, 0, 0, 251, 0, 0, 0, 39, 198, 0, 0, 251, 0, 0, 0, 165, 251, 0, 0, 255, 255, 129, 219, 222, 209, 0, 0, 255, 255, 129, 219, 165, 251, 0, 0, 255, 255, 129, 219, 255, 255, 255, 255, 0, 0, 125, 36, 39, 198, 255, 255, 0, 0, 125, 36, 58, 192, 255, 255, 0, 0, 125, 36, 248, 216, 255, 255, 3, 255, 255, 255, 58, 192, 255, 255, 3, 255, 255, 255, 255, 255, 255, 255, 3, 255, 255, 255, 248, 216, 255, 255, 251, 0, 0, 0, 39, 198, 255, 255, 251, 0, 0, 0, 165, 251, 255, 255, 251, 0, 0, 0, 248, 216, 255, 255, 255, 255, 129, 219, 165, 251, 255, 255, 255, 255, 129, 219, 255, 255, 255, 255, 255, 255, 129, 219, 248, 216, 233, 208, 137, 215, 0, 0, 255, 127, 105, 8, 149, 247, 233, 208, 137, 215, 105, 8, 149, 247, 255, 127, 39, 187, 233, 208, 137, 215, 0, 0, 255, 127, 169, 189, 169, 189, 233, 208, 137, 215, 169, 189, 169, 189, 255, 127, 39, 187, 0, 0, 255, 127, 105, 8, 149, 247, 119, 38, 196, 44, 105, 8, 149, 247, 255, 127, 39, 187, 119, 38, 196, 44, 0, 0, 255, 127, 169, 189, 169, 189, 119, 38, 196, 44, 169, 189, 169, 189, 255, 127, 39, 187, 119, 38, 196, 44)
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_jbifj")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_vou4u"]
+_surfaces = [{
+"aabb": AABB(-0.038827, 4.40525, -0.342695, 0.077654, 2.85989, 1.25769),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray(0, 0, 3, 0, 1, 0, 0, 0, 2, 0, 3, 0, 2, 0, 7, 0, 3, 0, 2, 0, 6, 0, 7, 0, 6, 0, 5, 0, 7, 0, 6, 0, 4, 0, 5, 0, 4, 0, 1, 0, 5, 0, 4, 0, 0, 0, 1, 0, 2, 0, 4, 0, 6, 0, 2, 0, 0, 0, 4, 0, 7, 0, 1, 0, 3, 0, 7, 0, 5, 0, 1, 0),
+"name": "Material.002",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray(0, 0, 175, 2, 254, 255, 0, 0, 0, 0, 255, 255, 147, 14, 0, 0, 0, 0, 0, 0, 106, 241, 0, 0, 0, 0, 79, 253, 0, 0, 0, 0, 255, 255, 175, 2, 254, 255, 0, 0, 255, 255, 255, 255, 147, 14, 0, 0, 255, 255, 0, 0, 106, 241, 0, 0, 255, 255, 79, 253, 0, 0, 0, 0)
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_qpm70"]
+resource_name = "thunderbolt_1_Cube_003"
+_surfaces = [{
+"aabb": AABB(-0.038827, 4.40525, -0.342695, 0.077654, 2.85989, 1.25769),
+"attribute_data": PackedByteArray(255, 95, 255, 255, 255, 31, 255, 63, 255, 95, 0, 0, 255, 159, 255, 255, 255, 159, 0, 0, 255, 223, 255, 63, 255, 95, 255, 191, 255, 31, 255, 127, 255, 95, 255, 191, 255, 159, 255, 191, 255, 159, 255, 191, 255, 223, 255, 127, 255, 95, 255, 63, 255, 95, 255, 63, 255, 95, 255, 63, 255, 159, 255, 63, 255, 159, 255, 63, 255, 159, 255, 63, 255, 95, 255, 127, 255, 95, 255, 127, 255, 95, 255, 127, 255, 159, 255, 127, 255, 159, 255, 127, 255, 159, 255, 127),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray(0, 0, 9, 0, 3, 0, 0, 0, 6, 0, 9, 0, 8, 0, 21, 0, 10, 0, 8, 0, 19, 0, 21, 0, 20, 0, 17, 0, 23, 0, 20, 0, 14, 0, 17, 0, 13, 0, 4, 0, 15, 0, 13, 0, 2, 0, 4, 0, 7, 0, 12, 0, 18, 0, 7, 0, 1, 0, 12, 0, 22, 0, 5, 0, 11, 0, 22, 0, 16, 0, 5, 0),
+"material": SubResource("StandardMaterial3D_b4b47"),
+"name": "Material.002",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray(0, 0, 175, 2, 254, 255, 53, 223, 0, 0, 175, 2, 254, 255, 212, 175, 0, 0, 175, 2, 254, 255, 148, 193, 0, 0, 255, 255, 147, 14, 53, 223, 0, 0, 255, 255, 147, 14, 148, 193, 0, 0, 255, 255, 147, 14, 255, 255, 0, 0, 0, 0, 106, 241, 53, 223, 0, 0, 0, 0, 106, 241, 212, 175, 0, 0, 0, 0, 106, 241, 153, 244, 0, 0, 79, 253, 0, 0, 53, 223, 0, 0, 79, 253, 0, 0, 153, 244, 0, 0, 79, 253, 0, 0, 255, 255, 255, 255, 175, 2, 254, 255, 212, 175, 255, 255, 175, 2, 254, 255, 148, 193, 255, 255, 175, 2, 254, 255, 178, 204, 255, 255, 255, 255, 147, 14, 148, 193, 255, 255, 255, 255, 147, 14, 255, 255, 255, 255, 255, 255, 147, 14, 178, 204, 255, 255, 0, 0, 106, 241, 212, 175, 255, 255, 0, 0, 106, 241, 153, 244, 255, 255, 0, 0, 106, 241, 178, 204, 255, 255, 79, 253, 0, 0, 153, 244, 255, 255, 79, 253, 0, 0, 255, 255, 255, 255, 79, 253, 0, 0, 178, 204, 13, 224, 248, 207, 0, 0, 255, 127, 164, 237, 90, 18, 13, 224, 248, 207, 164, 237, 90, 18, 255, 127, 221, 204, 13, 224, 248, 207, 0, 0, 255, 127, 216, 69, 216, 69, 13, 224, 248, 207, 216, 69, 216, 69, 255, 127, 221, 204, 0, 0, 255, 127, 164, 237, 90, 18, 237, 54, 137, 36, 164, 237, 90, 18, 255, 127, 221, 204, 237, 54, 137, 36, 0, 0, 255, 127, 216, 69, 216, 69, 237, 54, 137, 36, 216, 69, 216, 69, 255, 127, 221, 204, 237, 54, 137, 36)
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_vou4u")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_qrs3o"]
+_surfaces = [{
+"aabb": AABB(-0.038827, 2.39417, -0.399461, 0.077654, 2.96717, 0.934497),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray(0, 0, 3, 0, 1, 0, 0, 0, 2, 0, 3, 0, 2, 0, 7, 0, 3, 0, 2, 0, 6, 0, 7, 0, 6, 0, 5, 0, 7, 0, 6, 0, 4, 0, 5, 0, 4, 0, 1, 0, 5, 0, 4, 0, 0, 0, 1, 0, 2, 0, 4, 0, 6, 0, 2, 0, 0, 0, 4, 0, 7, 0, 1, 0, 3, 0, 7, 0, 5, 0, 1, 0),
+"name": "Material.003",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 107, 20, 0, 0, 0, 0, 30, 254, 255, 255, 0, 0, 0, 0, 224, 1, 0, 0, 0, 0, 0, 0, 255, 255, 147, 235, 0, 0, 255, 255, 0, 0, 107, 20, 0, 0, 255, 255, 30, 254, 255, 255, 0, 0, 255, 255, 224, 1, 0, 0, 0, 0, 255, 255, 255, 255, 147, 235, 0, 0)
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_j2kux"]
+resource_name = "thunderbolt_1_Cube_004"
+_surfaces = [{
+"aabb": AABB(-0.038827, 2.39417, -0.399461, 0.077654, 2.96717, 0.934497),
+"attribute_data": PackedByteArray(255, 95, 255, 255, 255, 31, 255, 63, 255, 95, 0, 0, 255, 159, 255, 255, 255, 159, 0, 0, 255, 223, 255, 63, 255, 95, 255, 191, 255, 31, 255, 127, 255, 95, 255, 191, 255, 159, 255, 191, 255, 159, 255, 191, 255, 223, 255, 127, 255, 95, 255, 63, 255, 95, 255, 63, 255, 95, 255, 63, 255, 159, 255, 63, 255, 159, 255, 63, 255, 159, 255, 63, 255, 95, 255, 127, 255, 95, 255, 127, 255, 95, 255, 127, 255, 159, 255, 127, 255, 159, 255, 127, 255, 159, 255, 127),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray(0, 0, 9, 0, 3, 0, 0, 0, 6, 0, 9, 0, 8, 0, 21, 0, 10, 0, 8, 0, 19, 0, 21, 0, 20, 0, 17, 0, 23, 0, 20, 0, 14, 0, 17, 0, 13, 0, 4, 0, 15, 0, 13, 0, 2, 0, 4, 0, 7, 0, 12, 0, 18, 0, 7, 0, 1, 0, 12, 0, 22, 0, 5, 0, 11, 0, 22, 0, 16, 0, 5, 0),
+"material": SubResource("StandardMaterial3D_b4b47"),
+"name": "Material.003",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 107, 20, 254, 206, 0, 0, 0, 0, 107, 20, 146, 203, 0, 0, 0, 0, 107, 20, 208, 192, 0, 0, 30, 254, 255, 255, 254, 206, 0, 0, 30, 254, 255, 255, 208, 192, 0, 0, 30, 254, 255, 255, 255, 255, 0, 0, 224, 1, 0, 0, 254, 206, 0, 0, 224, 1, 0, 0, 146, 203, 0, 0, 224, 1, 0, 0, 211, 247, 0, 0, 255, 255, 147, 235, 254, 206, 0, 0, 255, 255, 147, 235, 211, 247, 0, 0, 255, 255, 147, 235, 255, 255, 255, 255, 0, 0, 107, 20, 146, 203, 255, 255, 0, 0, 107, 20, 208, 192, 255, 255, 0, 0, 107, 20, 76, 220, 255, 255, 30, 254, 255, 255, 208, 192, 255, 255, 30, 254, 255, 255, 255, 255, 255, 255, 30, 254, 255, 255, 76, 220, 255, 255, 224, 1, 0, 0, 146, 203, 255, 255, 224, 1, 0, 0, 211, 247, 255, 255, 224, 1, 0, 0, 76, 220, 255, 255, 255, 255, 147, 235, 211, 247, 255, 255, 255, 255, 147, 235, 255, 255, 255, 255, 255, 255, 147, 235, 76, 220, 201, 204, 153, 217, 0, 0, 255, 127, 60, 14, 194, 241, 201, 204, 153, 217, 60, 14, 194, 241, 255, 127, 216, 182, 201, 204, 153, 217, 0, 0, 255, 127, 185, 187, 185, 187, 201, 204, 153, 217, 185, 187, 185, 187, 255, 127, 216, 182, 0, 0, 255, 127, 60, 14, 194, 241, 230, 34, 140, 46, 60, 14, 194, 241, 255, 127, 216, 182, 230, 34, 140, 46, 0, 0, 255, 127, 185, 187, 185, 187, 230, 34, 140, 46, 185, 187, 185, 187, 255, 127, 216, 182, 230, 34, 140, 46)
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_qrs3o")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_n7kko"]
+_surfaces = [{
+"aabb": AABB(-0.038827, -0.0317347, -0.222646, 0.077654, 3.05585, 0.441888),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray(0, 0, 3, 0, 1, 0, 0, 0, 2, 0, 3, 0, 2, 0, 7, 0, 3, 0, 2, 0, 6, 0, 7, 0, 6, 0, 5, 0, 7, 0, 6, 0, 4, 0, 5, 0, 4, 0, 1, 0, 5, 0, 4, 0, 0, 0, 1, 0, 2, 0, 4, 0, 6, 0, 2, 0, 0, 0, 4, 0, 7, 0, 1, 0, 3, 0, 7, 0, 5, 0, 1, 0),
+"name": "Material.004",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray(0, 0, 197, 0, 253, 255, 0, 0, 0, 0, 255, 255, 170, 44, 0, 0, 0, 0, 0, 0, 82, 211, 0, 0, 0, 0, 57, 255, 0, 0, 0, 0, 255, 255, 197, 0, 253, 255, 0, 0, 255, 255, 255, 255, 170, 44, 0, 0, 255, 255, 0, 0, 82, 211, 0, 0, 255, 255, 57, 255, 0, 0, 0, 0)
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_5xpdn"]
+resource_name = "thunderbolt_1_Cube_005"
+_surfaces = [{
+"aabb": AABB(-0.038827, -0.0317347, -0.222646, 0.077654, 3.05585, 0.441888),
+"attribute_data": PackedByteArray(255, 95, 255, 255, 255, 31, 255, 63, 255, 95, 0, 0, 255, 159, 255, 255, 255, 159, 0, 0, 255, 223, 255, 63, 255, 95, 255, 191, 255, 31, 255, 127, 255, 95, 255, 191, 255, 159, 255, 191, 255, 159, 255, 191, 255, 223, 255, 127, 255, 95, 255, 63, 255, 95, 255, 63, 255, 95, 255, 63, 255, 159, 255, 63, 255, 159, 255, 63, 255, 159, 255, 63, 255, 95, 255, 127, 255, 95, 255, 127, 255, 95, 255, 127, 255, 159, 255, 127, 255, 159, 255, 127, 255, 159, 255, 127),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray(0, 0, 9, 0, 3, 0, 0, 0, 6, 0, 9, 0, 8, 0, 21, 0, 10, 0, 8, 0, 19, 0, 21, 0, 20, 0, 17, 0, 23, 0, 20, 0, 14, 0, 17, 0, 13, 0, 4, 0, 15, 0, 13, 0, 2, 0, 4, 0, 7, 0, 12, 0, 18, 0, 7, 0, 1, 0, 12, 0, 22, 0, 5, 0, 11, 0, 22, 0, 16, 0, 5, 0),
+"material": SubResource("StandardMaterial3D_b4b47"),
+"name": "Material.004",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray(0, 0, 197, 0, 253, 255, 47, 216, 0, 0, 197, 0, 253, 255, 36, 187, 0, 0, 197, 0, 253, 255, 36, 192, 0, 0, 255, 255, 170, 44, 47, 216, 0, 0, 255, 255, 170, 44, 36, 192, 0, 0, 255, 255, 170, 44, 255, 255, 0, 0, 0, 0, 82, 211, 47, 216, 0, 0, 0, 0, 82, 211, 36, 187, 0, 0, 0, 0, 82, 211, 144, 252, 0, 0, 57, 255, 0, 0, 47, 216, 0, 0, 57, 255, 0, 0, 144, 252, 0, 0, 57, 255, 0, 0, 255, 255, 255, 255, 197, 0, 253, 255, 36, 187, 255, 255, 197, 0, 253, 255, 36, 192, 255, 255, 197, 0, 253, 255, 149, 210, 255, 255, 255, 255, 170, 44, 36, 192, 255, 255, 255, 255, 170, 44, 255, 255, 255, 255, 255, 255, 170, 44, 149, 210, 255, 255, 0, 0, 82, 211, 36, 187, 255, 255, 0, 0, 82, 211, 144, 252, 255, 255, 0, 0, 82, 211, 149, 210, 255, 255, 57, 255, 0, 0, 144, 252, 255, 255, 57, 255, 0, 0, 255, 255, 255, 255, 57, 255, 0, 0, 149, 210, 168, 216, 170, 211, 0, 0, 255, 127, 44, 249, 210, 6, 168, 216, 170, 211, 44, 249, 210, 6, 255, 127, 208, 195, 168, 216, 170, 211, 0, 0, 255, 127, 218, 65, 218, 65, 168, 216, 170, 211, 218, 65, 218, 65, 255, 127, 208, 195, 0, 0, 255, 127, 44, 249, 210, 6, 32, 46, 239, 40, 44, 249, 210, 6, 255, 127, 208, 195, 32, 46, 239, 40, 0, 0, 255, 127, 218, 65, 218, 65, 32, 46, 239, 40, 218, 65, 218, 65, 255, 127, 208, 195, 32, 46, 239, 40)
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_n7kko")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_do1wa"]
+_surfaces = [{
+"aabb": AABB(-0.038827, 1.60539, 0.382077, 0.077654, 3.05482, 0.452583),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray(0, 0, 3, 0, 1, 0, 0, 0, 2, 0, 3, 0, 2, 0, 7, 0, 3, 0, 2, 0, 6, 0, 7, 0, 6, 0, 5, 0, 7, 0, 6, 0, 4, 0, 5, 0, 4, 0, 1, 0, 5, 0, 4, 0, 0, 0, 1, 0, 2, 0, 4, 0, 6, 0, 2, 0, 0, 0, 4, 0, 7, 0, 1, 0, 3, 0, 7, 0, 5, 0, 1, 0),
+"name": "Material.005",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 151, 43, 0, 0, 0, 0, 51, 255, 255, 255, 0, 0, 0, 0, 203, 0, 0, 0, 0, 0, 0, 0, 255, 255, 103, 212, 0, 0, 255, 255, 0, 0, 151, 43, 0, 0, 255, 255, 51, 255, 255, 255, 0, 0, 255, 255, 203, 0, 0, 0, 0, 0, 255, 255, 255, 255, 103, 212, 0, 0)
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_ifjam"]
+resource_name = "thunderbolt_1_Cube_006"
+_surfaces = [{
+"aabb": AABB(-0.038827, 1.60539, 0.382077, 0.077654, 3.05482, 0.452583),
+"attribute_data": PackedByteArray(255, 95, 255, 255, 255, 31, 255, 63, 255, 95, 0, 0, 255, 159, 255, 255, 255, 159, 0, 0, 255, 223, 255, 63, 255, 95, 255, 191, 255, 31, 255, 127, 255, 95, 255, 191, 255, 159, 255, 191, 255, 159, 255, 191, 255, 223, 255, 127, 255, 95, 255, 63, 255, 95, 255, 63, 255, 95, 255, 63, 255, 159, 255, 63, 255, 159, 255, 63, 255, 159, 255, 63, 255, 95, 255, 127, 255, 95, 255, 127, 255, 95, 255, 127, 255, 159, 255, 127, 255, 159, 255, 127, 255, 159, 255, 127),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray(0, 0, 9, 0, 3, 0, 0, 0, 6, 0, 9, 0, 8, 0, 21, 0, 10, 0, 8, 0, 19, 0, 21, 0, 20, 0, 17, 0, 23, 0, 20, 0, 14, 0, 17, 0, 13, 0, 4, 0, 15, 0, 13, 0, 2, 0, 4, 0, 7, 0, 12, 0, 18, 0, 7, 0, 1, 0, 12, 0, 22, 0, 5, 0, 11, 0, 22, 0, 16, 0, 5, 0),
+"material": SubResource("StandardMaterial3D_b4b47"),
+"name": "Material.005",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 151, 43, 129, 210, 0, 0, 0, 0, 151, 43, 255, 196, 0, 0, 0, 0, 151, 43, 38, 192, 0, 0, 51, 255, 255, 255, 129, 210, 0, 0, 51, 255, 255, 255, 38, 192, 0, 0, 51, 255, 255, 255, 255, 255, 0, 0, 203, 0, 0, 0, 129, 210, 0, 0, 203, 0, 0, 0, 255, 196, 0, 0, 203, 0, 0, 0, 118, 252, 0, 0, 255, 255, 103, 212, 129, 210, 0, 0, 255, 255, 103, 212, 118, 252, 0, 0, 255, 255, 103, 212, 255, 255, 255, 255, 0, 0, 151, 43, 255, 196, 255, 255, 0, 0, 151, 43, 38, 192, 255, 255, 0, 0, 151, 43, 69, 216, 255, 255, 51, 255, 255, 255, 38, 192, 255, 255, 51, 255, 255, 255, 255, 255, 255, 255, 51, 255, 255, 255, 69, 216, 255, 255, 203, 0, 0, 0, 255, 196, 255, 255, 203, 0, 0, 0, 118, 252, 255, 255, 203, 0, 0, 0, 69, 216, 255, 255, 255, 255, 103, 212, 118, 252, 255, 255, 255, 255, 103, 212, 255, 255, 255, 255, 255, 255, 103, 212, 69, 216, 195, 209, 29, 215, 0, 0, 255, 127, 0, 7, 254, 248, 195, 209, 29, 215, 0, 7, 254, 248, 255, 127, 16, 188, 195, 209, 29, 215, 0, 0, 255, 127, 23, 190, 23, 190, 195, 209, 29, 215, 23, 190, 23, 190, 255, 127, 16, 188, 0, 0, 255, 127, 0, 7, 254, 248, 61, 39, 96, 44, 0, 7, 254, 248, 255, 127, 16, 188, 61, 39, 96, 44, 0, 0, 255, 127, 23, 190, 23, 190, 61, 39, 96, 44, 23, 190, 23, 190, 255, 127, 16, 188, 61, 39, 96, 44)
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_do1wa")
+
+[sub_resource type="Animation" id="Animation_2wo8k"]
+resource_name = "play"
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cube_005:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.12),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [false, true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Cube_004:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.09, 0.12),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [false, true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Cube_003:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.08, 0.12),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [false, true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Cube_002:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.07, 0.12),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [false, true, false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Cube_001:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.06, 0.12),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [false, true, false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Cube:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.12),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [false, true, false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../OmniLight3D:omni_range")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(-0.02, 0, 0.08, 0.13),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 50.0, 0.0]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../thunder_sound_1:playing")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_yxooe"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cube_005:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Cube_004:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Cube_003:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Cube_002:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Cube_001:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Cube:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../OmniLight3D:omni_range")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../thunder_sound_1:playing")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2fqef"]
+_data = {
+"RESET": SubResource("Animation_yxooe"),
+"play": SubResource("Animation_2wo8k")
+}
+
+[node name="thunderbolt" type="Node3D"]
+script = ExtResource("1_yvcro")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 13.9156, 0)
+light_energy = 5.0
+omni_range = 0.0
+
+[node name="thunderbolt" type="MultiMeshInstance3D" parent="."]
+
+[node name="Cube" type="MeshInstance3D" parent="thunderbolt"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
+visible = false
+mesh = SubResource("ArrayMesh_c55po")
+skeleton = NodePath("")
+
+[node name="Cube_001" type="MeshInstance3D" parent="thunderbolt"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
+visible = false
+mesh = SubResource("ArrayMesh_gf332")
+skeleton = NodePath("")
+
+[node name="Cube_002" type="MeshInstance3D" parent="thunderbolt"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
+visible = false
+mesh = SubResource("ArrayMesh_qpm70")
+skeleton = NodePath("")
+
+[node name="Cube_003" type="MeshInstance3D" parent="thunderbolt"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
+visible = false
+mesh = SubResource("ArrayMesh_j2kux")
+skeleton = NodePath("")
+
+[node name="Cube_004" type="MeshInstance3D" parent="thunderbolt"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
+visible = false
+mesh = SubResource("ArrayMesh_5xpdn")
+skeleton = NodePath("")
+
+[node name="Cube_005" type="MeshInstance3D" parent="thunderbolt"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
+visible = false
+mesh = SubResource("ArrayMesh_ifjam")
+skeleton = NodePath("")
+
+[node name="anim_thunderbolt" type="AnimationPlayer" parent="thunderbolt"]
+libraries = {
+"": SubResource("AnimationLibrary_2fqef")
+}
+
+[node name="thunder_sound_1" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 14.0078, 0)
+stream = ExtResource("2_fbxx7")
+max_distance = 1000.0
+
+[connection signal="finished" from="thunder_sound_1" to="." method="_on_thunder_sound_1_finished"]
