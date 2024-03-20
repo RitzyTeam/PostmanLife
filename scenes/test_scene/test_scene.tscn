@@ -70,5 +70,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.750145, 0)
 [node name="racecar" parent="." instance=ExtResource("9_qnvat")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.90327, -0.00113797, 9.67387)
 
-[node name="shop2" parent="." instance=ExtResource("9_eqlje")]
+[node name="shop" parent="." instance=ExtResource("9_eqlje")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.017, 0.01, 0)
