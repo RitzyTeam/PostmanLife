@@ -403,6 +403,14 @@ func drop_item_slot(slot_id: int):
 			obj.global_rotation = $Head/Camera/item_display/spray_orange.global_rotation
 			obj.apply_central_impulse($Head/Camera/item_display/spray_orange.global_transform.basis.x * throw_item_power)
 			SIN_WORLD_DATA.WORLD_DATA['player_inv']['slot_' + str(slot_id)] = {'id': 'void'}
+		'coffee_can':
+			var obj = load("res://objects/PROPS/FOOD/coffee_can/coffee_can.tscn").instantiate()
+			get_tree().get_root().add_child(obj)
+			obj.item = SIN_WORLD_DATA.WORLD_DATA['player_inv']['slot_' + str(slot_id)]
+			obj.global_position = $Head/Camera/item_display/coffee_can.global_position
+			obj.global_rotation = $Head/Camera/item_display/coffee_can.global_rotation
+			obj.apply_central_impulse($Head/Camera/item_display/coffee_can.global_transform.basis.z * -throw_item_power)
+			SIN_WORLD_DATA.WORLD_DATA['player_inv']['slot_' + str(slot_id)] = {'id': 'void'}
 	inventory_loader.load_hand_visual(current_slot_selected)
 	inventory_loader.load_hand_visual(current_slot_selected)
 	calculate_speed()

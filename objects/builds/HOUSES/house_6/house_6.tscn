@@ -1,7 +1,6 @@
-[gd_scene load_steps=27 format=3 uid="uid://dp80ffcw30b84"]
+[gd_scene load_steps=26 format=3 uid="uid://dp80ffcw30b84"]
 
 [ext_resource type="Script" path="res://objects/builds/HOUSES/house_6/house_6.gd" id="1_7kym2"]
-[ext_resource type="Texture2D" uid="uid://c3qwibwe8ekow" path="res://assets/textures/glass.jpg" id="2_5sreh"]
 [ext_resource type="FontFile" uid="uid://dv8jijr0th27a" path="res://assets/fonts/SubdexBold.ttf" id="4_ync78"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7gg2n"]
@@ -311,8 +310,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_6mabg")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5ld68"]
-blend_mode = 1
-albedo_texture = ExtResource("2_5sreh")
+albedo_color = Color(0.192157, 1, 1, 1)
 refraction_scale = -1.0
 uv1_scale = Vector3(0.29, 0.29, 0.29)
 uv1_triplanar = true
