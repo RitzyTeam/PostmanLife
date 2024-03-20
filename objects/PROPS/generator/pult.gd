@@ -3,5 +3,12 @@ extends StaticBody3D
 @onready var generator = $".."
 
 func interract():
-	generator.isTurnedOn = not generator.isTurnedOn
-	$anim_button.play('push')
+	if not $anim_button.is_playing():
+		generator.isTurnedOn = not generator.isTurnedOn
+		if generator.isTurnedOn:
+			$anim_button.play('turn_on')
+		else:
+			$anim_button.play('turn_off')
+			
+		
+		

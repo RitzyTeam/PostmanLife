@@ -27,24 +27,22 @@ func _physics_process(delta):
 
 func state_machine():
 	if isTurnedOn:
+		$terminal/pad/fuel_inside.text = 'Топливо: ' + str(int(item['fuel_inside'])) + 'л.'
+		$terminal/pad/temperature_inside.text = 'Температура: ' + str(int(item['temperature_inside'])) + 'ц.'
 		if item['fuel_inside'] >= 0.01:
 			item['fuel_inside'] -= 0.01
 			item['temperature_inside'] += 0.01
 			set_state_working()
 		else:
 			set_state_not_working()
-	if not item['fuel_inside'] >= 0.01:
+	else:
+		set_state_not_working()
 		if item['temperature_inside'] > 0:
 			item['temperature_inside'] -= 0.02
 		
-	$terminal/pad/fuel_inside.text = 'Топливо: ' + str(int(item['fuel_inside'])) + 'л.'
-	$terminal/pad/temperature_inside.text = 'Температура: ' + str(int(item['temperature_inside'])) + 'ц.'
-		
+	
 func set_state_not_working():
-	$anim.stop()
-	var tween = create_tween()
-	tween.tween_property($axle, 'position', 1.539, 1)
-	tween.play()
+	$anim.play('no_fuel')
 	$work_particles.emitting = false
 
 func set_state_working():

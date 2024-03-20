@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://cgffbpdtxbsp5"]
+[gd_scene load_steps=41 format=3 uid="uid://cgffbpdtxbsp5"]
 
 [ext_resource type="Script" path="res://objects/PROPS/generator/generator.gd" id="1_oy6er"]
 [ext_resource type="FontFile" uid="uid://dv8jijr0th27a" path="res://assets/fonts/SubdexBold.ttf" id="2_mb0ao"]
@@ -365,22 +365,6 @@ size = Vector3(0.2, 0.2, 0.2)
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ghcnf"]
 points = PackedVector3Array(0.1, 0.1, 0.1, 0.1, 0.1, -0.1, -0.1, 0.1, 0.1, 0.1, -0.1, 0.1, 0.1, -0.1, -0.1, -0.1, 0.1, -0.1, -0.1, -0.1, 0.1, -0.1, -0.1, -0.1)
 
-[sub_resource type="Animation" id="Animation_iyv32"]
-resource_name = "push"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("button:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.5),
-"transitions": PackedFloat32Array(-2, -2, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(-0.08, 0, 0), Vector3(0, 0, 0)]
-}
-
 [sub_resource type="Animation" id="Animation_vie7c"]
 length = 0.001
 tracks/0/type = "value"
@@ -393,13 +377,46 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(-0.08, 0, 0)]
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_iyv32"]
+resource_name = "turn_on"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("button:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(-2, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(-0.08, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_hkg6k"]
+resource_name = "turn_off"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("button:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(-2, 1),
+"update": 0,
+"values": [Vector3(-0.08, 0, 0), Vector3(0, 0, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wqv2w"]
 _data = {
 "RESET": SubResource("Animation_vie7c"),
-"push": SubResource("Animation_iyv32")
+"turn_off": SubResource("Animation_hkg6k"),
+"turn_on": SubResource("Animation_iyv32")
 }
 
 [node name="generator" type="RigidBody3D"]
@@ -499,7 +516,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.506689, 0.826465, 1.05277)
 script = ExtResource("3_mufad")
 
 [node name="button" type="MeshInstance3D" parent="button"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.08, 0, 0)
 mesh = SubResource("BoxMesh_rqwdy")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="button"]

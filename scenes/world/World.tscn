@@ -1,4 +1,4 @@
-[gd_scene load_steps=74 format=3 uid="uid://c66dar30xo83l"]
+[gd_scene load_steps=73 format=3 uid="uid://c66dar30xo83l"]
 
 [ext_resource type="Script" path="res://scenes/world/World.gd" id="1_xxt06"]
 [ext_resource type="PackedScene" uid="uid://b6xb3m0mq55td" path="res://objects/ENVIRONMENT/ENV.tscn" id="3_7t5e4"]
@@ -43,7 +43,6 @@
 [ext_resource type="PackedScene" uid="uid://cmnf52pg6wgif" path="res://objects/urban_elements/mine_sign/mine_sign.tscn" id="37_sekee"]
 [ext_resource type="PackedScene" uid="uid://bqkmogmsrvqdr" path="res://objects/MOBS/ghost_girl/ghost_girl.tscn" id="37_wavva"]
 [ext_resource type="PackedScene" uid="uid://ckml344muac8j" path="res://objects/builds/gas_station/gas_station.tscn" id="38_b6cnr"]
-[ext_resource type="PackedScene" uid="uid://d1dfxl3goj7rx" path="res://objects/PROPS/fuel_tank/fuel_tank.tscn" id="38_ei2hv"]
 [ext_resource type="PackedScene" uid="uid://chspevxyt4l2o" path="res://objects/ENVIRONMENT/world_limiter/world_limiter.tscn" id="38_wj0qi"]
 [ext_resource type="PackedScene" uid="uid://cgffbpdtxbsp5" path="res://objects/PROPS/generator/generator.tscn" id="38_ys66d"]
 [ext_resource type="PackedScene" uid="uid://db81c78wncwvi" path="res://objects/urban_elements/chair_long/chair_long.tscn" id="40_7em4s"]
@@ -105,7 +104,7 @@ shader_parameter/texture_normal2 = SubResource("NoiseTexture2D_npkdg")
 material = SubResource("ShaderMaterial_divvh")
 size = Vector2(2000, 600)
 
-[sub_resource type="Resource" id="Resource_780ry"]
+[sub_resource type="Resource" id="Resource_7dsv2"]
 script = ExtResource("19_6qlp7")
 amount = 500
 enabled = true
@@ -114,7 +113,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 1
 
-[sub_resource type="Resource" id="Resource_er4ic"]
+[sub_resource type="Resource" id="Resource_7grmk"]
 script = ExtResource("20_xv4po")
 position = Vector3(0.15, 0.15, 0.15)
 rotation = Vector3(0, 360, 0)
@@ -125,7 +124,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 2
 
-[sub_resource type="Resource" id="Resource_ux6ud"]
+[sub_resource type="Resource" id="Resource_gxv5y"]
 script = ExtResource("21_ai286")
 iterations = 3
 offset_step = 0.2
@@ -137,7 +136,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_vr55a"]
+[sub_resource type="Resource" id="Resource_s8k0v"]
 script = ExtResource("22_k8kdo")
 ray_direction = Vector3(0, -1, 0)
 ray_length = 5.0
@@ -153,9 +152,9 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_1o1cs"]
+[sub_resource type="Resource" id="Resource_qqed4"]
 script = ExtResource("18_1fwha")
-stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_780ry"), SubResource("Resource_er4ic"), SubResource("Resource_ux6ud"), SubResource("Resource_vr55a")])
+stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_7dsv2"), SubResource("Resource_7grmk"), SubResource("Resource_gxv5y"), SubResource("Resource_s8k0v")])
 
 [sub_resource type="Curve3D" id="Curve3D_2u2vc"]
 _data = {
@@ -170,7 +169,7 @@ closed = true
 thickness = 0.0
 curve = SubResource("Curve3D_2u2vc")
 
-[sub_resource type="Resource" id="Resource_rbv41"]
+[sub_resource type="Resource" id="Resource_l2180"]
 script = ExtResource("19_6qlp7")
 amount = 2000
 enabled = true
@@ -179,7 +178,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 1
 
-[sub_resource type="Resource" id="Resource_s2pe4"]
+[sub_resource type="Resource" id="Resource_dkdci"]
 script = ExtResource("20_xv4po")
 position = Vector3(0.15, 0.15, 0.15)
 rotation = Vector3(1, 360, 1)
@@ -190,7 +189,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 2
 
-[sub_resource type="Resource" id="Resource_26wfq"]
+[sub_resource type="Resource" id="Resource_6qc2w"]
 script = ExtResource("21_ai286")
 iterations = 1
 offset_step = 0.1
@@ -202,7 +201,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_pj3ds"]
+[sub_resource type="Resource" id="Resource_hfgt4"]
 script = ExtResource("22_k8kdo")
 ray_direction = Vector3(0, -1, 0)
 ray_length = 5.0
@@ -218,9 +217,9 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_6j5pg"]
+[sub_resource type="Resource" id="Resource_b4tce"]
 script = ExtResource("18_1fwha")
-stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_rbv41"), SubResource("Resource_s2pe4"), SubResource("Resource_26wfq"), SubResource("Resource_pj3ds")])
+stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_l2180"), SubResource("Resource_dkdci"), SubResource("Resource_6qc2w"), SubResource("Resource_hfgt4")])
 
 [sub_resource type="Curve3D" id="Curve3D_b4q5a"]
 _data = {
@@ -2190,13 +2189,16 @@ metadata/_editor_floor_ = Vector3(0, 0, 0)
 [node name="gasStation" parent="Levels/infrastructure" instance=ExtResource("38_b6cnr")]
 transform = Transform3D(0.34202, 0, -0.939693, 0, 1, 0, 0.939693, 0, 0.34202, 1426.1, 0, 1269.7)
 
+[node name="generator" parent="Levels/infrastructure/gasStation" instance=ExtResource("38_ys66d")]
+transform = Transform3D(-0.545766, 0, -0.837938, 0, 1, 0, 0.837938, 0, -0.545766, -3.34888, 0, 5.98553)
+
 [node name="nature" type="Node" parent="Levels"]
 
 [node name="big_forest" type="Node3D" parent="Levels/nature"]
 script = ExtResource("17_0tutk")
 global_seed = 20
 render_mode = 1
-modifier_stack = SubResource("Resource_1o1cs")
+modifier_stack = SubResource("Resource_qqed4")
 Performance/use_chunks = true
 Performance/chunk_dimensions = Vector3(15, 15, 15)
 
@@ -2224,7 +2226,7 @@ shape = SubResource("Resource_e18i2")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2032, 0, 1595)
 script = ExtResource("17_0tutk")
 render_mode = 1
-modifier_stack = SubResource("Resource_6j5pg")
+modifier_stack = SubResource("Resource_b4tce")
 Performance/use_chunks = true
 Performance/chunk_dimensions = Vector3(15, 15, 15)
 
@@ -2324,21 +2326,6 @@ transform = Transform3D(-0.294891, 0, -0.955531, 0, 1, 0, 0.955531, 0, -0.294891
 
 [node name="barrel3" parent="Levels/props" instance=ExtResource("35_bhpn8")]
 transform = Transform3D(-0.583513, 0, -0.812104, 0, 1, 0, 0.812104, 0, -0.583513, 1425.3, 0, 1260.1)
-
-[node name="fuel_tank" parent="Levels/props" instance=ExtResource("38_ei2hv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 950.433, 1.85599, 1171.8)
-fuel_inside = 10.0
-
-[node name="fuel_tank3" parent="Levels/props" instance=ExtResource("38_ei2hv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 950.433, 1.85599, 1172.45)
-fuel_inside = 10.0
-
-[node name="fuel_tank2" parent="Levels/props" instance=ExtResource("38_ei2hv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 951.268, 1.85599, 1171.8)
-fuel_inside = 100.0
-
-[node name="generator" parent="Levels/props" instance=ExtResource("38_ys66d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 948.198, 3.05176e-05, 1170.66)
 
 [node name="urban_elements" type="Node" parent="Levels"]
 
