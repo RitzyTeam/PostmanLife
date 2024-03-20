@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://biogoa42trr1k" path="res://objects/PROPS/ball/ball.tscn" id="5_85iv5"]
 [ext_resource type="PackedScene" uid="uid://cpat5kv2ue7yo" path="res://objects/TRANSPORT/truck/truck.tscn" id="6_mbphw"]
 [ext_resource type="PackedScene" uid="uid://d1dfxl3goj7rx" path="res://objects/PROPS/fuel_tank/fuel_tank.tscn" id="7_8rym3"]
-[ext_resource type="PackedScene" uid="uid://n0cssm82dcft" path="res://assets/models/builds/shop.blend" id="8_w227f"]
+[ext_resource type="PackedScene" uid="uid://cgwmmrqi4x7pq" path="res://objects/builds/shop/shop.tscn" id="9_eqlje"]
 [ext_resource type="PackedScene" uid="uid://dit3ypm30lxlf" path="res://objects/TRANSPORT/racecar/racecar.tscn" id="9_qnvat"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_mtor7"]
@@ -39,7 +39,7 @@ mesh = SubResource("BoxMesh_mtor7")
 shape = SubResource("BoxShape3D_374bo")
 
 [node name="Player" parent="." instance=ExtResource("1_vsp3c")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.1802, 0.0527188, 15.493)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42.7659, 0.0527188, 8.23546)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.872564, 0.488499, 0, -0.488499, 0.872564, 0, 6.73465, 0)
@@ -67,8 +67,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.71762, 1.30373, 15.2915)
 [node name="fuel_tank" parent="." instance=ExtResource("7_8rym3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.750145, 0)
 
-[node name="shop" parent="." instance=ExtResource("8_w227f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38, 0, 0)
-
 [node name="racecar" parent="." instance=ExtResource("9_qnvat")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.90327, -0.00113797, 9.67387)
+
+[node name="shop2" parent="." instance=ExtResource("9_eqlje")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.017, 0.01, 0)
