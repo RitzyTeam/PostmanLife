@@ -115,7 +115,7 @@ func _ready():
 	JUMP_ANIMATION.play("RESET")
 
 func _physics_process(delta):
-
+	SIN_WORLD_DATA.player_position = global_position
 #region СТАМИНА
 	if stamina < 100 and state == 'normal':
 		stamina += 0.1

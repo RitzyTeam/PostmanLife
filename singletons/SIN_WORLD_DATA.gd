@@ -38,6 +38,7 @@ var WORLD_DATA: Dictionary = {
 }
 
 var last_death_reason: String = ''
+var player_position: Vector3 = Vector3()
 
 func _ready():
 	if data_exists():
