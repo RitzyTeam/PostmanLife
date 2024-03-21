@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://mmnbj1v5yjkb"]
+[gd_scene load_steps=14 format=3 uid="uid://mmnbj1v5yjkb"]
 
 [ext_resource type="FontFile" uid="uid://dv8jijr0th27a" path="res://assets/fonts/SubdexBold.ttf" id="1_01u1d"]
 
@@ -166,6 +166,9 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_77gfx")
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rv2oq"]
+albedo_color = Color(0.580392, 1, 0.560784, 1)
+
 [node name="school" type="StaticBody3D"]
 
 [node name="left" type="CollisionShape3D" parent="."]
@@ -196,12 +199,15 @@ shape = SubResource("BoxShape3D_3w1d6")
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -25.0025, 7.55142, 0)
 pixel_size = 0.001
 shaded = true
+double_sided = false
 text = "Торковическая школа 
 среднего общего образования №1"
 font = ExtResource("1_01u1d")
-font_size = 427
+font_size = 350
 outline_size = 0
+uppercase = true
 
 [node name="mesh2" type="MeshInstance3D" parent="."]
 mesh = SubResource("ArrayMesh_wvdk7")
 skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_rv2oq")
