@@ -14,11 +14,14 @@ var time_hours: int = 0
 var time_minutes: int = 0
 
 var player: Object = null
+var state: String = 'idle'
 var weather_id: String = 'clear'
 
 func _ready():
 	# === WEATHER
-	_set_weather_thunder()
+	var arr =  get_tree().get_nodes_in_group('player')
+	player = arr[0]
+	state = 'player_looking'
 	# === SETTINGS
 	load_graphic_settings()
 	launch_tod()
@@ -107,7 +110,25 @@ func spawnMOBS():
 # =============================== WEATHER ======================================
 
 func _physics_process(delta):
-	global_position = SIN_WORLD_DATA.player_position
+	state_machine()
+	if not player == null:
+		state = 'player_looking'
+	if player == null:
+		state = 'seeking_for_player'
+	
+func state_machine():
+	match state: 
+		'player_looking':
+			if not player == null:
+				position = player.global_position
+		'seeking_for_player':
+			state = 'locked'
+			var target_car: Object = null
+			var cars: Array = get_tree().get_nodes_in_group('car')
+			for i in range(cars.size()):
+				if cars[i]['item']['isPlayerInside']:
+					target_car = cars[i]
+			player = target_car
 
 func _input(event):
 	if event.is_action_pressed("key_e"):
@@ -184,15 +205,15 @@ func _set_weather_thunder():
 	weather_snowy.visible = false
 	weather_snowy.emitting = false
 	
-	weather_rainy.visible = true
-	weather_rainy.emitting = true
+	weather_rainy.visible = false
+	weather_rainy.emitting = false
 	
 	var tween = create_tween()
 	var tween2 = create_tween()
 	var tween3 = create_tween()
 	tween.tween_property(we, 'environment:volumetric_fog_density', 0.3, 15)
-	tween2.tween_property(we, 'environment:volumetric_fog_albedo', Color('323232'), 15)
-	tween3.tween_property(we, 'environment:volumetric_fog_emission', Color('323232'), 15)
+	tween2.tween_property(we, 'environment:volumetric_fog_albedo', Color('7f7f7f'), 15)
+	tween3.tween_property(we, 'environment:volumetric_fog_emission', Color('7f7f7f'), 15)
 
 func _on_timer_switch_weather_timeout():
 	$timer_switch_weather.wait_time = randi_range(240, 1440)
@@ -210,9 +231,9 @@ func _on_timer_switch_weather_timeout():
 
 func _on_timer_spawn_thunderbolts_timeout():
 	if weather_id == 'thunder':
-		var spawn_radius: int = 50
-		$timer_spawn_thunderbolts.wait_time = randi_range(10, 15)
+		var spawn_radius: int = 100
+		$timer_spawn_thunderbolts.wait_time = randi_range(15, 40)
 		var bolt = thunderbolt.instantiate()
 		get_tree().get_root().add_child(bolt)
-		bolt.global_position = Vector3(SIN_WORLD_DATA.player_position.x + randi_range(-spawn_radius,spawn_radius), global_position.y, SIN_WORLD_DATA.player_position.z + randi_range(-spawn_radius,spawn_radius))
+		bolt.global_position = Vector3(player.global_position.x + randi_range(-spawn_radius,spawn_radius), global_position.y, player.global_position.z + randi_range(-spawn_radius,spawn_radius))
 	$timer_spawn_thunderbolts.start()

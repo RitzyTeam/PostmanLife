@@ -380,22 +380,6 @@ tracks/0/keys = {
 "values": [Vector3(0, 0, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_hkg6k"]
-resource_name = "turn_off"
-length = 0.3
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("button:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(-2, 1),
-"update": 0,
-"values": [Vector3(-0.08, 0, 0), Vector3(0, 0, 0)]
-}
-
 [sub_resource type="Animation" id="Animation_iyv32"]
 resource_name = "turn_on"
 length = 0.2
@@ -410,6 +394,22 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(-2, 1),
 "update": 0,
 "values": [Vector3(0, 0, 0), Vector3(-0.08, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_hkg6k"]
+resource_name = "turn_off"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("button:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(-2, 1),
+"update": 0,
+"values": [Vector3(-0.08, 0, 0), Vector3(0, 0, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wqv2w"]

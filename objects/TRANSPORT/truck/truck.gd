@@ -129,7 +129,6 @@ func _physics_process(delta):
 				$stat_flashlight/icon.texture = load('res://assets/images/res_flashlight.png')
 				lights_off()
 	if item.isPlayerInside:
-		SIN_WORLD_DATA.player_position = global_position
 		# UPDATE UI
 		var speed = int(abs(linear_velocity.x) + abs(linear_velocity.y) + abs(linear_velocity.z))
 		if int(item.res_energy) > 0:
