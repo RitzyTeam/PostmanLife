@@ -1556,6 +1556,18 @@ stream = ExtResource("5_8ws1p")
 max_distance = 50.0
 emission_angle_filter_attenuation_db = 0.0
 
+[node name="GPUParticlesCollisionBox3D" type="GPUParticlesCollisionBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.78388, -0.679397)
+size = Vector3(2.6, 2.71, 2)
+
+[node name="GPUParticlesCollisionBox3D3" type="GPUParticlesCollisionBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.882329, 1.69899)
+size = Vector3(2.6, 0.915171, 2.73145)
+
+[node name="GPUParticlesCollisionBox3D2" type="GPUParticlesCollisionBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.432951, 0.901417, 0, -0.901417, 0.432951, 0, 1.88663, -1.42606)
+size = Vector3(2.6, 1.933, 1.56738)
+
 [connection signal="body_entered" from="bump_area" to="." method="_on_bump_area_body_entered"]
 [connection signal="body_entered" from="fuel_hole/area" to="." method="_on_area_body_entered"]
 [connection signal="body_exited" from="fuel_hole/area" to="." method="_on_area_body_exited"]
