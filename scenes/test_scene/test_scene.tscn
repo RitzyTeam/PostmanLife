@@ -1,14 +1,7 @@
-[gd_scene load_steps=15 format=3 uid="uid://ebql6u7l33sb"]
+[gd_scene load_steps=8 format=3 uid="uid://ebql6u7l33sb"]
 
 [ext_resource type="PackedScene" uid="uid://cc1m2a1obsyn4" path="res://objects/player/player.tscn" id="1_vsp3c"]
-[ext_resource type="PackedScene" uid="uid://din700dmcsdr4" path="res://objects/PROPS/package_spawner/package_spawner.tscn" id="2_jefhr"]
-[ext_resource type="PackedScene" uid="uid://d3k3mjiras3di" path="res://objects/PROPS/package_box_receiver/package_box_receiver.tscn" id="3_gkgb8"]
-[ext_resource type="PackedScene" uid="uid://dkj4ku0wve5y6" path="res://objects/PROPS/package_letter_receiver/package_letter_receiver.tscn" id="4_xh0xn"]
-[ext_resource type="PackedScene" uid="uid://biogoa42trr1k" path="res://objects/PROPS/ball/ball.tscn" id="5_85iv5"]
-[ext_resource type="PackedScene" uid="uid://cpat5kv2ue7yo" path="res://objects/TRANSPORT/truck/truck.tscn" id="6_mbphw"]
-[ext_resource type="PackedScene" uid="uid://d1dfxl3goj7rx" path="res://objects/PROPS/fuel_tank/fuel_tank.tscn" id="7_8rym3"]
-[ext_resource type="PackedScene" uid="uid://cgwmmrqi4x7pq" path="res://objects/builds/shop/shop.tscn" id="9_eqlje"]
-[ext_resource type="PackedScene" uid="uid://dit3ypm30lxlf" path="res://objects/TRANSPORT/racecar/racecar.tscn" id="9_qnvat"]
+[ext_resource type="PackedScene" uid="uid://cj3k262mpcivg" path="res://objects/MOBS/bird_flying/flying_bird_spawner.tscn" id="2_11ubs"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_mtor7"]
 size = Vector3(1000, 1, 1000)
@@ -39,7 +32,7 @@ mesh = SubResource("BoxMesh_mtor7")
 shape = SubResource("BoxShape3D_374bo")
 
 [node name="Player" parent="." instance=ExtResource("1_vsp3c")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42.7659, 0.0527188, 8.23546)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.04896, 0.0527188, 2.18881)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.872564, 0.488499, 0, -0.488499, 0.872564, 0, 6.73465, 0)
@@ -47,28 +40,5 @@ transform = Transform3D(1, 0, 0, 0, 0.872564, 0.488499, 0, -0.488499, 0.872564, 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_vqgot")
 
-[node name="package_spawner" parent="." instance=ExtResource("2_jefhr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.6951, 6.33167, -2.89056)
-
-[node name="package_letter_receiver" parent="." instance=ExtResource("4_xh0xn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.700295, 0.982792, -0.0220066)
-deliver_code = "aaaa1"
-
-[node name="package_box_receiver" parent="." instance=ExtResource("3_gkgb8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.982792, 0)
-deliver_code = "aaaa1"
-
-[node name="ball" parent="." instance=ExtResource("5_85iv5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.755104, 0.525949, 0)
-
-[node name="car" parent="." instance=ExtResource("6_mbphw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.71762, 1.30373, 15.2915)
-
-[node name="fuel_tank" parent="." instance=ExtResource("7_8rym3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.750145, 0)
-
-[node name="racecar" parent="." instance=ExtResource("9_qnvat")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.90327, -0.00113797, 9.67387)
-
-[node name="shop2" parent="." instance=ExtResource("9_eqlje")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.017, 0.01, 0)
+[node name="flying_bird_spawner" parent="." instance=ExtResource("2_11ubs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5767, 0)
