@@ -18,6 +18,21 @@ size = Vector3(0.25, 1, 0.25)
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_fj83h"]
 points = PackedVector3Array(-0.125, -0.5, -0.125, -0.125, -0.5, 0.125, -0.125, 0.5, -0.125, 0.125, -0.5, -0.125, 0.125, -0.5, 0.125, -0.125, 0.5, 0.125, 0.125, 0.5, -0.125, 0.125, 0.5, 0.125)
 
+[sub_resource type="Animation" id="Animation_fk0e2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0.57628, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_dsq4n"]
 resource_name = "push_button"
 length = 0.2
@@ -33,21 +48,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(-2, 1, 1),
 "update": 0,
 "values": [Vector3(0, 0.57628, 0), Vector3(0, 0.506, 0), Vector3(0, 0.57628, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_fk0e2"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("MeshInstance3D2:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0.57628, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_80b48"]
