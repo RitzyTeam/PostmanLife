@@ -1,8 +1,7 @@
-[gd_scene load_steps=79 format=3 uid="uid://cpat5kv2ue7yo"]
+[gd_scene load_steps=78 format=3 uid="uid://cpat5kv2ue7yo"]
 
 [ext_resource type="Script" path="res://objects/TRANSPORT/truck/truck.gd" id="1_qyjyp"]
 [ext_resource type="PackedScene" uid="uid://cc1m2a1obsyn4" path="res://objects/player/player.tscn" id="2_vq0iw"]
-[ext_resource type="Texture2D" uid="uid://b016404e1u47g" path="res://assets/images/res_energy.png" id="3_ee150"]
 [ext_resource type="AudioStream" uid="uid://bwhddyjclvjd0" path="res://assets/sounds/TRANSPORT/truck/engine_on.mp3" id="3_nlpgw"]
 [ext_resource type="Texture2D" uid="uid://dx0fnivlqgsrc" path="res://assets/images/res_fuel.png" id="3_nlv6y"]
 [ext_resource type="AudioStream" uid="uid://t788nusgr7rc" path="res://assets/sounds/PROPS/car_beep.mp3" id="5_8ws1p"]
@@ -1343,7 +1342,7 @@ skeleton = NodePath("")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.16461, 1.16586, -1.35315)
 
 [node name="rul_hinge" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.766045, -0.642788, 0, 0.642788, 0.766045, -0.262, 1.72054, -1.93716)
+transform = Transform3D(1, 0, 0, 0, 0.766045, -0.642788, 0, 0.642788, 0.766045, -0.297, 1.721, -1.937)
 
 [node name="rul_place" type="MeshInstance3D" parent="rul_hinge"]
 transform = Transform3D(0.163075, 0, 0, 0, 0.163075, 0, 0, 0, 0.163075, 0, -0.212959, -0.0611186)
@@ -1363,31 +1362,15 @@ transform = Transform3D(-4.37114e-08, 1, 0, 1, 4.37114e-08, 8.74228e-08, 8.74228
 [node name="CollisionShape3D" type="CollisionShape3D" parent="fuel_hole/area"]
 shape = SubResource("SphereShape3D_5b3q8")
 
-[node name="stat_energy" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.0790985, 0, 0, 0, 0.0523288, -0.0586071, 0, 0.0523288, 0.0586071, -0.941, 1.63277, -2.22419)
-mesh = SubResource("ArrayMesh_ij6tj")
-skeleton = NodePath("")
-
-[node name="value" type="Label3D" parent="stat_energy"]
-transform = Transform3D(1, 0, 0, 0, -4.37113e-08, 0.999999, 0, -1, -4.37114e-08, 0.0222443, 1.01768, 0.623489)
-pixel_size = 0.001
-text = "100%"
-font_size = 400
-outline_size = 0
-
-[node name="icon" type="Sprite3D" parent="stat_energy"]
-transform = Transform3D(0.195, 0, 0, 0, -8.52372e-09, 0.195, 0, -0.195, -8.52372e-09, 0, 1.00648, -0.233139)
-texture = ExtResource("3_ee150")
-
 [node name="stat_fuel" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.0790985, 0, 0, 0, 0.0523288, -0.0586071, 0, 0.0523288, 0.0586071, -0.769, 1.63277, -2.22419)
+transform = Transform3D(0.0790985, 0, 0, 0, 0.0523288, -0.0586071, 0, 0.0523288, 0.0586071, -0.940535, 1.633, -2.224)
 mesh = SubResource("ArrayMesh_ij6tj")
 skeleton = NodePath("")
 
 [node name="value" type="Label3D" parent="stat_fuel"]
 transform = Transform3D(1, 0, 0, 0, -4.37113e-08, 0.999999, 0, -1, -4.37114e-08, 0.0222443, 1.01768, 0.623489)
 pixel_size = 0.001
-text = "100л."
+text = "20л."
 font_size = 400
 outline_size = 0
 
@@ -1396,7 +1379,7 @@ transform = Transform3D(0.195, 0, 0, 0, -8.52372e-09, 0.195, 0, -0.195, -8.52372
 texture = ExtResource("3_nlv6y")
 
 [node name="stat_flashlight" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.0790985, 0, 0, 0, 0.0523288, -0.0586071, 0, 0.0523288, 0.0586071, 0.256, 1.73283, -2.26292)
+transform = Transform3D(0.0790985, 0, 0, 0, 0.0523288, -0.0586071, 0, 0.0523288, 0.0586071, -0.75, 1.633, -2.224)
 mesh = SubResource("ArrayMesh_ij6tj")
 skeleton = NodePath("")
 
@@ -1415,7 +1398,7 @@ modulate = Color(1, 0, 0, 1)
 texture = ExtResource("7_7sfgg")
 
 [node name="speedometer" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.13908, 0, 0, 0, 0.0523288, -0.0586071, 0, 0.0523288, 0.0586071, -0.854487, 1.76177, -2.35419)
+transform = Transform3D(0.13908, 0, 0, 0, 0.0523288, -0.0586071, 0, 0.0523288, 0.0586071, -0.880313, 1.76177, -2.35419)
 mesh = SubResource("ArrayMesh_j7e0d")
 skeleton = NodePath("")
 
@@ -1434,7 +1417,7 @@ font_size = 492
 outline_size = 0
 
 [node name="automat" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.0682721, 0, 0, 0, 0.0482757, -0.102491, 0, 0.0482757, 0.102491, 0.257, 1.56559, -2.08041)
+transform = Transform3D(0.0682721, 0, 0, 0, 0.0482757, -0.102491, 0, 0.0482757, 0.102491, 0.127, 1.566, -2.08)
 mesh = SubResource("ArrayMesh_uqwc0")
 skeleton = NodePath("")
 
