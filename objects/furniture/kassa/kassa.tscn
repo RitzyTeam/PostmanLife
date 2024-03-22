@@ -54,7 +54,7 @@ roughness = 0.843609
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kw7dc"]
 resource_name = "tableLine"
 cull_mode = 2
-albedo_color = Color(0.0604221, 0.157277, 0.906332, 1)
+albedo_color = Color(0.498039, 0.462745, 0.67451, 1)
 roughness = 0.5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_xixpc"]

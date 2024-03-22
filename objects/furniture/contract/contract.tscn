@@ -1,0 +1,59 @@
+[gd_scene load_steps=3 format=3 uid="uid://craiv2qieot8o"]
+
+[ext_resource type="Script" path="res://objects/furniture/contract/contract.gd" id="1_hdave"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_cnbdl"]
+size = Vector3(0.35, 0.02, 0.5)
+
+[node name="contract" type="MeshInstance3D"]
+mesh = SubResource("BoxMesh_cnbdl")
+script = ExtResource("1_hdave")
+
+[node name="title" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.0116627, -0.215513)
+pixel_size = 0.001
+modulate = Color(0, 0, 0, 1)
+text = "Договор"
+font_size = 53
+outline_size = 0
+
+[node name="title3" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.149382, 0.0116627, -0.172182)
+pixel_size = 0.001
+modulate = Color(0, 0, 0, 1)
+text = "С прибытием на работу, уважаемый Иван Павлович! Вы сейчас находитесь в селе Торковичи. Ваша задача - доставлять посылки обычным гражданам этого поселка.
+Чтобы вам было проще - мы отдаем в ваше распоряжение грузовик, он находится сразу у выхода из здания почты.
+
+Однако, в случае неисполнения служебных обязанностей, вы будете уволены, Иван Павлович.
+Квота посылок указана на одном из компьютеров. За 4 невыполненных квоты в нашей компании положено увольнение!
+Желаем Удачи!"
+font_size = 13
+outline_size = 0
+horizontal_alignment = 0
+vertical_alignment = 0
+autowrap_mode = 3
+width = 300.0
+
+[node name="title4" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.165348, 0.0116627, 0.13394)
+pixel_size = 0.001
+modulate = Color(0, 0, 0, 1)
+text = "Сотруднику: Иван Павлович
+От ООО \"Торковическая почта\""
+font_size = 15
+outline_size = 0
+horizontal_alignment = 2
+vertical_alignment = 0
+autowrap_mode = 3
+width = 705.595
+
+[node name="quotas_missed" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.162466, 0.0116627, 0.218121)
+pixel_size = 0.001
+modulate = Color(0, 0, 0, 1)
+text = "Невыполненных квот: 0"
+font_size = 20
+outline_size = 0
+horizontal_alignment = 0
+autowrap_mode = 3
+width = 705.595
