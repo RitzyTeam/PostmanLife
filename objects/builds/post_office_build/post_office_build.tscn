@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://cj1ydvi2t3bot"]
+[gd_scene load_steps=40 format=3 uid="uid://cj1ydvi2t3bot"]
 
 [ext_resource type="Script" path="res://objects/builds/post_office_build/post_office_build.gd" id="2_qoyn2"]
 [ext_resource type="PackedScene" uid="uid://t0yxbxco4m46" path="res://objects/PROPS/quota_laptop/quota_laptop.tscn" id="2_vkukj"]
@@ -6,10 +6,13 @@
 [ext_resource type="PackedScene" uid="uid://bxqlakvx775oc" path="res://objects/PROPS/task_getter/task_getter.tscn" id="4_dl1us"]
 [ext_resource type="PackedScene" uid="uid://q1fdbd6b4l3t" path="res://objects/PROPS/calendar/calendar.tscn" id="4_hxmt3"]
 [ext_resource type="PackedScene" uid="uid://n38kjjpm0n05" path="res://objects/furniture/shelf/shelf.tscn" id="6_u55fx"]
+[ext_resource type="PackedScene" uid="uid://cwjhrffo6qirn" path="res://objects/furniture/table/table.tscn" id="7_36vmd"]
 [ext_resource type="PackedScene" uid="uid://db40qaw0d0oy7" path="res://objects/furniture/kassa/kassa.tscn" id="7_bqko2"]
+[ext_resource type="PackedScene" uid="uid://bh0v7wlmtwjwv" path="res://objects/furniture/trashBox/trashBox.tscn" id="7_fix07"]
 [ext_resource type="PackedScene" uid="uid://din700dmcsdr4" path="res://objects/PROPS/package_spawner/package_spawner.tscn" id="8_ayadm"]
 [ext_resource type="PackedScene" uid="uid://ds6nu3aea3u8r" path="res://objects/furniture/post_lamp/post_lamp.tscn" id="9_wlyvw"]
 [ext_resource type="PackedScene" uid="uid://c7l1fuerfo0x2" path="res://objects/furniture/light_switcher/light_switcher.tscn" id="10_7bioq"]
+[ext_resource type="PackedScene" uid="uid://craiv2qieot8o" path="res://objects/furniture/contract/contract.tscn" id="10_70iio"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v2vpn"]
 resource_name = "1"
@@ -20,7 +23,7 @@ roughness = 0.5
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ekly3"]
 resource_name = "2"
 cull_mode = 2
-albedo_color = Color(0.498249, 0.463163, 0.673327, 1)
+albedo_color = Color(0.498039, 0.462745, 0.67451, 1)
 roughness = 0.5
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e5sfo"]
@@ -270,17 +273,15 @@ script = ExtResource("2_qoyn2")
 
 [node name="INTERIOR" type="Node3D" parent="."]
 
-[node name="laptop" parent="INTERIOR" instance=ExtResource("2_vkukj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.1921, 4.76837e-07, -2.58027)
+[node name="calendar" parent="INTERIOR" instance=ExtResource("4_hxmt3")]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, -16.5311, 1.68836, 7.9102)
+skeleton = NodePath("../task_panel")
 
 [node name="task_panel" parent="INTERIOR" instance=ExtResource("3_5giss")]
-transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, -16.5232, 1.71885, 10.4928)
-
-[node name="calendar" parent="INTERIOR/task_panel" instance=ExtResource("4_hxmt3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.59318, 0.229047, -0.00787544)
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, -16.5232, 1.71885, -5.89456)
 
 [node name="task_getter" parent="INTERIOR" instance=ExtResource("4_dl1us")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.8658, 9.53674e-07, 7.95063)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.2181, 7.15255e-07, -4.42085)
 
 [node name="shelf2" parent="INTERIOR" instance=ExtResource("6_u55fx")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 16.0339, 1.19209e-07, -10.7334)
@@ -294,8 +295,23 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.267, 1.19209e-07, 0.173517
 [node name="shelf5" parent="INTERIOR" instance=ExtResource("6_u55fx")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 16.267, 1.19209e-07, 9.68696)
 
+[node name="table" parent="INTERIOR" instance=ExtResource("7_36vmd")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -11.2214, -1.1921e-07, -10.3962)
+
+[node name="trashBox" parent="INTERIOR/table" instance=ExtResource("7_fix07")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.37848, 0, 0)
+
+[node name="laptop" parent="INTERIOR/table" instance=ExtResource("2_vkukj")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.386903, 0.691205, -0.167964)
+
 [node name="kassa" parent="INTERIOR" instance=ExtResource("7_bqko2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.2796, 1.19209e-07, 7.94049)
+
+[node name="trashBox" parent="INTERIOR/kassa" instance=ExtResource("7_fix07")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3911, 0, 0)
+
+[node name="contract" parent="INTERIOR/kassa" instance=ExtResource("10_70iio")]
+transform = Transform3D(0.971751, 0, 0.236007, 0, 1, 0, -0.236007, 0, 0.971751, 0.131251, 0.714562, 0.137544)
 
 [node name="package_spawner" parent="INTERIOR" instance=ExtResource("8_ayadm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.2452, 0.0101095, -10.3115)

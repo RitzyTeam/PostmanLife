@@ -13,3 +13,4 @@ signal PLAYER_UI_CASH_UPDATE(value_change)
 signal WORLD_SAVE
 signal OFFICE_LIGHTS_OFF
 signal OFFICE_LIGHTS_ON
+signal NEW_FIRING_WARN
