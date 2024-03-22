@@ -18,7 +18,6 @@ var weather_id: String = 'clear'
 
 func _ready():
 	# === WEATHER
-	_set_weather_thunder()
 	# === SETTINGS
 	load_graphic_settings()
 	launch_tod()
