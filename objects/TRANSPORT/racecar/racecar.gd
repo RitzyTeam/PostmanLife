@@ -24,6 +24,7 @@ var isFlashlightsOn: bool = false
 # PLAYER-RELATED
 # RESOURCES
 var max_fuel: float = 20.0
+var max_energy: float = 100.0
 @export var consumption_fuel: float = 0.002 ## FUEL CONSUMPTION PER FRAME (DRIVING CAR)
 @export var consumption_energy: float = 0.001 ## ENERGY CONSUMPTION PER FRAME (LIGHTS AND ALERTS)
 # RUL ANIMATION
@@ -118,6 +119,9 @@ func _physics_process(delta):
 		else:
 			$stat_energy/value.text = '0%'
 	if isEngineOn:
+		if item.res_energy < max_energy and item.res_fuel >= consumption_fuel:
+			item.res_energy += consumption_fuel/2
+			item.res_fuel -= consumption_fuel/2
 		item.res_energy -= consumption_energy
 		if int(item.res_energy) > 0:
 			$stat_energy/value.text = str(int(item.res_energy)) + '%'

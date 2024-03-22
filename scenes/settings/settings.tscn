@@ -825,6 +825,7 @@ size_flags_vertical = 3
 mouse_filter = 1
 theme = ExtResource("2_24fkq")
 placeholder_text = "Опишите проблему"
+wrap_mode = 1
 
 [node name="btns" type="HBoxContainer" parent="UI/bg/visibility_changer/content/settings/panel_additional/margin/smoother/ad_box/panel_feedback/margin/feedback_fields"]
 layout_mode = 2
