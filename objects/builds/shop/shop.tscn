@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://cgwmmrqi4x7pq"]
+[gd_scene load_steps=40 format=3 uid="uid://cgwmmrqi4x7pq"]
 
 [ext_resource type="Script" path="res://objects/builds/shop/shop.gd" id="1_0ixlr"]
 
@@ -361,6 +361,9 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_e4y1i")
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_b6ypa"]
+size = Vector3(4, 4, 4)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_somsd"]
 resource_name = "door_rect"
 cull_mode = 2
@@ -495,39 +498,12 @@ albedo_color = Color(0.368627, 1, 1, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_k5p5v"]
 size = Vector3(1.04773, 2.0769, 0.0585449)
 
-[sub_resource type="Animation" id="Animation_iv1up"]
-resource_name = "doors_open"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("StaticBody3D:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(-1.12531, 0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("StaticBody3D2:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(1.08788, 0, 0)]
-}
-
 [sub_resource type="Animation" id="Animation_84kwd"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("StaticBody3D:position")
+tracks/0/path = NodePath("door_left:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -539,7 +515,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("StaticBody3D2:position")
+tracks/1/path = NodePath("door_right:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -551,29 +527,58 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_74ixo"]
 resource_name = "doors_closed"
+length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("StaticBody3D:position")
+tracks/0/path = NodePath("door_left:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(-2, 1),
 "update": 0,
 "values": [Vector3(-1.12531, 0, 0), Vector3(0, 0, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("StaticBody3D2:position")
+tracks/1/path = NodePath("door_right:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(-2, 1),
 "update": 0,
 "values": [Vector3(1.08788, 0, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_iv1up"]
+resource_name = "doors_open"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("door_left:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(-2, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(-1.12531, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("door_right:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(-2, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(1.08788, 0, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xlb30"]
@@ -613,27 +618,33 @@ transform = Transform3D(1.8, 0, 0, 0, 0.6, 0, 0, 0, 1, -0.7, 3.7, 7.28576)
 mesh = SubResource("ArrayMesh_14e73")
 skeleton = NodePath("")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
+[node name="area_door_detect" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.29486, 2.00057, 6.31599)
 
-[node name="door-1" type="MeshInstance3D" parent="StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="area_door_detect"]
+shape = SubResource("BoxShape3D_b6ypa")
+
+[node name="door_left" type="StaticBody3D" parent="."]
+
+[node name="door-1" type="MeshInstance3D" parent="door_left"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.60001, 1.07093, 6.23515)
 mesh = SubResource("ArrayMesh_ixb06")
 skeleton = NodePath("")
 surface_material_override/1 = SubResource("StandardMaterial3D_rhobi")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="door_left"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.07615, 1.04639, 6.23952)
 shape = SubResource("BoxShape3D_03t2d")
 
-[node name="StaticBody3D2" type="StaticBody3D" parent="."]
+[node name="door_right" type="StaticBody3D" parent="."]
 
-[node name="door-2" type="MeshInstance3D" parent="StaticBody3D2"]
+[node name="door-2" type="MeshInstance3D" parent="door_right"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.49999, 1.06812, 6.23867)
 mesh = SubResource("ArrayMesh_xj3hs")
 skeleton = NodePath("")
 surface_material_override/1 = SubResource("StandardMaterial3D_a7d4f")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="door_right"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.02282, 1.0579, 6.23867)
 shape = SubResource("BoxShape3D_k5p5v")
 
@@ -661,3 +672,6 @@ shape = SubResource("BoxShape3D_d7j35")
 [node name="front_side_collider2" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.3, 3.05, 6.25206)
 shape = SubResource("BoxShape3D_6bqdq")
+
+[connection signal="body_entered" from="area_door_detect" to="." method="_on_area_door_detect_body_entered"]
+[connection signal="body_exited" from="area_door_detect" to="." method="_on_area_door_detect_body_exited"]
