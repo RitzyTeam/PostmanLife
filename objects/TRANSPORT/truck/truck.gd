@@ -7,7 +7,6 @@ var isEngineOn: bool = false
 var item: Dictionary = {
 	'id': 'car',
 	'res_fuel': 20.0,
-	'res_energy': 100.0,
 	'isPlayerInside': false
 }
 
@@ -25,7 +24,6 @@ var isFlashlightsOn: bool = false
 # RESOURCES
 var max_fuel: float = 20.0
 @export var consumption_fuel: float = 0.002 ## FUEL CONSUMPTION PER FRAME (DRIVING CAR)
-@export var consumption_energy: float = 0.001 ## ENERGY CONSUMPTION PER FRAME (LIGHTS AND ALERTS)
 # RUL ANIMATION
 var steer_points: float = 0.0
 var max_steer_points: float = 720.0
@@ -64,22 +62,18 @@ func _input(event):
 	if item.isPlayerInside:
 		if event.is_action_pressed('key_f'):
 			if isEngineOn:
-				if int(item.res_energy) > 0:
-					if not anim_flashlights.is_playing():
-						isFlashlightsOn = not isFlashlightsOn
-						if isFlashlightsOn:
-							lights_on()
-							$stat_flashlight/icon.texture = load('res://assets/images/res_flashlight_green.png')
-						else:
-							lights_off()
-							$stat_flashlight/icon.texture = load('res://assets/images/res_flashlight.png')
+				if not anim_flashlights.is_playing():
+					isFlashlightsOn = not isFlashlightsOn
+					if isFlashlightsOn:
+						lights_on()
+						$stat_flashlight/icon.texture = load('res://assets/images/res_flashlight_green.png')
+					else:
+						lights_off()
+						$stat_flashlight/icon.texture = load('res://assets/images/res_flashlight.png')
 		if event.is_action_pressed('rmb'):
 			if isEngineOn:
-				if int(item.res_energy) > 0:
-					if not $beep.playing:
-						$beep.play()
-						item.res_energy -= consumption_energy
-						$stat_energy/value.text = str(int(item.res_energy)) + '%'
+				if not $beep.playing:
+					$beep.play()
 		if event.is_action_pressed('key_e'):
 			leave()
 		if event.is_action_pressed('key_1'):
@@ -103,40 +97,24 @@ func _physics_process(delta):
 				item.res_fuel += 0.01
 				current_tank.item['litres'] -= 0.01
 				current_tank.item['weight'] = int(current_tank.item['litres'])
-				if int(item.res_energy) > 0:
-					$stat_fuel/value.text = str(int(item.res_fuel)) + 'л.'
+				$stat_fuel/value.text = str(int(item.res_fuel)) + 'л.'
 			else:
 				current_tank.freeze = false
 				current_tank = null
 		else:
 			current_tank.freeze = false
 			current_tank = null
-	if isFlashlightsOn:
-		item.res_energy -= consumption_energy
-		if int(item.res_energy) > 0:
-			$stat_energy/value.text = str(int(item.res_energy)) + '%'
-		else:
-			$stat_energy/value.text = '0%'
 	if isEngineOn:
-		item.res_energy -= consumption_energy
-		if int(item.res_energy) > 0:
-			$stat_energy/value.text = str(int(item.res_energy)) + '%'
-		else:
-			$stat_energy/value.text = '0%'
-			#isEngineOn = false
-			#$driving.stop()
-			if isFlashlightsOn:
-				$stat_flashlight/icon.texture = load('res://assets/images/res_flashlight.png')
-				lights_off()
+		if isFlashlightsOn:
+			$stat_flashlight/icon.texture = load('res://assets/images/res_flashlight.png')
+			lights_off()
 	if item.isPlayerInside:
 		SIN_WORLD_DATA.player_position = global_position
 		# UPDATE UI
 		var speed = int(abs(linear_velocity.x) + abs(linear_velocity.y) + abs(linear_velocity.z))
-		if int(item.res_energy) > 0:
-			$speedometer/speed.text = str(speed)
+		$speedometer/speed.text = str(speed)
 		# ANIMATE LEVER
-		if int(item.res_energy) > 0 and isEngineOn:
-			set_lever(speed)
+		set_lever(speed)
 		# DRIVING FUNCTION
 		if int(item.res_fuel) > 0 and isEngineOn:
 			var accel = Input.get_axis("move_backward", "move_foward")
@@ -151,14 +129,12 @@ func _physics_process(delta):
 			$driving.pitch_scale = lerp($driving.pitch_scale, 1.5, 0.05)
 			if item.res_fuel >= consumption_fuel:
 				item.res_fuel -= consumption_fuel
-			if int(item.res_energy) > 0:
-				$stat_fuel/value.text = str(int(item.res_fuel)) + 'л.'
+			$stat_fuel/value.text = str(int(item.res_fuel)) + 'л.'
 		elif Input.is_action_pressed('move_backward'):
 			$driving.pitch_scale = lerp($driving.pitch_scale, 0.7, 0.05)
 			if item.res_fuel >= consumption_fuel:
 				item.res_fuel -= consumption_fuel
-			if int(item.res_energy) > 0:
-				$stat_fuel/value.text = str(int(item.res_fuel)) + 'л.'
+			$stat_fuel/value.text = str(int(item.res_fuel)) + 'л.'
 		else:
 			$driving.pitch_scale = lerp($driving.pitch_scale, 1.0, 0.05)
 		# STEERING BY RUL
