@@ -49,7 +49,7 @@
 [ext_resource type="PackedScene" uid="uid://cfw050vcnfw5o" path="res://objects/MOBS/bird/bird.tscn" id="41_myaqo"]
 [ext_resource type="PackedScene" uid="uid://dk7h0364v60bg" path="res://objects/MOBS/ufo_giant/ufo_giant.tscn" id="44_cxhy8"]
 [ext_resource type="PackedScene" uid="uid://cj3k262mpcivg" path="res://objects/MOBS/bird_flying/flying_bird_spawner.tscn" id="45_kmw7s"]
-[ext_resource type="PackedScene" uid="uid://d10v00jrnljvf" path="res://objects/ENVIRONMENT/WEATHERS/weather_rainy.tscn" id="45_nnt07"]
+[ext_resource type="PackedScene" uid="uid://b0euagnkojkvw" path="res://objects/MOBS/rooster/rooster.tscn" id="45_olu8g"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_1gdrn"]
 noise_type = 3
@@ -104,7 +104,7 @@ shader_parameter/texture_normal2 = SubResource("NoiseTexture2D_npkdg")
 material = SubResource("ShaderMaterial_divvh")
 size = Vector2(2000, 600)
 
-[sub_resource type="Resource" id="Resource_3f0kf"]
+[sub_resource type="Resource" id="Resource_tmfjt"]
 script = ExtResource("19_6qlp7")
 amount = 500
 enabled = true
@@ -113,7 +113,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 1
 
-[sub_resource type="Resource" id="Resource_818fd"]
+[sub_resource type="Resource" id="Resource_3xo6o"]
 script = ExtResource("20_xv4po")
 position = Vector3(0.15, 0.15, 0.15)
 rotation = Vector3(0, 360, 0)
@@ -124,7 +124,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 2
 
-[sub_resource type="Resource" id="Resource_l4dpu"]
+[sub_resource type="Resource" id="Resource_4syna"]
 script = ExtResource("21_ai286")
 iterations = 3
 offset_step = 0.2
@@ -136,7 +136,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_jgshm"]
+[sub_resource type="Resource" id="Resource_g0muh"]
 script = ExtResource("22_k8kdo")
 ray_direction = Vector3(0, -1, 0)
 ray_length = 5.0
@@ -152,9 +152,9 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_mokl5"]
+[sub_resource type="Resource" id="Resource_002wb"]
 script = ExtResource("18_1fwha")
-stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_3f0kf"), SubResource("Resource_818fd"), SubResource("Resource_l4dpu"), SubResource("Resource_jgshm")])
+stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_tmfjt"), SubResource("Resource_3xo6o"), SubResource("Resource_4syna"), SubResource("Resource_g0muh")])
 
 [sub_resource type="Curve3D" id="Curve3D_2u2vc"]
 _data = {
@@ -169,7 +169,7 @@ closed = true
 thickness = 0.0
 curve = SubResource("Curve3D_2u2vc")
 
-[sub_resource type="Resource" id="Resource_7bw5y"]
+[sub_resource type="Resource" id="Resource_qcb7t"]
 script = ExtResource("19_6qlp7")
 amount = 2000
 enabled = true
@@ -178,7 +178,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 1
 
-[sub_resource type="Resource" id="Resource_a8pbn"]
+[sub_resource type="Resource" id="Resource_g0aep"]
 script = ExtResource("20_xv4po")
 position = Vector3(0.15, 0.15, 0.15)
 rotation = Vector3(1, 360, 1)
@@ -189,7 +189,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 2
 
-[sub_resource type="Resource" id="Resource_xkgvm"]
+[sub_resource type="Resource" id="Resource_ckf78"]
 script = ExtResource("21_ai286")
 iterations = 1
 offset_step = 0.1
@@ -201,7 +201,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_6gw4w"]
+[sub_resource type="Resource" id="Resource_y2srj"]
 script = ExtResource("22_k8kdo")
 ray_direction = Vector3(0, -1, 0)
 ray_length = 5.0
@@ -217,9 +217,9 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_43jy7"]
+[sub_resource type="Resource" id="Resource_eaqgy"]
 script = ExtResource("18_1fwha")
-stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_7bw5y"), SubResource("Resource_a8pbn"), SubResource("Resource_xkgvm"), SubResource("Resource_6gw4w")])
+stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_qcb7t"), SubResource("Resource_g0aep"), SubResource("Resource_ckf78"), SubResource("Resource_y2srj")])
 
 [sub_resource type="Curve3D" id="Curve3D_b4q5a"]
 _data = {
@@ -2198,7 +2198,7 @@ transform = Transform3D(-0.0662391, 0, -0.997804, 0, 1, 0, 0.997804, 0, -0.06623
 script = ExtResource("17_0tutk")
 global_seed = 20
 render_mode = 1
-modifier_stack = SubResource("Resource_mokl5")
+modifier_stack = SubResource("Resource_002wb")
 Performance/use_chunks = true
 Performance/chunk_dimensions = Vector3(15, 15, 15)
 
@@ -2226,7 +2226,7 @@ shape = SubResource("Resource_e18i2")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2032, 0, 1595)
 script = ExtResource("17_0tutk")
 render_mode = 1
-modifier_stack = SubResource("Resource_43jy7")
+modifier_stack = SubResource("Resource_eaqgy")
 Performance/use_chunks = true
 Performance/chunk_dimensions = Vector3(15, 15, 15)
 
@@ -2882,6 +2882,29 @@ transform = Transform3D(0.365689, 0, -0.930737, 0, 1, 0, 0.930737, 0, 0.365689, 
 [node name="bird_28" parent="MOBS/BIRDS" instance=ExtResource("41_myaqo")]
 transform = Transform3D(0.99367, 0, 0.112336, 0, 1, 0, -0.112336, 0, 0.99367, 909.602, 10.3357, 1541.92)
 
+[node name="ROOSTERS" type="Node" parent="MOBS"]
+
+[node name="rooster" parent="MOBS/ROOSTERS" instance=ExtResource("45_olu8g")]
+transform = Transform3D(0.904634, 0, -0.42619, 0, 1, 0, 0.42619, 0, 0.904634, 878.987, 0.0183144, 508.895)
+
+[node name="rooster2" parent="MOBS/ROOSTERS" instance=ExtResource("45_olu8g")]
+transform = Transform3D(0.992688, 0, -0.120709, 0, 1, 0, 0.120709, 0, 0.992688, 583.822, 0.0183144, 800.605)
+
+[node name="rooster3" parent="MOBS/ROOSTERS" instance=ExtResource("45_olu8g")]
+transform = Transform3D(0.834396, 0, 0.551165, 0, 1, 0, -0.551165, 0, 0.834396, 525.577, 0.0183144, 1227.25)
+
+[node name="rooster4" parent="MOBS/ROOSTERS" instance=ExtResource("45_olu8g")]
+transform = Transform3D(-0.854894, 0, 0.518803, 0, 1, 0, -0.518803, 0, -0.854894, 1011.44, 0.0183135, 1373.14)
+
+[node name="rooster5" parent="MOBS/ROOSTERS" instance=ExtResource("45_olu8g")]
+transform = Transform3D(0.149639, 0, 0.988741, 0, 1, 0, -0.988741, 0, 0.149639, 1076.93, 0.0183133, 904.706)
+
+[node name="rooster6" parent="MOBS/ROOSTERS" instance=ExtResource("45_olu8g")]
+transform = Transform3D(-0.316113, 0, 0.948722, 0, 1, 0, -0.948722, 0, -0.316113, 1619.38, 0.0183133, 1233.35)
+
+[node name="rooster7" parent="MOBS/ROOSTERS" instance=ExtResource("45_olu8g")]
+transform = Transform3D(-0.96535, 0, -0.260959, 0, 1, 0, 0.260959, 0, -0.96535, 158.882, 0.0183132, 1670.49)
+
 [node name="FLYING_BIRDS" type="Node" parent="MOBS"]
 
 [node name="flying_bird_spawner_1" parent="MOBS/FLYING_BIRDS" instance=ExtResource("45_kmw7s")]
@@ -2916,11 +2939,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 924.766, 15.0765, 2033.65)
 
 [node name="ufo_giant" parent="MOBS" instance=ExtResource("44_cxhy8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 796.773, 565.284, 1070.31)
-
-[node name="WEATHERS" type="Node" parent="."]
-
-[node name="WEATHER_RAINY" parent="WEATHERS" instance=ExtResource("45_nnt07")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1250, 236.371, 1250)
 
 [node name="WORLD_LIMITERS" type="Node" parent="."]
 

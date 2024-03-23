@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://ebql6u7l33sb"]
 
 [ext_resource type="PackedScene" uid="uid://cc1m2a1obsyn4" path="res://objects/player/player.tscn" id="1_vsp3c"]
-[ext_resource type="PackedScene" uid="uid://cj3k262mpcivg" path="res://objects/MOBS/bird_flying/flying_bird_spawner.tscn" id="2_11ubs"]
+[ext_resource type="PackedScene" uid="uid://b0euagnkojkvw" path="res://objects/MOBS/rooster/rooster.tscn" id="2_tg31m"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_mtor7"]
 size = Vector3(1000, 1, 1000)
@@ -40,5 +40,11 @@ transform = Transform3D(1, 0, 0, 0, 0.872564, 0.488499, 0, -0.488499, 0.872564, 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_vqgot")
 
-[node name="flying_bird_spawner" parent="." instance=ExtResource("2_11ubs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5767, 0)
+[node name="rooster" parent="." instance=ExtResource("2_tg31m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0333344, 0)
+
+[node name="rooster2" parent="." instance=ExtResource("2_tg31m")]
+transform = Transform3D(-0.960269, 0, -0.279075, 0, 1, 0, 0.279075, 0, -0.960269, 0.397394, 0.0333344, -0.668632)
+
+[node name="rooster3" parent="." instance=ExtResource("2_tg31m")]
+transform = Transform3D(0.883806, 0, -0.467853, 0, 1, 0, 0.467853, 0, 0.883806, 0.503722, 0.0333343, 0.559896)
