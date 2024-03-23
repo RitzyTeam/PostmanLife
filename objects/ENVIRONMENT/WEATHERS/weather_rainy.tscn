@@ -27,7 +27,6 @@ sections = 10
 curve = SubResource("Curve_d3jkf")
 
 [node name="WEATHER_RAINY" type="GPUParticles3D"]
-emitting = false
 amount = 16000
 lifetime = 20.0
 randomness = 0.5
