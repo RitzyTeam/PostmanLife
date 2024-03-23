@@ -1,4 +1,4 @@
-[gd_scene load_steps=73 format=3 uid="uid://c66dar30xo83l"]
+[gd_scene load_steps=74 format=3 uid="uid://c66dar30xo83l"]
 
 [ext_resource type="Script" path="res://scenes/world/World.gd" id="1_xxt06"]
 [ext_resource type="PackedScene" uid="uid://b6xb3m0mq55td" path="res://objects/ENVIRONMENT/ENV.tscn" id="3_7t5e4"]
@@ -50,6 +50,7 @@
 [ext_resource type="PackedScene" uid="uid://dk7h0364v60bg" path="res://objects/MOBS/ufo_giant/ufo_giant.tscn" id="44_cxhy8"]
 [ext_resource type="PackedScene" uid="uid://cj3k262mpcivg" path="res://objects/MOBS/bird_flying/flying_bird_spawner.tscn" id="45_kmw7s"]
 [ext_resource type="PackedScene" uid="uid://b0euagnkojkvw" path="res://objects/MOBS/rooster/rooster.tscn" id="45_olu8g"]
+[ext_resource type="PackedScene" uid="uid://cqxfli604ighe" path="res://objects/MOBS/cow/cow.tscn" id="46_elut0"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_1gdrn"]
 noise_type = 3
@@ -104,7 +105,7 @@ shader_parameter/texture_normal2 = SubResource("NoiseTexture2D_npkdg")
 material = SubResource("ShaderMaterial_divvh")
 size = Vector2(2000, 600)
 
-[sub_resource type="Resource" id="Resource_tmfjt"]
+[sub_resource type="Resource" id="Resource_5f8al"]
 script = ExtResource("19_6qlp7")
 amount = 500
 enabled = true
@@ -113,7 +114,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 1
 
-[sub_resource type="Resource" id="Resource_3xo6o"]
+[sub_resource type="Resource" id="Resource_bonyu"]
 script = ExtResource("20_xv4po")
 position = Vector3(0.15, 0.15, 0.15)
 rotation = Vector3(0, 360, 0)
@@ -124,7 +125,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 2
 
-[sub_resource type="Resource" id="Resource_4syna"]
+[sub_resource type="Resource" id="Resource_naqi4"]
 script = ExtResource("21_ai286")
 iterations = 3
 offset_step = 0.2
@@ -136,7 +137,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_g0muh"]
+[sub_resource type="Resource" id="Resource_eeqv1"]
 script = ExtResource("22_k8kdo")
 ray_direction = Vector3(0, -1, 0)
 ray_length = 5.0
@@ -152,9 +153,9 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_002wb"]
+[sub_resource type="Resource" id="Resource_7tgn1"]
 script = ExtResource("18_1fwha")
-stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_tmfjt"), SubResource("Resource_3xo6o"), SubResource("Resource_4syna"), SubResource("Resource_g0muh")])
+stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_5f8al"), SubResource("Resource_bonyu"), SubResource("Resource_naqi4"), SubResource("Resource_eeqv1")])
 
 [sub_resource type="Curve3D" id="Curve3D_2u2vc"]
 _data = {
@@ -169,7 +170,7 @@ closed = true
 thickness = 0.0
 curve = SubResource("Curve3D_2u2vc")
 
-[sub_resource type="Resource" id="Resource_qcb7t"]
+[sub_resource type="Resource" id="Resource_0l258"]
 script = ExtResource("19_6qlp7")
 amount = 2000
 enabled = true
@@ -178,7 +179,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 1
 
-[sub_resource type="Resource" id="Resource_g0aep"]
+[sub_resource type="Resource" id="Resource_5ana1"]
 script = ExtResource("20_xv4po")
 position = Vector3(0.15, 0.15, 0.15)
 rotation = Vector3(1, 360, 1)
@@ -189,7 +190,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 2
 
-[sub_resource type="Resource" id="Resource_ckf78"]
+[sub_resource type="Resource" id="Resource_tgs3q"]
 script = ExtResource("21_ai286")
 iterations = 1
 offset_step = 0.1
@@ -201,7 +202,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_y2srj"]
+[sub_resource type="Resource" id="Resource_vkodd"]
 script = ExtResource("22_k8kdo")
 ray_direction = Vector3(0, -1, 0)
 ray_length = 5.0
@@ -217,9 +218,9 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_eaqgy"]
+[sub_resource type="Resource" id="Resource_81tc7"]
 script = ExtResource("18_1fwha")
-stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_qcb7t"), SubResource("Resource_g0aep"), SubResource("Resource_ckf78"), SubResource("Resource_y2srj")])
+stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_0l258"), SubResource("Resource_5ana1"), SubResource("Resource_tgs3q"), SubResource("Resource_vkodd")])
 
 [sub_resource type="Curve3D" id="Curve3D_b4q5a"]
 _data = {
@@ -2198,7 +2199,7 @@ transform = Transform3D(-0.0662391, 0, -0.997804, 0, 1, 0, 0.997804, 0, -0.06623
 script = ExtResource("17_0tutk")
 global_seed = 20
 render_mode = 1
-modifier_stack = SubResource("Resource_002wb")
+modifier_stack = SubResource("Resource_7tgn1")
 Performance/use_chunks = true
 Performance/chunk_dimensions = Vector3(15, 15, 15)
 
@@ -2226,7 +2227,7 @@ shape = SubResource("Resource_e18i2")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2032, 0, 1595)
 script = ExtResource("17_0tutk")
 render_mode = 1
-modifier_stack = SubResource("Resource_eaqgy")
+modifier_stack = SubResource("Resource_81tc7")
 Performance/use_chunks = true
 Performance/chunk_dimensions = Vector3(15, 15, 15)
 
@@ -2885,25 +2886,75 @@ transform = Transform3D(0.99367, 0, 0.112336, 0, 1, 0, -0.112336, 0, 0.99367, 90
 [node name="ROOSTERS" type="Node" parent="MOBS"]
 
 [node name="rooster" parent="MOBS/ROOSTERS" instance=ExtResource("45_olu8g")]
-transform = Transform3D(0.904634, 0, -0.42619, 0, 1, 0, 0.42619, 0, 0.904634, 878.987, 0.0183144, 508.895)
+transform = Transform3D(0.904634, 0, -0.42619, 0, 1, 0, 0.42619, 0, 0.904634, 878.987, 0, 508.895)
 
 [node name="rooster2" parent="MOBS/ROOSTERS" instance=ExtResource("45_olu8g")]
-transform = Transform3D(0.992688, 0, -0.120709, 0, 1, 0, 0.120709, 0, 0.992688, 583.822, 0.0183144, 800.605)
+transform = Transform3D(0.992688, 0, -0.120709, 0, 1, 0, 0.120709, 0, 0.992688, 583.822, 0, 800.605)
 
 [node name="rooster3" parent="MOBS/ROOSTERS" instance=ExtResource("45_olu8g")]
-transform = Transform3D(0.834396, 0, 0.551165, 0, 1, 0, -0.551165, 0, 0.834396, 525.577, 0.0183144, 1227.25)
+transform = Transform3D(0.834396, 0, 0.551165, 0, 1, 0, -0.551165, 0, 0.834396, 525.577, 0, 1227.25)
 
 [node name="rooster4" parent="MOBS/ROOSTERS" instance=ExtResource("45_olu8g")]
-transform = Transform3D(-0.854894, 0, 0.518803, 0, 1, 0, -0.518803, 0, -0.854894, 1011.44, 0.0183135, 1373.14)
+transform = Transform3D(-0.854894, 0, 0.518803, 0, 1, 0, -0.518803, 0, -0.854894, 1011.44, 0, 1373.14)
 
 [node name="rooster5" parent="MOBS/ROOSTERS" instance=ExtResource("45_olu8g")]
-transform = Transform3D(0.149639, 0, 0.988741, 0, 1, 0, -0.988741, 0, 0.149639, 1076.93, 0.0183133, 904.706)
+transform = Transform3D(0.149639, 0, 0.988741, 0, 1, 0, -0.988741, 0, 0.149639, 1076.93, 0, 904.706)
 
 [node name="rooster6" parent="MOBS/ROOSTERS" instance=ExtResource("45_olu8g")]
-transform = Transform3D(-0.316113, 0, 0.948722, 0, 1, 0, -0.948722, 0, -0.316113, 1619.38, 0.0183133, 1233.35)
+transform = Transform3D(-0.316113, 0, 0.948722, 0, 1, 0, -0.948722, 0, -0.316113, 1619.38, 0, 1233.35)
 
 [node name="rooster7" parent="MOBS/ROOSTERS" instance=ExtResource("45_olu8g")]
-transform = Transform3D(-0.96535, 0, -0.260959, 0, 1, 0, 0.260959, 0, -0.96535, 158.882, 0.0183132, 1670.49)
+transform = Transform3D(-0.96535, 0, -0.260959, 0, 1, 0, 0.260959, 0, -0.96535, 158.882, 0, 1670.49)
+
+[node name="COWS" type="Node" parent="MOBS"]
+
+[node name="cow" parent="MOBS/COWS" instance=ExtResource("46_elut0")]
+transform = Transform3D(0.600057, 0, 0.799957, 0, 1, 0, -0.799957, 0, 0.600057, 35.4694, 1.90735e-06, 1781.28)
+
+[node name="cow2" parent="MOBS/COWS" instance=ExtResource("46_elut0")]
+transform = Transform3D(-0.579992, 0, -0.814622, 0, 1, 0, 0.814622, 0, -0.579992, 38.0243, 0.0154833, 1783.2)
+
+[node name="cow3" parent="MOBS/COWS" instance=ExtResource("46_elut0")]
+transform = Transform3D(-0.980129, 0, 0.198359, 0, 1, 0, -0.198359, 0, -0.980129, 41.7512, 0.0154833, 1806.06)
+
+[node name="cow4" parent="MOBS/COWS" instance=ExtResource("46_elut0")]
+transform = Transform3D(-0.806217, 0, -0.591619, 0, 1, 0, 0.591619, 0, -0.806217, 50.8471, 0.0154833, 1792.29)
+
+[node name="cow5" parent="MOBS/COWS" instance=ExtResource("46_elut0")]
+transform = Transform3D(-0.806217, 0, -0.591619, 0, 1, 0, 0.591619, 0, -0.806217, 356.847, 0.0154852, 1346.26)
+
+[node name="cow6" parent="MOBS/COWS" instance=ExtResource("46_elut0")]
+transform = Transform3D(0.447275, 0, 0.894396, 0, 1, 0, -0.894396, 0, 0.447275, 811.336, 0.0155014, 1436.06)
+
+[node name="cow7" parent="MOBS/COWS" instance=ExtResource("46_elut0")]
+transform = Transform3D(0.771391, 0, -0.636361, 0, 1, 0, 0.636361, 0, 0.771391, 814.466, 0.0155014, 1435.77)
+
+[node name="cow8" parent="MOBS/COWS" instance=ExtResource("46_elut0")]
+transform = Transform3D(0.771391, 0, -0.636361, 0, 1, 0, 0.636361, 0, 0.771391, 1127.03, 0.0155014, 1098.22)
+
+[node name="cow9" parent="MOBS/COWS" instance=ExtResource("46_elut0")]
+transform = Transform3D(-0.560726, 0, -0.828002, 0, 1, 0, 0.828002, 0, -0.560726, 1127.12, 0.0155014, 1100.83)
+
+[node name="cow10" parent="MOBS/COWS" instance=ExtResource("46_elut0")]
+transform = Transform3D(-0.560726, 0, -0.828002, 0, 1, 0, 0.828002, 0, -0.560726, 1588.31, 0.0155014, 1357.24)
+
+[node name="cow11" parent="MOBS/COWS" instance=ExtResource("46_elut0")]
+transform = Transform3D(0.326558, 0, -0.945177, 0, 1, 0, 0.945177, 0, 0.326558, 1589.9, 0.0155014, 1349.75)
+
+[node name="cow12" parent="MOBS/COWS" instance=ExtResource("46_elut0")]
+transform = Transform3D(-0.927053, 0, 0.37493, 0, 1, 0, -0.37493, 0, -0.927053, 1582.69, 0.0155014, 1354.35)
+
+[node name="cow13" parent="MOBS/COWS" instance=ExtResource("46_elut0")]
+transform = Transform3D(-0.927053, 0, 0.37493, 0, 1, 0, -0.37493, 0, -0.927053, 1316.64, 0.0155014, 1657.64)
+
+[node name="cow14" parent="MOBS/COWS" instance=ExtResource("46_elut0")]
+transform = Transform3D(-0.0725419, 0, 0.997365, 0, 1, 0, -0.997365, 0, -0.0725419, 1314.16, 0.0155014, 1656.1)
+
+[node name="cow15" parent="MOBS/COWS" instance=ExtResource("46_elut0")]
+transform = Transform3D(0.999506, 0, 0.0314456, 0, 1, 0, -0.0314456, 0, 0.999506, 1318.86, 0.0155014, 1666.25)
+
+[node name="cow16" parent="MOBS/COWS" instance=ExtResource("46_elut0")]
+transform = Transform3D(-0.738702, 0, 0.674032, 0, 1, 0, -0.674032, 0, -0.738702, 1311.41, 0.0155014, 1665.47)
 
 [node name="FLYING_BIRDS" type="Node" parent="MOBS"]
 
