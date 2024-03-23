@@ -1,11 +1,16 @@
-[gd_scene load_steps=6 format=3 uid="uid://chxxjcj1lvsv0"]
+[gd_scene load_steps=12 format=3 uid="uid://chxxjcj1lvsv0"]
 
+[ext_resource type="Script" path="res://objects/MOBS/dog/dog.gd" id="1_3ypl5"]
 [ext_resource type="Texture2D" uid="uid://whwgj0wshh8m" path="res://assets/models/mobs/dog/dog_0.png" id="1_cgk54"]
+[ext_resource type="AudioStream" uid="uid://cbk0i5osydh1u" path="res://assets/sounds/MOBS/dog/dog_bark_1.mp3" id="2_2kwgc"]
+[ext_resource type="AudioStream" uid="uid://chtbj0iygitey" path="res://assets/sounds/MOBS/dog/dog_bark_2.mp3" id="3_i3o48"]
+[ext_resource type="AudioStream" uid="uid://dkejju1ct1n5d" path="res://assets/sounds/MOBS/dog/dog_bark_3.mp3" id="4_sig0c"]
+[ext_resource type="AudioStream" uid="uid://bppmr3jkxcwyb" path="res://assets/sounds/MOBS/dog/dog_bark_4.mp3" id="5_bt8my"]
+[ext_resource type="AudioStream" uid="uid://dtibusqprskdh" path="res://assets/sounds/MOBS/dog/dog_bark_5.mp3" id="6_5dmep"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pkdt1"]
 resource_name = "Scene_-_Root"
 cull_mode = 2
-albedo_color = Color(1, 1, 1, 1)
 albedo_texture = ExtResource("1_cgk54")
 roughness = 0.500284
 
@@ -121,6 +126,7 @@ bind/27/pose = Transform3D(-1, 8.87034e-06, 3.25684e-06, -2.82557e-09, -0.344663
 size = Vector3(0.29, 0.794, 0.978027)
 
 [node name="dog" type="StaticBody3D"]
+script = ExtResource("1_3ypl5")
 
 [node name="Object_7" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
@@ -130,3 +136,27 @@ skin = SubResource("Skin_iggle")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.395992, -0.0109863)
 shape = SubResource("BoxShape3D_kc2pw")
+
+[node name="bark_1" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("2_2kwgc")
+max_distance = 50.0
+
+[node name="bark_2" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_i3o48")
+max_distance = 50.0
+
+[node name="bark_3" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("4_sig0c")
+max_distance = 50.0
+
+[node name="bark_4" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("5_bt8my")
+max_distance = 50.0
+
+[node name="bark_5" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("6_5dmep")
+max_distance = 50.0
+
+[node name="bark_interval" type="Timer" parent="."]
+
+[connection signal="timeout" from="bark_interval" to="." method="_on_bark_interval_timeout"]
