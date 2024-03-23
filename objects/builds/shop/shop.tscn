@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://cgwmmrqi4x7pq"]
+[gd_scene load_steps=47 format=3 uid="uid://cgwmmrqi4x7pq"]
 
 [ext_resource type="Script" path="res://objects/builds/shop/shop.gd" id="1_0ixlr"]
 [ext_resource type="PackedScene" uid="uid://c6p71275y13dw" path="res://objects/furniture/shop_furniture/shop_shelf.tscn" id="2_t0tf4"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://kud2507bmhtk" path="res://objects/PROPS/FOOD/tin_can/tin_can.tscn" id="5_xhdjh"]
 [ext_resource type="PackedScene" uid="uid://c5lm3hccttrma" path="res://objects/PROPS/FOOD/chocolate_bar/chocolate_bar.tscn" id="6_3cj28"]
 [ext_resource type="PackedScene" uid="uid://cjgjffiykv7il" path="res://objects/PROPS/FOOD/coffee_can/coffee_can.tscn" id="7_3puqt"]
+[ext_resource type="PackedScene" uid="uid://6pwv8i6o71wk" path="res://objects/PROPS/FOOD/sandwich/sandwich.tscn" id="8_huqlg"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vx7m0"]
 resource_name = "main"
@@ -778,6 +779,23 @@ transform = Transform3D(-0.11485, 0, 0.993383, 0, 1, 0, -0.993383, 0, -0.11485, 
 
 [node name="coffee_can5" parent="shop_props/coffee" instance=ExtResource("7_3puqt")]
 transform = Transform3D(-0.11485, 0, 0.993383, 0, 1, 0, -0.993383, 0, -0.11485, -1.6, 1.44262, -2.2)
+
+[node name="sandwiches" type="Node3D" parent="shop_props"]
+
+[node name="sandwich" parent="shop_props/sandwiches" instance=ExtResource("8_huqlg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7, 1.31812, -3.5)
+
+[node name="sandwich2" parent="shop_props/sandwiches" instance=ExtResource("8_huqlg")]
+transform = Transform3D(0.819152, 0, -0.573576, 0, 1, 0, 0.573576, 0, 0.819152, -1.7, 1.31812, -4.3)
+
+[node name="sandwich3" parent="shop_props/sandwiches" instance=ExtResource("8_huqlg")]
+transform = Transform3D(0.819152, 0, -0.573576, 0, 1, 0, 0.573576, 0, 0.819152, -1.4, 1.31812, -4.8)
+
+[node name="sandwich4" parent="shop_props/sandwiches" instance=ExtResource("8_huqlg")]
+transform = Transform3D(0.819152, 0, -0.573576, 0, 1, 0, 0.573576, 0, 0.819152, -1.8, 1.31812, -5.6)
+
+[node name="sandwich5" parent="shop_props/sandwiches" instance=ExtResource("8_huqlg")]
+transform = Transform3D(0.819152, 0, -0.573576, 0, 1, 0, 0.573576, 0, 0.819152, -1.3, 1.31812, -5.3)
 
 [connection signal="body_entered" from="area_door_detect" to="." method="_on_area_door_detect_body_entered"]
 [connection signal="body_exited" from="area_door_detect" to="." method="_on_area_door_detect_body_exited"]
