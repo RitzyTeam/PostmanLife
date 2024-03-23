@@ -1,11 +1,12 @@
-[gd_scene load_steps=45 format=3 uid="uid://cgwmmrqi4x7pq"]
+[gd_scene load_steps=46 format=3 uid="uid://cgwmmrqi4x7pq"]
 
 [ext_resource type="Script" path="res://objects/builds/shop/shop.gd" id="1_0ixlr"]
-[ext_resource type="PackedScene" uid="uid://kud2507bmhtk" path="res://objects/furniture/shop_furniture/shop_props/tin_can.tscn" id="2_rnd4k"]
 [ext_resource type="PackedScene" uid="uid://c6p71275y13dw" path="res://objects/furniture/shop_furniture/shop_shelf.tscn" id="2_t0tf4"]
 [ext_resource type="PackedScene" uid="uid://78aberad0jm4" path="res://objects/furniture/shop_furniture/shop_fridge.tscn" id="3_xkhjp"]
 [ext_resource type="PackedScene" uid="uid://dauv1yu55ffwp" path="res://objects/furniture/shop_furniture/shop_kassa.tscn" id="4_1f6r6"]
-[ext_resource type="PackedScene" uid="uid://cuv1aay4k7yhp" path="res://assets/models/props/shop_props/chocolate_bar.glb" id="6_x5fcq"]
+[ext_resource type="PackedScene" uid="uid://kud2507bmhtk" path="res://objects/PROPS/FOOD/tin_can/tin_can.tscn" id="5_xhdjh"]
+[ext_resource type="PackedScene" uid="uid://c5lm3hccttrma" path="res://objects/PROPS/FOOD/chocolate_bar/chocolate_bar.tscn" id="6_3cj28"]
+[ext_resource type="PackedScene" uid="uid://cjgjffiykv7il" path="res://objects/PROPS/FOOD/coffee_can/coffee_can.tscn" id="7_3puqt"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vx7m0"]
 resource_name = "main"
@@ -680,41 +681,6 @@ shape = SubResource("BoxShape3D_6bqdq")
 
 [node name="shop_props" type="Node3D" parent="."]
 
-[node name="tin_cans" type="Node3D" parent="shop_props"]
-
-[node name="tin_can" parent="shop_props/tin_cans" instance=ExtResource("2_rnd4k")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4, 0.533252, 0)
-
-[node name="tin_can2" parent="shop_props/tin_cans" instance=ExtResource("2_rnd4k")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.76811, 0.533252, 0)
-
-[node name="tin_can3" parent="shop_props/tin_cans" instance=ExtResource("2_rnd4k")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.58735, 0.533252, -0.355087)
-
-[node name="tin_can4" parent="shop_props/tin_cans" instance=ExtResource("2_rnd4k")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.76857, 0.533252, -0.790036)
-
-[node name="tin_can5" parent="shop_props/tin_cans" instance=ExtResource("2_rnd4k")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.26857, 0.533252, -0.790036)
-
-[node name="tin_can6" parent="shop_props/tin_cans" instance=ExtResource("2_rnd4k")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.76857, 0.533252, -1.39004)
-
-[node name="tin_can7" parent="shop_props/tin_cans" instance=ExtResource("2_rnd4k")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.36857, 0.533252, -1.19004)
-
-[node name="tin_can8" parent="shop_props/tin_cans" instance=ExtResource("2_rnd4k")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.36857, 0.533252, -1.79004)
-
-[node name="tin_can9" parent="shop_props/tin_cans" instance=ExtResource("2_rnd4k")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.76857, 0.533252, -1.79004)
-
-[node name="tin_can10" parent="shop_props/tin_cans" instance=ExtResource("2_rnd4k")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.46857, 0.533252, -2.39004)
-
-[node name="tin_can11" parent="shop_props/tin_cans" instance=ExtResource("2_rnd4k")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.76857, 0.533252, -2.19004)
-
 [node name="furniture" type="Node3D" parent="shop_props"]
 
 [node name="shop_shelf" parent="shop_props/furniture" instance=ExtResource("2_t0tf4")]
@@ -744,25 +710,74 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4.6, 0
 [node name="shop_kassa" parent="shop_props/furniture" instance=ExtResource("4_1f6r6")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5.2, 0, 3.3)
 
+[node name="tin_cans" type="Node3D" parent="shop_props"]
+
+[node name="tin_can" parent="shop_props/tin_cans" instance=ExtResource("5_xhdjh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4, 0.533252, 0)
+
+[node name="tin_can2" parent="shop_props/tin_cans" instance=ExtResource("5_xhdjh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.76811, 0.533252, 0)
+
+[node name="tin_can3" parent="shop_props/tin_cans" instance=ExtResource("5_xhdjh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.58735, 0.533252, -0.355087)
+
+[node name="tin_can4" parent="shop_props/tin_cans" instance=ExtResource("5_xhdjh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.76857, 0.533252, -0.790036)
+
+[node name="tin_can5" parent="shop_props/tin_cans" instance=ExtResource("5_xhdjh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.26857, 0.533252, -0.790036)
+
+[node name="tin_can6" parent="shop_props/tin_cans" instance=ExtResource("5_xhdjh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.76857, 0.533252, -1.39004)
+
+[node name="tin_can7" parent="shop_props/tin_cans" instance=ExtResource("5_xhdjh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.36857, 0.533252, -1.19004)
+
+[node name="tin_can8" parent="shop_props/tin_cans" instance=ExtResource("5_xhdjh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.36857, 0.533252, -1.79004)
+
+[node name="tin_can9" parent="shop_props/tin_cans" instance=ExtResource("5_xhdjh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.76857, 0.533252, -1.79004)
+
+[node name="tin_can10" parent="shop_props/tin_cans" instance=ExtResource("5_xhdjh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.46857, 0.533252, -2.39004)
+
+[node name="tin_can11" parent="shop_props/tin_cans" instance=ExtResource("5_xhdjh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.76857, 0.533252, -2.19004)
+
 [node name="chocolates" type="Node3D" parent="shop_props"]
 
-[node name="chocolate_bar" parent="shop_props/chocolates" instance=ExtResource("6_x5fcq")]
-transform = Transform3D(0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, 0.5, -1.5, 0.536355, -3.3)
+[node name="chocolate_bar" parent="shop_props/chocolates" instance=ExtResource("6_3cj28")]
+transform = Transform3D(0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, 0.5, -1.4, 0.535048, -3.5)
 
-[node name="chocolate_bar2" parent="shop_props/chocolates" instance=ExtResource("6_x5fcq")]
-transform = Transform3D(0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, -1.4, 0.536355, -3.8)
+[node name="chocolate_bar2" parent="shop_props/chocolates" instance=ExtResource("6_3cj28")]
+transform = Transform3D(0.939693, 0, 0.34202, 0, 1, 0, -0.34202, 0, 0.939693, -1.4, 0.535048, -3.9)
 
-[node name="chocolate_bar3" parent="shop_props/chocolates" instance=ExtResource("6_x5fcq")]
-transform = Transform3D(0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, 0.258819, -1.4, 0.536355, -4.5)
+[node name="chocolate_bar3" parent="shop_props/chocolates" instance=ExtResource("6_3cj28")]
+transform = Transform3D(0.906308, 0, -0.422618, 0, 1, 0, 0.422618, 0, 0.906308, -1.6, 0.535048, -4.3)
 
-[node name="chocolate_bar4" parent="shop_props/chocolates" instance=ExtResource("6_x5fcq")]
-transform = Transform3D(0.173648, 0, 0.984808, 0, 1, 0, -0.984808, 0, 0.173648, -1.4, 0.536355, -5.3)
+[node name="chocolate_bar4" parent="shop_props/chocolates" instance=ExtResource("6_3cj28")]
+transform = Transform3D(0.906308, 0, -0.422618, 0, 1, 0, 0.422618, 0, 0.906308, -1.4, 0.535048, -4.9)
 
-[node name="chocolate_bar5" parent="shop_props/chocolates" instance=ExtResource("6_x5fcq")]
-transform = Transform3D(-0.906308, 0, 0.422618, 0, 1, 0, -0.422618, 0, -0.906308, -1.8, 0.536355, -5)
+[node name="chocolate_bar5" parent="shop_props/chocolates" instance=ExtResource("6_3cj28")]
+transform = Transform3D(0.939693, 0, 0.34202, 0, 1, 0, -0.34202, 0, 0.939693, -1.7, 0.535048, -5.5)
 
-[node name="chocolate_bar6" parent="shop_props/chocolates" instance=ExtResource("6_x5fcq")]
-transform = Transform3D(0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, 0.5, -1.5, 0.536355, -5.9)
+[node name="coffee" type="Node3D" parent="shop_props"]
+
+[node name="coffee_can" parent="shop_props/coffee" instance=ExtResource("7_3puqt")]
+transform = Transform3D(-0.11485, 0, 0.993383, 0, 1, 0, -0.993383, 0, -0.11485, -1.4, 1.44262, 0)
+
+[node name="coffee_can2" parent="shop_props/coffee" instance=ExtResource("7_3puqt")]
+transform = Transform3D(-0.11485, 0, 0.993383, 0, 1, 0, -0.993383, 0, -0.11485, -1.6, 1.44262, -0.5)
+
+[node name="coffee_can3" parent="shop_props/coffee" instance=ExtResource("7_3puqt")]
+transform = Transform3D(-0.11485, 0, 0.993383, 0, 1, 0, -0.993383, 0, -0.11485, -1.4, 1.44262, -1)
+
+[node name="coffee_can4" parent="shop_props/coffee" instance=ExtResource("7_3puqt")]
+transform = Transform3D(-0.11485, 0, 0.993383, 0, 1, 0, -0.993383, 0, -0.11485, -1.2, 1.44262, -1.6)
+
+[node name="coffee_can5" parent="shop_props/coffee" instance=ExtResource("7_3puqt")]
+transform = Transform3D(-0.11485, 0, 0.993383, 0, 1, 0, -0.993383, 0, -0.11485, -1.6, 1.44262, -2.2)
 
 [connection signal="body_entered" from="area_door_detect" to="." method="_on_area_door_detect_body_entered"]
 [connection signal="body_exited" from="area_door_detect" to="." method="_on_area_door_detect_body_exited"]
