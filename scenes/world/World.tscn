@@ -1,4 +1,4 @@
-[gd_scene load_steps=74 format=3 uid="uid://c66dar30xo83l"]
+[gd_scene load_steps=75 format=3 uid="uid://c66dar30xo83l"]
 
 [ext_resource type="Script" path="res://scenes/world/World.gd" id="1_xxt06"]
 [ext_resource type="PackedScene" uid="uid://b6xb3m0mq55td" path="res://objects/ENVIRONMENT/ENV.tscn" id="3_7t5e4"]
@@ -51,6 +51,7 @@
 [ext_resource type="PackedScene" uid="uid://cj3k262mpcivg" path="res://objects/MOBS/bird_flying/flying_bird_spawner.tscn" id="45_kmw7s"]
 [ext_resource type="PackedScene" uid="uid://b0euagnkojkvw" path="res://objects/MOBS/rooster/rooster.tscn" id="45_olu8g"]
 [ext_resource type="PackedScene" uid="uid://cqxfli604ighe" path="res://objects/MOBS/cow/cow.tscn" id="46_elut0"]
+[ext_resource type="PackedScene" uid="uid://chxxjcj1lvsv0" path="res://objects/MOBS/dog/dog.tscn" id="48_58eqe"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_1gdrn"]
 noise_type = 3
@@ -105,7 +106,7 @@ shader_parameter/texture_normal2 = SubResource("NoiseTexture2D_npkdg")
 material = SubResource("ShaderMaterial_divvh")
 size = Vector2(2000, 600)
 
-[sub_resource type="Resource" id="Resource_ssmcg"]
+[sub_resource type="Resource" id="Resource_oeyc5"]
 script = ExtResource("19_6qlp7")
 amount = 500
 enabled = true
@@ -114,7 +115,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 1
 
-[sub_resource type="Resource" id="Resource_b83ea"]
+[sub_resource type="Resource" id="Resource_jidbv"]
 script = ExtResource("20_xv4po")
 position = Vector3(0.15, 0.15, 0.15)
 rotation = Vector3(0, 360, 0)
@@ -125,7 +126,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 2
 
-[sub_resource type="Resource" id="Resource_uu0gx"]
+[sub_resource type="Resource" id="Resource_ajfyg"]
 script = ExtResource("21_ai286")
 iterations = 3
 offset_step = 0.2
@@ -137,7 +138,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_u2vd2"]
+[sub_resource type="Resource" id="Resource_fv3p0"]
 script = ExtResource("22_k8kdo")
 ray_direction = Vector3(0, -1, 0)
 ray_length = 5.0
@@ -153,9 +154,9 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_2xd5y"]
+[sub_resource type="Resource" id="Resource_2la43"]
 script = ExtResource("18_1fwha")
-stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_ssmcg"), SubResource("Resource_b83ea"), SubResource("Resource_uu0gx"), SubResource("Resource_u2vd2")])
+stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_oeyc5"), SubResource("Resource_jidbv"), SubResource("Resource_ajfyg"), SubResource("Resource_fv3p0")])
 
 [sub_resource type="Curve3D" id="Curve3D_2u2vc"]
 _data = {
@@ -170,7 +171,7 @@ closed = true
 thickness = 0.0
 curve = SubResource("Curve3D_2u2vc")
 
-[sub_resource type="Resource" id="Resource_airnr"]
+[sub_resource type="Resource" id="Resource_rs8ax"]
 script = ExtResource("19_6qlp7")
 amount = 2000
 enabled = true
@@ -179,7 +180,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 1
 
-[sub_resource type="Resource" id="Resource_puyr2"]
+[sub_resource type="Resource" id="Resource_o7mxw"]
 script = ExtResource("20_xv4po")
 position = Vector3(0.15, 0.15, 0.15)
 rotation = Vector3(1, 360, 1)
@@ -190,7 +191,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 2
 
-[sub_resource type="Resource" id="Resource_40yvt"]
+[sub_resource type="Resource" id="Resource_y3ef4"]
 script = ExtResource("21_ai286")
 iterations = 1
 offset_step = 0.1
@@ -202,7 +203,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_f0hay"]
+[sub_resource type="Resource" id="Resource_84tgn"]
 script = ExtResource("22_k8kdo")
 ray_direction = Vector3(0, -1, 0)
 ray_length = 5.0
@@ -218,9 +219,9 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_hy32l"]
+[sub_resource type="Resource" id="Resource_6imu5"]
 script = ExtResource("18_1fwha")
-stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_airnr"), SubResource("Resource_puyr2"), SubResource("Resource_40yvt"), SubResource("Resource_f0hay")])
+stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_rs8ax"), SubResource("Resource_o7mxw"), SubResource("Resource_y3ef4"), SubResource("Resource_84tgn")])
 
 [sub_resource type="Curve3D" id="Curve3D_5x2ru"]
 _data = {
@@ -2183,7 +2184,7 @@ transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, 1161.46, -1.90735e-06, 1411.
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 mesh_library = ExtResource("23_q1m3v")
 data = {
-"cells": PackedInt32Array(854, 634, 1048580, 845, 690, 655363, 848, 661, 655362, 854, 656, 655361, 854, 699, 1048581, 808, 687, 1441797, 810, 655, 1441792, 797, 676, 1048580, 790, 630, 1048581, 787, 650, 655363, 797, 610, 1048579, 808, 618, 4, 759, 714, 655365, 504, 688, 5, 538, 701, 3, 707, 547, 655365, 758, 539, 655364, 755, 540, 1441794, 747, 540, 1441793, 425, 241, 1048577, 431, 226, 1048580, 389, 232, 1441797, 395, 256, 1048581, 350, 272, 1441796, 353, 243, 1441796, 344, 395, 1048580, 290, 398, 1441797, 280, 568, 0, 263, 615, 5, 252, 652, 655361, 211, 689, 1, 89, 798, 655361, 79, 841, 1048580, 80, 833, 655365, 34, 831, 1441797, 37, 813, 655364, 108, 886, 0, 85, 899, 655360, 240, 776, 1441792, 250, 794, 5, 260, 791, 1, 519, 752, 1048577, 530, 753, 4, 597, 710, 5, 626, 710, 4, 601, 703, 2, 615, 703, 655363, 628, 644, 1048579, 611, 582, 1441797, 611, 579, 1441797, 611, 576, 1441797, 611, 573, 1441797, 536, 451, 1441797, 546, 432, 655361, 548, 421, 1441795, 579, 432, 1048580, 582, 332, 1441796, 632, 340, 1048576, 577, 377, 1441792, 618, 392, 1048579, 700, 603, 655364, 703, 603, 655365, 706, 603, 655364, 709, 603, 655360, 812, 523, 655360, 823, 523, 655365, 828, 533, 1441794, 779, 529, 655364, 782, 529, 655364, 785, 529, 655364, 788, 529, 655364, 653, 784, 1441797, 700, 773, 1048580, 686, 773, 2, 655, 822, 4, 693, 809, 5, 729, 794, 1048576, 816, 731, 655360, 837, 738, 1048576, 844, 764, 3, 151, 755, 655365, 135, 770, 1441797, 26, 892, 1441797, 18, 901, 1441797, 15, 885, 1441797, 58, 878, 1441797, 16, 893, 1441796, 8, 901, 1441796, 180, 665, 655360, 150, 703, 1441792, 36, 584, 655365, 182, 458, 5, 223, 459, 0, 182, 410, 655364, 238, 408, 655365, 65815, 453, 1441793, 65811, 462, 1048580, 65805, 459, 1441795, 65931, 454, 3, 645, 583, 1441792, 644, 604, 1441797, 648, 560, 655364, 610, 554, 1441796, 867, 586, 1048581, 868, 580, 1441793, 865, 568, 655363, 782, 541, 2, 667, 647, 5, 670, 709, 1441792, 343, 441, 1441792, 513, 242, 1048576, 520, 205, 1048580, 524, 189, 1048581)
+"cells": PackedInt32Array(854, 634, 1048580, 845, 690, 655363, 848, 661, 655362, 854, 656, 655361, 854, 699, 1048581, 808, 687, 1441797, 810, 655, 1441792, 797, 676, 1048580, 790, 630, 1048581, 787, 650, 655363, 797, 610, 1048579, 808, 618, 4, 759, 714, 655365, 504, 688, 5, 538, 701, 3, 707, 547, 655365, 758, 539, 655364, 755, 540, 1441794, 747, 540, 1441793, 425, 241, 1048577, 431, 226, 1048580, 389, 232, 1441797, 395, 256, 1048581, 350, 272, 1441796, 353, 243, 1441796, 344, 395, 1048580, 290, 398, 1441797, 280, 568, 0, 263, 615, 5, 252, 652, 655361, 211, 689, 1, 89, 798, 655361, 79, 841, 1048580, 80, 833, 655365, 34, 831, 1441797, 37, 813, 655364, 108, 886, 0, 85, 899, 655360, 240, 776, 1441792, 250, 794, 5, 260, 791, 1, 519, 752, 1048577, 530, 753, 4, 597, 710, 5, 626, 710, 4, 601, 703, 2, 615, 703, 655363, 628, 644, 1048579, 611, 582, 1441797, 611, 579, 1441797, 611, 576, 1441797, 611, 573, 1441797, 536, 451, 1441797, 546, 432, 655361, 548, 421, 1441795, 579, 432, 1048580, 582, 332, 1441796, 632, 340, 1048576, 577, 377, 1441792, 618, 392, 1048579, 700, 603, 655364, 703, 603, 655365, 706, 603, 655364, 709, 603, 655360, 812, 523, 655360, 823, 523, 655365, 828, 533, 1441794, 779, 529, 655364, 782, 529, 655364, 785, 529, 655364, 788, 529, 655364, 653, 784, 1441797, 700, 773, 1048580, 686, 773, 2, 655, 822, 4, 693, 809, 5, 729, 794, 1048576, 816, 731, 655360, 837, 738, 1048576, 844, 764, 3, 151, 755, 655365, 135, 770, 1441797, 26, 892, 1441797, 18, 901, 1441797, 15, 885, 1441797, 58, 878, 1441797, 16, 893, 1441796, 8, 901, 1441796, 180, 665, 655360, 150, 703, 1441792, 36, 584, 655365, 182, 458, 5, 223, 459, 0, 182, 410, 655364, 238, 408, 655365, 65931, 454, 3, 645, 583, 1441792, 644, 604, 1441797, 648, 560, 655364, 610, 554, 1441796, 867, 586, 1048581, 868, 580, 1441793, 865, 568, 655363, 782, 541, 2, 667, 647, 5, 670, 709, 1441792, 343, 441, 1441792, 513, 242, 1048576, 520, 205, 1048580, 524, 189, 1048581, 274, 468, 4, 263, 445, 1, 275, 458, 3, 35, 867, 3, 533, 741, 3)
 }
 metadata/_editor_floor_ = Vector3(0, 0, 0)
 
@@ -2199,7 +2200,7 @@ transform = Transform3D(-0.0662391, 0, -0.997804, 0, 1, 0, 0.997804, 0, -0.06623
 script = ExtResource("17_0tutk")
 global_seed = 20
 render_mode = 1
-modifier_stack = SubResource("Resource_2xd5y")
+modifier_stack = SubResource("Resource_2la43")
 Performance/use_chunks = true
 Performance/chunk_dimensions = Vector3(15, 15, 15)
 
@@ -2227,7 +2228,7 @@ shape = SubResource("Resource_e18i2")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2032, 0, 1595)
 script = ExtResource("17_0tutk")
 render_mode = 1
-modifier_stack = SubResource("Resource_hy32l")
+modifier_stack = SubResource("Resource_6imu5")
 Performance/use_chunks = true
 Performance/chunk_dimensions = Vector3(15, 15, 15)
 
@@ -2987,6 +2988,23 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1760.71, 14.5043, 1389.31)
 
 [node name="flying_bird_spawner_10" parent="MOBS/FLYING_BIRDS" instance=ExtResource("45_kmw7s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 924.766, 15.0765, 2033.65)
+
+[node name="DOGS" type="Node" parent="MOBS"]
+
+[node name="dog" parent="MOBS/DOGS" instance=ExtResource("48_58eqe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1658.11, 0.0521415, 1068.6)
+
+[node name="dog2" parent="MOBS/DOGS" instance=ExtResource("48_58eqe")]
+transform = Transform3D(0.91197, 0, -0.410257, 0, 1, 0, 0.410257, 0, 0.91197, 1509.88, 0.0521415, 1081.86)
+
+[node name="dog3" parent="MOBS/DOGS" instance=ExtResource("48_58eqe")]
+transform = Transform3D(0.749892, 0, 0.661561, 0, 1, 0, -0.661561, 0, 0.749892, 552.859, 0.0521415, 916.306)
+
+[node name="dog4" parent="MOBS/DOGS" instance=ExtResource("48_58eqe")]
+transform = Transform3D(-0.487433, 0, 0.87316, 0, 1, 0, -0.87316, 0, -0.487433, 72.105, 0.0521415, 1736.27)
+
+[node name="dog5" parent="MOBS/DOGS" instance=ExtResource("48_58eqe")]
+transform = Transform3D(-0.487433, 0, 0.87316, 0, 1, 0, -0.87316, 0, -0.487433, 1069.19, 0.0521415, 1482.22)
 
 [node name="ufo_giant" parent="MOBS" instance=ExtResource("44_cxhy8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 796.773, 565.284, 1070.31)
