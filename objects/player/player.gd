@@ -1,5 +1,7 @@
 extends CharacterBody3D
 
+var isOnLadder: bool = false
+
 # HOW MUCH KILOGRAMMS
 var payload: int = 0
 var payload_multiplier: float = 10.0
@@ -160,6 +162,9 @@ func _physics_process(delta):
 func handle_jumping():
 	if jumping_enabled:
 		if continuous_jumping:
+			if isOnLadder:
+				if Input.is_action_pressed(JUMP):
+					velocity.y = 2
 			if Input.is_action_pressed(JUMP) and is_on_floor() and !low_ceiling:
 				if jump_animation:
 					JUMP_ANIMATION.play("jump")
