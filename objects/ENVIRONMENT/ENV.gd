@@ -6,6 +6,7 @@ extends Node3D
 @onready var sun = $Sun
 @onready var weather_rainy = $WEATHER_RAINY
 @onready var weather_snowy = $WEATHER_SNOWY
+@onready var weather_windy = $WEATHER_WINDY
 
 # OBJECTS
 @onready var ufo = $"../../MOBS/ufo"
@@ -15,6 +16,8 @@ var time_minutes: int = 0
 
 var player: Object = null
 var weather_id: String = 'clear'
+var wind_direction: int = 0
+var wind_intensivity: int = 5000
 
 func _ready():
 	# === WEATHER
@@ -193,6 +196,16 @@ func _set_weather_thunder():
 	tween2.tween_property(we, 'environment:volumetric_fog_albedo', Color('323232'), 15)
 	tween3.tween_property(we, 'environment:volumetric_fog_emission', Color('323232'), 15)
 
+func _change_wind():
+	wind_direction = randi_range(0, 359)
+	wind_intensivity = randi_range(10000, 10000)
+	var tween = create_tween()
+	tween.tween_property(weather_windy, 'global_rotation', Vector3(deg_to_rad(0), deg_to_rad(wind_direction), deg_to_rad(0)), 10)
+	tween.play()
+	var tween_2 = create_tween()
+	tween_2.tween_property(weather_windy, "amount", wind_intensivity, 20)
+	tween_2.play()
+	
 func _on_timer_switch_weather_timeout():
 	$timer_switch_weather.wait_time = randi_range(240, 1440)
 	var weather_id: int = randi_range(0,3)
@@ -215,3 +228,8 @@ func _on_timer_spawn_thunderbolts_timeout():
 		get_tree().get_root().add_child(bolt)
 		bolt.global_position = Vector3(SIN_WORLD_DATA.player_position.x + randi_range(-spawn_radius,spawn_radius), global_position.y, SIN_WORLD_DATA.player_position.z + randi_range(-spawn_radius,spawn_radius))
 	$timer_spawn_thunderbolts.start()
+
+func _on_timer_change_wind_timeout():
+	_change_wind()
+	$timer_change_wind.wait_time = randi_range(120, 540)
+	$timer_change_wind.start()
