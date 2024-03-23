@@ -176,12 +176,13 @@ skeleton = NodePath("../..")
 transform = Transform3D(0.845085, -0.534633, 0, 0.534633, 0.845085, 0, 0, 0, 1, -0.0805272, 0.124739, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="monitor"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0491032, 0)
+transform = Transform3D(1, -2.98023e-08, 0, 2.98023e-08, 1, 0, 0, 0, 1, 0, 0.0491032, 0)
 mesh = SubResource("BoxMesh_o4cbr")
 
 [node name="warn" type="Label3D" parent="monitor"]
-transform = Transform3D(-4.37114e-08, 0, 1, -1.77636e-15, 1, 0, -1, 0, -4.37114e-08, 0.00527899, 0.0853474, -2.71201e-06)
+transform = Transform3D(-4.37114e-08, -2.98023e-08, 1, -1.77636e-15, 1, 2.98023e-08, -1, 0, -4.37114e-08, 0.00527898, 0.0853474, -2.71201e-06)
 pixel_size = 0.001
+shaded = true
 text = "Доставленных посылок:"
 font = ExtResource("1_o3wch")
 font_size = 76
@@ -190,6 +191,7 @@ outline_size = 0
 [node name="quota" type="Label3D" parent="monitor"]
 transform = Transform3D(-4.37114e-08, 0, 1, -1.77636e-15, 1, 0, -1, 0, -4.37114e-08, 0.00540162, 0.0156085, -2.71201e-06)
 pixel_size = 0.001
+shaded = true
 text = "000/000"
 font = ExtResource("1_o3wch")
 font_size = 76
@@ -198,6 +200,7 @@ outline_size = 0
 [node name="time" type="Label3D" parent="monitor"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.006, 0.217, 0)
 pixel_size = 0.001
+shaded = true
 text = "Дневная квота доставок"
 font = ExtResource("1_o3wch")
 font_size = 46

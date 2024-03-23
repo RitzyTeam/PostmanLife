@@ -17,6 +17,7 @@ script = ExtResource("1_ousbh")
 [node name="title" type="Label3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.227494, 0.01)
 pixel_size = 0.001
+shaded = true
 text = "Дней на работе"
 font_size = 107
 outline_size = 0
@@ -24,6 +25,7 @@ outline_size = 0
 [node name="day" type="Label3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00683391, -0.0492047, 0.01)
 pixel_size = 0.001
+shaded = true
 text = "1"
 font_size = 317
 outline_size = 0

@@ -9,10 +9,12 @@ func ufo_show():
 		$anim.play('rotate')
 		await $anim_appearance.animation_finished
 		$giant_ufo_alert.play()
+		$giant_ufo_ambience.play()
 		
-		await get_tree().create_timer(20).timeout
+		await $giant_ufo_alert.finished
 		
 		$anim_appearance.play('hide')
 		await $anim_appearance.animation_finished
+		$giant_ufo_ambience.stop()
 		$giant_ufo_alert.stop()
 		$anim.stop()
