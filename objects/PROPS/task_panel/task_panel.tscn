@@ -16,6 +16,7 @@ script = ExtResource("1_ba2ky")
 [node name="title" type="Label3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.678, 0.01)
 pixel_size = 0.001
+shaded = true
 text = "Доска активных доставок"
 font_size = 107
 outline_size = 0
@@ -23,6 +24,7 @@ outline_size = 0
 [node name="active_tasks" type="Label3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.982724, 0.577809, 0.00985286)
 pixel_size = 0.001
+shaded = true
 text = "Доставок активно: 0"
 font_size = 57
 outline_size = 0
@@ -31,6 +33,7 @@ horizontal_alignment = 0
 [node name="tasks" type="Label3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.975142, 0.535518, 0.00985286)
 pixel_size = 0.001
+shaded = true
 modulate = Color(0, 1, 0, 1)
 font_size = 57
 outline_size = 0
