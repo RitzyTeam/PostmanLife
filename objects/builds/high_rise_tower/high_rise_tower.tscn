@@ -228,13 +228,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.4)
 script = SubResource("GDScript_61w4i")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ladder"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0500001, 15.35, -1.02425)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0500001, 15.35, -0.931627)
 shape = SubResource("BoxShape3D_4m78j")
 
 [node name="Area3D" type="Area3D" parent="ladder"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ladder/Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 15.8, -1.42848)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 15.8, -1.93434)
 shape = SubResource("BoxShape3D_qgunc")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

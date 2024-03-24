@@ -562,5 +562,6 @@ func set_speed_by_payload():
 func _on_check_die_from_height_body_entered(body):
 	if -velocity.y > 20:
 		SIN_WORLD_DATA.last_death_reason = 'fall'
+		queue_free()
 		get_tree().change_scene_to_file.bind("res://scenes/death/death.tscn").call_deferred()
 
