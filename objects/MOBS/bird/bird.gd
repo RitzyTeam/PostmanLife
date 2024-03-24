@@ -124,16 +124,15 @@ func kar():
 	match kar_type:
 		0:
 			$karkalka.stream = load("res://assets/sounds/MOBS/bird/bird_1.mp3")
-			var kar_longevity = randi_range(2, 5)
-			for i in kar_longevity:
-				$karkalka.pitch_scale = randf_range(0.8, 1.2)
-				$karkalka.play()
-				await $karkalka.finished
+			$karkalka.pitch_scale = randf_range(0.8, 1.2)
+			$karkalka.play()
 		1:
 			$karkalka.stream = load("res://assets/sounds/MOBS/bird/bird_2.mp3")
+			$karkalka.pitch_scale = randf_range(0.8, 1.2)
 			$karkalka.play()
 		2:
 			$karkalka.stream = load("res://assets/sounds/MOBS/bird/bird_3.mp3")
+			$karkalka.pitch_scale = randf_range(0.8, 1.2)
 			$karkalka.play()
 	$kar_interval.wait_time = randf_range(5, 20)
 	$kar_interval.start()

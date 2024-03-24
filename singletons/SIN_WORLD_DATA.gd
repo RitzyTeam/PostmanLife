@@ -2,24 +2,6 @@ extends Node
 
 var work_path: String = 'user://save.dat'
 
-var WORLD_DATA_EMPTY: Dictionary = {
-	'money': 0, # MONEY OF PLAYER
-	'player_inv': {
-		'slot_1': {'id': 'void'},
-		'slot_2': {'id': 'void'},
-		'slot_3': {'id': 'void'},
-		'slot_4': {'id': 'void'}
-		}, # INVENTORY
-	'tod': 540, # TIME OF DAY IN SECONDS
-	'world': [],
-	'day_num': 1, # NUM OF DAYS PASSED
-	'daily_quota': 1, # AMOUNT OF PACKAGES TO DELIVER
-	'daily_quota_delivered': 0,
-	'firing_warns': 0,
-	# BUFFS & DEBUFFS
-	'player_insane': false,
-}
-
 var WORLD_DATA: Dictionary = {
 	'money': 0,
 	'player_inv': {
@@ -45,16 +27,32 @@ func _ready():
 		data_load()
 	else:
 		data_reset()
-	WORLD_DATA['money'] = 999999
 	
 # MAIN FUNCS
 
 func data_reset():
+	var WORLD_DATA_BASE: Dictionary = {
+		'money': 0, # MONEY OF PLAYER
+		'player_inv': {
+			'slot_1': {'id': 'void'},
+			'slot_2': {'id': 'void'},
+			'slot_3': {'id': 'void'},
+			'slot_4': {'id': 'void'}
+			}, # INVENTORY
+		'tod': 540, # TIME OF DAY IN SECONDS
+		'world': [],
+		'day_num': 1, # NUM OF DAYS PASSED
+		'daily_quota': 1, # AMOUNT OF PACKAGES TO DELIVER
+		'daily_quota_delivered': 0,
+		'firing_warns': 0,
+		# BUFFS & DEBUFFS
+		'player_insane': false,
+	}
+	WORLD_DATA = WORLD_DATA_BASE
 	var filer = FileAccess.open(work_path, FileAccess.WRITE)
-	filer.store_var(WORLD_DATA_EMPTY)
+	filer.store_var(WORLD_DATA)
 	filer.close()
 	data_save()
-	data_load()
 
 func data_load() -> bool:
 	if data_exists():
@@ -70,9 +68,26 @@ func data_save():
 	filer.close()
 
 func data_is_empty() -> bool:
+	var WORLD_DATA_BASE: Dictionary = {
+		'money': 0, # MONEY OF PLAYER
+		'player_inv': {
+			'slot_1': {'id': 'void'},
+			'slot_2': {'id': 'void'},
+			'slot_3': {'id': 'void'},
+			'slot_4': {'id': 'void'}
+			}, # INVENTORY
+		'tod': 540, # TIME OF DAY IN SECONDS
+		'world': [],
+		'day_num': 1, # NUM OF DAYS PASSED
+		'daily_quota': 1, # AMOUNT OF PACKAGES TO DELIVER
+		'daily_quota_delivered': 0,
+		'firing_warns': 0,
+		# BUFFS & DEBUFFS
+		'player_insane': false,
+	}
 	if data_exists():
 		if data_load():
-			if WORLD_DATA == WORLD_DATA_EMPTY:
+			if WORLD_DATA == WORLD_DATA_BASE:
 				return true
 			else:
 				return false
@@ -88,9 +103,6 @@ func data_exists() -> bool:
 func value_change_money(money_to_add: int) -> void:
 	WORLD_DATA['money'] += money_to_add
 	SIN_WORLD_SIGNALS.emit_signal('PLAYER_UI_CASH_UPDATE', money_to_add)
-
-func value_tod_changed(new_tod: int):
-	WORLD_DATA['tod'] = new_tod
 
 func value_day_passed():
 	WORLD_DATA['day_num'] += 1
