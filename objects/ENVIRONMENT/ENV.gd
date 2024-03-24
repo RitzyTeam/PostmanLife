@@ -92,19 +92,10 @@ func match_tod():
 		# РАБОЧИЙ ДЕНЬ КОНЧИЛСЯ В 6 ВЕЧЕРА
 		1080:
 			SIN_WORLD_SIGNALS.emit_signal('WORK_DAY_END')
-	spawnMOBS()
 
 # РАБОЧАЯ СМЕНА. ПРОВЕРКА. С 9-18.
 func isItTimeOfWork():
 	return time_hours >= 9 and time_hours < 18
-
-func spawnMOBS():
-	# UFO
-	if SIN_WORLD_DATA.WORLD_DATA['tod'] >= 1300 or SIN_WORLD_DATA.WORLD_DATA['tod'] <= 120:
-		ufo.visible = true
-	else:
-		ufo.visible = false
-
 
 # =============================== WEATHER ======================================
 

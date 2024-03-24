@@ -32,6 +32,7 @@ func world_save():
 			converted_data.append(item)
 	SIN_WORLD_DATA.WORLD_DATA['world'] = converted_data
 	SIN_WORLD_DATA.data_save()
+	SIN_WORLD_SIGNALS.emit_signal('WORLD_SAVED')
 
 func world_load():
 	var converted_data: Array = SIN_WORLD_DATA.WORLD_DATA['world']

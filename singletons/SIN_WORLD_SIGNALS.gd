@@ -11,6 +11,7 @@ signal TOD_DAY_ENDED
 signal GHOST_GIRL_ANGRY
 signal PLAYER_UI_CASH_UPDATE(value_change)
 signal WORLD_SAVE
+signal WORLD_SAVED
 signal OFFICE_LIGHTS_OFF
 signal OFFICE_LIGHTS_ON
 signal NEW_FIRING_WARN
