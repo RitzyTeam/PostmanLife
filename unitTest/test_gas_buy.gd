@@ -1,5 +1,7 @@
 extends GutTest
 
+# ЭТОТ ТЕСТ ПРОВЕРЯЕТ ВОЗМОЖНОСТЬ ПОКУПКИ ТОПЛИВА ДЛЯ ГРУЗОВИКА
+
 var petrol_left: int = 1000
 var petrol_price: int = 1
 # HOW MUCH CAN YOU BUY FOR A ONE CANISTER

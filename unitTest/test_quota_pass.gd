@@ -1,4 +1,6 @@
-class_name ClassAddresses
+extends GutTest
+
+# ЭТОТ ТЕСТ ПРОВЕРЯЕТ, КАКИМ ОБРАЗОМ СЧИТАЕТСЯ ВЕС ИНВЕНТАРЯ
 
 var addresses: Dictionary = {
 # Delivery ID | User-friendly name
@@ -167,7 +169,102 @@ var addresses: Dictionary = {
 	'00135': 'улица Садовая, д6',
 }
 
-func get_random_delivery_id():
-	var a = addresses.keys()
-	a = a[randi() % a.size()]
-	return a
+var inv: Dictionary = {
+	'slot_1': {'id': 'void'},
+	'slot_2': {'id': 'void'},
+	'slot_3': {'id': 'void'},
+	'slot_4': {'id': 'void'}
+}
+
+# ЭТОТ ПРЕДМЕТ ГЕНЕРИРУЕТСЯ В ФУНКЦИИ add_random_task
+var item_package: Dictionary = {}
+
+# ЗАКРЫТА ЛИ В РАМКАХ ТЕСТА КВОТА?
+var quota_passed: bool = false
+# СКОЛЬКО УЖЕ ДОСТАВЛЕНО
+var quota_delivered: int = 0
+# СКОЛЬКО ИГРОК ДОЛЖЕН ДОСТАВИТЬ В РАМКАХ ТЕСТА
+var quota_target_to_deliver: int = 4
+
+func add_item_to_inv(item_data: Dictionary) -> bool:
+	var hasFreeSlot: bool = false
+	var target_slot: int = -1
+	if inv['slot_4']['id'] == 'void':
+		hasFreeSlot = true
+		target_slot = 4
+	if inv['slot_3']['id'] == 'void':
+		hasFreeSlot = true
+		target_slot = 3
+	if inv['slot_2']['id'] == 'void':
+		hasFreeSlot = true
+		target_slot = 2
+	if inv['slot_1']['id'] == 'void':
+		hasFreeSlot = true
+		target_slot = 1
+	if hasFreeSlot:
+		inv['slot_' + str(target_slot)] = item_data
+		return true
+	return false
+
+func add_random_task() -> void:
+	var package_weight: int = 0
+	var package_fill_type: int = randi_range(0,10)
+	var package_fill: String = 'void'
+	if package_fill_type >= 0 and package_fill_type < 6:
+		package_fill = 'based'
+	elif package_fill_type >= 6 and package_fill_type < 9:
+		package_fill = 'food' # ECO
+	elif package_fill_type == 9:
+		package_fill = 'docs' # AVOID WATER
+	elif package_fill_type == 10:
+		package_fill = 'glass' # FRAGILE
+
+	var package_type: int = randi_range(0,1)
+	var package_type_id: String = 'void'
+	match package_type:
+		0:
+			package_type_id = 'box'
+			package_weight = randi_range(2, 20)
+		1:
+			package_type_id = 'letter'
+			package_weight = randi_range(1, 3)
+	var address_lib = ClassAddresses.new()
+	var deliver_id = address_lib.get_random_delivery_id()
+	var target_address = address_lib.addresses[str(deliver_id)]
+	var task_data: Dictionary = {
+		'id': package_type_id,
+		'name': 'Доставка на адрес ' + target_address,
+		'deliver_id': deliver_id,
+		'target_address': target_address,
+		'fill_type': package_fill,
+		'weight': package_weight
+	}
+	item_package = task_data
+
+func deliver_package(item: Dictionary) -> bool:
+	if item.has('deliver_id'):
+		if addresses.has(item['deliver_id']):
+			quota_delivered += 1
+			return true
+	return false
+
+
+
+func before_all():
+	# ИГРОК ПОДБИРАЕТ ЧЕТЫРЕ СОВЕРШЕННО СЛУЧАЙНЫЕ ПОСЫЛКИ
+	add_random_task()
+	add_item_to_inv(item_package)
+	add_random_task()
+	add_item_to_inv(item_package)
+	add_random_task()
+	add_item_to_inv(item_package)
+	add_random_task()
+	add_item_to_inv(item_package)
+	# ИГРОК ДОСТАВЛЯЕТ 4 ПОСЫЛКИ ТОЧНО ПО АДРЕСАМ
+	deliver_package(inv['slot_1'])
+	deliver_package(inv['slot_2'])
+	deliver_package(inv['slot_3'])
+	deliver_package(inv['slot_4'])
+	
+func test_assert_eq_number_not_equal():
+	assert_eq(quota_delivered, quota_target_to_deliver, "Delivered: " + str(quota_delivered) + '/' + str(quota_target_to_deliver))

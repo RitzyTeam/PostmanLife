@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites name="GutTests" failures="0" tests="1" >
   <testsuite name="res://unitTest/test_gas_buy.gd" tests="1" failures="0" skipped="0" >
-      <testcase name="test_assert_eq_number_not_equal" assertions="1" status="pass" classname="res://unitTest/test_gas_buy.gd" >
-      </testcase>
-      </testsuite>
+	  <testcase name="test_assert_eq_number_not_equal" assertions="1" status="pass" classname="res://unitTest/test_gas_buy.gd" >
+	  </testcase>
+	  </testsuite>
   </testsuites>
