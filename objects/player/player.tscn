@@ -4,18 +4,18 @@
 [ext_resource type="Script" path="res://objects/player/INVENTORY_LOADER.gd" id="2_lldw2"]
 [ext_resource type="Script" path="res://objects/player/ITEM_USAGE.gd" id="2_v7g7p"]
 [ext_resource type="Theme" uid="uid://bwqpp28mqjpgu" path="res://theme.tres" id="3_im6de"]
-[ext_resource type="AudioStream" uid="uid://hq0fw8vn4uik" path="res://assets/sounds/PROPS/shotgun/shotgun_fire_1.mp3" id="3_wc4v5"]
+[ext_resource type="AudioStream" uid="uid://hq0fw8vn4uik" path="res://assets/sounds/props/shotgun/shotgun_fire_1.mp3" id="3_wc4v5"]
 [ext_resource type="Texture2D" uid="uid://d6xs006qy5ib" path="res://assets/images/item_slot.png" id="4_vcdfw"]
-[ext_resource type="AudioStream" uid="uid://bb37jcblac5wc" path="res://assets/sounds/PROPS/shotgun/shotgun_fire_2.mp3" id="4_vifi2"]
+[ext_resource type="AudioStream" uid="uid://bb37jcblac5wc" path="res://assets/sounds/props/shotgun/shotgun_fire_2.mp3" id="4_vifi2"]
 [ext_resource type="FontFile" uid="uid://dv8jijr0th27a" path="res://assets/fonts/SubdexBold.ttf" id="5_1vneb"]
-[ext_resource type="AudioStream" uid="uid://doluddh5u25c4" path="res://assets/sounds/PROPS/shotgun/shotgun_fire_3.mp3" id="5_323qx"]
-[ext_resource type="AudioStream" uid="uid://dlney8hx0hdf0" path="res://assets/sounds/PROPS/shotgun/shotgun_fire_4.mp3" id="6_dgtod"]
+[ext_resource type="AudioStream" uid="uid://doluddh5u25c4" path="res://assets/sounds/props/shotgun/shotgun_fire_3.mp3" id="5_323qx"]
+[ext_resource type="AudioStream" uid="uid://dlney8hx0hdf0" path="res://assets/sounds/props/shotgun/shotgun_fire_4.mp3" id="6_dgtod"]
 [ext_resource type="Script" path="res://objects/player/esc_menu.gd" id="7_alls3"]
-[ext_resource type="AudioStream" uid="uid://ddm4veg7ieypi" path="res://assets/sounds/PROPS/shotgun/shotgun_fire_5.mp3" id="7_jdaxq"]
-[ext_resource type="AudioStream" uid="uid://dc8fyndmxy08c" path="res://assets/sounds/PROPS/shotgun/reload.mp3" id="8_vktmd"]
-[ext_resource type="AudioStream" uid="uid://ev15xi1t28e3" path="res://assets/sounds/PROPS/shotgun/shotgun_no_ammo.mp3" id="9_0e2yd"]
-[ext_resource type="AudioStream" uid="uid://6322x3beie4i" path="res://assets/sounds/PROPS/milk/drinking_milk.mp3" id="11_813r3"]
-[ext_resource type="AudioStream" uid="uid://iefru64xj8y4" path="res://assets/sounds/PROPS/spray/spray_empty.wav" id="13_gkgvw"]
+[ext_resource type="AudioStream" uid="uid://ddm4veg7ieypi" path="res://assets/sounds/props/shotgun/shotgun_fire_5.mp3" id="7_jdaxq"]
+[ext_resource type="AudioStream" uid="uid://dc8fyndmxy08c" path="res://assets/sounds/props/shotgun/reload.mp3" id="8_vktmd"]
+[ext_resource type="AudioStream" uid="uid://ev15xi1t28e3" path="res://assets/sounds/props/shotgun/shotgun_no_ammo.mp3" id="9_0e2yd"]
+[ext_resource type="AudioStream" uid="uid://6322x3beie4i" path="res://assets/sounds/props/milk/drinking_milk.mp3" id="11_813r3"]
+[ext_resource type="AudioStream" uid="uid://iefru64xj8y4" path="res://assets/sounds/props/spray/spray_empty.wav" id="13_gkgvw"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kp17n"]
 albedo_color = Color(0.470588, 0.768627, 0, 1)
@@ -2386,7 +2386,7 @@ stream = ExtResource("11_813r3")
 libraries = {
 "": SubResource("AnimationLibrary_o0unb")
 }
-blend_times = [&"RESET", &"RESET", 0.5, &"RESET", &"headbob", 0.5, &"headbob", &"RESET", 0.5]
+blend_times = [&"headbob", &"RESET", 0.5, &"RESET", &"headbob", 0.5, &"RESET", &"RESET", 0.5]
 
 [node name="JumpAnimation" type="AnimationPlayer" parent="Head"]
 libraries = {
