@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="GutTests" failures="1" tests="1" >
+  <testsuite name="res://unitTest/test_gas_buy.gd" tests="1" failures="1" skipped="0" >
+      <testcase name="test_assert_eq_number_not_equal" assertions="1" status="fail" classname="res://unitTest/test_gas_buy.gd" >
+      <failure message="failed">[false] expected to equal [true]:  Must pass test.
+            at line 10</failure></testcase>
+      </testsuite>
+  </testsuites>
